@@ -1,0 +1,2272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataObject xsi:noNamespaceSchemaLocation="data.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:cim="http://metaforclimate.eu/schemes/CIM" xmlns:gmd="http://www.isotc211.org/2005/gmd" xsi:schemaLocation="http://metaforclimate.eu/schemes/CIM X:\eclipse\CIM_dev0p2\data\myAppCim-v0.1\data\data3.xsd">
+	<abstract>The data represent 6 hourly values of selected variables for the Data Distribution Centre (DDC) of the Intergovermental Panel on Climate Change (IPCC).
+(see also: http://ipcc-ddc.cru.uea.ac.uk)
+The A1B scenario is the part of the A1 family which describes a balance across all energy sources. The experiment has been initialized in year 2000 of the 20C_1 run and continues until year 2100 with anthropogenic forcings (CO2, CH4, N2O, CFCs, O3 and sulfate) according to A1B. The experiment is extended until year 2200 with all concentrations fixed at their levels of year 2100 (stabilization experiment). Datasets with monthly average values are also available.
+Technical data to this experiment:
+The experiment is using ECHAM5.2.02a coupled to MPI-OM Vers. 1.0 GR1.5L40 and was run on a NEC-SX (hurrikan). The output from the model run: hurrikan.dkrz.de: /ut/k/k204098/EXP000/run012</abstract>
+	<characterset>UTF-8</characterset>
+	<datauri>
+		<gco:CharacterString>[doi: 10.1594/WDCC/EH5-T63L31_OM-GR1.5L40_A1B_1_6H] [urn:nbn:de:tib-10.1594/WDCC/EH5-T63L31_OM-GR1.5L40_A1B_1_6H9]</gco:CharacterString>
+	</datauri>
+	<datestamp>String</datestamp>
+	<fileIdentifier>de.dkrz.mpim.cim2035543</fileIdentifier>
+	<keyword>climate simulation</keyword>
+	<keyword>scenario run</keyword>
+	<keyword>ECHAM5</keyword>
+	<keyword>IPCC-AR4</keyword>
+	<language>en</language>
+	<levelname>IPCC_HH:EH5-T63L31_OM-GR1.5L40_A1B_1_6H</levelname>
+	<metaforversion>CIM / Metafor Profile AppCim v0.1</metaforversion>
+	<status>Complete</status>
+	<CI_Citation>
+		<title>
+			<gco:CharacterString>IPCC-AR4 MPI-ECHAM5_T63L31 MPI-OM_GR1.5L40 SRESA1B run no.1: atmosphere 6 HOUR values MPImet/MaD Germany</gco:CharacterString>
+		</title>
+		<date>
+			<CI_Date>
+				<date>
+					<gco:Date>2004-07-12</gco:Date>
+				</date>
+				<dateType>
+					<CI_DateTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</CI_DateTypeCode>
+				</dateType>
+			</CI_Date>
+		</date>
+		<identifier>
+			<MD_Identifier>
+				<code>
+					<gco:CharacterString>[doi: 10.1594/WDCC/EH5-T63L31_OM-GR1.5L40_A1B_1_6H] [urn:nbn:de:tib-10.1594/WDCC/EH5-T63L31_OM-GR1.5L40_A1B_1_6H9]</gco:CharacterString>
+				</code>
+			</MD_Identifier>
+		</identifier>
+		<citedResponsibleParty>
+			<CI_ResponsibleParty>
+				<individualName>
+					<gco:CharacterString>Dr. Erich Roeckner</gco:CharacterString>
+				</individualName>
+				<organisationName>
+					<gco:CharacterString>Max-Planck-Institut fuer Meteorologie</gco:CharacterString>
+				</organisationName>
+				<contactInfo>
+					<CI_Contact>
+						<onlineResource>
+							<CI_OnlineResource>
+								<linkage>
+									<URL>http://www.mpimet.mpg.de/</URL>
+								</linkage>
+								<function>
+									<CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode_information">information
+	     		          </CI_OnLineFunctionCode>
+								</function>
+							</CI_OnlineResource>
+						</onlineResource>
+					</CI_Contact>
+				</contactInfo>
+				<role>
+					<CI_RoleCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact">contact_DOI_author</CI_RoleCode>
+				</role>
+			</CI_ResponsibleParty>
+		</citedResponsibleParty>
+	</CI_Citation>
+	<CI_ResponsibleParty/>
+	<CIM_Constraint>
+		<constraint>String</constraint>
+		<constrainttype>String</constrainttype>
+	</CIM_Constraint>
+	<CIM_GeometryModel/>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>air_temperature</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_horizontal_streamfunction</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_horizontal_velocity_potential</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_relative_vorticity</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>divergence_of_wind</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>eastward_wind</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>geopotential_height</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>gpm</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>humidity_mixing_ratio</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg kg-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>lagrangian_tendency_of_air_pressure</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>net_downward_longwave_flux_in_air</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>net_downward_longwave_flux_in_air_assuming_clear_sky</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>net_downward_shortwave_flux_in_air</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>net_downward_shortwave_flux_in_air_assuming_clear_sky</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>northward_wind</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>relative_humidity</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>wind_speed</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_hPa">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>FAO data set (soil data flags)#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>air_pressure_at_sea_level</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>air_temperature-at2m</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>air_temperature-at2m (maximum per ...)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>air_temperature-at2m (minimum per ...)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>area_fraction-ofForest (area:grid box)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>area_fraction-ofLake (area:grid box)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>area_fraction-ofSea/Lake-ice (except ice-shelf) (area:grid box)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>area_fraction-ofSea/Lake-ice (except ice-shelf) (area:grid box)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_cloud_ice_content</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_cloud_liquid_water_content</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>atmosphere_water_vapor_content</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>cloud_area_fraction</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>convective_precipitation_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>dew_point_temperature-at2m</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>dissipation_in_atmosphere_boundary_layer</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>downward_heat_flux_in_ice-where_sea/lake-ice (except ice-shelf)#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>drainage#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>eastward_sea_water_velocity</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>eastward_wind-at10m</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>gravity wave dissipation vertical integrated#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>ice_thickness-where_land/ice-shelf#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>land_area_fraction</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>land_binary_mask</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>land_ice_area_fraction</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>large_scale_precipitation_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>lwe_thickness_of_snowfall_amount-where_vegetation</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>lwe_thickness_of_surface_snow_amount</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>lwe_thickness_of_surface_snow_amount-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>northward_sea_water_velocity</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>northward_wind-at10m</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>orographic standard deviation#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>precipitation_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>residual_heat_flux_for_melting_sea/lake-ice (except ice-shelf)#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>runoff_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>runoff_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>sea_ice_temperature-atThinSurfaceLayer</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>sea_ice_thickness-where_sea/lake-ice</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>sea_surface_temperature</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>skin_reservoir_water_content#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>snowfall_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>soil_moisture_content</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>soil_moisture_content_at_field_capacity</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>soil_temperature</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>soil_temperature-atFirstLayer-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_air_pressure</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_albedo</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_albedo-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_albedo-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_albedo-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>fract.</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_background_albedo#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_eastward-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_eastward_stress</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_eastward_stress-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_eastward_stress-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_latent_heat_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_latent_heat_flux-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_latent_heat_flux-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_latent_heat_flux-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_northward_stress</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_northward_stress-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_northward_stress-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_northward_stress-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>Pa</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_sensible_heat_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_sensible_heat_flux-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_sensible_heat_flux-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_sensible_heat_flux-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_downward_water_flux-where_land-ice/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_geopotential</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m2 s-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_longwave_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_longwave_flux-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_longwave_flux-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_longwave_flux-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_longwave_flux_assuming_clear_sky</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_shortwave_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_shortwave_flux-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_shortwave_flux-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_shortwave_flux-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_net_downward_shortwave_flux_assuming_clear_sky</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_roughness_length-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_roughness_length-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_roughness_length-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_snow_melt_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_temperature</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>K</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_upwelling_downward_longwave_flux_in_air#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>surface_upwelling_downward_shortwave_flux_in_air#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>tendency_of_surface_snow_amount-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_incoming_shortwave_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_net_downward_longwave_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_net_downward_longwave_flux_assuming_clear_sky#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_net_downward_shortwave_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_net_downward_shortwave_flux_assuming_clear_sky</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>toa_outgoing_downward_shortwave_flux#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>upward_heat_flux_at_ground_level_in_soil_land-ice#nonCF</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>W m-2</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>water_evaporation_flux</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>water_evaporation_flux-where_ice_free_sea/lake</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>water_evaporation_flux-where_land/ice-shelf</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>water_evaporation_flux-where_sea/lake-ice (except ice-shelf)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>kg m-2 s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>wind_speed-at10m</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<contentInfo>
+		<MD_CoverageDescription>
+			<attributeDescription>
+				<gco:RecordType>wind_speed-at10m (maximum per ...)</gco:RecordType>
+			</attributeDescription>
+			<contentType>
+				<MD_CoverageContentTypeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_CoverageContentTypeCode" codeListValue="thematicClassification">thematicClassification</MD_CoverageContentTypeCode>
+			</contentType>
+			<dimension xlink:href="#verticalCRS_m">
+				<MD_RangeDimension>
+					<descriptor>
+						<gco:CharacterString>m s-1</gco:CharacterString>
+					</descriptor>
+				</MD_RangeDimension>
+			</dimension>
+		</MD_CoverageDescription>
+	</contentInfo>
+	<DataDistribution>
+		<accesstype>String</accesstype>
+		<distributionfee>String</distributionfee>
+		<distributionformat>String</distributionformat>
+		<CI_ResponsibleParty/>
+	</DataDistribution>
+	<DataExtent>
+		<geographicalextent>
+			<description>
+				<gco:CharacterString>vertical_coordinate_sytem:altitude: pressure, depth: length#horizontal_coordinate_sytem:LON and LAT: geographic</gco:CharacterString>
+			</description>
+			<geographicElement>
+				<EX_GeographicBoundingBox>
+					<westBoundLongitude>
+						<gco:Decimal>0</gco:Decimal>
+					</westBoundLongitude>
+					<eastBoundLongitude>
+						<gco:Decimal>360</gco:Decimal>
+					</eastBoundLongitude>
+					<southBoundLatitude>
+						<gco:Decimal>-90</gco:Decimal>
+					</southBoundLatitude>
+					<northBoundLatitude>
+						<gco:Decimal>90</gco:Decimal>
+					</northBoundLatitude>
+				</EX_GeographicBoundingBox>
+			</geographicElement>
+		</geographicalextent>
+		<temporalextent>
+			<temporalElement>
+				<EX_TemporalExtent>
+					<extent>
+						<gml:TimePeriod gml:id="extent_292192">
+							<gml:beginPosition>2001-01-01T00:00:00</gml:beginPosition>
+							<gml:endPosition>2200-12-31T23:00:00</gml:endPosition>
+							<gml:timeInterval unit="hour" factor="-1" radix="6">292192</gml:timeInterval>
+						</gml:TimePeriod>
+					</extent>
+				</EX_TemporalExtent>
+			</temporalElement>
+		</temporalextent>
+		<verticalextent>
+			<verticalElement>
+				<EX_VerticalExtent id="verticalCRS_hPa">
+					<minimumValue>
+						<gco:Real>10</gco:Real>
+					</minimumValue>
+					<maximumValue>
+						<gco:Real>1000</gco:Real>
+					</maximumValue>
+					<verticalCRS xlink:href="http://www.c3grid.de/files/schemas/C3grid-crs-dict.xml#xpointer(//*[@gml:id='vertCRS.standardPressureLevel'])" xlink:title="CRS for Height" xlink:role="add_info"/>
+				</EX_VerticalExtent>
+			</verticalElement>
+			<verticalElement>
+				<EX_VerticalExtent id="verticalCRS_m">
+					<minimumValue>
+						<gco:Real>0</gco:Real>
+					</minimumValue>
+					<maximumValue>
+						<gco:Real>0</gco:Real>
+					</maximumValue>
+					<verticalCRS xlink:href="http://www.c3grid.de/files/schemas/C3grid-crs-dict.xml#xpointer(//*[@gml:id='vertCRS.heightAboveSurface'])" xlink:title="CRS for Height" xlink:role="add_info"/>
+				</EX_VerticalExtent>
+			</verticalElement>
+		</verticalextent>
+	</DataExtent>
+	<DataStorage>
+		<MD_Distribution>
+			<distributionFormat>
+				<MD_Format>
+					<name>
+						<gco:CharacterString>grb</gco:CharacterString>
+					</name>
+					<version>
+						<gco:CharacterString>WMO format GRIdded Binary data</gco:CharacterString>
+					</version>
+				</MD_Format>
+			</distributionFormat>
+			<distributionFormat>
+				<MD_Format>
+					<name>
+						<gco:CharacterString>nc</gco:CharacterString>
+					</name>
+					<version>
+						<gco:CharacterString>network Common Data Format</gco:CharacterString>
+					</version>
+				</MD_Format>
+			</distributionFormat>
+			<distributor>
+				<MD_Distributor>
+					<distributorContact>
+						<CI_ResponsibleParty>
+							<individualName>
+								<gco:CharacterString>Winter, Hans-Hermann</gco:CharacterString>
+							</individualName>
+							<organisationName>
+								<gco:CharacterString>Max-Planck-Institut fuer Meteorologie, Model and Data Group</gco:CharacterString>
+							</organisationName>
+							<contactInfo>
+								<CI_Contact>
+									<onlineResource>
+										<CI_OnlineResource>
+											<linkage>
+												<URL>http://www.mad.zmaw.de/</URL>
+											</linkage>
+											<function>
+												<CI_OnLineFunctionCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</CI_OnLineFunctionCode>
+											</function>
+										</CI_OnlineResource>
+									</onlineResource>
+								</CI_Contact>
+							</contactInfo>
+							<role>
+								<CI_RoleCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor">distributor</CI_RoleCode>
+							</role>
+						</CI_ResponsibleParty>
+					</distributorContact>
+					<distributorTransferOptions>
+						<MD_DigitalTransferOptions>
+							<transferSize>
+								<gco:Real>3308812</gco:Real>
+							</transferSize>
+							<onLine>
+								<CI_OnlineResource>
+									<linkage>
+										<URL>http://c3grid-gt.e-technik.uni-dortmund.de:8080/webmds/webmds?info=indexinfo</URL>
+									</linkage>
+									<protocol>
+										<gco:CharacterString>http</gco:CharacterString>
+									</protocol>
+									<name>
+										<gco:CharacterString>C3Grid_ResourceInformationService</gco:CharacterString>
+									</name>
+									<description>
+										<gco:CharacterString>Production System: DKRZ C3Grid Data Request Interface Implementation</gco:CharacterString>
+									</description>
+									<function>
+										<CI_OnLineFunctionCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="order">order</CI_OnLineFunctionCode>
+									</function>
+								</CI_OnlineResource>
+							</onLine>
+							<onLine>
+								<CI_OnlineResource>
+									<linkage>
+										<URL>https://anticyclone.dkrz.de:9443/axis/services/C3ProviderSOAP</URL>
+									</linkage>
+									<protocol>
+										<gco:CharacterString>SOAP</gco:CharacterString>
+									</protocol>
+									<name>
+										<gco:CharacterString>C3Grid_DataProvider_Webservice</gco:CharacterString>
+									</name>
+									<description>
+										<gco:CharacterString>C3Grid Data Provider Webservice at DKRZ</gco:CharacterString>
+									</description>
+									<function>
+										<CI_OnLineFunctionCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="order">order</CI_OnLineFunctionCode>
+									</function>
+								</CI_OnlineResource>
+							</onLine>
+							<onLine>
+								<CI_OnlineResource>
+									<linkage>
+										<URL>gsiftp://anticyclone.dkrz.de/opt/c3grid/dms_workspace</URL>
+									</linkage>
+									<protocol>
+										<gco:CharacterString>gsiftp</gco:CharacterString>
+									</protocol>
+									<name>
+										<gco:CharacterString>C3Grid_Gsiftp_Data</gco:CharacterString>
+									</name>
+									<description>
+										<gco:CharacterString>C3Grid Workspace at DKRZ</gco:CharacterString>
+									</description>
+									<function>
+										<CI_OnLineFunctionCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download">download</CI_OnLineFunctionCode>
+									</function>
+								</CI_OnlineResource>
+							</onLine>
+						</MD_DigitalTransferOptions>
+					</distributorTransferOptions>
+				</MD_Distributor>
+			</distributor>
+		</MD_Distribution>
+	</DataStorage>
+	<DQ_DataQuality>
+		<scope>
+			<DQ_Scope>
+				<level>
+					<MD_ScopeCode codeList="http://wis.wmo.int/2006/catalogues/gmxCodelists.xml#MD_ScopeCode" codeListValue="experiment">experiment</MD_ScopeCode>
+				</level>
+			</DQ_Scope>
+		</scope>
+		<lineage>
+			<LI_Lineage>
+				<statement>
+					<gco:CharacterString>Model Run
+            	,Data Processing CERA</gco:CharacterString>
+				</statement>
+				<processStep>
+					<LI_ProcessStep id="Step_0">
+						<description>
+							<gco:CharacterString>Model Run</gco:CharacterString>
+						</description>
+						<dateTime>
+							<gco:DateTime>2004-07-12T14:19:19</gco:DateTime>
+						</dateTime>
+					</LI_ProcessStep>
+				</processStep>
+				<processStep>
+					<LI_ProcessStep id="Step_1">
+						<description>
+							<gco:CharacterString>Data Processing CERA</gco:CharacterString>
+						</description>
+						<dateTime>
+							<gco:DateTime>2004-07-12T14:19:19</gco:DateTime>
+						</dateTime>
+					</LI_ProcessStep>
+				</processStep>
+			</LI_Lineage>
+		</lineage>
+	</DQ_DataQuality>
+</DataObject>
