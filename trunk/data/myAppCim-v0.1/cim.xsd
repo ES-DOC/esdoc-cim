@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by CIS (Max-Planck-Institut) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="./activity/activity.xsd"/>
+	<xs:include schemaLocation="./data/data.xsd"/>
+	<xs:element name="CIM_Metadata" type="CIM_Metadata_Type"/>
+	<xs:complexType name="CIM_Metadata_Type">
+		<xs:sequence>
+			<xs:element ref="SoftwareComponent"/>
+			<xs:element ref="NumericalExperiment" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MeasurementCampaign" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DataObject" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

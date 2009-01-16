@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="../software/software.xsd"/>
+	<xs:include schemaLocation="../data/data.xsd"/>
+	<xs:annotation>
+		<xs:documentation>The Activity package contains classes that are most closely associated with the "human" side of the climate modelling process.  They describe tasks.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../data/data.xsd"/>
+	<xs:element name="Description" type="Description"/>
+	<xs:complexType name="Description">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:simpleType name="TemporalAveType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="Activity" type="Activity"/>
+	<xs:complexType name="Activity">
+		<xs:sequence>
+			<xs:element name="Rationale" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SimulationRun" type="SimulationRun"/>
+	<xs:complexType name="SimulationRun">
+		<xs:annotation>
+			<xs:documentation>A SimulationRun is, as the name implies, one single model run.  
+A SimulationRun is a Simulation.
+There is a one to one association between SimulationRun and SoftwarePackage::ModelComponent. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Simulation">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ConfiguredModelComponent" type="ConfiguredModelComponent"/>
+	<xs:complexType name="ConfiguredModelComponent">
+		<xs:annotation>
+			<xs:documentation>Configured model component examples: Atmosphere, Ocean, Biosphere, Cryosphere and Chemistry.  A configured model component can be made up of many subcomponents.  Example:  an atmosphere component contains advection, convection and radiation etc components. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConfiguredModelComponent" type="ConfiguredModelComponent"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Job" type="Job"/>
+	<xs:complexType name="Job">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="cal-360-Day" type="cal-360-Day"/>
+	<xs:complexType name="cal-360-Day">
+		<xs:simpleContent>
+			<xs:extension base="xs:dateTime"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="Project" type="Project"/>
+	<xs:complexType name="Project">
+		<xs:complexContent>
+			<xs:extension base="Activity">
+				<xs:sequence>
+					<xs:element name="experiments" type="Experiment" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Project" type="Project"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MeasurementCampaign" type="MeasurementCampaign"/>
+	<xs:complexType name="MeasurementCampaign">
+		<xs:complexContent>
+			<xs:extension base="Activity">
+				<xs:sequence>
+					<xs:element name="Duration" type="ClosedDateRange"/>
+					<xs:element name="inSupportOf" type="Experiment" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="uses" type="uses"/>
+	<xs:complexType name="uses">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:simpleType name="ensembleTypes">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Enumeration1">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="NumericalRequirement" type="NumericalRequirement"/>
+	<xs:complexType name="NumericalRequirement">
+		<xs:annotation>
+			<xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="Description" minOccurs="0"/>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="NumericalRequirement" type="NumericalRequirement"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="URI" type="URI"/>
+	<xs:complexType name="URI">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Conformance" type="Conformance"/>
+	<xs:complexType name="Conformance">
+		<xs:annotation>
+			<xs:documentation>A conformance class maps how a configured model component met a specific numerical requirement.
+
+For example, for a double CO2 boundary condition, a model component might read a CO2 dataset in which CO2 has been doubled, or it might modify a parameterisation (presumably with a factor of two somewhere).
+
+So, the conformance links a requirement URI either to a dataset URI or a component URI.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="componentURI" type="URI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If used, this points to the document describing a configured model component.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="datasetURI" type="URI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Now we have a type that we can use to point to datasets</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NumericalRequirement" type="NumericalRequirement"/>
+			<xs:element name="DataObject" type="DataObject"/>
+			<xs:element name="DataProperty" type="Dataset"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NumericalActivity" type="NumericalActivity"/>
+	<xs:complexType name="NumericalActivity">
+		<xs:annotation>
+			<xs:documentation>Numerical Activity is an abstract concept which in this world view is either an ensemble, a simulaiton or a diagnostic.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Activity">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="0"/>
+					<xs:element name="description" type="Description" minOccurs="0"/>
+					<xs:element name="inSupportOf" type="Experiment" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Assimilation" type="Assimilation"/>
+	<xs:complexType name="Assimilation">
+		<xs:annotation>
+			<xs:documentation>An assimilation run is a simulation that is constrained by observations. It is representative of an acutal period in the past eg ERA-40. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Simulation">
+				<xs:sequence>
+					<xs:element name="Exploits" type="DataCollection" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PhysicalModification" type="PhysicalModification"/>
+	<xs:complexType name="PhysicalModification">
+		<xs:annotation>
+			<xs:documentation>Physical modification is the implementation of a boundary condition numerical requirement that is achieved within the model code rather than from some external source file. It  might include, for example,  a specific rate constant within a chemical reaction, or coefficient value(s) in a parameterisation. 
+For example, one might require a numerical experiment where specific chemical reactions were turned off - e.g. no heterogeneous chemistry.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Conformance">
+				<xs:sequence>
+					<xs:element name="BoundaryCondition" type="BoundaryCondition"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ModelComponentExt" type="ModelComponent"/>
+	<xs:element name="SimulationComposite" type="SimulationComposite"/>
+	<xs:complexType name="SimulationComposite">
+		<xs:annotation>
+			<xs:documentation>A SimulationComposite is an aggregation of Simulaitons.
+With the aggreation connector between Simulation and SimulationComposite(SC) the SC can be made up of both SimulationRuns and SCs.
+
+The SimulationComposite is the new name for the concept of SimulationCollection: A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations and the SimulationComposite attributes need to be able to capture this.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Simulation">
+				<xs:sequence>
+					<xs:element name="rank" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="startPoint" type="ClosedDateRange">
+						<xs:annotation>
+							<xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite.  </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="endPoint" type="ClosedDateRange">
+						<xs:annotation>
+							<xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="simulation" type="URI" maxOccurs="unbounded"/>
+					<xs:element name="Simulation" type="Simulation" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ObservationStation" type="ObservationStation"/>
+	<xs:complexType name="ObservationStation">
+		<xs:sequence>
+			<xs:element name="fixity" type="xs:string"/>
+			<xs:element name="Activity" type="Activity"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BoundaryCondition" type="BoundaryCondition"/>
+	<xs:complexType name="BoundaryCondition">
+		<xs:annotation>
+			<xs:documentation>A boundary condition is a numerical requirement which looks like a variable imposed on the model evolution (i.e. it might - or might not - evolve with time, but is seen by the model at various times during its evolution) as opposed to an initial condition (at model time zero).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NumericalRequirement">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SpatioTemporalConstraint" type="SpatioTemporalConstraint"/>
+	<xs:complexType name="SpatioTemporalConstraint">
+		<xs:complexContent>
+			<xs:extension base="NumericalRequirement">
+				<xs:sequence>
+					<xs:element name="outputFrequency" type="FrequencyType"/>
+					<xs:element name="spatialResolution" type="ResolutionType" minOccurs="0"/>
+					<xs:element name="temporalAveraging" type="TemporalAveType" minOccurs="0"/>
+					<xs:element name="outputPeriod" type="DataExtent" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Control" type="Control"/>
+	<xs:complexType name="Control">
+		<xs:complexContent>
+			<xs:extension base="NumericalRequirement">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="NumericalExperiment" type="NumericalExperiment"/>
+	<xs:complexType name="NumericalExperiment">
+		<xs:annotation>
+			<xs:documentation>A numerical experiment may be generated by an experiment, in which case it is inSupportOf the experiment. But a numerical experiment may also exist as an activity in its own right (as it might be if it were needed for a MIP). Examples: AR4 individual experiments, AR5 individual experiments, RAPID THC experiments etc. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Experiment">
+				<xs:sequence>
+					<xs:element name="Calendar" type="CalendarTypeList">
+						<xs:annotation>
+							<xs:documentation>Is the numerical experiment representative of real time, a 360 day year or a perpetual period?</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="control" type="xs:boolean"/>
+					<xs:element name="requiredDuration" type="ClosedDateRange"/>
+					<xs:element name="NumericalRequirement" type="NumericalRequirement" maxOccurs="unbounded"/>
+					<xs:element name="inSupportOf" type="Experiment" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CalendarTypeList">
+		<xs:sequence>
+			<xs:element name="namel" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ResolutionType">
+		<xs:annotation>
+			<xs:documentation>Spatial Resolution!</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="Diagnostic" type="Diagnostic"/>
+	<xs:complexType name="Diagnostic">
+		<xs:annotation>
+			<xs:documentation>A diagnostic is some kind of data processing, It can refer to the processing of observation data or post processing of data from a simulation. </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NumericalActivity">
+				<xs:sequence>
+					<xs:element name="inputs" type="Dataset" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="output" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="TimeAverage" type="TimeAverage"/>
+	<xs:complexType name="TimeAverage">
+		<xs:complexContent>
+			<xs:extension base="Dataset">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RestartDumps" type="RestartDumps"/>
+	<xs:complexType name="RestartDumps">
+		<xs:complexContent>
+			<xs:extension base="Dataset">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ConfiguredModel" type="ConfiguredModel"/>
+	<xs:complexType name="ConfiguredModel">
+		<xs:annotation>
+			<xs:documentation>A configured model is a model with all of it's options set.
+A simulation must use a configured model unless it is associated with a  runCollection with more than one simulation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConfiguredModelComponent" type="ConfiguredModelComponent"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Simulation" type="Simulation"/>
+	<xs:complexType name="Simulation">
+		<xs:annotation>
+			<xs:documentation>A simulation is the implentation of a numerical experiment.  A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations, the simulation attributes need to be able to capture this.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NumericalActivity">
+				<xs:sequence>
+					<xs:element name="ancillaryDataset" type="URI" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>this is the label for a uri to all the ancillary files for this simulation
+NB it doesn't stop one form having uris to conformance that point into the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dateDeployed" type="xs:dateTime">
+						<xs:annotation>
+							<xs:documentation>Added at the request of Allyn Treshansky</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Duration" type="ClosedDateRange"/>
+					<xs:element name="initialCondition" type="URI"/>
+					<xs:element name="output" type="TimeAverage" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="outputDataset" type="URI" maxOccurs="unbounded"/>
+					<xs:element name="platform" type="ComputingEnvironment"/>
+					<xs:element name="restart" type="RestartDumps" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="spinup" type="ClosedDateRange" minOccurs="0"/>
+					<xs:element name="Conformance" type="Conformance"/>
+					<xs:element name="Output" type="Output"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RealCalendar" type="RealCalendar"/>
+	<xs:complexType name="RealCalendar">
+		<xs:complexContent>
+			<xs:extension base="CalendarTypeList">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DataCollection" type="DataCollection"/>
+	<xs:complexType name="DataCollection">
+		<xs:annotation>
+			<xs:documentation>A DataCollection activity is one which is not aimed at supporting any specific experiment. Examples might inlcude operatonal</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Project">
+				<xs:sequence>
+					<xs:element name="Duration" type="DataExtent"/>
+					<xs:element name="ObservationStation" type="ObservationStation"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="EnsembleStatistic" type="EnsembleStatistic"/>
+	<xs:complexType name="EnsembleStatistic">
+		<xs:complexContent>
+			<xs:extension base="Dataset">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Ensemble" type="Ensemble"/>
+	<xs:complexType name="Ensemble">
+		<xs:annotation>
+			<xs:documentation>An ensemble is made up of two or more simulations which are to be compared against each other to create ensemble statistics. Ensemble members can differ in terms of initial conditions, physical parameterisation and the model used.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NumericalActivity">
+				<xs:sequence>
+					<xs:element name="output" type="EnsembleStatistic" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="type" type="ensembleTypes" maxOccurs="unbounded"/>
+					<xs:element name="Simulation" type="Simulation" minOccurs="2" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="FrequencyType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="Dataset" type="Dataset"/>
+	<xs:complexType name="Dataset">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="InitialCondition" type="InitialCondition"/>
+	<xs:complexType name="InitialCondition">
+		<xs:annotation>
+			<xs:documentation>An initial condition is a numerical requirement on a model prognostic variable value at time zero.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NumericalRequirement">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Experiment" type="Experiment"/>
+	<xs:complexType name="Experiment">
+		<xs:annotation>
+			<xs:documentation>An experiment might be an acitivity which is both observational and numerical in focus, for example, a measurement campaign and numerical experiments for an alpine experiment.
+It is a place for the scientific description of the reason why an experiment was made.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Activity">
+				<xs:sequence>
+					<xs:element name="Duration" type="DataExtent" minOccurs="0"/>
+					<xs:element name="Why" type="Description" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PerpetualPeriod" type="PerpetualPeriod"/>
+	<xs:complexType name="PerpetualPeriod">
+		<xs:complexContent>
+			<xs:extension base="CalendarTypeList">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RunCollection" type="RunCollection"/>
+	<xs:complexType name="RunCollection">
+		<xs:complexContent>
+			<xs:extension base="NumericalActivity">
+				<xs:sequence>
+					<xs:element name="Simulation" type="Simulation"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ComputingEnvironment" type="ComputingEnvironment"/>
+	<xs:complexType name="ComputingEnvironment">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Output" type="Output"/>
+	<xs:complexType name="Output">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="MIP" type="MIP"/>
+	<xs:complexType name="MIP">
+		<xs:annotation>
+			<xs:documentation>Model Intercomparison Project. Exmaple: CMIP5 and CCMVal. A MIP aggregates together many Numerical Experiments.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Project">
+				<xs:sequence>
+					<xs:element name="Experiment" type="NumericalExperiment" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

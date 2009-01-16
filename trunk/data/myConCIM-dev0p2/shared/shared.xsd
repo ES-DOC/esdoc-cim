@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- shared.xsd -->
+<!-- generated: 10 December 2008 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml">
+	<xs:include schemaLocation="../cim.xsd"/>
+	<xs:include schemaLocation="../activity/activity.xsd"/>
+	<xs:include schemaLocation="../data/data.xsd"/>
+	<xs:include schemaLocation="../grids/grids.xsd"/>
+	<xs:include schemaLocation="../quality/quality.xsd"/>
+	<xs:include schemaLocation="../software/software.xsd"/>
+	<xs:complexType name="ClosedDateRange">
+		<xs:complexContent>
+			<xs:extension base="DateRange">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Calendar">
+		<xs:sequence>
+			<xs:element name="dateRange" type="DateRange"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CodeList">
+		<xs:union memberTypes="xs:string CodeListEnumeration"/>
+	</xs:simpleType>
+	<xs:simpleType name="CodeListEnumeration">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="OpenDateRange">
+		<xs:complexContent>
+			<xs:extension base="DateRange">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UniqueIdentifier">
+		<xs:annotation>
+			<xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identity" type="Identity"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Time">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="Identity">
+		<xs:annotation>
+			<xs:documentation>An identity describes an object that can be referred to; it has an id, a name, and a description.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uniqueIdentifier" type="UniqueIdentifier"/>
+			<xs:element name="longName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A recognisable name for this object (to be used in conjunction with or in place of a standardName).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="shortName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The "local name" of this object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="standardName" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name from a controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChangeProperty">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="DateRange">
+		<xs:sequence>
+			<xs:element name="calendar" type="Calendar"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

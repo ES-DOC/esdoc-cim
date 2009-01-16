@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ESM_GridSpec version="0.6" gml:id="um-atm-n48-gridspec" 
+	xmlns="http://www.gfdl.noaa.gov/gridspec"
+	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:dc="http://purl.org/dc/elements/1.1"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	dc:creator="Phil Bentley"
+	dc:date="2008-11-19">
+	<!-- Definition of the UM atmosphere N48 grid as used, for example, by HadAM3/HadCM3. -->
+	<!-- This grid specification may be referenced from a remote CIM object using the syntax: -->
+	<!-- <geometryModel xlink:href="um-atm-n48-gridspec.xml#um-atm-n48-grid"/> -->
+	<esmModelGrid id="um-atm-n48-grid" isLeaf="true" gridType="regular_lat_lon">
+		<shortName>UM_ATM_N48_Grid</shortName>
+		<longName>UM Atmosphere N48 Grid</longName>
+		<description>
+			The grid utilised by the HadAM3/CM3 atmosphere model is based upon a combination of an
+			Arakawa B-grid for horizontal coordinates and a 19-level Lorenz grid for vertical
+			coordinates. Together they define a set of staggered grid locations (nodes) in the
+			horizontal and vertical planes. Grid positions are specified by spherical polar coordinates;
+			that is (lon,lat,r), where r represents a hybrid pressure level. The UM N48 grid is based
+			upon a spherical Earth with a radius 6371229 m. This grid specification defines the locations
+			of P-type and w-type model variables. The locations of the u-type and v-type variables can
+			be derived from the P-grid definition. They are offset one-half of a grid cell to the east
+			and north, respectively, and occur at the same vertical level.
+		</description>
+		<referenceList>
+			<reference>Johns,T.C. et al. 1997. The second Hadley Centre coupled ocean-atmosphere GCM:
+			model description, spin-up and validation. Climate Dynamics, vol 13, pp. 103-134.</reference>
+		</referenceList>
+		<gridTile id="pgrid" isUniform="true" isRegular="false" isConformal="true">
+			<shortName>P-Grid</shortName>
+			<longName>UM Atmosphere N48 P-Grid</longName>
+			<description>
+				The P-grid defines the locations of the scalar (P) variables computed by the model.
+				P locations lie at the centre of the 'grid molecule' used to represent the relative
+				positions of the P, u, v, and w variables.
+			</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
+			<horizontalCRS xlink:href="cim_crs_dict.xml#ukmo-um-crs1"/>
+			<simpleGridGeom numDims="3" dimOrder="zyx" isMesh="false">
+				<xcoords length="96" isConstantOffset="true">0.0 3.75</xcoords>
+				<ycoords length="73" isConstantOffset="true">-90.0 2.5 </ycoords>
+				<zcoords length="19">0.997 0.975 0.930 0.870 0.788 0.675 0.541 0.410 0.299 0.215 0.153
+					0.104 0.063 0.031 0.011 0.002 0.000 0.000 0.0000</zcoords>
+			</simpleGridGeom>
+		</gridTile>
+		<gridTile id="wgrid" isUniform="true" isRegular="false" isConformal="true">
+			<shortName>W-Grid</shortName>
+			<longName>UM Atmosphere N48 W-Grid</longName>
+			<description>
+				The W-grid defines the locations of the w-vector quantities computed by the model. The
+				W-grid nodes have the same horizontal location as P-grid nodes but are offset vertically
+				by one-half grid cell (in index space - not necessarily in real-world coordinate space). 
+			</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
+			<horizontalCRS xlink:href="cim_crs_dict.xml#ukmo-um-crs1"/>
+			<simpleGridGeom numDims="3" dimOrder="zyx" isMesh="false">
+				<xcoords length="96" isConstantOffset="true">0.0 3.75</xcoords>
+				<ycoords length="73" isConstantOffset="true">-90.0 2.5 </ycoords>
+				<zcoords length="19">0.994 0.956 0.905 0.835 0.741 0.611 0.473 0.348 0.251 0.179 0.127
+					0.082 0.045 0.018 0.003 0.000 0.000 0.000 0.000</zcoords>
+			</simpleGridGeom>
+		</gridTile>
+	</esmModelGrid>
+</ESM_GridSpec>
