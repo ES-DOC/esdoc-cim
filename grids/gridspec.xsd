@@ -8,7 +8,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="0.6">
+	version="0.8">
 
 <!-- ================= -->
 <!-- Import statements -->
@@ -21,9 +21,9 @@
 <!-- Top-level (document) elements -->
 <!-- ============================= -->
 
-	<xs:element name="ESM_GridSpec" type="GridSpecType" substitutionGroup="gml:AbstractGeometry">
+	<xs:element name="GridSpec" type="GridSpecType" substitutionGroup="gml:AbstractGeometry">
 		<xs:annotation><xs:documentation>
-			The ESM_GridSpec element is a container element for encapsulating model grid definitions.
+			The GridSpec element is a container element for encapsulating model grid definitions.
 			This element may be used in any of the following ways:
 			- To define a single grid used by a particular earth system model.
 			- To define multiple grids used by a model framework.
@@ -34,19 +34,19 @@
 	
 	<xs:element name="esmModelGrid" type="GridMosaicType">
 		<xs:annotation><xs:documentation>
-			The ESM_GridMosaic element is used to describe the geometry, and other characteristics,
+			The esmModelGrid element is used to describe the geometry, and other characteristics,
 			of a grid required by an earth system numerical model. The hierarchical nature of the
-			ESM_GridMosaic element means that it may be used to describe a single grid for a single
+			esmModelGrid element means that it may be used to describe a single grid for a single
 			model, or a number of grids used by a framework of such models.
 		</xs:documentation></xs:annotation>
 	</xs:element>
 
 	<xs:element name="esmExchangeGrid" type="GridMosaicType">
 		<xs:annotation><xs:documentation>
-			The ESM_ExchangeGrid element may be used to describe the exchange grid that is produced by
+			The esmExchangeGrid element may be used to describe the exchange grid that is produced by
 			the intersection of two earth system model grids. Note that an exchange grid is defined as
 			a grid mosaic, just like a model grid: they differ mainly in purpose. In most cases it is
-			envisaged that an ESM_ExchangeGrid element will contain only grid tiles, not nested grid
+			envisaged that an esmExchangeGrid element will contain only grid tiles, not nested grid
 			mosaics (although that possibility is allowed for by this XML content model.)
 		</xs:documentation></xs:annotation>
 	</xs:element>
@@ -58,7 +58,7 @@
 	<!-- GridSpecType -->
 	<xs:complexType name="GridSpecType">
 		<xs:annotation><xs:documentation>
-			An ESM_GridSpec element contains zero or more esmModelGrid definitions followed by zero or
+			A GridSpec element contains zero or more esmModelGrid definitions followed by zero or
 			more esmExchangeGrid definitions.
 		</xs:documentation></xs:annotation>
 		<xs:complexContent>
@@ -69,7 +69,7 @@
 				</xs:sequence>	
 				<xs:attribute name="version" type="xs:string" use="required">
 					<xs:annotation><xs:documentation>
-						Used to identify the version of a GridSpec instance.
+						Used to identify the version of a GridSpec document instance.
 					</xs:documentation></xs:annotation>
 				</xs:attribute>
 				<xs:anyAttribute namespace="http://purl.org/dc/elements/1.1" processContents="lax"/>
@@ -91,10 +91,7 @@
 			<xs:element name="referenceList" type="ReferenceListType" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="gridMosaic" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:sequence>
-					<xs:element ref="gridTile" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element ref="contactRegions" minOccurs="0"/>
-				</xs:sequence>
+				<xs:element ref="gridTile" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attributeGroup ref="IdAttrGroup"/>
@@ -139,17 +136,16 @@
 			<xs:element name="horizontalCRS" type="gml:CRSPropertyType" minOccurs="0"/>
 			<xs:element name="verticalCRS" type="gml:CRSPropertyType" minOccurs="0"/>
 			<xs:element name="gridNorthPole" type="gml:PointPropertyType" minOccurs="0"/>
-			<xs:element name="gridSouthPole" type="gml:PointPropertyType" minOccurs="0"/>
+			<xs:element name="coordinatePole" type="gml:PointPropertyType" minOccurs="0" maxOccurs="unbounded"/>
 		   <xs:choice>
 		        <xs:element name="simpleGridGeom" type="SimpleGridGeometryType"/>
-		        <xs:element name="cellArray" type="CellArrayType"/>
-		        <xs:element name="cellRefArray" type="CellRefArrayType"/>
-		        <xs:element name="coordFileURI" type="xs:anyURI"/>
+		        <xs:element name="cellArray" type="GridCellArrayType"/>
+		        <xs:element name="cellRefArray" type="GridCellRefArrayType"/>
+		        <xs:element name="coordFile" type="xs:anyURI"/>
 		   </xs:choice>
 			<xs:element name="zcoords" type="CoordListType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="IdAttrGroup"/>
-		<xs:attributeGroup ref="gml:SRSReferenceGroup"/>
 		<xs:attribute name="isUniform" type="xs:boolean" use="required">
 			<xs:annotation><xs:documentation>
 				Set to true if the grid cells are of constant, though not necessarily equal, magnitude
@@ -163,34 +159,27 @@
 			</xs:documentation></xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="isConformal" type="xs:boolean"/>
-		<xs:attribute name="isPoleCovered" type="xs:boolean">
-			<xs:annotation><xs:documentation>
-				Set to true if at least one geographic pole is covered by the grid tile. This information
-				is used by the OASIS4 coupler.
-			</xs:documentation></xs:annotation>
-		</xs:attribute>
-	   <xs:attribute name="isTerrainFollowing" type="xs:boolean"/>
+		<xs:attribute name="isTerrainFollowing" type="xs:boolean"/>
 	</xs:complexType>
 
 	<!-- GridTileRefType -->
     <xs:complexType name="GridTileRefType">
 		<xs:annotation><xs:documentation>
-			A tile specification is a list of ID references from the top-level mosaic downwards to the
+			A grid tile reference is a list of ID references from the top-level mosaic down to the
 			grid tile itself. Tiles must be fully qualified like this so that they can be identified
-			uniquely (across mosaics). A tile reference can be specified either as a sequence of
-			elements or as a text string containing colon-delimited ID values (e.g. "m1:m2:m3:t1")
+			uniquely (across mosaics). A grid tile reference can be specified either as a sequence of
+			mosaic ID elements and a tile ID element, or as a text string attribute (idPath) containing
+			colon-separated	ID values (e.g. "m1:m2:m3:t1").
 		</xs:documentation></xs:annotation>
-		<xs:choice>
-			<xs:sequence>
-				<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
-				<xs:element name="tileID" type="IdType"/>
-			</xs:sequence>
-			<xs:element name="idPath" type="xs:string"/>
-		</xs:choice>
-	</xs:complexType>
+		<xs:sequence minOccurs="0">
+			<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
+			<xs:element name="tileID" type="IdType"/>
+		</xs:sequence>
+    	<xs:attribute name="idPath" type="xs:string"/>
+    </xs:complexType>
 	
 	<!-- GridCellType -->
-	<xs:element name="GridCell" type="GridCellType" abstract="true"/>
+	<xs:element name="gridCell" type="GridCellType" abstract="true"/>
 	<xs:complexType name="GridCellType" abstract="true">
 		<xs:annotation><xs:documentation>
 			Abstract base type (class) for different kinds of grid cell. Object types for specific
@@ -198,39 +187,33 @@
 			is uniquely identified - within its parent tile - by the 'id' attribute.
 		</xs:documentation></xs:annotation>
 		<xs:sequence>
-			<xs:group ref="IdElemGroup"/>
 			<xs:element name="centroid" type="gml:PointPropertyType" minOccurs="0"/>
-			<xs:element name="area" type="xs:double" minOccurs="0"/>
-		   <xs:element name="volume" type="xs:double" minOccurs="0"/>
-		   <xs:element ref="vertexArray"/>
+			<xs:element name="area" type="gml:MeasureType" minOccurs="0"/>
+		   <xs:element name="volume" type="gml:MeasureType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="IdAttrGroup"/>
 	</xs:complexType>
 
-	<!-- GridCellRefType -->
-    <xs:complexType name="GridCellRefType">
+	<!-- SimpleGridCellType -->
+	<xs:element name="simpleGridCell" type="SimpleGridCellType" substitutionGroup="gridCell"/>
+	<xs:complexType name="SimpleGridCellType">
 		<xs:annotation><xs:documentation>
-			A CellRefType object consists of a reference to a cell in a separately-defined grid tile,
-			together with an optional fractional area that indicates the portion of the target cell
-			'occupied' by the refering cell. If this area is not specified, a default value of 1.0
-			is assumed. A cell reference can be specified either as a sequence of elements or as a
-			text string containing colon-delimited ID values terminated with a number representing 
-			the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").
+			The SimpleGridCellType may be used to specify a basic grid cell, one whose vertices are 
+			defined either by three or more coordinate tuples or by xlink references to three or more
+			remotely-defined points.
 		</xs:documentation></xs:annotation>
-		<xs:choice>
-			<xs:sequence>
-				<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
-				<xs:element name="tileID" type="IdType"/>
-				<xs:element name="cellID" type="IdType"/>
-				<xs:element name="fractionalArea" type="xs:double" default="1.0"/>
-			</xs:sequence>
-			<xs:element name="idPath" type="xs:string"/>
-		</xs:choice>
+		<xs:complexContent>
+			<xs:extension base="GridCellType">
+				<xs:sequence>
+					<xs:element ref="vertexArray"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-
-	<!-- UnstructuredCellType -->
-	<xs:element name="unstructuredCell" type="UnstructuredCellType" substitutionGroup="GridCell"/>
-	<xs:complexType name="UnstructuredCellType">
+	
+	<!-- UnstructuredGridCellType -->
+	<xs:element name="unstructuredGridCell" type="UnstructuredGridCellType" substitutionGroup="gridCell"/>
+	<xs:complexType name="UnstructuredGridCellType">
 		<xs:annotation><xs:documentation>
 			Unstructured cells are grid cells that need to be fully specified geometrically: complete
 			information on vertices and edges must be supplied.
@@ -238,15 +221,15 @@
 		<xs:complexContent>
 			<xs:extension base="GridCellType">
 				<xs:sequence>
-					<xs:element name="edge" type="EdgeType" minOccurs="3" maxOccurs="unbounded"/>
+					<xs:element ref="edgeArray"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<!-- ExchangeCellType -->
-	<xs:element name="exchangeCell" type="ExchangeCellType" substitutionGroup="GridCell"/>
-	<xs:complexType name="ExchangeCellType">
+	<xs:element name="exchangeGridCell" type="ExchangeGridCellType" substitutionGroup="gridCell"/>
+	<xs:complexType name="ExchangeGridCellType">
 		<xs:annotation><xs:documentation>
 			(TODO: description required)
 		</xs:documentation></xs:annotation>
@@ -259,19 +242,38 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<!-- GridCellRefType -->
+	<xs:complexType name="GridCellRefType">
+		<xs:annotation><xs:documentation>
+			A GridCellRefType object consists of a reference to a cell in a separately-defined grid tile,
+			together with an optional fractional area that indicates the portion of the target cell
+			'occupied' by the referring cell. If this area is not specified, a default value of 1.0
+			is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell
+			ID elements, or as a text string attribute (idPath) containing colon-separated ID values
+			terminated with a number representing the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").
+		</xs:documentation></xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
+			<xs:element name="tileID" type="IdType"/>
+			<xs:element name="cellID" type="IdType"/>
+			<xs:element name="fractionalArea" type="xs:double" default="1.0"/>
+		</xs:sequence>
+		<xs:attribute name="idPath" type="xs:string"/>
+	</xs:complexType>
+	
 	<!-- CellArrayType -->
-	<xs:complexType name="CellArrayType">
+	<xs:complexType name="GridCellArrayType">
 		<xs:annotation><xs:documentation>
 			This object type may be used to specify an array of grid cell elements. Any element that
-			belongs to the GridCell substitution group may be substituted here.
+			belongs to the gridCell substitution group may be substituted here.
 		</xs:documentation></xs:annotation>
 		<xs:sequence>
-			<xs:element ref="GridCell" maxOccurs="unbounded"/>
+			<xs:element ref="gridCell" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
    <!-- CellRefArrayType -->
-   <xs:complexType name="CellRefArrayType">
+   <xs:complexType name="GridCellRefArrayType">
       <xs:annotation><xs:documentation>
          This object type may be used to specify an array of grid cell reference elements.
       </xs:documentation></xs:annotation>
@@ -296,17 +298,31 @@
 	<xs:complexType name="EdgeType">
 		<xs:annotation><xs:documentation>
 			Constraint: the two vertices making up an edge must be part of the same grid cell.
-			The two vertexRefs objects are references to GML Point objects.
+			The two vertex objects are references to remotely-defined GML Point objects.
 		</xs:documentation></xs:annotation>
 		<xs:sequence>
-			<xs:element name="vertexRef" type="gml:PointPropertyType" minOccurs="2" maxOccurs="2"/>
-			<xs:element name="departureAngle" type="xs:double"/>
-			<xs:element name="arrivalAngle" type="xs:double"/>
-			<xs:element name="length" type="xs:double"/>
+			<xs:element name="vertex1" type="gml:PointPropertyType"/>
+			<xs:element name="vertex2" type="gml:PointPropertyType"/>
+			<xs:element name="length" type="gml:MeasureType" minOccurs="0"/>
+			<xs:element name="departureAngle" type="gml:MeasureType" minOccurs="0"/>
+			<xs:element name="arrivalAngle" type="gml:MeasureType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="arcType" type="ArcTypeEnum" use="required"/>
 	</xs:complexType>
-	
+
+	<!-- EdgeArrayType -->
+	<xs:element name="edgeArray" type="EdgeArrayType"/>
+	<xs:complexType name="EdgeArrayType">
+		<xs:annotation><xs:documentation>
+			This object type may be used to specify an array of edge elements, e.g. to define the
+			boundary of a polygonal grid cell. As such it represents an alternative - and more verbose -
+			mechanism to the VertexArrayType for specifying grid cell geometry.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="edge" type="EdgeType" minOccurs="3" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<!-- SimpleGridGeometryType -->
 	<xs:complexType name="SimpleGridGeometryType">
 		<xs:annotation><xs:documentation>
@@ -362,7 +378,7 @@
 		<xs:complexContent>
 			<xs:extension base="ContactGeometryType">
 				<xs:sequence>
-					<xs:element name="cellArray" type="CellArrayType"/>
+					<xs:element name="cellArray" type="GridCellArrayType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -399,15 +415,15 @@
 			The CoordListType may be used to specify a list of coordinates, typically for the purpose
 			of defining coordinates along the X, Y or Z axes. The length of the coordinate list is
 			given by the attribute of that name. This may be used by software to allocate memory in
-			advance of storing the coordinate values. The isConstantOffset attribute may be used to
+			advance of storing the coordinate values. The hasConstantOffset attribute may be used to
 			indicate that the coordinate list consists of values with constant offset (spacing). In
-			this case only the first coordinate and offset value need to be specified; the length attribute
-			must still define the final 'as-built' size of the coordinate list. 
+			this case only the first coordinate and offset value need to be specified; the length
+			attribute must still define the final 'as-built' size of the coordinate list. 
 		</xs:documentation></xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
 				<xs:attribute name="length" type="xs:positiveInteger" use="required"/>
-				<xs:attribute name="isConstantOffset" type="xs:boolean"/>
+				<xs:attribute name="hasConstantOffset" type="xs:boolean"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -415,7 +431,7 @@
 	<!-- ReferenceListType -->
 	<xs:complexType name="ReferenceListType">
 		<xs:sequence>
-			<xs:element name="reference" type="xs:string" maxOccurs="unbounded"/>
+			<xs:element name="reference" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

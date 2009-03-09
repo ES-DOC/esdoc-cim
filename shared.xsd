@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 16 January 2009 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
+<!-- generated: 9 March 2009 -->       
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns="http://www.metaforclimate.eu/cim/0.2"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
-<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
+<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -19,15 +20,15 @@
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
    <xs:complexType name="ClosedDateRange">
-                    <xs:complexContent>
-                    <xs:extension base="DateRange">
-                <xs:sequence/>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                        <xs:complexContent>
+                        <xs:extension base="DateRange">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:complexType name="Property">
       <xs:annotation>
-         <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure."</xs:documentation>
+         <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="group" minOccurs="0" maxOccurs="1">
@@ -35,162 +36,144 @@
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="UniqueIdentifier"/>
-         <xs:element name="value" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+         <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       </xs:sequence>
       <xs:attribute name="type" use="required" type="PropertyType"/>
    </xs:complexType>
    <xs:complexType name="Calendar">
       <xs:sequence/>
    </xs:complexType>
+   <xs:complexType name="DataSource">
+      <xs:sequence/>
+   </xs:complexType>
    <xs:simpleType name="ChangePropertyType">
       <xs:annotation>
-         <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+         <xs:documentation>An enumeration of types of changes.</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string ChangePropertyTypeEnumeration"/>
+      <xs:union memberTypes="xs:string ChangePropertyType_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="ChangePropertyTypeEnumeration">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="decrement"/>
-         <xs:enumeration value="increment"/>
-         <xs:enumeration value="redistribution"/>
-         <xs:enumeration value="replacement"/>
-      </xs:restriction>
+            <xs:simpleType name="ChangePropertyType_Enumeration">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="decrement"/>
+      <xs:enumeration value="increment"/>
+      <xs:enumeration value="new"/>
+      <xs:enumeration value="redistribution"/>
+      <xs:enumeration value="replacement"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:simpleType name="CodeList">
+      <xs:annotation>
+         <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
+      </xs:annotation>
+      <xs:union memberTypes="xs:string CodeList_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="CodeList">
-      <xs:union memberTypes="xs:string CodeListEnumeration"/>
-   </xs:simpleType>
-   <xs:simpleType name="CodeListEnumeration">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="OpenDateRange">
-                    <xs:complexContent>
-                    <xs:extension base="DateRange">
-                <xs:sequence/>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+            <xs:simpleType name="CodeList_Enumeration">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="OpenDateRange">
+                        <xs:complexContent>
+                        <xs:extension base="DateRange">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:complexType name="Document">
       <xs:annotation>
          <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class.  Note that all documents can have quality and change information associated with them.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="author" minOccurs="1" maxOccurs="1"
-                     type="gmd:CI_ResponsibleParty_PropertyType"/>
-         <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
-         <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+         <xs:element name="author" minOccurs="0" maxOccurs="1"
+                     type="gmd:CI_ResponsibleParty_PropertyType">
+            <xs:annotation>
+               <xs:documentation>The contact for this document</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+         <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+            <xs:annotation>
+               <xs:documentation>a unique indentifier for this document</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="parent" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+            <xs:annotation>
+               <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
-      <xs:attribute name="id" use="required" type="xs:anyURI">
-         <xs:annotation>
-            <xs:documentation>a unique URI identifying this document</xs:documentation>
-         </xs:annotation>
-      </xs:attribute>
    </xs:complexType>
-   <xs:complexType name="UniqueIdentifier">
-      <xs:annotation>
-         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
-      </xs:annotation>
+   <xs:simpleType name="Identifier">
+      <xs:restriction base="xs:token">
+         <xs:annotation>
+            <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
+         </xs:annotation>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="PropertyValue">
       <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="Daily-360">
-                    <xs:complexContent>
-                    <xs:extension base="Calendar">
-                <xs:sequence/>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-   <xs:complexType name="Identity">
-      <xs:annotation>
-         <xs:documentation>An identity describes an object that can be referred to; it has an id, a name, and a description.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="UniqueIdentifier"/>
-         <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A recognisable name for this object (to be used in conjunction with or in place of a standardName).</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>The "local name" of this object.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="standardName" minOccurs="0" maxOccurs="unbounded" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A name from a controlled vocabulary.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:complexType name="Change">
-      <xs:annotation>
-         <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath).</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"/>
-         <xs:element name="changeAuthor" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
-         <xs:element name="changeDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      </xs:sequence>
-      <xs:attribute name="changeTarget" use="required" type="xs:anyURI"/>
-   </xs:complexType>
-   <xs:complexType name="DateRange">
+                        <xs:complexContent>
+                        <xs:extension base="Calendar">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+   <!--Change is not used -->       
+<xs:complexType name="DateRange">
       <xs:sequence/>
    </xs:complexType>
-   <xs:complexType name="ChangeProperty">
+   <!--ChangeProperty is not used -->       
+<xs:complexType name="PropertyGroup">
       <xs:annotation>
-         <xs:documentation>A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.</xs:documentation>
+         <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
       </xs:annotation>
-                    <xs:complexContent>
-                    <xs:extension base="Property">
-                <xs:sequence>
-         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-      <xs:attribute name="name" use="optional" type="ChangePropertyType">
-         <xs:annotation>
-            <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
-         </xs:annotation>
-      </xs:attribute>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-   <xs:complexType name="PropertyGroup">
       <xs:sequence>
+         <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="Property"/>
          <xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded" type="PropertyGroup"/>
          <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="property" minOccurs="1" maxOccurs="unbounded" type="Property"/>
-         <xs:element name="id" minOccurs="0" maxOccurs="1" type="UniqueIdentifier"/>
+         <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+            <xs:annotation>
+               <xs:documentation>A unique id for this group of properties.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>The name of this group of properties.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
-      <xs:attribute name="name" use="optional" type="CodeList"/>
    </xs:complexType>
    <xs:complexType name="PerpetualPeriod">
-                    <xs:complexContent>
-                    <xs:extension base="Calendar">
-                <xs:sequence/>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                        <xs:complexContent>
+                        <xs:extension base="Calendar">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:complexType name="RealCalendar">
-                    <xs:complexContent>
-                    <xs:extension base="Calendar">
-                <xs:sequence/>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                        <xs:complexContent>
+                        <xs:extension base="Calendar">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:simpleType name="PropertyType">
       <xs:annotation>
          <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string PropertyTypeEnumeration"/>
+      <xs:union memberTypes="xs:string PropertyType_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="PropertyTypeEnumeration">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-</xs:schema>
+            <xs:simpleType name="PropertyType_Enumeration">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        </xs:schema>

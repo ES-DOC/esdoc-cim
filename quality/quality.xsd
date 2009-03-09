@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 16 January 2009 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
+<!-- generated: 9 March 2009 -->       
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns="http://www.metaforclimate.eu/cim/0.2"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
-<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
+<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -18,75 +19,69 @@
    <xs:include schemaLocation="grids.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
-   <xs:simpleType name="QualityStatusType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="confirmed"/>
-         <xs:enumeration value="partially_resolved"/>
-         <xs:enumeration value="reported"/>
-         <xs:enumeration value="resolved"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="LI_Linage">
+            <xs:simpleType name="QualityStatusType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="confirmed"/>
+      <xs:enumeration value="partially_resolved"/>
+      <xs:enumeration value="reported"/>
+      <xs:enumeration value="resolved"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="LI_Linage">
       <xs:annotation>
          <xs:documentation>describes the processing steps applied to the data within the quality scope</xs:documentation>
       </xs:annotation>
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="MD_ScopeDescription">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:simpleType name="DQ_EvaluationMethodTypeCode">
-      <xs:annotation>
-         <xs:documentation>Values taken from ISO19115.  These probably need to be replaced/extended with CIM specific values.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="directExternal"/>
-         <xs:enumeration value="directInternal"/>
-         <xs:enumeration value="indirect"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="MD_Identifier">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="DQ_Result">
+            <xs:simpleType name="MD_ScopeDescription">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        
+            <xs:simpleType name="DQ_EvaluationMethodTypeCode">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="directExternal"/>
+      <xs:enumeration value="directInternal"/>
+      <xs:enumeration value="indirect"/>
+   </xs:restriction>
+            </xs:simpleType>
+        
+            <xs:simpleType name="MD_Identifier">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="DQ_Result">
       <xs:annotation>
          <xs:documentation>generalisation of more specific result classes</xs:documentation>
       </xs:annotation>
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="MD_ScopeCodeType">
-      <xs:annotation>
-         <xs:documentation>Relatively few of the scope codes defined in ISO19115 are relevant to CIM.  I have therefore added a number of additional scope types - these are indicated with a trailing asterisk.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="dataset"/>
-         <xs:enumeration value="ensemble*"/>
-         <xs:enumeration value="experiment*"/>
-         <xs:enumeration value="file*"/>
-         <xs:enumeration value="metadata*">
-            <xs:annotation>
-               <xs:documentation>This would cover quality issues with the CIM itself</xs:documentation>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="model"/>
-         <xs:enumeration value="modelComponent*"/>
-         <xs:enumeration value="numericalRequirement*"/>
-         <xs:enumeration value="service"/>
-         <xs:enumeration value="simulation*"/>
-         <xs:enumeration value="software"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="CI_DateTypeCode">
-      <xs:annotation>
-         <xs:documentation>These are the date types defined in the ISO19115 standard - we may need to add additional terms</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="creation"/>
-         <xs:enumeration value="publication"/>
-         <xs:enumeration value="revision"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="CIM_FeatureType">
+            <xs:simpleType name="MD_ScopeCodeType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="dataset"/>
+      <xs:enumeration value="ensemble*"/>
+      <xs:enumeration value="experiment*"/>
+      <xs:enumeration value="file*"/>
+      <xs:enumeration value="metadata*">
+         <xs:annotation>
+            <xs:documentation>This would cover quality issues with the CIM itself</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="model"/>
+      <xs:enumeration value="modelComponent*"/>
+      <xs:enumeration value="numericalRequirement*"/>
+      <xs:enumeration value="service"/>
+      <xs:enumeration value="simulation*"/>
+      <xs:enumeration value="software"/>
+   </xs:restriction>
+            </xs:simpleType>
+        
+            <xs:simpleType name="CI_DateTypeCode">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="creation"/>
+      <xs:enumeration value="publication"/>
+      <xs:enumeration value="revision"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="CIM_FeatureType">
       <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="DQ_Element">
@@ -147,9 +142,9 @@ These five entities represent elements of data quality and can be further subcla
       <xs:annotation>
          <xs:documentation>information about the outcome of evaluating the obtained value (or set of values) against a specified acceptable conformance quality level</xs:documentation>
       </xs:annotation>
-                    <xs:complexContent>
-                    <xs:extension base="DQ_Result">
-                <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DQ_Result">
+                    <xs:sequence>
          <xs:element name="explanation" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>explanation of the meaning of confirmance for this result</xs:documentation>
@@ -167,27 +162,24 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>indication of the conformance result where 0 = fail and 1 = pass</xs:documentation>
          </xs:annotation>
       </xs:attribute>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:complexType name="CIM_Description">
       <xs:sequence>
          <xs:element name="issueDescription" minOccurs="1" maxOccurs="1" type="CIM_Description"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:simpleType name="CI_OnlineFunctionCode">
-      <xs:annotation>
-         <xs:documentation>These are the online service codes defined in the ISO19115 standard - not all will be relevant to the CIM, and we may need to add additional terms  (e.g.  query, compare, publish, etc.)</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="download"/>
-         <xs:enumeration value="information"/>
-         <xs:enumeration value="offline_access"/>
-         <xs:enumeration value="order"/>
-         <xs:enumeration value="search"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="MD_ScopeCode">
+            <xs:simpleType name="CI_OnlineFunctionCode">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="download"/>
+      <xs:enumeration value="information"/>
+      <xs:enumeration value="offline_access"/>
+      <xs:enumeration value="order"/>
+      <xs:enumeration value="search"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="MD_ScopeCode">
       <xs:annotation>
          <xs:documentation>hierarchical level of the data specified by the scope (e.g. dataset, software, model, feature etc. in ISO19115).  We will need to define a different enumeration list for CIM</xs:documentation>
       </xs:annotation>
@@ -203,37 +195,31 @@ These five entities represent elements of data quality and can be further subcla
    <xs:complexType name="CI_ResponsibleParty">
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="CI_RoleCode">
-      <xs:annotation>
-         <xs:documentation>These are the roles defined in the ISO19115 standard - not all will be relevant to the CIM, and we may need to add additional terms</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="author"/>
-         <xs:enumeration value="custodian"/>
-         <xs:enumeration value="distributor"/>
-         <xs:enumeration value="originator"/>
-         <xs:enumeration value="owner"/>
-         <xs:enumeration value="pointofContact"/>
-         <xs:enumeration value="principalInvestigator"/>
-         <xs:enumeration value="processor"/>
-         <xs:enumeration value="publisher"/>
-         <xs:enumeration value="resourceProvider"/>
-         <xs:enumeration value="user"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="Record">
+            <xs:simpleType name="CI_RoleCode">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="author"/>
+      <xs:enumeration value="custodian"/>
+      <xs:enumeration value="distributor"/>
+      <xs:enumeration value="originator"/>
+      <xs:enumeration value="owner"/>
+      <xs:enumeration value="pointofContact"/>
+      <xs:enumeration value="principalInvestigator"/>
+      <xs:enumeration value="processor"/>
+      <xs:enumeration value="publisher"/>
+      <xs:enumeration value="resourceProvider"/>
+      <xs:enumeration value="user"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="Record">
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="UnitOfMeasure">
-      <xs:annotation>
-         <xs:documentation>An ISO19115 enumeration.  This probably needs to be entirely replaced by something from the CF vocabulary.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="degrees_C"/>
-         <xs:enumeration value="etc."/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="DQ_Scope">
+            <xs:simpleType name="UnitOfMeasure">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="degrees_C"/>
+      <xs:enumeration value="etc."/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="DQ_Scope">
       <xs:sequence>
          <xs:element name="extent" minOccurs="0" maxOccurs="1" type="EX_Extent">
             <xs:annotation>
@@ -253,47 +239,45 @@ These five entities represent elements of data quality and can be further subcla
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:simpleType name="CI_CitationPresentationFormCode">
-      <xs:annotation>
-         <xs:documentation>This is the ISO19115 enumeration.  We may want to extend this list to deal with climate science specific presentations.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="documentDigital"/>
-         <xs:enumeration value="documentHardcopy"/>
-         <xs:enumeration value="imageDigital"/>
-         <xs:enumeration value="imageHardcopy"/>
-         <xs:enumeration value="mapDigital"/>
-         <xs:enumeration value="mapHardcopy"/>
-         <xs:enumeration value="modelDigital"/>
-         <xs:enumeration value="modelHardcopy"/>
-         <xs:enumeration value="profileDigital"/>
-         <xs:enumeration value="profileHardcopy"/>
-         <xs:enumeration value="tableDigital"/>
-         <xs:enumeration value="tableHardcopy"/>
-         <xs:enumeration value="videoDigital"/>
-         <xs:enumeration value="videoHardcopy"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="QualityIssueType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="data_content"/>
-         <xs:enumeration value="data_format"/>
-         <xs:enumeration value="data_indexing"/>
-         <xs:enumeration value="metadata"/>
-         <xs:enumeration value="science"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="EX_Extent">
+            <xs:simpleType name="CI_CitationPresentationFormCode">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="documentDigital"/>
+      <xs:enumeration value="documentHardcopy"/>
+      <xs:enumeration value="imageDigital"/>
+      <xs:enumeration value="imageHardcopy"/>
+      <xs:enumeration value="mapDigital"/>
+      <xs:enumeration value="mapHardcopy"/>
+      <xs:enumeration value="modelDigital"/>
+      <xs:enumeration value="modelHardcopy"/>
+      <xs:enumeration value="profileDigital"/>
+      <xs:enumeration value="profileHardcopy"/>
+      <xs:enumeration value="tableDigital"/>
+      <xs:enumeration value="tableHardcopy"/>
+      <xs:enumeration value="videoDigital"/>
+      <xs:enumeration value="videoHardcopy"/>
+   </xs:restriction>
+            </xs:simpleType>
+        
+            <xs:simpleType name="QualityIssueType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="data_content"/>
+      <xs:enumeration value="data_format"/>
+      <xs:enumeration value="data_indexing"/>
+      <xs:enumeration value="metadata"/>
+      <xs:enumeration value="science"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="EX_Extent">
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="QualitySeverityType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="cosmetic"/>
-         <xs:enumeration value="major"/>
-         <xs:enumeration value="minor"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="CIM_QualityDetail">
+            <xs:simpleType name="QualitySeverityType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="cosmetic"/>
+      <xs:enumeration value="major"/>
+      <xs:enumeration value="minor"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="CIM_QualityDetail">
       <xs:sequence>
          <xs:element name="detailDescription" minOccurs="0" maxOccurs="1" type="CIM_Description">
             <xs:annotation>
@@ -382,9 +366,9 @@ These five entities represent elements of data quality and can be further subcla
       <xs:annotation>
          <xs:documentation>the values or information about the value(s) (or set of values) obtained from applying a data quality measure</xs:documentation>
       </xs:annotation>
-                    <xs:complexContent>
-                    <xs:extension base="DQ_Result">
-                <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DQ_Result">
+                    <xs:sequence>
          <xs:element name="errorStatistic" minOccurs="0" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>statistical method used to determine the value</xs:documentation>
@@ -406,16 +390,13 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>value unit for reporting a data quality result</xs:documentation>
          </xs:annotation>
       </xs:attribute>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-   <xs:simpleType name="MF_Description">
-      <xs:annotation>
-         <xs:documentation>A standard METAFOR class to handle descriptions which would be used across the entire CIM.  It should include both free text and description by reference (xlink).</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="DQ_Quality">
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+            <xs:simpleType name="MF_Description">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="DQ_Quality">
       <xs:sequence>
          <xs:element name="cIM_QualityIssue" minOccurs="0" maxOccurs="unbounded"
                      type="CIM_QualityIssue"/>

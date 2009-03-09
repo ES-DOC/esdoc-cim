@@ -2,14 +2,14 @@
 <!-- Definition of the ORCA1 model grid. -->
 <!-- This grid specification may be referenced from a remote CIM object using the syntax: -->
 <!-- <geometryModel xlink:href="orca1-gridspec.xml#orca1-gridspec"/> -->
-<ESM_GridSpec version="0.6" gml:id="orca1-gridspec" 
+<GridSpec version="0.8" gml:id="orca1-gridspec" 
 	xmlns="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gml="http://www.opengis.net/gml/3.2"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
 	dc:creator="Phil Bentley"
-	dc:date="2008-11-12">
+	dc:date="2009-02-19">
 	<esmModelGrid id="orca1-grid" isLeaf="true" gridType="regular_lat_lon">
 		<shortName>ORCA1 Grid</shortName>
 		<longName>ORCA1 1-Degree Tripolar Grid</longName>
@@ -52,10 +52,10 @@
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole><gml:Point gml:id="np"><gml:pos>50.0 73.0</gml:pos></gml:Point></gridNorthPole>
-			<gridSouthPole><gml:Point gml:id="sp"><gml:pos>66.0 -107.0</gml:pos></gml:Point></gridSouthPole>
+			<coordinatePole><gml:Point gml:id="np"><gml:pos>50.0 73.0</gml:pos></gml:Point></coordinatePole>
+			<coordinatePole><gml:Point gml:id="sp"><gml:pos>66.0 -107.0</gml:pos></gml:Point></coordinatePole>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca1_tgrid_coords.nc</coordFileURI>
+			<coordFile>file://my/grids/orca1_tgrid_coords.nc</coordFile>
 			<zcoords length="42">5.0216 15.0785 25.1605 35.2783 45.4478 55.6915 66.0420 76.5459 87.2703 98.3112 109.8062
 			121.9519 135.0285 149.4337 165.7285 184.6975 207.4254 235.3862 270.5341 315.3741 372.9655
 			446.8009 540.5022 657.3229 799.5496 967.9959 1161.8059 1378.6610 1615.2905 1868.0707 2133.5171
@@ -69,10 +69,10 @@
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole xlink:href="#np"/>
-			<gridSouthPole xlink:href="#sp"/>
+			<coordinatePole xlink:href="#np"/>
+			<coordinatePole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca1_ugrid_coords.nc</coordFileURI>
+			<coordFile>file://my/grids/orca1_ugrid_coords.nc</coordFile>
 		</gridTile>
 		<gridTile id="vgrid" isUniform="false" isRegular="false">
 			<shortName>V-Grid</shortName>
@@ -81,10 +81,10 @@
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole xlink:href="#np"/>
-			<gridSouthPole xlink:href="#sp"/>
+			<coordinatePole xlink:href="#np"/>
+			<coordinatePole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca1_vgrid_coords.nc</coordFileURI>
+			<coordFile>file://my/grids/orca1_vgrid_coords.nc</coordFile>
 		</gridTile>
 		<gridTile id="wgrid" isUniform="false" isRegular="false">
 			<shortName>W-Grid</shortName>
@@ -95,10 +95,10 @@
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole xlink:href="#np"/>
-			<gridSouthPole xlink:href="#sp"/>
+			<coordinatePole xlink:href="#np"/>
+			<coordinatePole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca1_tgrid_coords.nc</coordFileURI>
+			<coordFile>file://my/grids/orca1_tgrid_coords.nc</coordFile>
 			<zcoords length="42">0.0 10.0475 20.1158 30.2140 40.3553 50.5586 60.8509 71.2711 81.8753 92.7437 103.9913
 			115.7825 128.3522 142.0345 157.3019 174.8189 195.5097 220.6418 251.9186 291.5638 342.3651
 			407.6244 490.9494 595.8501 725.1709 880.5102 1061.8460 1267.5420 1494.7288 1739.8874 1999.4134
@@ -113,10 +113,10 @@
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole xlink:href="#np"/>
-			<gridSouthPole xlink:href="#sp"/>
+			<coordinatePole xlink:href="#np"/>
+			<coordinatePole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca1_fgrid_coords.nc</coordFileURI>
+			<coordFile>file://my/grids/orca1_fgrid_coords.nc</coordFile>
 		</gridTile>
 	</esmModelGrid>
-</ESM_GridSpec>
+</GridSpec>
