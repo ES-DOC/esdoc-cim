@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<<<<<<< .working
-<!-- generated: 9 March 2009 -->       
-<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
-=======
 <!-- generated: 16 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
->>>>>>> .merge-right.r382
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-<<<<<<< .working
-           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
-<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
-=======
            targetNamespace="http://www.metaforclimate.eu/cim/0.2"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
->>>>>>> .merge-right.r382
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -31,26 +21,6 @@
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
-<<<<<<< .working
-   <!-- a CIMRecord can include any (single) <<document>> -->       
-<xs:element name="CIMRecord">
-      <xs:complexType>
-         <xs:choice>
-            <xs:element ref="simulationRun"/>
-            <xs:element ref="simulationComposite"/>
-            <xs:element ref="numericalExperiment"/>
-            <xs:element ref="dataProcessing"/>
-            <xs:element ref="ensemble"/>
-            <xs:element ref="dataset"/>
-            <xs:element ref="dataObject"/>
-            <xs:element ref="gridSpec"/>
-            <xs:element ref="processorComponent"/>
-            <xs:element ref="modelComponent"/>
-            <xs:element ref="deployment"/>
-         </xs:choice>
-      </xs:complexType>
-   </xs:element>
-=======
    <!-- a CIMRecord can include any (single) <<document>> -->       
 <xs:element name="CIMRecord">
       <xs:complexType>
@@ -76,5 +46,4 @@
          </xs:sequence>
       </xs:complexType>
    </xs:element>
->>>>>>> .merge-right.r382
 </xs:schema>

@@ -76,27 +76,15 @@
             <xsl:value-of select="$newline"/>
 
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
-<<<<<<< .working
-            <!--  not sure why I can't use XPath for "xmlns" attribute -->
-            <xs:schema                               
-                xmlns="http://www.metaforclimate.eu/cim/0.2"                
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-=======
             <!--  not sure why I can't use XPath for "xmlns" attribute -->
             <xs:schema xmlns="http://www.metaforclimate.eu/cim/0.2"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
->>>>>>> .merge-right.r382
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-<<<<<<< .working
-                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}">
-
-=======
                 targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
                 elementFormDefault="qualified" attributeFormDefault="unqualified">
 
->>>>>>> .merge-right.r382
                 <xsl:value-of select="$newline"/>
                 <xsl:comment>
                     <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
@@ -113,33 +101,6 @@
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
-<<<<<<< .working
-
-                <!-- if this is the top-level package (ie: the root of the domain model) -->
-                <!-- then create a root element "CIMRecord"-->
-                <!-- which can contain a reference to _any_ <<document>> -->
-                <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
-                <xsl:if test="$depth=0">
-                    <xsl:comment>
-                        <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
-                    </xsl:comment>
-                    <xsl:value-of select="$newline"/>
-                    <xs:element name="CIMRecord">
-                        <xs:complexType>
-                            <xs:choice>
-                                <xsl:for-each select="//UML:Stereotype[@name='document']">
-                                    <xsl:variable name="className"
-                                        select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
-                                    <xsl:variable name="documentName"
-                                        select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
-                                    <xs:element ref="{$documentName}"/>
-                                </xsl:for-each>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                </xsl:if>
-                <!-- carry on with the parsing... -->
-=======
 
                 <!-- if this is the top-level package (ie: the root of the domain model) -->
                 <!-- then create a root element "CIMRecord"-->
@@ -173,7 +134,6 @@
                     </xs:element>
                 </xsl:if>
                 <!-- carry on with the parsing... -->
->>>>>>> .merge-right.r382
                 <xsl:apply-templates/>
 
             </xs:schema>

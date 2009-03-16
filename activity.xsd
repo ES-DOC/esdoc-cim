@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<<<<<<< .working
-<!-- generated: 9 March 2009 -->       
-<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
-=======
 <!-- generated: 16 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
->>>>>>> .merge-right.r382
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-<<<<<<< .working
-           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
-<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
-=======
            targetNamespace="http://www.metaforclimate.eu/cim/0.2"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
->>>>>>> .merge-right.r382
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -115,22 +105,6 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
          <xs:element name="experiment" minOccurs="1" maxOccurs="unbounded" type="Experiment"/>
          <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       </xs:sequence>  
-<<<<<<< .working
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-   <xs:complexType name="uses">
-      <xs:sequence/>
-   </xs:complexType>
-            <xs:simpleType name="ensembleTypes">
-        <xs:restriction base="xs:string"/>
-            </xs:simpleType>
-        
-            <xs:simpleType name="Enumeration1">
-        <xs:restriction base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType name="NumericalRequirement">
-=======
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -142,7 +116,6 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
         <xs:restriction base="xs:string"/>
             </xs:simpleType>
         <xs:complexType name="NumericalRequirement">
->>>>>>> .merge-right.r382
       <xs:annotation>
          <xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
       </xs:annotation>
@@ -435,28 +408,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                             </xs:complexContent>
                         </xs:complexType>
    <xs:complexType name="RestartDumps">
-<<<<<<< .working
                         <xs:complexContent>
                         <xs:extension base="Dataset">
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-   <xs:complexType name="ConfiguredModel">
-      <xs:annotation>
-         <xs:documentation>A configured model is a model with all of it's options set.
-A simulation must use a configured model unless it is associated with a  runCollection with more than one simulation.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence/>
-   </xs:complexType>
-=======
-                        <xs:complexContent>
-                        <xs:extension base="Dataset">
-                    <xs:sequence/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
->>>>>>> .merge-right.r382
    <xs:complexType name="Simulation">
       <xs:annotation>
          <xs:documentation>A simulation is the implentation of a numerical experiment.  A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations, the simulation attributes need to be able to capture this.</xs:documentation>
@@ -635,22 +592,9 @@ It is a place for the scientific description of the reason why an experiment was
          <xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DateRange"/>
          <xs:element name="Why" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
       </xs:sequence>  
-<<<<<<< .working
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-   <xs:complexType name="RunCollection">
-                        <xs:complexContent>
-                        <xs:extension base="NumericalActivity">
-                    <xs:sequence/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-=======
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
->>>>>>> .merge-right.r382
    <xs:complexType name="Output">
       <xs:sequence/>
    </xs:complexType>

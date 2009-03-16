@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<<<<<<< .working
-<!-- generated: 9 March 2009 -->       
-<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
-=======
 <!-- generated: 16 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
->>>>>>> .merge-right.r382
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-<<<<<<< .working
-           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
-<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
-=======
            targetNamespace="http://www.metaforclimate.eu/cim/0.2"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
->>>>>>> .merge-right.r382
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -40,11 +30,7 @@
                         </xs:complexType>
    <xs:complexType name="Property">
       <xs:annotation>
-<<<<<<< .working
-         <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
-=======
          <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.   Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
->>>>>>> .merge-right.r382
       </xs:annotation>
       <xs:sequence>
          <xs:element name="group" minOccurs="0" maxOccurs="1">
@@ -60,18 +46,12 @@
    <xs:complexType name="Calendar">
       <xs:sequence/>
    </xs:complexType>
-<<<<<<< .working
-   <xs:complexType name="DataSource">
-      <xs:sequence/>
-   </xs:complexType>
-=======
    <xs:complexType name="DataSource">
       <xs:annotation>
          <xs:documentation>An abstract representation of "something that can provide data" within the CIM.  Specialisations include data::DataObject and software::ComponentProperty.  It is also particularly useful for the activity::Conformance class.</xs:documentation>
       </xs:annotation>
       <xs:sequence/>
    </xs:complexType>
->>>>>>> .merge-right.r382
    <xs:simpleType name="ChangePropertyType">
       <xs:annotation>
          <xs:documentation>An enumeration of types of changes.</xs:documentation>
@@ -132,17 +112,6 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-<<<<<<< .working
-   <xs:simpleType name="Identifier">
-      <xs:restriction base="xs:token">
-         <xs:annotation>
-            <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
-         </xs:annotation>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="PropertyValue">
-      <xs:sequence/>
-=======
    <xs:simpleType name="Identifier">
       <xs:restriction base="xs:token">
          <xs:annotation>
@@ -152,7 +121,6 @@
    </xs:simpleType>
    <xs:complexType name="PropertyValue">
       <xs:sequence/>
->>>>>>> .merge-right.r382
    </xs:complexType>
    <xs:complexType name="Daily-360">
                         <xs:complexContent>
