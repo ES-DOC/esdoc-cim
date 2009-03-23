@@ -1,49 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 16 March 2009 -->       
-<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
-           xmlns:gml="http://www.opengis.net/gml/3.2"
-           xmlns="http://www.metaforclimate.eu/cim/0.2"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:gmd="http://www.isotc211.org/2005/gmd"
-           targetNamespace="http://www.metaforclimate.eu/cim/0.2"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified">       
+<!-- generated: 23 March 2009 -->       
+<xs:schema
+             elementFormDefault="qualified" attributeFormDefault="unqualified"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:gml="http://www.opengis.net/gml/3.2"
+             xmlns:gmd="http://www.isotc211.org/2005/gmd"
+            xmlns="http://www.metaforclimate.eu/cim/1.1" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
-<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
-   <xs:import namespace="http://www.isotc211.org/2005/gmd"
-              schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
-   <xs:import namespace="http://www.w3.org/1999/xlink"
-              schemaLocation="xlink/1.0.0/xlinks.xsd"/>
-   <xs:include schemaLocation="activity.xsd"/>
-   <xs:include schemaLocation="data.xsd"/>
-   <xs:include schemaLocation="grids.xsd"/>
-   <xs:include schemaLocation="quality.xsd"/>
-   <xs:include schemaLocation="shared.xsd"/>
-   <xs:include schemaLocation="software.xsd"/>
-   <!-- a CIMRecord can include any (single) <<document>> -->       
-<xs:element name="CIMRecord">
-      <xs:complexType>
-         <xs:sequence>
-            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
-               <xs:annotation>
-                  <xs:documentation>a unique indentifier for this
-                                            document</xs:documentation>
-               </xs:annotation>
-            </xs:element>
-            <xs:choice>
-               <xs:element ref="simulationRun"/>
-               <xs:element ref="simulationComposite"/>
-               <xs:element ref="numericalExperiment"/>
-               <xs:element ref="dataProcessing"/>
-               <xs:element ref="ensemble"/>
-               <xs:element ref="dataset"/>
-               <xs:element ref="dataObject"/>
-               <xs:element ref="gridSpec"/>
-               <xs:element ref="processorComponent"/>
-               <xs:element ref="modelComponent"/>
-            </xs:choice>
-         </xs:sequence>
-      </xs:complexType>
-   </xs:element>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.opengis.net/gml/3.2"
+           schemaLocation="gml/3.2.1/gml.xsd"/>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.isotc211.org/2005/gmd"
+           schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/1999/xlink"
+           schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="activity.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="data.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
+<xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
+<!-- a CIMRecord can include any (single) <<document>> -->       
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIMRecord">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+            <xs:annotation>
+               <xs:documentation>a unique indentifier for this
+                                        document</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:choice>
+            <xs:element ref="simulationRun"/>
+            <xs:element ref="simulationComposite"/>
+            <xs:element ref="numericalExperiment"/>
+            <xs:element ref="dataProcessing"/>
+            <xs:element ref="ensemble"/>
+            <xs:element ref="dataset"/>
+            <xs:element ref="dataObject"/>
+            <xs:element ref="gridSpec"/>
+            <xs:element ref="processorComponent"/>
+            <xs:element ref="modelComponent"/>
+            <xs:element ref="deployment"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>       
 </xs:schema>

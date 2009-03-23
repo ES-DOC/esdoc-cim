@@ -16,7 +16,7 @@
     <xsl:strip-space elements="*"/>
 
     <!-- some useful global variables  -->
-    <xsl:variable name="version">0.2</xsl:variable>
+    <xsl:param name="version">undefined</xsl:param>
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
     <xsl:variable name="newline">
@@ -33,6 +33,11 @@
     <!-- EA outputs XMI v1.1; so this XSL is tailored to that -->
     <!-- strange things might happen at other versions -->
     <xsl:template match="XMI[@xmi.version='1.1']">
+        <xsl:if test="$version='undefined'">
+            <xsl:message terminate="yes">
+                <xsl:text> please specify a version parameter </xsl:text>
+            </xsl:message>
+        </xsl:if>
         <!-- apply templates to the UML:Model -->
         <!-- and ignore  UML:Diagram, etc. -->
         <xsl:apply-templates select="XMI.content/UML:Model"/>
@@ -76,67 +81,90 @@
             <xsl:value-of select="$newline"/>
 
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
-            <!--  not sure why I can't use XPath for "xmlns" attribute -->
-            <xs:schema xmlns="http://www.metaforclimate.eu/cim/0.2"
+            <!-- not sure why I can't use XPath for "xmlns" attribute -->
+            <!-- but specifying the following as icky <xsl:text> gets around that problem  -->
+            <xsl:text disable-output-escaping="yes">&lt;xs:schema
+             elementFormDefault="qualified" attributeFormDefault="unqualified"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:gml="http://www.opengis.net/gml/3.2"
+             xmlns:gmd="http://www.isotc211.org/2005/gmd"
+            </xsl:text>
+            <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/cim/</xsl:text>
+            <xsl:value-of select="$version"/>
+            <xsl:text disable-output-escaping="yes">" 
+            targetNamespace="http://www.metaforclimate.eu/cim/</xsl:text>
+            <xsl:value-of select="$version"/>
+            <xsl:text disable-output-escaping="yes">"&gt;</xsl:text>
+
+            <!--                
+            <xs:schema                 
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                xmlns="{concat('http://www.metaforclimate.eu/cim/',$version)}"
                 targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
                 elementFormDefault="qualified" attributeFormDefault="unqualified">
+-->
+            <xsl:value-of select="$newline"/>
+            <xsl:comment>
+                <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
+            </xsl:comment>
+            <xsl:value-of select="$newline"/>
+            <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+            <xs:import namespace="http://www.isotc211.org/2005/gmd"
+                schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
+            <xs:import namespace="http://www.w3.org/1999/xlink"
+                schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+            <!-- HERE ENDETH THE HACK -->
 
-                <xsl:value-of select="$newline"/>
+            <xsl:for-each select="//UML:Package[@name!=$packageName]">
+                <xsl:if test="./ancestor::UML:Package">
+                    <!-- include every package that is _not_ the "parent" package -->
+                    <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
+                </xsl:if>
+            </xsl:for-each>
+
+            <!-- if this is the top-level package (ie: the root of the domain model) -->
+            <!-- then create a root element "CIMRecord"-->
+            <!-- which can contain a reference to _any_ <<document>> -->
+            <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
+            <xsl:if test="$depth=0">
                 <xsl:comment>
-                    <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
+                    <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
                 </xsl:comment>
                 <xsl:value-of select="$newline"/>
-                <xs:import namespace="http://www.opengis.net/gml/3.2"
-                    schemaLocation="gml/3.2.1/gml.xsd"/>
-                <xs:import namespace="http://www.isotc211.org/2005/gmd"
-                    schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
-                <xs:import namespace="http://www.w3.org/1999/xlink"
-                    schemaLocation="xlink/1.0.0/xlinks.xsd"/>
-                <!-- HERE ENDETH THE HACK -->
+                <xs:element name="CIMRecord">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+                                <xs:annotation>
+                                    <xs:documentation>a unique indentifier for this
+                                        document</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice>
+                                <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                    <xsl:variable name="className"
+                                        select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
+                                    <xsl:variable name="documentName"
+                                        select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
+                                    <xs:element ref="{$documentName}"/>
+                                </xsl:for-each>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xsl:if>
+            <!-- carry on with the parsing... -->
+            <xsl:apply-templates/>
 
-                <xsl:for-each select="//UML:Package[@name!=$packageName]">
-                    <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
-                </xsl:for-each>
-
-                <!-- if this is the top-level package (ie: the root of the domain model) -->
-                <!-- then create a root element "CIMRecord"-->
-                <!-- which can contain a reference to _any_ <<document>> -->
-                <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
-                <xsl:if test="$depth=0">
-                    <xsl:comment>
-                        <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
-                    </xsl:comment>
-                    <xsl:value-of select="$newline"/>
-                    <xs:element name="CIMRecord">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="id" minOccurs="1" maxOccurs="1"
-                                    type="Identifier">
-                                    <xs:annotation>
-                                        <xs:documentation>a unique indentifier for this document</xs:documentation>
-                                    </xs:annotation>
-                                </xs:element>
-                                <xs:choice>
-                                    <xsl:for-each select="//UML:Stereotype[@name='document']">
-                                        <xsl:variable name="className"
-                                            select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
-                                        <xsl:variable name="documentName"
-                                            select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
-                                        <xs:element ref="{$documentName}"/>
-                                    </xsl:for-each>
-                                </xs:choice>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                </xsl:if>
-                <!-- carry on with the parsing... -->
-                <xsl:apply-templates/>
-
+            <xsl:value-of select="$newline"/>
+            <xsl:text disable-output-escaping="yes">&lt;/xs:schema&gt;</xsl:text>
+            <!--            
             </xs:schema>
+-->
 
         </xsl:result-document>
     </xsl:template>
