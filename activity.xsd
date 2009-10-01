@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 23 March 2009 -->       
+<!-- generated: 30 September 2009, 17:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -11,24 +11,44 @@
             targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/1999/xlink"
+           schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.opengis.net/gml/3.2"
-           schemaLocation="gml/3.2.1/gml.xsd"/>
+           schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.isotc211.org/2005/gmd"
-           schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
-<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           namespace="http://www.w3.org/1999/xlink"
-           schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+           schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="data.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
-            <xs:simpleType name="TemporalAveType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemporalAveType">
+   <xs:restriction base="xs:string"/>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity" abstract="true">
+   <xs:annotation>
+      <xs:documentation>An abstract class used as the parent of MeasurementCampaigns, Projects, Experiments, and NumericalActivities.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
+      <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
+                  type="gmd:CI_ResponsibleParty_PropertyType">
+         <xs:annotation>
+            <xs:documentation>The point of contact(s) for this activity.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="principleInvestigator" minOccurs="0" maxOccurs="unbounded"
+                  type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The people performing this activity; this may differ from the responsibleParty</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="fundingSource" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The entities that funded this activity.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="rationale" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
@@ -36,15 +56,49 @@
    <xs:annotation>
       <xs:documentation>A SimulationRun is, as the name implies, one single model run.  
 A SimulationRun is a Simulation.
-There is a one to one association between SimulationRun and SoftwarePackage::ModelComponent. </xs:documentation>
+There is a one to one association between SimulationRun and (a top-level) SoftwarePackage::ModelComponent. </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
                     <xs:sequence>
       <xs:element name="model" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="modelComponent" type="ModelComponent"/>
+            </xs:choice>
          </xs:complexType>
+      </xs:element>
+      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>The start (in simulated time) time of this run</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>The end (in simulated time) time of this run</xs:documentation>
+         </xs:annotation>
       </xs:element>
    </xs:sequence>  
                             </xs:extension>
@@ -54,28 +108,32 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
    <xs:annotation>
       <xs:documentation>A SimulationRun is, as the name implies, one single model run.  
 A SimulationRun is a Simulation.
-There is a one to one association between SimulationRun and SoftwarePackage::ModelComponent. </xs:documentation>
+There is a one to one association between SimulationRun and (a top-level) SoftwarePackage::ModelComponent. </xs:documentation>
    </xs:annotation>
    <xs:complexType>
       <xs:complexContent>
          <xs:extension base="SimulationRun">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
@@ -83,28 +141,50 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConfiguredModelComponent">
-   <xs:annotation>
-      <xs:documentation>Configured model component examples: Atmosphere, Ocean, Biosphere, Cryosphere and Chemistry.  A configured model component can be made up of many subcomponents.  Example:  an atmosphere component contains advection, convection and radiation etc components. </xs:documentation>
-   </xs:annotation>
-   <xs:sequence>
-      <xs:element name="configuredModelComponent" minOccurs="1" maxOccurs="unbounded"
-                  type="ConfiguredModelComponent"/>
-   </xs:sequence>
-</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Project">
                         <xs:complexContent>
                         <xs:extension base="Activity">
                     <xs:sequence>
       <xs:element name="parent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="project" type="Project"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="child" minOccurs="0" maxOccurs="unbounded" type="Project"/>
       <xs:element name="experiment" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
    </xs:sequence>  
                             </xs:extension>
@@ -120,34 +200,40 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="uses">
-   <xs:sequence/>
-</xs:complexType>
-            <xs:simpleType name="ensembleTypes">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        
-            <xs:simpleType name="Enumeration1">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalRequirement">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleType">
+   <xs:restriction base="xs:string"/>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalRequirement">
    <xs:annotation>
       <xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
                   type="NumericalRequirement"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationship">
+   <xs:annotation>
+      <xs:documentation><ol style="margin-top: 0mm; margin-bottom: 0mm; "><ol style="margin-top: 0mm; margin-bottom: 0mm; "> <li>Contains a set of relationship types specific to a simulation document that can be used to describe its genealogy.</li>
+</ol>
+</ol></xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Relationship">
+                    <xs:sequence/>
+   <xs:attribute name="type" use="required" type="SimulationRelationshipType"/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Conformance">
    <xs:annotation>
       <xs:documentation>A conformance class maps how a configured model component met a specific numerical requirement.
 
 For example, for a double CO2 boundary condition, a model component might read a CO2 dataset in which CO2 has been doubled, or it might modify a parameterisation (presumably with a factor of two somewhere).
-
-So, the conformance links a requirement URI either to a dataset URI or a component URI.</xs:documentation>
+So, the conformance links a requirement to a DataSource (which can be either an actual DataObject or a property of a model component).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="source" minOccurs="1" maxOccurs="unbounded">
@@ -155,28 +241,128 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
             <xs:documentation>Points to the DataSource used to conform to a particular Requirement.   This may be part of an activity::simulation or a software::component.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="source" minOccurs="1" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="requirement" minOccurs="1" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>Points to the NumericalRequirement that the simulation in question is conforming to.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="numericalRequirement" type="NumericalRequirement"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="frequency" use="optional" type="FrequencyType"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalActivity">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalActivity"
+                abstract="true">
    <xs:annotation>
-      <xs:documentation>Numerical Activity is an abstract concept which in this world view is either an ensemble, a simulaiton or a diagnostic.</xs:documentation>
+      <xs:documentation>Numerical Activity is an abstract concept which in this world view is either an ensemble, a simulaiton or a DataProcessing activity.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Activity">
                     <xs:sequence>
-      <xs:element name="experiment" minOccurs="1" maxOccurs="unbounded" type="Experiment"/>
+      <xs:element name="supports" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="experiment" type="Experiment"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dataHolder" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The point of contact for the data associated with this activity; may have to exist before a record of the data exists in the CIM.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Assimilation">
    <xs:annotation>
-      <xs:documentation>An assimilation run is a simulation that is constrained by observations. It is representative of an acutal period in the past eg ERA-40. </xs:documentation>
+      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an acutal period in the past eg ERA-40. </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
@@ -206,27 +392,66 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
-                    <xs:sequence>
-      <xs:element name="child" minOccurs="0" maxOccurs="unbounded" type="Simulation"/>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
-         </xs:annotation>
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="child" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="simulationRun" type="SimulationRun"/>
+               <xs:element name="assimilation" type="Assimilation"/>
+               <xs:element name="simulationComposite" type="SimulationComposite"/>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
       <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer">
          <xs:annotation>
             <xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
-         </xs:complexType>
-      </xs:element>
       <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
          <xs:annotation>
             <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite.  </xs:documentation>
          </xs:annotation>
+      </xs:element>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="simulationRun" type="SimulationRun"/>
+                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element name="simulationComposite" type="SimulationComposite"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
    </xs:sequence>  
                             </xs:extension>
@@ -243,22 +468,26 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:complexContent>
          <xs:extension base="SimulationComposite">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
@@ -266,6 +495,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -287,19 +522,18 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatioTemporalConstraint">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
-                    <xs:sequence>
-      <xs:element name="outputPeriod" minOccurs="0" maxOccurs="1" type="DateRange"/>
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>
    <xs:attribute name="outputFrequency" use="required" type="FrequencyType"/>
    <xs:attribute name="spatialResolution" use="optional" type="ResolutionType"/>
    <xs:attribute name="temporalAveraging" use="optional" type="TemporalAveType"/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Control">
-                        <xs:complexContent>
-                        <xs:extension base="NumericalRequirement">
-                    <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -312,15 +546,26 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     <xs:sequence>
       <xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded"
                   type="NumericalRequirement"/>
-      <xs:element name="experiment" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
-      <xs:element name="CalendarType" minOccurs="1" maxOccurs="1" type="Calendar">
-         <xs:annotation>
-            <xs:documentation>Is the numerical experiment representative of real time, a 360 day year or a perpetual period?</xs:documentation>
-         </xs:annotation>
+      <xs:element name="supports" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
+      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <!-- this is an abstract class --><xs:element name="calendar" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="daily-360" type="Daily-360"/>
+               <xs:element name="realCalendar" type="RealCalendar"/>
+               <xs:element name="perpetualPeriod" type="PerpetualPeriod"/>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
       <xs:element name="requiredDuration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
    </xs:sequence>
-   <xs:attribute name="control" use="required" type="xs:boolean"/>  
+   <xs:attribute name="control" use="required" type="xs:boolean">
+      <xs:annotation>
+         <xs:documentation>Is this a control run?</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -332,22 +577,26 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:complexContent>
          <xs:extension base="NumericalExperiment">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
@@ -355,55 +604,165 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-            <xs:simpleType name="ResolutionType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProcessing">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionType">
+   <xs:restriction base="xs:string"/>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProcessing">
    <xs:annotation>
-      <xs:documentation>A diagnostic is some kind of data processing, It can refer to the processing of observation data or post processing of data from a simulation. </xs:documentation>
+      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate sceintific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
-      <xs:element name="processor" minOccurs="1" maxOccurs="1">
+      <xs:element name="processor" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="processorComponent" type="ProcessorComponent"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="inputs" minOccurs="0" maxOccurs="unbounded" type="Dataset"/>
-      <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="Dataset"/>
+      <xs:element name="inputs" minOccurs="0" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>the data being processed.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="inputs" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="outputs" minOccurs="0" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>the data being generated.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="outputs" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dataProcessing">
    <xs:annotation>
-      <xs:documentation>A diagnostic is some kind of data processing, It can refer to the processing of observation data or post processing of data from a simulation. </xs:documentation>
+      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate sceintific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
    </xs:annotation>
    <xs:complexType>
       <xs:complexContent>
          <xs:extension base="DataProcessing">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
@@ -411,82 +770,265 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeAverage">
-                        <xs:complexContent>
-                        <xs:extension base="Dataset">
-                    <xs:sequence/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RestartDumps">
-                        <xs:complexContent>
-                        <xs:extension base="Dataset">
-                    <xs:sequence/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConfiguredModel">
-   <xs:annotation>
-      <xs:documentation>A configured model is a model with all of it's options set.
-A simulation must use a configured model unless it is associated with a  runCollection with more than one simulation.</xs:documentation>
-   </xs:annotation>
-   <xs:sequence/>
-</xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Simulation">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Simulation" abstract="true">
    <xs:annotation>
       <xs:documentation>A simulation is the implentation of a numerical experiment.  A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations, the simulation attributes need to be able to capture this.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
+      <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
       <xs:element name="simulationComposite" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="simulationComposite" type="SimulationComposite"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="ancillaryDataset" minOccurs="0" maxOccurs="unbounded" type="xs:anyURI">
+      <xs:element name="ensemble" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="ensemble" type="Ensemble"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="deployment" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="deployment" type="Deployment"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="ancillaryForcing" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
             <xs:documentation>this is the label for a uri to all the ancillary files for this simulation
 NB it doesn't stop one form having uris to conformance that point into the dataset.</xs:documentation>
          </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataObject" type="DataObject"/>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
-      <xs:element name="dateDeployed" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Added at the request of Allyn Treshansky</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
       <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-      <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
-      <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded" type="xs:anyURI"/>
-      <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
+      <xs:element name="initialCondition" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataObject" type="DataObject"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <!--output is not used -->       
+<xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataObject" type="DataObject"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="DataObject"/>
       <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
-   </xs:sequence>
-   <xs:attribute name="initialCondition" use="required" type="xs:anyURI"/>  
+      <xs:element name="previousSimulation" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="previousSimulation" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="simulationRun" type="SimulationRun"/>
+                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element name="simulationComposite" type="SimulationComposite"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataCollection">
    <xs:annotation>
-      <xs:documentation>A DataCollection activity is one which is not aimed at supporting any specific experiment. Examples might inlcude operatonal</xs:documentation>
+      <xs:documentation>A DataCollection activity is one which is not aimed at supporting any specific experiment. </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Project">
                     <xs:sequence>
       <xs:element name="assimilation" minOccurs="0" maxOccurs="unbounded" type="Assimilation"/>
-      <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="DateRange"/>
+      <!-- this is an abstract class --><xs:element name="Duration" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleStatistic">
-                        <xs:complexContent>
-                        <xs:extension base="Dataset">
-                    <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -497,9 +1039,80 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
-      <xs:element name="simulation" minOccurs="1" maxOccurs="1" type="Simulation"/>
-      <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="EnsembleStatistic"/>
-      <xs:element name="type" minOccurs="1" maxOccurs="unbounded" type="ensembleTypes"/>
+      <xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="simulationRun" type="SimulationRun"/>
+                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element name="simulationComposite" type="SimulationComposite"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="output" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="output" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="ensembleType" minOccurs="1" maxOccurs="unbounded" type="EnsembleType"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -512,22 +1125,26 @@ NB it doesn't stop one form having uris to conformance that point into the datas
       <xs:complexContent>
          <xs:extension base="Ensemble">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
@@ -535,55 +1152,30 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-            <xs:simpleType name="FixityType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="moving"/>
-   <xs:enumeration value="stationary"/>
-</xs:restriction>
-            </xs:simpleType>
-        
-            <xs:simpleType name="FrequencyType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Dataset">
-   <xs:sequence/>
-</xs:complexType>
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dataset">
-   <xs:complexType>
-      <xs:complexContent>
-         <xs:extension base="Dataset">
-            <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
-                  <xs:annotation>
-                     <xs:documentation>a unique indentifier for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
-                  </xs:complexType>
-               </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
-                  <xs:annotation>
-                     <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-</xs:element>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FixityType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="stationary"/>
+      <xs:enumeration value="moving"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FrequencyType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="daily"/>
+      <xs:enumeration value="monthly"/>
+      <xs:enumeration value="yearly"/>
+      <xs:enumeration value="hourly"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InitialCondition">
    <xs:annotation>
       <xs:documentation>An initial condition is a numerical requirement on a model prognostic variable value at time zero.</xs:documentation>
@@ -594,6 +1186,12 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationshipType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="extensionOf"/>
+      <xs:enumeration value="responseTo"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Experiment">
    <xs:annotation>
       <xs:documentation>An experiment might be an acitivity which is both observational and numerical in focus, for example, a measurement campaign and numerical experiments for an alpine experiment.
@@ -604,42 +1202,123 @@ It is a place for the scientific description of the reason why an experiment was
                     <xs:sequence>
       <xs:element name="measurementCampaign" minOccurs="0" maxOccurs="unbounded"
                   type="MeasurementCampaign"/>
-      <xs:element name="numericalActivity" minOccurs="0" maxOccurs="unbounded"
-                  type="NumericalActivity"/>
-      <xs:element name="numericalExperiment" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="requires" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="requires" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="ensemble" type="Ensemble"/>
+                        <xs:element name="simulation" type="Simulation"/>
+                        <xs:element name="dataProcessing" type="DataProcessing"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DateRange"/>
-      <xs:element name="Why" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+      <xs:element name="generates" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="numericalExperiment" type="NumericalExperiment"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="experimentID" minOccurs="0" maxOccurs="1" type="Identifier"/>
+      <!-- this is an abstract class --><xs:element name="duration" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="why" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RunCollection">
-                        <xs:complexContent>
-                        <xs:extension base="NumericalActivity">
-                    <xs:sequence/>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Output">
-   <xs:sequence/>
-</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MIP">
    <xs:annotation>
-      <xs:documentation>Model Intercomparison Project. Exmaple: CMIP5 and CCMVal. A MIP aggregates together many Numerical Experiments.</xs:documentation>
+      <xs:documentation>Model Intercomparison Project. Exmaple: CMIP5 and CCMVal. A MIP aggregates together many Numerical Experiments.  A MIP contains a reference to at least two experiments.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Project">
                     <xs:sequence>
-      <xs:element name="numericalExperiment" minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="numericalExperiment" minOccurs="2" maxOccurs="unbounded">
          <xs:annotation>
             <xs:documentation>A NumericalExperiment to compare</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="numericalExperiment" type="NumericalExperiment"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
    </xs:sequence>  

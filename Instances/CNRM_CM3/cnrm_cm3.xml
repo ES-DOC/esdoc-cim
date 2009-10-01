@@ -1,0 +1,1925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelComponent>
+    <xmlns>http://www.metaforclimate.eu/cim/0.2</xmlns>
+    <xmlns:xsi>http://www.w3.org/2001/XMLSchema-instance</xmlns:xsi>
+    <xsi:schemaLocation>http://www.metaforclimate.eu/cim/0.2 file:/D:/moine/METAFOR/CIM_Repository/dev0p3/software.xsd</xsi:schemaLocation>
+    <type>coupled + #TO_ADD#<!--add "coupled" in ModelComponentType codeList--></type>
+    <embedded>false + #TOBE_CLARIFIED#<!--false is just for top level model component, all child components being embedded? or "embedded" means "merged" with another model component (for e.g. GELATO is "merged" with NEMO) or "embedded" means described in the curent document?--></embedded>
+            <composition>
+                <coupling complete="false" type="#NO_SENSE_IF#">
+                    <connection type="OASIS ">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="source model time steps #TO_ADD#">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#<!--is it Rupert's prime concept? + should be attached directly to Connection--></end>
+                            <rate>1  + #REPLACE_WITH#</rate><!--replace "rate" by "value"-->
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#<!--is it Rupert's prime concept? + should be attached directly to Connection--></start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400 + #REPLACE_WITH#<!--replace "rate" by "value"--></rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        <!--replace "rate" by "frequency"--></rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{surface_downwelling_shortwave_flux} + #TO_AGREE_ON# + #NEEDS_CV# + #TOBE_CLARIFIED#<!--to agree on a way to write the full path (expoit source and target info from coupling level) + needs CV for exchanged fields + clarify if we need to specify explicitely source and target (could be automatic) and give only the exhanged field name--></source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id}/ScientificProperty%name{surface_downwelling_shortwave_flux} + + #TO_AGREE_ON# + #NEEDS_CV# + #TOBE_CLARIFIED#<!--to agree on a way to write the full path (expoit source and target info from coupling level) + needs CV for exchanged fields + clarify if we need to specify explicitely source and target (could be automatic) and give only the exhanged field name--></target>
+                        <transformer>#TOBE_CLARIFIED#<!--"transformer" means "one operation for transformation"?--></transformer>
+                        <transformer>#TOBE_CLARIFIED#<!--for each particular operation we have to describe a processorComponent and refer to it  as a DataSource here? If it is, I do not understand why processorComponent is a specialisation of SoftwareComponent" (unrolling childs, scientificProperties, deployment, etc...)--></transformer>
+                    </connection>
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{surface_downward_eastward_stress} + #TO_AGREE_ON# + #NEEDS_CV# + #TOBE_CLARIFIED#</source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id}/ScientificProperty%name{surface_eastwarddownward_stress} + #TO_AGREE_ON# + #NEEDS_CV# + #TOBE_CLARIFIED#</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    <description>Atmospheric fluxes and wind stresses transmitted to the Ocean</description>
+                    <lag units="#NO_SENSE_IF# ">
+                        <end>#NO_SENSE_IF# </end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF# </start>
+                    <!--if lag is defined at connection level it does not make sense to re-define it here; if not defined at connection level it has to be defined here at coupling level and each connection inherits of its value--></lag>
+                    <rate units="#NO_SENSE_IF# ">
+                        <end>#NOT_UNDERSTOOD#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NOT_UNDERSTOOD#</start>
+                    <!--if rate i.e. coupling frequency is defined at connection level it does not make sense to re-define it here; if not defined at connection level it has to be defined here at coupling level and each connection inherits of its value--></rate>
+                    <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id} + #TO_AGREE_ON#<!--to agree on a way to write the full path--></source>
+                    <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id} + #TO_AGREE_ON#<!--to agree on a way to write the full path--></target>
+                </coupling>
+                <coupling complete="false" type="#NO_SENSE_IF#">
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id}/ScientificProperty%name{sea_surface_temperature}+ #TO_AGREE_ON# + #NEEDS_CV# +TOBE_CLARIFIED#
+                        </source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{sea_surface_temparature} + #TO_AGREE_ON#  + #TOBE_CLARIFIED#</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent#id{cnrm_cm3_id}.modelComponent#id{nemo_id}/ScientificProperty#name{northward_sea_surface_water_velocity} + #TO_AGREE_ON# + #NEEDS_CV# +#TOBE_CLARIFIED#
+</source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{northward_sea_surface_water_velocity} + #TO_AGREE_ON# + #NEEDS_CV# + #TOBE_CLARIFIED#
+</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    <description>Oceanic Temperature and currents transmitted to the Atmosphere</description>
+                    <lag units="#NO_SENSE_IF#">
+                        <end>#NO_SENSE_IF# </end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF# </start>
+                    </lag>
+                    <rate units="#NO_SENSE_IF# ">
+                        <end>#NOT_UNDERSTOOD#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NOT_UNDERSTOOD#</start>
+                    </rate>
+                    <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id} + #TO_AGREE_ON#</source>
+                    <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id} + #TO_AGREE_ON#</target>
+                </coupling>
+                <description>Interaction between Atmosphere and Ocean</description>
+            </composition><composition>
+                
+                <coupling complete="false" type="#NO_SENSE_IF#">
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{surface_runoff}+ #TO_AGREE_ON# + #NEEDS_CV# +TOBE_CLARIFIED#
+                        </source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}.modelComponent%id{landsurface_id}.modelComponent%id{trip_id}/ScientificProperty%name{surface_runoff} + #TO_AGREE_ON#  + #TOBE_CLARIFIED#</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    
+                    
+                    <lag units="#NO_SENSE_IF#">
+                        <end>#NOT_RIGHT_PLACE#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NOT_RIGHT_PLACE#</start>
+                    </lag>
+                    <description>runoff transmitted from Atmosphere to Atmosphere.LandSurface.Rivers</description><rate units="#NO_SENSE_IF# ">
+                        <end>#NOT_RIGHT_PLACE#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NOT_RIGHT_PLACE#</start>
+                    </rate>
+                    <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id} + #TO_AGREE_ON#</source>
+                    <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}.modelComponent%id{landsurface_id}.modelComponent%id{trip_id} + #TO_AGREE_ON#</target>
+                </coupling><coupling complete="false" type="#NO_SENSE_IF#">
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}.modelComponent%id{landsurface_id}/ScientificProperty%name{surface_albedo}+ #TO_AGREE_ON# + #NEEDS_CV# +TOBE_CLARIFIED#
+                        </source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}/ScientificProperty%name{surface_albedo} + #TO_AGREE_ON#  + #TOBE_CLARIFIED#</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    
+                    
+                    <lag units="#NO_SENSE_IF#">
+                        <end>#NO_SENSE_IF#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF#</start>
+                    </lag>
+                    <description>surface albedo  transmitted from Atmosphere.LandSurface to Atmosphere</description><rate units="#NO_SENSE_IF# ">
+                        <end>#NO_SENSE_IF# </end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF#</start>
+                    </rate>
+                    <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}.modelComponent%id{landsurface_id} + #TO_AGREE_ON#</source>
+                    <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id} + #TO_AGREE_ON#</target>
+                </coupling>
+                <description>Interaction between Atmosphere and LandSurface</description>
+            </composition><composition>
+                
+                <coupling complete="false" type="#NO_SENSE_IF#">
+                    <connection type="OASIS">
+                        <coupling>#NOT_UNDERSTOOD#</coupling>
+                        <lag units="seconds">
+                            <end>time step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</end>
+                            <rate>+1800</rate>
+                            <start>second step before last + #TOBE_CLARIFIED# +#NOT_RIGHT_PLACE#</start>
+                        </lag>
+                        <rate units="seconds">
+                            <end>#NOT_UNDERSTOOD#</end>
+                            <rate>86400</rate>
+                            <start>#NOT_UNDERSTOOD#</start>
+                        </rate>
+                        <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{trip_id}/ScientificProperty%name{surface_runoff}+ #TO_AGREE_ON# + #NEEDS_CV# +TOBE_CLARIFIED#
+                        </source>
+                        <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id}/ScientificProperty%name{surface_runoff} + #TO_AGREE_ON#  + #TOBE_CLARIFIED#</target>
+                        <transformer/>
+                        <transformer/>
+                    </connection>
+                    
+                    <description>runoff transmitted from Atmosphere.LandSurface.Rivers to Ocean</description>
+                    <lag units="#NO_SENSE_IF#">
+                        <end>#NO_SENSE_IF#</end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF#</start>
+                    </lag>
+                    <rate units="#NO_SENSE_IF# ">
+                        <end>#NO_SENSE_IF# </end>
+                        <rate>#NO_SENSE_IF#</rate>
+                        <start>#NO_SENSE_IF#</start>
+                    </rate>
+                    <source>modelComponent%id{cnrm_cm3_id}.modelComponent%id{arpege_id}.modelComponent%id{landsurface_id}.modelComponent%id{trip_id} + #TO_AGREE_ON#</source>
+                    <target>modelComponent%id{cnrm_cm3_id}.modelComponent%id{nemo_id} + #TO_AGREE_ON#</target>
+                </coupling>
+                <description>Interaction between LandSurface and Ocean</description>
+            </composition>
+            
+            <deployment>
+                <component embedded="#TOBE_REMOVED#">
+                    
+                    <composition>#TOBE_REMOVED#</composition>
+                    <deployment>#TOBE_REMOVED#</deployment>
+                    
+                    <childComponent>#TOBE_REMOVED#</childComponent>
+                    <parentComponent>#TOBE_REMOVED#</parentComponent>
+                    <description>#TOBE_REMOVED#</description>
+                    <grid>#TOBE_REMOVED#</grid>
+                    <name>#TOBE_REMOVED#</name>
+                    <numericalProperties>#TOBE_REMOVED#</numericalProperties>
+                    <scientificProperties>#TOBE_REMOVED#</scientificProperties>
+                <!--component of type SoftwareComponent has not to be an element of deployment???--></component>
+                
+                <compiler>
+                    <compilerEnvironmentVariables>#NONE_HERE#</compilerEnvironmentVariables>
+                    <compilerLanguage>#NONE_HERE#</compilerLanguage>
+                    <compilerLibrary>#NONE_HERE#</compilerLibrary>
+                    <compilerName>#NONE_HERE#</compilerName>
+                    <compilerOptions>#NONE_HERE#</compilerOptions>
+                    <compilerVersion>#NONE_HERE#</compilerVersion>
+                </compiler>
+                <date>2006-05-04T18:13:51.0Z</date>
+                <description>description55</description>
+                <machine machineType="massiveParallel">
+                    <machineDescription>60 processors - Vector Parallel - distributed memory </machineDescription>
+                    <machineEnvironmentVariables>#TOBE_CLARIFIED#</machineEnvironmentVariables>
+                    <machineLibrary>#TOBE_CLARIFIED#<!--how to differenciate from compilerLibrary?--></machineLibrary>
+                    <machineLocation>Météo-France Toulouse FRANCE</machineLocation>
+                    <machineName>FUJITSU</machineName>
+                    <machineOperatingSystem>UXP/V</machineOperatingSystem>
+                    <machineSystem>VPP5000/60</machineSystem>
+                </machine>
+            </deployment>
+            <childComponent embedded="false">
+                
+                
+                
+                
+                
+                
+                <description>global atmosphere</description>
+                
+                <name>ARPEGE-Climat + #TO_ADD#<!--add a link to the document where the model sub-component is described--></name>
+                
+                
+            </childComponent>
+            <childComponent embedded=" false">
+                
+                
+                
+                
+                
+                
+                <description>global ocean</description>
+                
+                <name>OPA + #TO_ADD#<!--add a link to the document where the model sub-component is described--></name>
+                
+                
+            </childComponent><childComponent embedded="true"><description>sea ice</description><name>GELATO  + #TO_ADD#<!--add a link to the document where the model sub-component is described--></name></childComponent>
+            
+            <description>#REPLACE_WITH# + #TO_ADD#<!--to replace with and add "webSite" = http://www.cnrm.meteo.fr/scenario2004/references_eng.html, "PublishedReference", "lastChangesReference", "Vintage" = 2004 (cf. IPCC-AR4/I.C,D,E)--></description>
+            
+            <name>CNRM-CM3 + #TO_ADD#<!--add "version" = #NONE_HERE# (cf. IPCC-AR4/I.B)--></name><grid>#TOBE_CLARIFIED#
+            <!--xlink to Grid?--></grid>
+            <numericalProperties>#NONE_HERE#</numericalProperties>
+            <scientificProperties>#NONE_HERE#
+                
+                
+            </scientificProperties>
+            <activity>xlink:href:activity::SimulationRun#id + #TO_AGREE_ON# + #TOBE_CLARIFIED#<!--to agree on how to write xlinks + xlink to what in Activity?--></activity>
+            <timing units="#NONE_HERE# + #NEEDS_CHANGE# [minOccurs=0] ">
+                <end>#NOT_RIGHT_PLACE#<!--belongs to Activity?--></end>
+                <rate>#NONE_HERE# + #REPLACE_WITH# + #NEEDS_CHANGE#<!--replace with "timeStep" + change to minOccurs=0--></rate>
+                <start>#NOT_RIGHT_PLACE#<!--belongs to Activity?--></start>
+            </timing>
+        <author>#REPLACE_WITH# + #TO_ADD#<!--replace with "contactName"= David Salas y Melia + add "contactEmail"= David.Salas@meteo.fr, "institutionName"= CNRM/Meteo France (cf. IPCC-AR4/I.G,A)--></author>
+        <creationDate>2006-05-04T18:13:51.0Z</creationDate>
+        <documentID>cnrm_cm3_id + #AUTO_GENERATED#</documentID>
+        <parent>#NONE_HERE#</parent>
+        <quality>
+            <cIM_QualityIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <issueDescription>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription/>
+                        </issueDescription>
+                    </issueDescription>
+                </issueDescription>
+                <issueIdentifiedBy>
+                </issueIdentifiedBy>
+                <issueResponsibilityOf>
+                </issueResponsibilityOf>
+            </cIM_QualityIssue>
+            <cIM_QualityIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <issueDescription>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription/>
+                        </issueDescription>
+                    </issueDescription>
+                </issueDescription>
+                <issueIdentifiedBy>
+                </issueIdentifiedBy>
+                <issueResponsibilityOf>
+                </issueResponsibilityOf>
+            </cIM_QualityIssue>
+            <report evaluationMethodType="directExternal" measureIdentification="measureIdentification1">
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <evaluationMethodDescription>evaluationMethodDescription0</evaluationMethodDescription>
+                <evaluationProcedure>
+                </evaluationProcedure>
+                <measureDescription>measureDescription0</measureDescription>
+                <nameOfMeasure>nameOfMeasure0</nameOfMeasure>
+                <nameOfMeasure>nameOfMeasure1</nameOfMeasure>
+                <result/>
+                <result/>
+            </report>
+            <report evaluationMethodType="directExternal" measureIdentification="measureIdentification3">
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <evaluationMethodDescription>evaluationMethodDescription1</evaluationMethodDescription>
+                <evaluationProcedure>
+                </evaluationProcedure>
+                <measureDescription>measureDescription1</measureDescription>
+                <nameOfMeasure>nameOfMeasure2</nameOfMeasure>
+                <nameOfMeasure>nameOfMeasure3</nameOfMeasure>
+                <result/>
+                <result/>
+            </report>
+            <scope>
+                <extent/>
+                <level level="dataset"/>
+                <levelDescription>levelDescription0</levelDescription>
+                <levelDescription>levelDescription1</levelDescription>
+            </scope>
+        </quality>
+        <quality>
+            <cIM_QualityIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <issueDescription>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription/>
+                        </issueDescription>
+                    </issueDescription>
+                </issueDescription>
+                <issueIdentifiedBy>
+                </issueIdentifiedBy>
+                <issueResponsibilityOf>
+                </issueResponsibilityOf>
+            </cIM_QualityIssue>
+            <cIM_QualityIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                    <detailDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </detailDescription>
+                    <featureType/>
+                </cIM_QualityDetail>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <cIM_QualityResolution>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <resolutionDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                    </resolutionDescription>
+                    <resolvedBy>
+                    </resolvedBy>
+                </cIM_QualityResolution>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                        <detailDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </detailDescription>
+                        <featureType/>
+                    </cIM_QualityDetail>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <resolutionDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription/>
+                                    </issueDescription>
+                                </issueDescription>
+                            </issueDescription>
+                        </resolutionDescription>
+                        <resolvedBy>
+                        </resolvedBy>
+                    </cIM_QualityResolution>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <subIssue issueSeverity="cosmetic" issueStatus="confirmed" issueType="data_content">
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityDetail feature="http://www.oxygenxml.com/">
+                            <featureType/>
+                        </cIM_QualityDetail>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <cIM_QualityResolution>
+                            <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                            <resolutionDescription>
+                                <issueDescription>
+                                    <issueDescription>
+                                        <issueDescription>
+                                            <issueDescription/>
+                                        </issueDescription>
+                                    </issueDescription>
+                                </issueDescription>
+                            </resolutionDescription>
+                            <resolvedBy>
+                            </resolvedBy>
+                        </cIM_QualityResolution>
+                        <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription>
+                                    <issueDescription/>
+                                </issueDescription>
+                            </issueDescription>
+                        </issueDescription>
+                        <issueIdentifiedBy>
+                        </issueIdentifiedBy>
+                        <issueResponsibilityOf>
+                        </issueResponsibilityOf>
+                    </subIssue>
+                    <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription>
+                                <issueDescription/>
+                            </issueDescription>
+                        </issueDescription>
+                    </issueDescription>
+                    <issueIdentifiedBy>
+                    </issueIdentifiedBy>
+                    <issueResponsibilityOf>
+                    </issueResponsibilityOf>
+                </subIssue>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <issueDescription>
+                    <issueDescription>
+                        <issueDescription>
+                            <issueDescription/>
+                        </issueDescription>
+                    </issueDescription>
+                </issueDescription>
+                <issueIdentifiedBy>
+                </issueIdentifiedBy>
+                <issueResponsibilityOf>
+                </issueResponsibilityOf>
+            </cIM_QualityIssue>
+            <report evaluationMethodType="directExternal" measureIdentification="measureIdentification5">
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <evaluationMethodDescription>evaluationMethodDescription2</evaluationMethodDescription>
+                <evaluationProcedure>
+                </evaluationProcedure>
+                <measureDescription>measureDescription2</measureDescription>
+                <nameOfMeasure>nameOfMeasure4</nameOfMeasure>
+                <nameOfMeasure>nameOfMeasure5</nameOfMeasure>
+                <result/>
+                <result/>
+            </report>
+            <report evaluationMethodType="directExternal" measureIdentification="measureIdentification7">
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <dateTime>2006-05-04T18:13:51.0Z</dateTime>
+                <evaluationMethodDescription>evaluationMethodDescription3</evaluationMethodDescription>
+                <evaluationProcedure>
+                </evaluationProcedure>
+                <measureDescription>measureDescription3</measureDescription>
+                <nameOfMeasure>nameOfMeasure6</nameOfMeasure>
+                <nameOfMeasure>nameOfMeasure7</nameOfMeasure>
+                <result/>
+                <result/>
+            </report>
+            <scope>
+                <extent/>
+                <level level="dataset"/>
+                <levelDescription>levelDescription2</levelDescription>
+                <levelDescription>levelDescription3</levelDescription>
+            </scope>
+        </quality>
+</modelComponent>
