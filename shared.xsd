@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 September 2009, 17:39 -->       
+<!-- generated: 29 October 2009, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.1" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
+            xmlns="http://www.metaforclimate.eu/cim/1.2" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -42,6 +42,11 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
@@ -106,7 +111,57 @@
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
-                    <xs:sequence/>
+                    <xs:sequence>
+      <xs:element name="target" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="document">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element ref="simulationComposite"/>
+                        <xs:element ref="numericalExperiment"/>
+                        <xs:element ref="dataProcessing"/>
+                        <xs:element ref="ensemble"/>
+                        <xs:element ref="dataObject"/>
+                        <xs:element ref="gridSpec"/>
+                        <xs:element ref="processorComponent"/>
+                        <xs:element ref="modelComponent"/>
+                        <xs:element ref="deployment"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="type" use="required" type="DocumentRelationshipType"/>  
                             </xs:extension>
                             </xs:complexContent>
@@ -127,6 +182,7 @@
       <xs:documentation>A DataSource can be realised by either a DataObject or a ComponentProperty; both of those can supply data.</xs:documentation>
    </xs:annotation>
    <xs:sequence/>
+   <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
                 mixed="false">
@@ -221,6 +277,13 @@ Currently unused in the CIM.</xs:documentation>
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="boundaryCondition"/>
+      <xs:enumeration value="initialForcing"/>
+      <xs:enumeration value="forcing"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -235,12 +298,12 @@ Currently unused in the CIM.</xs:documentation>
    <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="experimentRelationship" type="ExperimentRelationship"/>
                <xs:element name="simulationRelationship" type="SimulationRelationship"/>
                <xs:element name="documentRelationship" type="DocumentRelationship"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentStatusType">
@@ -255,39 +318,8 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
    </xs:annotation>
    <xs:sequence><!--type is not used -->       
-<xs:element name="target" minOccurs="1" maxOccurs="1">
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <!-- this is an abstract class --><xs:element name="target" minOccurs="1" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1"/>
-                  </xs:complexType>
-               </xs:element>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
+<!--target is not used -->       
+<xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <!--Change is not used -->       
@@ -334,6 +366,11 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
@@ -378,6 +415,11 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>the ID of the element being referenced.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>The name of the element being referenced.</xs:documentation>

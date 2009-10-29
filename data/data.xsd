@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 30 September 2009, 17:39 -->       
+<!-- generated: 29 October 2009, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.1" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
+            xmlns="http://www.metaforclimate.eu/cim/1.2" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -155,6 +155,11 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
@@ -184,6 +189,11 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
@@ -231,6 +241,11 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>The name of the element being referenced.</xs:documentation>

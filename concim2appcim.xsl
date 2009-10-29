@@ -410,6 +410,36 @@
 
                 <!-- ...or the locally embedded referenced type... -->
                 <xsl:choose>
+                    <!-- if it's a reference to a Document, then I need to hard-code some bits... -->
+                    <xsl:when test=".//UML:TaggedValue[@tag='type']/@value='Document'">
+                        <xsl:element name="xs:element">
+                            <xsl:attribute name="name">
+                                <xsl:call-template name="camelCaseTemplate">
+                                    <xsl:with-param name="string" select="$class/@name"/>
+                                </xsl:call-template>                                
+                            </xsl:attribute>
+
+                            <xs:complexType>
+                                <xs:choice minOccurs="1" maxOccurs="1">
+                                    <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                        <xsl:variable name="documentName">
+                                            <xsl:call-template name="camelCaseTemplate">
+                                                <xsl:with-param name="string"
+                                                    select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
+                                                />
+                                            </xsl:call-template>
+                                        </xsl:variable>
+                                        <xs:element ref="{$documentName}"/>
+                                    </xsl:for-each>
+                                </xs:choice>
+                            </xs:complexType>
+
+
+                        </xsl:element>
+                            
+                            <!-- I AM HERE I AM HERE -->                        
+                            
+                    </xsl:when>
                     <!-- ...that type might be abstract -->
                     <xsl:when test="$classStereotype='abstract'">
                         <xsl:call-template name="abstractTemplate">
@@ -431,8 +461,8 @@
                             <xsl:call-template name="camelCaseTemplate">
                                 <xsl:with-param name="string" select="$class/@name"/>
                             </xsl:call-template>
-                        </xsl:variable>
-                        <xs:element name="{$className}" type="{$class/@name}"/>
+                        </xsl:variable>                            
+                        <xs:element name="{$className}" type="{$class/@name}"/>                                                    
                     </xsl:otherwise>
                 </xsl:choose>
 
