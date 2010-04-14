@@ -550,14 +550,16 @@ o®etnêÏÿ}Â>uT)}®’|W„ßfê_Mò‹p¾•„sáÍÕºú*…ÿÓ5?ª§ú»¼Që!£^UÔo\Œ1%ŸiòïÅYÿ³
 ßHQ+Q5!ı=¿ŸªRwajjjjjªµµµ5ÿ-p>4gi˜ş‡ÑÈ{ìç¾·ùĞUvÉó@ê÷¡úóÌı"è‹ÈòŞ…RĞü®Èc½Šî¾ì›ÿBáÌ™èoo®¨›‹è/:t[vcLKÎ;wîÜ¹j›aLy©îú‡äI¢`êÀ;`İ£Œ¹ø~©ßIßs×q#É=úOÿÔÕÕÕÕÕUm;CcüëÅ|tÛzõÀ$ÿ)•º™L&“Éò U…ññmV¿P!j}¢ŠûuVy©Ÿ_mcÎ%Ÿ1?¥¼‘å(0ö´ğ	ßÂyC­L|jÊ~Õê7€1ÆÔ.ì4¦aĞ Rh4±WÛ¦cn™±ğø.Ôş.2Æ˜ÚÂ’Ï˜†!ùšS	œ< ğ]¨ü]dŒ1µ…7i0ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆÔ/¶³1¦‘ñ7€1ÆŠ÷å3ÆcŒ1Æ˜†Å^>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†Å’ÏcŒ1ÆcK>cŒ1ÆcŒiX,ùŒ1ÆcŒ1¦a±ä3ÆcŒ1Æ˜†åÿ%î…¿g´1    tEXtpdf:HiResBoundingBox 595x842+0+0;U\   tEXtpdf:Version PDF-1.4 G:x    IEND®B`‚}
 \lang2057\hich\f4\dbch\f4\loch\f4\cf1\fs20\par
 \ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0\par
-That transformer relies on a particular "meta-model" which defines how various UML constructs should be interpreted.  Most of these are very straightforward.  There are three UML stereotypes the CIM uses that may be unfamiliar:\par
+That transformer relies on a particular "meta-model" which defines how various UML constructs should be interpreted.  Most of these \lang1033\hich\f5\dbch\f5\loch\f5 restrictions \lang2057\hich\f4\dbch\f4\loch\f4 are very straightforward.  There are \lang1033\hich\f5\dbch\f5\loch\f5 
+four \lang2057\hich\f4\dbch\f4\loch\f4 UML stereotypes the CIM uses that may be unfamiliar:\par
 \pard\s0{\pntext\pard\plain\f3\fs20 \'b7\tab}{\*\pn\pnlvlblt\ls1\ilvl0\pnhang\pnf1{\pntxtb \'b7}}\ls1\ilvl0\fi-360\li360\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0 <<codelist>> - an open-ended "dictionary" which can be served externally. 
  \lang1033\hich\f5\dbch\f5\loch\f5 Codelists in the CIM contain enumerations giving sample dictionary entries, however the real values of those enumerations  will come from an external vocabulary server.  Codelists can be either "open" or "closed".  An 
 open codelist is one that can be extended by a user (in which case they would choose the enumerated value "other" and then provide their own term).  All codelists are assumed to be closed unless specified as open.\lang2057\hich\f4\dbch\f4\loch\f4\par
 <<document>> -a class that can be exchanged as a physical document.\lang1033\hich\f5\dbch\f5\loch\f5   All documents have certain characteristics such as an author, creationDate, unique identifier and version, "genealogy" (a record of its relationship 
 to any previous documents), and a record of document quality.\lang2057\hich\f4\dbch\f4\loch\f4\par
 <<reference>> -a "pointer" to another UML featur\lang1033\hich\f5\dbch\f5\loch\f5 e.  In the METAFOR APPCIM a reference is serialised as a choice between  embedding the referenced element at the current location or else by using a combination of XPath 
-expressions, and element names to refer to an external element.\lang2057\hich\f4\dbch\f4\loch\f4\par
+expressions, and element names to refer to an external element.  In addition, a reference can include a modification element describing a change made to the item being referenced.  \par
+<<extensible>> - indicates that the concept can be extended by a third party.  In XML terms, this means that the element can contain additional sub-elements and attributes without having to be bound to a namespace nor specified in a schema file.  \lang2057\hich\f4\dbch\f4\loch\f4\par
 \pard\s0\ltrpar\ql\plain\f1\fs20\lang1033\hich\f5\dbch\f5\loch\f5\cf0\par
 \par
 There are currently three parameters than can be passed to the XSL transformer:\par
@@ -568,7 +570,7 @@ sort-attributes - if set to "true" this will process all UML attributes in lexic
 The CIM has been broken down into several sub-packages for convenience:\par
 \pard\s0{\pntext\pard\plain\f3\fs20 \'b7\tab}{\*\pn\pnlvlblt\ls2\ilvl0\pnhang\pnf1{\pntxtb \'b7}}\ls2\ilvl0\fi-360\li360\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0 shared - contains general classes used throughout the CIM\par
 quality - contains cla\lang1033\hich\f5\dbch\f5\loch\f5 s\lang2057\hich\f4\dbch\f4\loch\f4 ses used to describe the quality of metadata or the data/models that metadata describes.\par
-grids - contains clases used to describe the geographic grids that data is mapped onto, software adheres to, and activities constrain.\par
+grids - contains clas\lang1033\hich\f5\dbch\f5\loch\f5 s\lang2057\hich\f4\dbch\f4\loch\f4 es used to describe the geographic grids that data is mapped onto, software adheres to, and activities constrain.\par
 data - contains classes used to describe the \lang1033\hich\f5\dbch\f5\loch\f5 actual \lang2057\hich\f4\dbch\f4\loch\f4 archived data.\par
 software - contains classes used to describe the software that produced data\par
 activity - contains classes used to describe the experiments in support of which software is run.\par
@@ -576,7 +578,7 @@ activity - contains classes used to describe the experiments in support of which
 In addition, many concepts from existing ISO standards, particularly the Geographic Markup Language (GML) 19136 series, are referred to from within the CIM.\plain\f0\fs20\par
 \pard\plain\f1\fs20\plain\f0\fs20\par
 \pard\s13\sb240\sa60\ql\plain\f1\fs20\lang2057\hich\f0\dbch\f0\loch\f0\cf3\fs26\b Conceptual Overview\par
-\pard\s0\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0 The domain model of the CIM ist structured as follows.\par
+\pard\s0\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0 The domain model of the CIM is structured as follows.\par
 \par
 DataObjects can be collected together in any number of ways and stored in a variety of mediums.  Any given DataObject can be associated with documents from the grids, activity, or software packages.  The grid package describes the geographical grid that 
 a DataObject is mapped onto.  The activity package describes the experiments for which DataObjects are generated or otherwise used.  And the software package describes the models that actually generate, or otherwise use, DataObjects.\par

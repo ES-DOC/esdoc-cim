@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 29 October 2009, 9:36 -->       
+<!-- generated: 13 April 2010, 23:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.2" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
+            xmlns="http://www.metaforclimate.eu/cim/1.4" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.4">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -24,7 +24,28 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="guid">
+   <xs:annotation>
+      <xs:documentation>An XML representation of a GUID; used for the Identifier
+                    class</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+      <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="version">
+   <xs:annotation>
+      <xs:documentation>restricts strings to one or more digits followed by any number of
+                    "dot plus more numers" sequences</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+      <xs:pattern value="\d+(\.\d+)*"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
+   <xs:annotation>
+      <xs:documentation>A date range with specified start and end points.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -33,26 +54,33 @@
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Property" abstract="true">
    <xs:annotation>
-      <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
+      <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       <xs:element name="group" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -60,6 +88,11 @@
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -74,8 +107,118 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
-      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="CompilerType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Absoft"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="Lahey"/>
+      <xs:enumeration value="NAG"/>
+      <xs:enumeration value="Pathscale"/>
+      <xs:enumeration value="Portland PGI"/>
+      <xs:enumeration value="Silverfrost"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
+   <xs:annotation>
+      <xs:documentation>A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform. </xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
+      <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+      <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ResponsibleParty"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
+   <xs:annotation>
+      <xs:documentation>A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform. </xs:documentation>
+   </xs:annotation>
+   <xs:complexType>
+      <xs:complexContent>
+         <xs:extension base="Platform">
+            <xs:sequence>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+                  <xs:annotation>
+                     <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:element>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
+   <xs:annotation>
+      <xs:documentation>A description of a compiler used on a particular platform.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="compilerVersion" minOccurs="1" maxOccurs="1" type="version"/>
+      <xs:element name="compilerLanguage" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="compilerOptions" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The set of options used during compilation (recorded here as a single string rather than separate elements)</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="compilerEnvironmentVariables" minOccurs="0" maxOccurs="1"
+                  type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The state of envrionment variables used during compilation (recorded here as a single string rather than separate elements)</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="License">
@@ -107,7 +250,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationship">
    <xs:annotation>
-      <xs:documentation>Contains the set of relationship supported by a Document.</xs:documentation>
+      <xs:documentation>Contains the set of relationships supported by a Document.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
@@ -118,17 +261,22 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -136,6 +284,11 @@
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -152,9 +305,9 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
+                        <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
-                        <xs:element ref="deployment"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -167,6 +320,9 @@
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar" abstract="true">
+   <xs:annotation>
+      <xs:documentation>Describes a method of calculating a span of dates.</xs:documentation>
+   </xs:annotation>
    <xs:sequence><!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -176,6 +332,7 @@
          </xs:complexType>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="units" use="optional" type="CalendarUnit"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource" abstract="true">
    <xs:annotation>
@@ -184,34 +341,36 @@
    <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
-                mixed="false">
-   <xs:annotation>
-      <xs:documentation>An enumeration of types of changes.
-
-Currently unused in the CIM.</xs:documentation>
-   </xs:annotation>
-   <xs:attribute name="value" type="ChangePropertyType_Enumeration" use="required"/>
-</xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="new"/>
-      <xs:enumeration value="decrement"/>
-      <xs:enumeration value="increment"/>
-      <xs:enumeration value="redistribution"/>
-      <xs:enumeration value="replacement"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="CodeList_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList_Enumeration">
    <xs:restriction base="xs:string"/>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
+   <xs:annotation>
+      <xs:documentation>A date range without a specified start and/or end point.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -220,8 +379,27 @@ Currently unused in the CIM.</xs:documentation>
                         </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationshipType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="previousVersion"/>
       <xs:enumeration value="similarTo"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="laterVersionOf"/>
+      <xs:enumeration value="fixedVersionOf"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Parallel"/>
+      <xs:enumeration value="Vector"/>
+      <xs:enumeration value="Beowulf"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="InputMod"/>
+      <xs:enumeration value="ModelMod"/>
+      <xs:enumeration value="Decrement"/>
+      <xs:enumeration value="Increment"/>
+      <xs:enumeration value="Redistribution"/>
+      <xs:enumeration value="Replacement"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
@@ -229,13 +407,16 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+      <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
          <xs:annotation>
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+      <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+      <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
+      <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+      <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+      <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
          </xs:annotation>
@@ -256,17 +437,12 @@ Currently unused in the CIM.</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="CIMVersion" use="optional" type="xs:string">
-      <xs:annotation>
-         <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
    <xs:restriction base="xs:token">
       <xs:annotation>
-         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
+         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule. </xs:documentation>
       </xs:annotation>
    </xs:restriction>
 </xs:simpleType>
@@ -277,11 +453,82 @@ Currently unused in the CIM.</xs:documentation>
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
+   <xs:annotation>
+      <xs:documentation>A description of a machine used by a particular platform.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="machineName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLibrary" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A library residing on this machine.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
+                  type="OperatingSystemType"/>
+      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
+      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="InterconnectType"/>
+      <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="ProcessorType"/>
+   </xs:sequence>
+   <xs:attribute name="machineType" use="optional" type="MachineType"/>
+</xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="ancillaryFile"/>
       <xs:enumeration value="boundaryCondition"/>
-      <xs:enumeration value="initialForcing"/>
-      <xs:enumeration value="forcing"/>
+      <xs:enumeration value="initialCondition"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName" mixed="true">
+   <xs:annotation>
+      <xs:documentation>Contains the name of an item taken from a given standard. For example, if standard="CF," then we would expect the value of standardName to be a CF Standard Name.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence/>
+   <xs:attribute name="standard" use="required" type="xs:string">
+      <xs:annotation>
+         <xs:documentation>The standard from which this name is taken</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
+                mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of common operating systems.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="OperatingSystemType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               name="OperatingSystemType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Linux"/>
+      <xs:enumeration value="AIX"/>
+      <xs:enumeration value="Darwin"/>
+      <xs:enumeration value="Unicos"/>
+      <xs:enumeration value="Irix64"/>
+      <xs:enumeration value="SunOS"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
@@ -313,6 +560,13 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="in-progress"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalendarUnit">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="days"/>
+      <xs:enumeration value="months"/>
+      <xs:enumeration value="years"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
    <xs:annotation>
       <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
@@ -322,18 +576,242 @@ Currently unused in the CIM.</xs:documentation>
 <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
-<!--Change is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResponsibleParty">
+   <xs:annotation>
+      <xs:documentation>A CIM-specific ResponsibleParty.  Sub-classes the gmd ResponsibleParty type and adds the attribute "abbreviation."</xs:documentation>
+   </xs:annotation>
+                                <xs:complexContent>
+                                <xs:extension base="gmd:CI_ResponsibleParty_PropertyType">
+                            <xs:sequence>
+      <xs:element name="abbreviation" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Change">
+   <xs:annotation>
+      <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath). Currently unused in the CIM.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="changeTarget" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>The CIM element being changed.  If this is blank, then it is implied by the target of its parent (a Change instance currently can only appear as part of a reference which has a target anyway).</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="document">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element ref="simulationComposite"/>
+                        <xs:element ref="numericalExperiment"/>
+                        <xs:element ref="dataProcessing"/>
+                        <xs:element ref="ensemble"/>
+                        <xs:element ref="dataObject"/>
+                        <xs:element ref="gridSpec"/>
+                        <xs:element ref="platform"/>
+                        <xs:element ref="processorComponent"/>
+                        <xs:element ref="modelComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="changeDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+         <xs:annotation>
+            <xs:documentation>The date the change was implemented.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="changeAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+         <xs:annotation>
+            <xs:documentation>The person that made the change.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
    <xs:sequence>
       <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
    </xs:sequence>
 </xs:complexType>
-<!--ChangeProperty is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangeProperty">
+   <xs:annotation>
+      <xs:documentation>A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.
+
+Currently unused in the CIM.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence>
+      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="type" use="optional" type="ChangePropertyType">
+      <xs:annotation>
+         <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of organisations that create machines.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="MachineVendorType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTION"/>
+      <xs:enumeration value="Appro International"/>
+      <xs:enumeration value="Bull SA"/>
+      <xs:enumeration value="ClusterVision/Dell"/>
+      <xs:enumeration value="ClusterVision/IBM"/>
+      <xs:enumeration value="Cray Inc"/>
+      <xs:enumeration value="DALCO AG Switzerland"/>
+      <xs:enumeration value="Dawning"/>
+      <xs:enumeration value="Dell"/>
+      <xs:enumeration value="DELL/ACS"/>
+      <xs:enumeration value="Dell/Sun/IBM"/>
+      <xs:enumeration value="Fujitsu"/>
+      <xs:enumeration value="Hewlett-Packard"/>
+      <xs:enumeration value="Hitachi"/>
+      <xs:enumeration value="IBM"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="Koi Computers"/>
+      <xs:enumeration value="Lenovo"/>
+      <xs:enumeration value="Linux Networx"/>
+      <xs:enumeration value="NEC"/>
+      <xs:enumeration value="NEC/Sun"/>
+      <xs:enumeration value="NUDT"/>
+      <xs:enumeration value="Pyramid Computer"/>
+      <xs:enumeration value="Raytheon-Aspen Systems/Appro"/>
+      <xs:enumeration value="Self-made"/>
+      <xs:enumeration value="SGI"/>
+      <xs:enumeration value="SKIF/T-Platforms"/>
+      <xs:enumeration value="Sun Microsystems"/>
+      <xs:enumeration value="T-Platforms"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="InterconnectType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Myrinet"/>
+      <xs:enumeration value="Quadrics"/>
+      <xs:enumeration value="Gigabit Ethernet"/>
+      <xs:enumeration value="Infiniband"/>
+      <xs:enumeration value="Mixed"/>
+      <xs:enumeration value="NUMAlink"/>
+      <xs:enumeration value="SP Switch"/>
+      <xs:enumeration value="Cray Interconnect"/>
+      <xs:enumeration value="Fat Tree"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="UnitType_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType_Enumeration">
@@ -350,9 +828,22 @@ Currently unused in the CIM.</xs:documentation>
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+   <xs:sequence>
+      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>A unique id for this group of properties.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of this group of properties.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="changeProperty" type="ChangeProperty"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <!-- this is an abstract class --><xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded">
@@ -366,17 +857,22 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -384,6 +880,11 @@ Currently unused in the CIM.</xs:documentation>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -398,34 +899,31 @@ Currently unused in the CIM.</xs:documentation>
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
-         <xs:annotation>
-            <xs:documentation>A unique id for this group of properties.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The name of this group of properties.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Reference" abstract="true">
    <xs:annotation>
-      <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  </xs:documentation>
+      <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  
+
+With all the different ways of pinpointing an XML item, a reference can either use XPATH to directly locate the item or it can just identifiy the document and then use the other attributes (name,type,etc.) to narrow down the particular element within that document.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+      <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
          <xs:annotation>
             <xs:documentation>the ID of the element being referenced.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>The name of the element being referenced.</xs:documentation>
+            <xs:documentation>The name of the instance being referenced.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+      <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
          <xs:annotation>
             <xs:documentation>The version of the element being referenced.</xs:documentation>
          </xs:annotation>
@@ -435,8 +933,20 @@ Currently unused in the CIM.</xs:documentation>
             <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+         <xs:annotation>
+            <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
 </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LogicalRelationshipType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="AND"/>
+      <xs:enumeration value="OR"/>
+      <xs:enumeration value="XOR"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -450,5 +960,41 @@ Currently unused in the CIM.</xs:documentation>
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
-                        </xs:complexType>       
+                        </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="ProcessorType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="NEC"/>
+      <xs:enumeration value="Sparc"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="Intel IA-64"/>
+      <xs:enumeration value="Intel EM64T"/>
+      <xs:enumeration value="AMD X86_64"/>
+      <xs:enumeration value="Other Intel"/>
+      <xs:enumeration value="Other AMD"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>       
 </xs:schema>

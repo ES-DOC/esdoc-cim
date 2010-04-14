@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 29 October 2009, 9:36 -->       
+<!-- generated: 13 April 2010, 23:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.2" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
+            xmlns="http://www.metaforclimate.eu/cim/1.4" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.4">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -58,8 +58,6 @@
       <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
@@ -80,6 +78,8 @@
             <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
    </xs:sequence>
    <xs:attribute name="id" use="required" type="Identifier">
       <xs:annotation>
@@ -215,7 +215,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EdgeArray">
    <xs:annotation>
-      <xs:documentation>Simple data type for encapsulating an array of grid cell edgel definitions.</xs:documentation>
+      <xs:documentation>Simple data type for encapsulating an array of grid cell edge definitions.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="edge" minOccurs="3" maxOccurs="unbounded" type="Edge"/>
@@ -269,7 +269,7 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Edge">
    <xs:annotation>
-      <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. I think (check with Balaji)!</xs:documentation>
+      <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. </xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vertex1" minOccurs="1" maxOccurs="1" type="gml:PointPropertyType">
@@ -432,13 +432,16 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:complexContent>
          <xs:extension base="GridSpec">
             <xs:sequence>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
@@ -459,11 +462,6 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
-               <xs:annotation>
-                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
-               </xs:annotation>
-            </xs:attribute>
             <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>

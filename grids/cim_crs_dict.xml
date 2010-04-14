@@ -6,7 +6,7 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	dc:creator="Phil Bentley"
-	dc:date="2008-11-18">
+	dc:date="2009-12-16">
 
 	<gml:identifier codeSpace="metafor">CIM-CRS-Dictionary</gml:identifier>
 	<gml:name>CIM Coordinate Reference System Dictionary</gml:name>
@@ -82,23 +82,23 @@
 
 	<!-- UM Global Atmosphere Model CRS based upon spherical earth (R = 6371229m) -->
 	<gml:dictionaryEntry>
-		<gml:GeodeticCRS gml:id="ukmo-um-crs1">
-			<gml:identifier codeSpace="UKMO">ukmo-um-crs1</gml:identifier>
+		<gml:GeodeticCRS gml:id="UKMO-UM-CRS-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-CRS-1</gml:identifier>
 			<gml:name>UM Global Atmosphere Model CRS</gml:name>
 			<gml:scope>World</gml:scope>
 			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
-			<gml:geodeticDatum xlink:href="#ukmo-um-datum1"/>
+			<gml:geodeticDatum xlink:href="#UKMO-UM-DATUM-1"/>
 		</gml:GeodeticCRS>
 	</gml:dictionaryEntry>
 	
 	<!-- NEMO Ocean Model CRS based upon spherical earth (R = 6371229m) -->
 	<gml:dictionaryEntry>
-		<gml:GeodeticCRS gml:id="ukmo-nemo-crs1">
-			<gml:identifier codeSpace="UKMO">ukmo-nemo-crs1</gml:identifier>
+		<gml:GeodeticCRS gml:id="UKMO-NEMO-CRS-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-CRS-1</gml:identifier>
 			<gml:name>NEMO Ocean Model CRS</gml:name>
 			<gml:scope>World Oceans</gml:scope>
 			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
-			<gml:geodeticDatum xlink:href="#ukmo-nemo-datum1"/>
+			<gml:geodeticDatum xlink:href="#UKMO-NEMO-DATUM-1"/>
 		</gml:GeodeticCRS>
 	</gml:dictionaryEntry>
 
@@ -250,23 +250,23 @@
 
 	<!-- Unified Model Datum -->
 	<gml:dictionaryEntry>
-		<gml:GeodeticDatum gml:id="ukmo-um-datum1">
-			<gml:identifier codeSpace="UKMO">ukmo-um-datum1</gml:identifier>
+		<gml:GeodeticDatum gml:id="UKMO-UM-DATUM-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-DATUM-1</gml:identifier>
 			<gml:name>Unified Model Datum</gml:name>
 			<gml:scope>World</gml:scope>
 			<gml:primeMeridian xlink:href="#EPSG-8901"/>
-			<gml:ellipsoid xlink:href="#ukmo-um-sphere1"/>
+			<gml:ellipsoid xlink:href="#UKMO-UM-SPHERE-1"/>
 		</gml:GeodeticDatum>
 	</gml:dictionaryEntry>
 
 	<!-- NEMO Ocean Model Datum -->
 	<gml:dictionaryEntry>
-		<gml:GeodeticDatum gml:id="ukmo-nemo-datum1">
-			<gml:identifier codeSpace="UKMO">ukmo-nemo-datum1</gml:identifier>
+		<gml:GeodeticDatum gml:id="UKMO-NEMO-DATUM-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-DATUM-1</gml:identifier>
 			<gml:name>NEMO Ocean Model Datum</gml:name>
 			<gml:scope>World Oceans</gml:scope>
 			<gml:primeMeridian xlink:href="#EPSG-8901"/>
-			<gml:ellipsoid xlink:href="#ukmo-nemo-sphere1"/>
+			<gml:ellipsoid xlink:href="#UKMO-NEMO-SPHERE-1"/>
 		</gml:GeodeticDatum>
 	</gml:dictionaryEntry>
 
@@ -323,8 +323,8 @@
 
 	<!-- Unified Model Sphere -->
 	<gml:dictionaryEntry>
-		<gml:Ellipsoid gml:id="ukmo-um-sphere1">
-			<gml:identifier codeSpace="UKMO">ukmo-um-sphere1</gml:identifier>
+		<gml:Ellipsoid gml:id="UKMO-UM-SPHERE-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-SPHERE-1</gml:identifier>
 			<gml:name>Unified Model Sphere</gml:name>
 			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
 			<gml:secondDefiningParameter>
@@ -335,8 +335,8 @@
 
 	<!-- NEMO/ORCA Grid Sphere -->
 	<gml:dictionaryEntry>
-		<gml:Ellipsoid gml:id="ukmo-nemo-sphere1">
-			<gml:identifier codeSpace="UKMO">ukmo-nemo-sphere1</gml:identifier>
+		<gml:Ellipsoid gml:id="UKMO-NEMO-SPHERE-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-SPHERE-1</gml:identifier>
 			<gml:name>NEMO/ORCA Grid Sphere</gml:name>
 			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
 			<gml:secondDefiningParameter>
@@ -449,8 +449,8 @@
 
 	<!-- Model Level -->
 	<gml:dictionaryEntry>
-		<gml:CoordinateSystemAxis gml:id="ukmo-axis1" uom="urn:x-epsg:v6.17:uom:unity">
-			<gml:identifier codeSpace="UKMO">ukmo-axis1</gml:identifier>
+		<gml:CoordinateSystemAxis gml:id="UKMO-AXIS-MLEVEL" uom="urn:x-epsg:v6.17:uom:unity">
+			<gml:identifier codeSpace="UKMO">UKMO-AXIS-MLEVEL</gml:identifier>
 			<gml:name>Model Level</gml:name>
 			<gml:axisAbbrev>L</gml:axisAbbrev>
 			<gml:axisDirection codeSpace="UKMO">up</gml:axisDirection>
@@ -459,8 +459,8 @@
 
 	<!-- Pressure Level -->
 	<gml:dictionaryEntry>
-		<gml:CoordinateSystemAxis gml:id="ukmo-axis2" uom="hPa">
-			<gml:identifier codeSpace="UKMO">ukmo-axis2</gml:identifier>
+		<gml:CoordinateSystemAxis gml:id="UKMO-AXIS-PLEVEL" uom="hPa">
+			<gml:identifier codeSpace="UKMO">UKMO-AXIS-PLEVEL</gml:identifier>
 			<gml:name>Pressure Level</gml:name>
 			<gml:axisAbbrev>P</gml:axisAbbrev>
 			<gml:axisDirection codeSpace="UKMO">down</gml:axisDirection>
