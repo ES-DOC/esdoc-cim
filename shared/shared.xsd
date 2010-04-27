@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 26 April 2010, 22:07 -->       
+<!-- generated: 26 April 2010, 23:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -48,7 +48,10 @@
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
-                    <xs:sequence/>  
+                    <xs:sequence>
+      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endDate" minOccurs="1" maxOccurs="1"/>
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -323,7 +326,9 @@
    <xs:annotation>
       <xs:documentation>Describes a method of calculating a span of dates.</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
+   <xs:sequence>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>
@@ -373,7 +378,10 @@
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
-                    <xs:sequence/>  
+                    <xs:sequence>
+      <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -669,10 +677,7 @@
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
-   <xs:sequence>
-      <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-   </xs:sequence>
+   <xs:sequence/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangeProperty">
    <xs:annotation>
