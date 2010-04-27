@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 26 April 2010, 23:24 -->       
+<!-- generated: 26 April 2010, 23:45 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -321,7 +321,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
       <xs:documentation>A description of the requirements of particular experiments.  Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier"/>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
