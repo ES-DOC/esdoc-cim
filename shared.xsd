@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 27 April 2010, 0:56 -->       
+<!-- generated: 27 April 2010, 1:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -628,6 +628,11 @@
       <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath). Currently unused in the CIM.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A mnemonic for describing a particular change.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="changeTarget" minOccurs="0" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>The CIM element being changed.  If this is blank, then it is implied by the target of its parent (a Change instance currently can only appear as part of a reference which has a target anyway).</xs:documentation>
