@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 26 April 2010, 23:45 -->       
+<!-- generated: 27 April 2010, 0:26 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -461,6 +461,35 @@
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardNameType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="StandardNameType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardNameType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="CF"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
    <xs:annotation>
       <xs:documentation>A description of a machine used by a particular platform.</xs:documentation>
@@ -492,16 +521,14 @@
       <xs:enumeration value="initialCondition"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName" mixed="true">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName">
    <xs:annotation>
-      <xs:documentation>Contains the name of an item taken from a given standard. For example, if standard="CF," then we would expect the value of standardName to be a CF Standard Name.</xs:documentation>
+      <xs:documentation>Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be "CF" and the name might be "atmospheric_pressure".</xs:documentation>
    </xs:annotation>
-   <xs:sequence/>
-   <xs:attribute name="standard" use="required" type="xs:string">
-      <xs:annotation>
-         <xs:documentation>The standard from which this name is taken</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="standard" minOccurs="1" maxOccurs="1" type="StandardNameType"/>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
                 mixed="true">
