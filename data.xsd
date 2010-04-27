@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 27 April 2010, 0:26 -->       
+<!-- generated: 27 April 2010, 0:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -32,7 +32,7 @@
                         <xs:extension base="DataStorage">
                     <xs:sequence>
       <xs:element name="fileSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
@@ -109,7 +109,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
    </xs:sequence>
    <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
       <xs:annotation>
@@ -200,7 +200,7 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="acronym" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="acronym" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
          <xs:annotation>
@@ -361,7 +361,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
+      <xs:element name="citation" minOccurs="0" maxOccurs="1" type="DataCitation"/>
       <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
    </xs:sequence>
@@ -480,7 +480,7 @@
                     <xs:sequence>
       <xs:element name="protocol" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="host" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
