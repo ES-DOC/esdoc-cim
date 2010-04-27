@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 13 April 2010, 23:24 -->       
+<!-- generated: 26 April 2010, 21:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.4" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.4">       
+            xmlns="http://www.metaforclimate.eu/cim/1.5" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.5">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -109,7 +109,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
    </xs:sequence>
    <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
       <xs:annotation>
