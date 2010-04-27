@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 27 April 2010, 0:50 -->       
+<!-- generated: 27 April 2010, 0:56 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -188,7 +188,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="distributionFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="distributionFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
    </xs:sequence>
    <xs:attribute name="distributionAccess" use="optional" type="DataAccessType"/>
