@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 27 April 2010, 0:39 -->       
+<!-- generated: 27 April 2010, 0:50 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -31,7 +31,7 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="fileSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="fileSystem" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
@@ -108,10 +108,10 @@
       <xs:documentation>Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
    </xs:sequence>
-   <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
+   <xs:attribute name="dataLocation" use="optional" type="xs:anyURI">
       <xs:annotation>
          <xs:documentation>Points to the actual location of the data (used to be dataURI, a feature of DataObject).</xs:documentation>
       </xs:annotation>
@@ -124,10 +124,10 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="dbAccessString" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dbAccessString" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="dbName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="owner" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="dbTable" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dbTable" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -191,7 +191,7 @@
       <xs:element name="distributionFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
    </xs:sequence>
-   <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>
+   <xs:attribute name="distributionAccess" use="optional" type="DataAccessType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataObject">
    <xs:annotation>
@@ -431,12 +431,12 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>
-      <xs:element name="aggregation" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="aggregation" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>sum, min, mean, max, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="frequency" minOccurs="1" maxOccurs="1"
+      <xs:element name="frequency" minOccurs="0" maxOccurs="1"
                   type="gmd:MD_MaintenanceFrequencyCode_PropertyType">
          <xs:annotation>
             <xs:documentation>daily, hourly, ...</xs:documentation>
@@ -478,8 +478,8 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="protocol" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="host" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="protocol" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="host" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
