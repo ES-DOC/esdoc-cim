@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 11 May 2010, 7:12 -->       
+<!-- generated: 12 May 2010, 7:55 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -56,7 +56,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="type" minOccurs="1" maxOccurs="1" type="ConnectionType">
+      <xs:element name="type" minOccurs="0" maxOccurs="1" type="ConnectionType">
          <xs:annotation>
             <xs:documentation>The type of Connection</xs:documentation>
          </xs:annotation>
