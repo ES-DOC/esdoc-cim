@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 12 May 2010, 7:55 -->       
+<!-- generated: 12 May 2010, 8:52 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -81,9 +81,9 @@
             <xs:documentation>Temporal transformation performed on the coupling field before or after regridding onto the target grid. </xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="connectionSource" minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="connectionSource" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
-            <xs:documentation>The source property being connected.  (note that there can be multiple sources)</xs:documentation>
+            <xs:documentation>The source property being connected.  (note that there can be multiple sources)  This is optional; the file/component source may have already been specified by the couplingSource.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
             <xs:choice>
@@ -124,7 +124,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="connectionSource" minOccurs="1" maxOccurs="unbounded">
+               <!-- this is an abstract class --><xs:element name="connectionSource" minOccurs="0" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
