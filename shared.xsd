@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 May 2010, 7:00 -->       
+<!-- generated: 13 May 2010, 7:10 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -50,7 +50,7 @@
                         <xs:extension base="DateRange">
                     <xs:sequence>
       <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endDate" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
