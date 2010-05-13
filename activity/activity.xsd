@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 13 May 2010, 8:10 -->       
+<!-- generated: 13 May 2010, 8:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -106,7 +106,7 @@
       <xs:enumeration value="CMIP5"/>
       <xs:enumeration value="AMIP"/>
       <xs:enumeration value="TAMIP"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity" abstract="true">
@@ -430,7 +430,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemporalAveType_Enumeration">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Conformance">
@@ -1501,7 +1501,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:enumeration value="Model Modification"/>
       <xs:enumeration value="Staggered Start"/>
       <xs:enumeration value="Perturbed Physics"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FixityType">
@@ -1539,7 +1539,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:enumeration value="monthly"/>
       <xs:enumeration value="yearly"/>
       <xs:enumeration value="hourly"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InitialCondition">
@@ -1808,7 +1808,7 @@ It is a place for the scientific description of the reason why an experiment was
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionType_Enumeration">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MIP">

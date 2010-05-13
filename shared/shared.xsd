@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 May 2010, 8:10 -->       
+<!-- generated: 13 May 2010, 8:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -144,7 +144,7 @@
       <xs:enumeration value="Pathscale"/>
       <xs:enumeration value="Portland PGI"/>
       <xs:enumeration value="Silverfrost"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
@@ -487,7 +487,7 @@
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardNameType_Enumeration">
    <xs:restriction base="xs:string">
       <xs:enumeration value="CF"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
@@ -563,7 +563,7 @@
       <xs:enumeration value="Unicos"/>
       <xs:enumeration value="Irix64"/>
       <xs:enumeration value="SunOS"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
@@ -788,7 +788,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="SKIF/T-Platforms"/>
       <xs:enumeration value="Sun Microsystems"/>
       <xs:enumeration value="T-Platforms"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
@@ -825,7 +825,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="SP Switch"/>
       <xs:enumeration value="Cray Interconnect"/>
       <xs:enumeration value="Fat Tree"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
@@ -858,7 +858,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="pascal"/>
       <xs:enumeration value="sigma"/>
       <xs:enumeration value="degrees_c"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
@@ -1031,7 +1031,7 @@ With all the different ways of pinpointing an XML item, a reference can either u
       <xs:enumeration value="AMD X86_64"/>
       <xs:enumeration value="Other Intel"/>
       <xs:enumeration value="Other AMD"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>       
 </xs:schema>

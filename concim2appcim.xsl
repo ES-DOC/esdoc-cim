@@ -537,7 +537,7 @@ This is commented out b/c a Record is just a transfer convention
                     </xs:enumeration>
                 </xsl:for-each>
                 <xsl:if test="$open">
-                    <xs:enumeration value="other"/>
+                    <xs:enumeration value="Other"/>
                 </xsl:if>
             </xs:restriction>
         </xs:simpleType>

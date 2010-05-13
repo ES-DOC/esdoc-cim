@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 13 May 2010, 8:10 -->       
+<!-- generated: 13 May 2010, 8:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -74,7 +74,7 @@
       <xs:enumeration value="NCEP ON29"/>
       <xs:enumeration value="NCEP ON129"/>
       <xs:enumeration value="Binary"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
@@ -179,7 +179,7 @@
       <xs:enumeration value="variable"/>
       <xs:enumeration value="run"/>
       <xs:enumeration value="stream"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">

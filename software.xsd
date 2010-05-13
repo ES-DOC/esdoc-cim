@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 13 May 2010, 8:10 -->       
+<!-- generated: 13 May 2010, 8:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -930,7 +930,7 @@
       <xs:enumeration value="TimeInterpolation"/>
       <xs:enumeration value="Lagged"/>
       <xs:enumeration value="Exact"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponent">
@@ -1152,7 +1152,7 @@
    <xs:restriction base="xs:string">
       <xs:enumeration value="post_processor"/>
       <xs:enumeration value="transformer"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ScientificProperties">
@@ -1206,7 +1206,7 @@
             <xs:documentation>An embedded connection is a "virtual" connection.  It represents a connection between two embedded components which means that they are not implemented as separate comopnents in software and so there is no "real" inter-component coupling going on.</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
@@ -1319,7 +1319,7 @@
       <xs:enumeration value="TopOfAtmosInsolation"/>
       <xs:enumeration value="ToposphericHeterChem"/>
       <xs:enumeration value="VegetationCarbonCycle"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
 <!--Parallelisation is not used -->       
