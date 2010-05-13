@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 12 May 2010, 8:52 -->       
+<!-- generated: 13 May 2010, 6:42 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -294,7 +294,7 @@
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="purpose" use="required" type="DataPurpose">
+   <xs:attribute name="purpose" use="optional" type="DataPurpose">
       <xs:annotation>
          <xs:documentation>Describes why this connection is being made.  Possible values include: boundaryCondition, initialCondition, Forcing.</xs:documentation>
       </xs:annotation>
