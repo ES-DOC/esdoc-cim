@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 May 2010, 6:42 -->       
+<!-- generated: 13 May 2010, 7:00 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -496,7 +496,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="machineName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineSystem" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLibrary" minOccurs="0" maxOccurs="unbounded" type="xs:string">
          <xs:annotation>
             <xs:documentation>A library residing on this machine.</xs:documentation>
@@ -504,7 +504,7 @@
       </xs:element>
       <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
+      <xs:element name="machineOperatingSystem" minOccurs="0" maxOccurs="1"
                   type="OperatingSystemType"/>
       <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="InterconnectType"/>
