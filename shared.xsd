@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 14 May 2010, 10:24 -->       
+<!-- generated: 14 May 2010, 11:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -328,7 +328,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="length" minOccurs="0" maxOccurs="1" type="xs:integer"/>
-      <!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
+      <!-- this is an abstract class --><xs:element name="range" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>
