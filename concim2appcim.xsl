@@ -114,10 +114,10 @@
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
             </xsl:text>
-            <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/cim/</xsl:text>
+            <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
             <xsl:text disable-output-escaping="yes">" 
-            targetNamespace="http://www.metaforclimate.eu/cim/</xsl:text>
+            targetNamespace="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
             <xsl:text disable-output-escaping="yes">"&gt;</xsl:text>
 
@@ -127,8 +127,8 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-                xmlns="{concat('http://www.metaforclimate.eu/cim/',$version)}"
-                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
+                xmlns="{concat('http://www.metaforclimate.eu/schema/cim/',$version)}"
+                targetNamespace="{concat('http://www.metaforclimate.eu/schema/cim/',$version)}"
                 elementFormDefault="qualified" attributeFormDefault="unqualified">
             -->
             <xsl:value-of select="$newline"/>
