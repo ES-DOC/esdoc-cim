@@ -6,6 +6,10 @@ The concim2appcim.xsl file can be used to transform the (top-level) cim.xmi file
 
 **********
 
+To validate CIM instances against the METAFOR APPCIM, ensure that all the xsd files (including the external schemas) are at a location known to your validator - either on the local filesystem or online someplace.
+
+**********
+
 upon checking out a new working copy...
 
 01) create a new Enterprise Architect Project (cim.eap)
