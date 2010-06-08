@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 14 May 2010, 16:08 -->       
+<!-- generated: 8 June 2010, 2:29 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -241,6 +241,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -755,6 +760,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
                </xs:element>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
             </xs:sequence>
             <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
@@ -963,6 +973,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
                </xs:element>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
             </xs:sequence>
             <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
@@ -1169,6 +1184,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -1465,6 +1485,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
