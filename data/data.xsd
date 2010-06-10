@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 8 June 2010, 2:29 -->       
+<!-- generated: 10 June 2010, 3:03 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -24,7 +24,7 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LocalFileStorage">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FileStorage">
    <xs:annotation>
       <xs:documentation>Contains attributes to describe a DataObject stored as a single file.</xs:documentation>
    </xs:annotation>
@@ -266,7 +266,7 @@
       <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="localFileStorage" type="LocalFileStorage"/>
+               <xs:element name="fileStorage" type="FileStorage"/>
                <xs:element name="dbStorage" type="DbStorage"/>
                <xs:element name="ipStorage" type="IpStorage"/>
             </xs:choice>
