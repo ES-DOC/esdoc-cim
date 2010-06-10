@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 10 June 2010, 3:03 -->       
+<!-- generated: 10 June 2010, 3:46 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -110,6 +110,11 @@
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="modificationDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+         <xs:annotation>
+            <xs:documentation>The date that the file (or other storage medium) has been updated</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
    <xs:attribute name="dataLocation" use="optional" type="xs:anyURI">
       <xs:annotation>
@@ -153,7 +158,7 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
    <xs:annotation>
-      <xs:documentation>The type of data object that is grouped together into a particular hierarchy.</xs:documentation>
+      <xs:documentation>The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
@@ -176,9 +181,16 @@
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType_Enumeration">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="variable"/>
       <xs:enumeration value="run"/>
       <xs:enumeration value="stream"/>
+      <xs:enumeration value="institute"/>
+      <xs:enumeration value="product"/>
+      <xs:enumeration value="model"/>
+      <xs:enumeration value="experiment"/>
+      <xs:enumeration value="frequency"/>
+      <xs:enumeration value="realm"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="ensembleMember"/>
       <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
