@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 10 June 2010, 3:46 -->       
+<!-- generated: 28 June 2010, 14:11 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -115,7 +115,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -170,7 +170,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -225,7 +225,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -272,7 +272,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -380,7 +380,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -448,7 +448,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -577,7 +577,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -716,7 +716,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -771,7 +771,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -826,7 +826,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -873,7 +873,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -986,7 +986,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -1104,7 +1104,7 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -1383,7 +1383,7 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
