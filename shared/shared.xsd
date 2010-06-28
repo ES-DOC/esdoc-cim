@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 June 2010, 14:11 -->       
+<!-- generated: 28 June 2010, 14:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -716,8 +716,10 @@
             <xs:documentation>The person that made the change.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"/>
    </xs:sequence>
+   <xs:attribute name="type" use="optional" type="ChangePropertyType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
    <xs:sequence/>
@@ -733,16 +735,11 @@ Currently unused in the CIM.</xs:documentation>
                     <xs:sequence>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
+            <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "value" attribute.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier"/>
-   </xs:sequence>
-   <xs:attribute name="type" use="optional" type="ChangePropertyType">
-      <xs:annotation>
-         <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
