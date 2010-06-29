@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 June 2010, 18:51 -->       
+<!-- generated: 28 June 2010, 19:04 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -413,8 +413,31 @@
       <xs:enumeration value="Increment"/>
       <xs:enumeration value="Redistribution"/>
       <xs:enumeration value="Replacement"/>
-      <xs:enumeration value="ParameterChange"/>
-      <xs:enumeration value="CodeChange"/>
+      <xs:enumeration value="ParameterChange">
+         <xs:annotation>
+            <xs:documentation>a specific type of ModelMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CodeChange">
+         <xs:annotation>
+            <xs:documentation>a specific type of ModelMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AncilaryFile">
+         <xs:annotation>
+            <xs:documentation>a specific type of InputMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BoundaryCondition">
+         <xs:annotation>
+            <xs:documentation>a specific type of InputMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InitialCondition">
+         <xs:annotation>
+            <xs:documentation>a specific type of InputMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
