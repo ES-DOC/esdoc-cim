@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 1 July 2010, 9:35 -->       
+<!-- generated: 3 July 2010, 22:05 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -125,7 +125,7 @@
             <xs:documentation>The entities that funded this activity.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="rationale" minOccurs="1" maxOccurs="unbounded" type="xs:string">
+      <xs:element name="rationale" minOccurs="0" maxOccurs="unbounded" type="xs:string">
          <xs:annotation>
             <xs:documentation>For what purpose is this activity being performed?</xs:documentation>
          </xs:annotation>
