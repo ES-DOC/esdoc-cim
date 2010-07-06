@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 July 2010, 22:05 -->       
+<!-- generated: 6 July 2010, 11:06 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -86,6 +86,11 @@
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -287,6 +292,11 @@
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -698,6 +708,11 @@
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -948,6 +963,11 @@ Currently unused in the CIM.</xs:documentation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -997,6 +1017,11 @@ With all the different ways of pinpointing an XML item, a reference can either u
       <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
          <xs:annotation>
             <xs:documentation>The version of the element being referenced.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+         <xs:annotation>
+            <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">

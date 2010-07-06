@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 3 July 2010, 22:05 -->       
+<!-- generated: 6 July 2010, 11:06 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -56,6 +56,11 @@
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -182,6 +187,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -288,6 +298,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -380,6 +395,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -478,6 +498,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -523,6 +548,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -600,6 +630,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -688,6 +723,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -806,6 +846,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -968,6 +1013,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -1023,6 +1073,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -1073,6 +1128,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -1173,6 +1233,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -1224,6 +1289,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -1291,6 +1361,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -1372,6 +1447,11 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -1558,6 +1638,11 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -1643,6 +1728,11 @@ It is a place for the scientific description of the reason why an experiment was
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
@@ -1693,6 +1783,11 @@ It is a place for the scientific description of the reason why an experiment was
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -1776,6 +1871,11 @@ It is a place for the scientific description of the reason why an experiment was
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
