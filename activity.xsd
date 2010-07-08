@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 6 July 2010, 11:06 -->       
+<!-- generated: 8 July 2010, 16:37 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1390,7 +1390,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
       <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
-      <xs:element name="deployment" minOccurs="0" maxOccurs="1" type="Deployment"/>
+      <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 6 July 2010, 11:06 -->       
+<!-- generated: 8 July 2010, 16:37 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -498,7 +498,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="deployment" minOccurs="0" maxOccurs="1" type="Deployment"/>
+      <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"/>
    </xs:sequence>
    <xs:attribute name="embedded" use="optional" type="xs:boolean">
       <xs:annotation>
@@ -1239,6 +1239,15 @@
                   type="ComponentProperty"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Parallelisation">
+   <xs:annotation>
+      <xs:documentation>Describes how a deployment has been parallelised across a computing platform.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="processes" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType" mixed="true">
    <xs:annotation>
       <xs:documentation>The ConnectionType enumeration describes the mechanism of transport for a connection.</xs:documentation>
@@ -1397,7 +1406,6 @@
       <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
-<!--Parallelisation is not used -->       
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalProperties">
    <xs:annotation>
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
@@ -1417,6 +1425,7 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
    <xs:sequence>
       <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="parallelisation" minOccurs="0" maxOccurs="1" type="Parallelisation"/>
       <xs:element name="platform" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
@@ -1466,6 +1475,8 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="executibleName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="executibleArgument" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Timing">
