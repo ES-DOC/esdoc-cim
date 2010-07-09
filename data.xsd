@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 8 July 2010, 22:11 -->       
+<!-- generated: 8 July 2010, 22:18 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -278,8 +278,12 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <!--objectProperty is not used -->       
-<xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
+      <xs:element name="dataProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">
+         <xs:annotation>
+            <xs:documentation>May not be used</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
       <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -486,7 +490,18 @@
       <xs:enumeration value="OnlineFileFTP"/>
    </xs:restriction>
 </xs:simpleType>
-<!--DataProperty is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProperty">
+   <xs:annotation>
+      <xs:documentation>A property of a DataObject.  Currently this is intended to be used to record CF specific information (like packing, scaling, etc.) for OASIS4.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestrictionScopeType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="metadataAccessConstraint"/>
