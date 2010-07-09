@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 8 July 2010, 19:42 -->       
+<!-- generated: 8 July 2010, 19:53 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -499,10 +499,21 @@
       </xs:annotation>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue" mixed="true">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue">
                                 <xs:simpleContent>
                                 <xs:extension base="xs:anySimpleType">
-                              
+                            <xs:attribute name="valueMin" use="optional" type="xs:decimal"/>
+   <xs:attribute name="valueMax" use="optional" type="xs:decimal"/>
+   <xs:attribute name="fillValue" use="optional" type="xs:anySimpleType">
+      <xs:annotation>
+         <xs:documentation>The value to use when the real value is unavailable (ie: cannot be coupled).</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="numericalType" use="optional" type="xs:string">
+      <xs:annotation>
+         <xs:documentation>The datatype of the value: string, int, double, etc.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
