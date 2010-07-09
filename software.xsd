@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 8 July 2010, 19:38 -->       
+<!-- generated: 8 July 2010, 19:42 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -26,6 +26,7 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatialRegriddingDimensionType">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="1D"/>
       <xs:enumeration value="2D"/>
       <xs:enumeration value="3D"/>
    </xs:restriction>
