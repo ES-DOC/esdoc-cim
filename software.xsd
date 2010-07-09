@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 8 July 2010, 21:35 -->       
+<!-- generated: 8 July 2010, 22:01 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -53,6 +53,16 @@
       <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionProperty">
+   <xs:annotation>
+      <xs:documentation>A ConnectionProperty is a name/value pair used to specify OASIS-specific properties.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Connection">
    <xs:annotation>
       <xs:documentation>A Connection represents a link from a source DataSource to a target DataSource.  These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).   It can be associated with another software component (a transformer).  If present, the rate, lag, timeTransformation, and spatialRegridding override that of the parent coupling.
@@ -318,6 +328,8 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="connectionProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="ConnectionProperty"/>
    </xs:sequence>
    <xs:attribute name="purpose" use="optional" type="DataPurpose">
       <xs:annotation>
@@ -964,6 +976,8 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="couplingProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="CouplingProperty"/>
       <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"/>
    </xs:sequence>
    <xs:attribute name="purpose" use="required" type="DataPurpose"/>
@@ -1267,6 +1281,16 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingProperty">
+   <xs:annotation>
+      <xs:documentation>A CouplingProperty is a name/value pair used to specify OASIS-specific properties.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatialRegriddingMethodType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="linear"/>
