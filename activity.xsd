@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 8 July 2010, 22:18 -->       
+<!-- generated: 9 July 2010, 21:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -573,6 +573,7 @@ If something is purpopsefully non-conformant then the conformant attribute would
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -871,6 +872,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -1036,6 +1038,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -1096,6 +1099,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -1472,6 +1476,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -1661,6 +1666,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
