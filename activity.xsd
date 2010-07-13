@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 13 July 2010, 12:33 -->       
+<!-- generated: 13 July 2010, 13:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -118,9 +118,7 @@
    <xs:annotation>
       <xs:documentation>A NumericalRequirement that is being used as a set of related requirements; For example if a requirement is to use 1 of 3 boundary conditions, then that "parent" requirement would have three "child" RequirmentOptions (each of one with the XOR optionRelationship).</xs:documentation>
    </xs:annotation>
-                        <xs:complexContent>
-                        <xs:extension base="NumericalRequirement">
-                    <xs:sequence>
+   <xs:sequence>
       <xs:element name="requirement" minOccurs="0" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>The requirement being specified by this option</xs:documentation>
@@ -169,7 +167,15 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="numericalRequirement" type="NumericalRequirement"/>
+               <!-- this is an abstract class --><xs:element name="requirement" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="initialCondition" type="InitialCondition"/>
+                        <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
+                        <xs:element name="boundaryCondition" type="BoundaryCondition"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -178,10 +184,8 @@
       <xs:annotation>
          <xs:documentation>Describes how this optional (child) requirement is related to its sibling requirements.  For example, a NumericalRequirement could consist of a set of optional requirements each with an "OR" relationship meaning use this boundary condition _or_ that one.</xs:documentation>
       </xs:annotation>
-   </xs:attribute>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
+   </xs:attribute>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity" abstract="true">
    <xs:annotation>
       <xs:documentation>An abstract class used as the parent of MeasurementCampaigns, Projects, Experiments, and NumericalActivities.</xs:documentation>
@@ -404,7 +408,8 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalRequirement">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalRequirement"
+                abstract="true">
    <xs:annotation>
       <xs:documentation>A description of the requirements of particular experiments.  Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</xs:documentation>
    </xs:annotation>
@@ -580,7 +585,15 @@ If something is purpopsefully non-conformant then the conformant attribute would
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="numericalRequirement" type="NumericalRequirement"/>
+               <!-- this is an abstract class --><xs:element name="requirement" minOccurs="1" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="initialCondition" type="InitialCondition"/>
+                        <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
+                        <xs:element name="boundaryCondition" type="BoundaryCondition"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -987,8 +1000,15 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexType>
       </xs:element>
       <xs:element name="requiredDuration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-      <xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded"
-                  type="NumericalRequirement"/>
+      <!-- this is an abstract class --><xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="initialCondition" type="InitialCondition"/>
+               <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
+               <xs:element name="boundaryCondition" type="BoundaryCondition"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="supports" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
    </xs:sequence>  
                             </xs:extension>
