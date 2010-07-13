@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 9 July 2010, 21:25 -->       
+<!-- generated: 13 July 2010, 12:33 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -114,6 +114,74 @@
       <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RequirementOption">
+   <xs:annotation>
+      <xs:documentation>A NumericalRequirement that is being used as a set of related requirements; For example if a requirement is to use 1 of 3 boundary conditions, then that "parent" requirement would have three "child" RequirmentOptions (each of one with the XOR optionRelationship).</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="NumericalRequirement">
+                    <xs:sequence>
+      <xs:element name="requirement" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>The requirement being specified by this option</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="numericalRequirement" type="NumericalRequirement"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="optionRelationship" use="required" type="LogicalRelationshipType">
+      <xs:annotation>
+         <xs:documentation>Describes how this optional (child) requirement is related to its sibling requirements.  For example, a NumericalRequirement could consist of a set of optional requirements each with an "OR" relationship meaning use this boundary condition _or_ that one.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity" abstract="true">
    <xs:annotation>
       <xs:documentation>An abstract class used as the parent of MeasurementCampaigns, Projects, Experiments, and NumericalActivities.</xs:documentation>
@@ -344,14 +412,9 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
       <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier"/>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
-                  type="NumericalRequirement"/>
+      <xs:element name="requirementOption" minOccurs="0" maxOccurs="unbounded"
+                  type="RequirementOption"/>
    </xs:sequence>
-   <xs:attribute name="childRelationship" use="optional" type="LogicalRelationshipType">
-      <xs:annotation>
-         <xs:documentation>Describes how any children relationships are related to one another. For example, this covers cases where an experiment has optional requirements; use this boundary condition _or_ that boundary condition. </xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentRelationshipType">
    <xs:restriction base="xs:string">
