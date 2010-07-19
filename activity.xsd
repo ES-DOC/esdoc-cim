@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 19 July 2010, 11:05 -->       
+<!-- generated: 19 July 2010, 12:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1410,11 +1410,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
-      <xs:element name="input" minOccurs="0" maxOccurs="unbounded" type="Coupling">
-         <xs:annotation>
-            <xs:documentation>implemented as a mapping from a source to target; can be a forcing file, a boundary condition, etc.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
+      <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <!-- this is an abstract class --><xs:element name="duration" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -1423,6 +1419,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="perpetualPeriod" type="PerpetualPeriod"/>
             </xs:choice>
          </xs:complexType>
+      </xs:element>
+      <xs:element name="input" minOccurs="0" maxOccurs="unbounded" type="Coupling">
+         <xs:annotation>
+            <xs:documentation>implemented as a mapping from a source to target; can be a forcing file, a boundary condition, etc.</xs:documentation>
+         </xs:annotation>
       </xs:element>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
@@ -1474,8 +1475,71 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexType>
       </xs:element>
       <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="DataObject"/>
-      <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
-      <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="spinupDateRange" minOccurs="0" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>The date range that a simulation is engaged in "spinup."</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="spinupSimulation" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>The (external) simulation used during "spinup."  Note that this element can be used in conjuntion with spinupDateRange.  If a simulation has the latter but not the former, then one can assume that the simulation is performing its own spinup.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="spinupSimulation" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="simulationComposite"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="controlSimulation" minOccurs="0" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>Points to a simulation being used as the basis (control) run.  Note that only "derived" simulations can describe something as being control; a simulation should not know if it is being used itself as the control of some other run.</xs:documentation>
