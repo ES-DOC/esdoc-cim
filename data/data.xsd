@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 19 July 2010, 12:54 -->       
+<!-- generated: 20 July 2010, 7:49 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -418,9 +418,13 @@
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
-               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
@@ -439,11 +443,6 @@
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
-                  <xs:annotation>
-                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI)</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
