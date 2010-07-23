@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 20 July 2010, 7:49 -->       
+<!-- generated: 23 July 2010, 15:10 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -988,6 +988,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="experimentNumber" minOccurs="0" maxOccurs="1" type="xs:double"/>
       <!-- this is an abstract class --><xs:element name="calendar" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -1899,9 +1900,7 @@ It is a place for the scientific description of the reason why an experiment was
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Activity">
-                    <xs:sequence>
-      <xs:element name="experimentID" minOccurs="0" maxOccurs="1" type="Identifier"/>
-      <!-- this is an abstract class --><xs:element name="duration" minOccurs="0" maxOccurs="1">
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="duration" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>

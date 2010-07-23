@@ -1527,9 +1527,12 @@ This is commented out b/c a Record is just a transfer convention
                     <xsl:when test="$lowerCaseType='integer' or $lowerCaseType='int'">
                         <xsl:text>xs:integer</xsl:text>
                     </xsl:when>
-                    <xsl:when test="$lowerCaseType='real' or $lowerCaseType='double'">
+                    <xsl:when test="$lowerCaseType='real' or $lowerCaseType='double' or $lowerCaseType='number'">
+                        <!-- sometimes the UML uses the term "number" -->
+                        <!-- the APPCIM maps it to xs:double  -->
                         <xsl:text>xs:double</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='boolean'">
                         <xsl:text>xs:boolean</xsl:text>
                     </xsl:when>
