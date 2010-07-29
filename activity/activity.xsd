@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 23 July 2010, 15:10 -->       
+<!-- generated: 28 July 2010, 20:11 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -304,7 +304,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
                      <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
@@ -855,7 +855,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
                      <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
@@ -1029,7 +1029,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
                      <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
@@ -1258,7 +1258,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
                      <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
@@ -1713,7 +1713,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="1" type="StandardName">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
                      <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
