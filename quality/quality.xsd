@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 28 July 2010, 20:11 -->       
+<!-- generated: 4 August 2010, 15:03 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -331,6 +331,7 @@ These five entities represent elements of data quality and can be further subcla
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
+                        <xs:element ref="quality"/>
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
@@ -442,7 +443,7 @@ These five entities represent elements of data quality and can be further subcla
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DQ_Quality">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Quality">
    <xs:annotation>
       <xs:documentation>The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.</xs:documentation>
    </xs:annotation>
@@ -455,5 +456,52 @@ These five entities represent elements of data quality and can be further subcla
       <xs:element name="report" minOccurs="0" maxOccurs="unbounded" type="DQ_Element"/>
       <xs:element name="issue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
    </xs:sequence>
-</xs:complexType>       
+</xs:complexType>
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="quality">
+   <xs:annotation>
+      <xs:documentation>The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.</xs:documentation>
+   </xs:annotation>
+   <xs:complexType>
+      <xs:complexContent>
+         <xs:extension base="Quality">
+            <xs:sequence>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+                  <xs:annotation>
+                     <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:element>       
 </xs:schema>

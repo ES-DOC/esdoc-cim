@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 28 July 2010, 20:11 -->       
+<!-- generated: 4 August 2010, 15:03 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -324,7 +324,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -875,7 +875,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1049,7 +1049,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1278,7 +1278,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1733,7 +1733,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>

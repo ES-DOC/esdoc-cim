@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 July 2010, 20:11 -->       
+<!-- generated: 4 August 2010, 15:03 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -201,7 +201,7 @@
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -322,6 +322,7 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
+                        <xs:element ref="quality"/>
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
@@ -482,7 +483,7 @@
             <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+      <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
          <xs:annotation>
             <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
          </xs:annotation>
@@ -746,6 +747,7 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
+                        <xs:element ref="quality"/>
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
