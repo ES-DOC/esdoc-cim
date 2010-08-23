@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 4 August 2010, 15:03 -->       
+<!-- generated: 23 August 2010, 9:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -453,6 +453,12 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_Citation_PropertyType"/>
+      <xs:element name="onlineResource" minOccurs="0" maxOccurs="1"
+                  type="gmd:CI_OnlineResource_PropertyType">
+         <xs:annotation>
+            <xs:documentation>Provides a URL location for this model.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"/>
       <!-- this is an abstract class --><xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
