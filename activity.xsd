@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 24 September 2010, 9:27 -->       
+<!-- generated: 24 September 2010, 10:44 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1408,7 +1408,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
       <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <!-- this is an abstract class --><xs:element name="duration" minOccurs="1" maxOccurs="1">
+      <!-- this is an abstract class --><xs:element name="calendar" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="daily-360" type="Daily-360"/>
