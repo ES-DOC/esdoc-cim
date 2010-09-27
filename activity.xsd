@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 24 September 2010, 10:44 -->       
+<!-- generated: 24 September 2010, 19:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -228,9 +228,14 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
             <xs:documentation>The start (in simulated time) time of this run</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="endPoint" minOccurs="0" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
             <xs:documentation>The end (in simulated time) time of this run</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="Duration">
+         <xs:annotation>
+            <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="model" minOccurs="1" maxOccurs="1">
@@ -774,7 +779,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:annotation>
       </xs:element>
       <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endPoint" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="Duration">
+         <xs:annotation>
+            <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>

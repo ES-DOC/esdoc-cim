@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 24 September 2010, 10:44 -->       
+<!-- generated: 24 September 2010, 19:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -212,6 +212,16 @@
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Duration">
+   <xs:annotation>
+      <xs:documentation>A way to specify the length of some operation; used in conjunction with a startPoint.  This can either be an absolute endPoint, or else an offset</xs:documentation>
+   </xs:annotation>
+                                <xs:simpleContent>
+                                <xs:extension base="xs:duration">
+                            <xs:attribute name="type" use="optional" type="DurationType"/>  
+                            </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
    <xs:annotation>
       <xs:documentation>A description of a compiler used on a particular platform.</xs:documentation>
@@ -661,6 +671,12 @@
       <xs:enumeration value="days"/>
       <xs:enumeration value="months"/>
       <xs:enumeration value="years"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DurationType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="absolute"/>
+      <xs:enumeration value="offset"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
