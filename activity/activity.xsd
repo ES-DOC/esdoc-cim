@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 24 September 2010, 19:02 -->       
+<!-- generated: 27 September 2010, 12:56 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1782,6 +1782,8 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
       <xs:enumeration value="Model Modification"/>
       <xs:enumeration value="Staggered Start"/>
       <xs:enumeration value="Perturbed Physics"/>
+      <xs:enumeration value="Experiment Driven"/>
+      <xs:enumeration value="Mixed"/>
       <xs:enumeration value="Other"/>
    </xs:restriction>
 </xs:simpleType>
