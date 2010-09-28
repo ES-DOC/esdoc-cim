@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 27 September 2010, 18:11 -->       
+<!-- generated: 27 September 2010, 19:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -353,7 +353,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>The name of the model (that is used internally).</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>The name of the model (that is recognized externally).</xs:documentation>
          </xs:annotation>
@@ -1156,7 +1156,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                         <xs:extension base="DataSource">
                     <xs:sequence>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="units" minOccurs="0" maxOccurs="1" type="UnitType"/>
       <xs:element name="standardName" minOccurs="0" maxOccurs="unbounded" type="StandardName">
@@ -1286,7 +1286,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="processes" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rank" minOccurs="0" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingProperty">
@@ -1535,8 +1535,8 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="executibleName" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="executibleArgument" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+      <xs:element name="executableName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="executableArgument" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Timing">

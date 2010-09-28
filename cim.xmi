@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-09-27 18:11:01">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-09-27 19:39:01">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -19319,7 +19319,7 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={014A6462-EFF5-43e3-A970-692D4045B5D1}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={78CC5F57-35EC-4bf9-833A-C626894EE514}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="valueMin" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="validMin" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -19346,7 +19346,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={2342A2F9-3CF2-4250-90A1-E028409E83F6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=attribute;GUID={3AAB8ACE-C241-4909-918E-2F9402B18378};@ENDSTEREO;$DES;$CLT={A4BFD699-D67A-4f80-8E42-4C1EDB781682}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="valueMax" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="validMax" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24503,7 +24503,7 @@
 												<UML:TaggedValue tag="scale" value="0"/>
 												<UML:TaggedValue tag="collection" value="false"/>
 												<UML:TaggedValue tag="position" value="1"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="lowerBound" value="0"/>
 												<UML:TaggedValue tag="upperBound" value="1"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
 												<UML:TaggedValue tag="ea_guid" value="{8BD70AA5-E662-4d3a-852F-71035C51E8A6}"/>
@@ -26522,7 +26522,7 @@
 												<UML:TaggedValue tag="scale" value="0"/>
 												<UML:TaggedValue tag="collection" value="false"/>
 												<UML:TaggedValue tag="position" value="1"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="lowerBound" value="0"/>
 												<UML:TaggedValue tag="upperBound" value="1"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
 												<UML:TaggedValue tag="ea_guid" value="{8E966AB1-C7D5-4b63-A778-5ECD7BAD9412}"/>
@@ -27049,7 +27049,7 @@
 												<UML:TaggedValue tag="scale" value="0"/>
 												<UML:TaggedValue tag="collection" value="false"/>
 												<UML:TaggedValue tag="position" value="1"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="lowerBound" value="0"/>
 												<UML:TaggedValue tag="upperBound" value="1"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
 												<UML:TaggedValue tag="ea_guid" value="{4C58D684-AA8E-40f1-89ED-DADBA09932D6}"/>
@@ -30211,7 +30211,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CC471F79-B9AD-406c-90DA-CA57D67B5D3B}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=reference;GUID={890D28C7-CC8C-48c5-96CC-46F24DD03CDA};@ENDSTEREO;$DES;$CLT={6C6ECC69-8ECB-4eb7-B31C-FE467AD1D251}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="executibleName" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="executableName" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -30233,7 +30233,7 @@
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="executibleArgument" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="executableArgument" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
