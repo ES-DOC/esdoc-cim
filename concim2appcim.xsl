@@ -1017,22 +1017,54 @@ This is commented out b/c a Record is just a transfer convention
                         <!-- or it might be an extension point -->
 
                         <xsl:when test="$stereotype='extensible'">
-                            <xs:complexType>
-                                <xs:complexContent>
-                                    <xs:extension base="{$type}">
+                            
+                            <xsl:variable name="typeAttribute">
+                                <xsl:value-of>
+                                    <xsl:call-template name="typeTemplate">
+                                        <xsl:with-param name="type" select="$type"/>                                    
+                                    </xsl:call-template>
+                                </xsl:value-of>
+                            </xsl:variable>                            
+                            
+                            <xsl:choose>                                
+                                <xsl:when test="starts-with(data($typeAttribute),'xs:')">
+                                    <!-- extension of a built-in type  -->
+                                    <xs:annotation>
+                                        <xs:documentation>this element contains extensions to the CIM; a
+                                            container element is required to prevent ambiguity among extensible
+                                            content and optional content (please use namespaces for extended
+                                            content)</xs:documentation>
+                                        </xs:annotation>
+                                    <xs:complexType>
                                         <xs:sequence>
-                                            <xsl:call-template name="extensibleTemplate">
-                                                <xsl:with-param name="attribute" select="false()"/>
-                                                <xsl:with-param name="element" select="true()"/>
-                                            </xsl:call-template>
+                                            <xs:any namespace="##any" processContents="lax" minOccurs="0"
+                                                maxOccurs="unbounded"/>
                                         </xs:sequence>
-                                        <xsl:call-template name="extensibleTemplate">
-                                            <xsl:with-param name="attribute" select="true()"/>
-                                            <xsl:with-param name="element" select="false()"/>
-                                        </xsl:call-template>
-                                    </xs:extension>
-                                </xs:complexContent>
-                            </xs:complexType>
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:complexType>                                    
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <!-- extension of a known type -->
+                                    <xs:complexType>
+                                        <xs:complexContent>
+                                            <xs:extension base="{data($typeAttribute)}">
+                                                <xs:sequence>                                           
+                                                    <xsl:call-template name="extensibleTemplate">
+                                                        <xsl:with-param name="attribute" select="false()"/>
+                                                        <xsl:with-param name="element" select="true()"/>
+                                                    </xsl:call-template>
+                                                </xs:sequence>
+                                                <xsl:call-template name="extensibleTemplate">
+                                                    <xsl:with-param name="attribute" select="true()"/>
+                                                    <xsl:with-param name="element" select="false()"/>
+                                                </xsl:call-template>
+                                            </xs:extension>
+                                        </xs:complexContent>
+                                    </xs:complexType>                                
+                                    
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            
                         </xsl:when>
 
                         <!-- otherwise, use its specified type -->
