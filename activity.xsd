@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 27 September 2010, 12:56 -->       
+<!-- generated: 27 September 2010, 18:11 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1605,6 +1605,20 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:complexType>
                </xs:element>
             </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="authorsList" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>this element contains extensions to the CIM; a
+                                            container element is required to prevent ambiguity among extensible
+                                            content and optional content (please use namespaces for extended
+                                            content)</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:sequence>
+               <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
