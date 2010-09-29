@@ -1636,12 +1636,19 @@ This is commented out b/c a Record is just a transfer convention
                     <xsl:when test="$lowerCaseType='boolean'">
                         <xsl:text>xs:boolean</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='uri'">
                         <xsl:text>xs:anyURI</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='date' or $lowerCaseType='datetime'">
                         <xsl:text>xs:dateTime</xsl:text>
                     </xsl:when>
+                    
+                    <xsl:when test="$lowerCaseType='duration'">
+                        <xsl:text>xs:duration</xsl:text>
+                    </xsl:when>
+                    
                     <!-- if it's none of those built-in types, then don't convert it to any specific XML types -->
                     <xsl:otherwise>
                         <xsl:value-of select="$type"/>

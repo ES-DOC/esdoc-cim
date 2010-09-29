@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 27 September 2010, 19:39 -->       
+<!-- generated: 28 September 2010, 21:12 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -201,7 +201,7 @@
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -212,16 +212,6 @@
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Duration">
-   <xs:annotation>
-      <xs:documentation>A way to specify the length of some operation; used in conjunction with a startPoint.  This can either be an absolute endPoint, or else an offset</xs:documentation>
-   </xs:annotation>
-                                <xs:simpleContent>
-                                <xs:extension base="xs:duration">
-                            <xs:attribute name="type" use="optional" type="DurationType"/>  
-                            </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
    <xs:annotation>
       <xs:documentation>A description of a compiler used on a particular platform.</xs:documentation>
@@ -332,7 +322,7 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
-                        <xs:element ref="quality"/>
+                        <xs:element ref="cIM_Quality"/>
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
@@ -498,7 +488,7 @@
             <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+      <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
          <xs:annotation>
             <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
          </xs:annotation>
@@ -673,12 +663,6 @@
       <xs:enumeration value="years"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DurationType">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="absolute"/>
-      <xs:enumeration value="offset"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
    <xs:annotation>
       <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
@@ -768,7 +752,7 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
-                        <xs:element ref="quality"/>
+                        <xs:element ref="cIM_Quality"/>
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>

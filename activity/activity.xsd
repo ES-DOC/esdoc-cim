@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 27 September 2010, 19:39 -->       
+<!-- generated: 28 September 2010, 21:12 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -233,7 +233,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
             <xs:documentation>The end (in simulated time) time of this run</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="Duration">
+      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="xs:duration">
          <xs:annotation>
             <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
          </xs:annotation>
@@ -329,7 +329,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -780,7 +780,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       </xs:element>
       <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="endPoint" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="Duration">
+      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="xs:duration">
          <xs:annotation>
             <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
          </xs:annotation>
@@ -885,7 +885,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1059,7 +1059,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1288,7 +1288,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -1757,7 +1757,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
