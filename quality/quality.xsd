@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 28 September 2010, 21:12 -->       
+<!-- generated: 30 September 2010, 11:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -123,7 +123,7 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>date or range of dates on which a data quality measure was applied</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <!-- this is an abstract class --><xs:element name="result" minOccurs="1" maxOccurs="2">
+      <!-- this is an abstract class --><xs:element name="result" minOccurs="1" maxOccurs="3">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="dQ_QuantitativeResult" type="DQ_QuantitativeResult"/>
@@ -248,19 +248,10 @@ These five entities represent elements of data quality and can be further subcla
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_DomainConsistency">
                         <xs:complexContent>
                         <xs:extension base="DQ_DomainConsistency">
-                    <xs:sequence>
-      <xs:element name="dateTime" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="evaluator" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
-      <!-- this is an abstract class --><xs:element name="result" minOccurs="1" maxOccurs="3">
-         <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="dQ_QuantitativeResult" type="DQ_QuantitativeResult"/>
-               <xs:element name="dQ_ConformanceResult" type="DQ_ConformanceResult"/>
-               <xs:element name="cIM_ResultSet" type="CIM_ResultSet"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
-   </xs:sequence>  
+                    <xs:sequence><!--dateTime is not used -->       
+<xs:element name="evaluator" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
+      <!--result is not used -->       
+</xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
