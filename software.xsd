@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 30 September 2010, 11:38 -->       
+<!-- generated: 30 September 2010, 13:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1003,34 +1003,22 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>Enumerates the different ways that time can be mapped when transforming from one field to another.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="TimeMappingType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeMappingType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="TimeAccumulation"/>
-      <xs:enumeration value="TimeAverage"/>
-      <xs:enumeration value="LastAvailable"/>
-      <xs:enumeration value="TimeInterpolation"/>
-      <xs:enumeration value="Exact"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponent">
    <xs:annotation>
       <xs:documentation>A ModelCompnent is a scientific model; it represents code which models some physical phenomena for a particular length of time.</xs:documentation>
@@ -1245,32 +1233,22 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>An enumeration of types of ProcessorComponent.  This includes things like transformers and post-processors.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ProcessorComponentType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               name="ProcessorComponentType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="post_processor"/>
-      <xs:enumeration value="transformer"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ScientificProperties">
    <xs:annotation>
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
@@ -1313,159 +1291,44 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>The ConnectionType enumeration describes the mechanism of transport for a connection.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ConnectionType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="CCSM Flux Coupler"/>
-      <xs:enumeration value="ESMF"/>
-      <xs:enumeration value="FMS"/>
-      <xs:enumeration value="Files"/>
-      <xs:enumeration value="MCT"/>
-      <xs:enumeration value="OASIS3"/>
-      <xs:enumeration value="OASIS4"/>
-      <xs:enumeration value="Shared Memory">
-         <xs:annotation>
-            <xs:documentation>a "direct" connection; implies a sequential rather than parallel simulation; also known as "argument passing."</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Embedded">
-         <xs:annotation>
-            <xs:documentation>An embedded connection is a "virtual" connection.  It represents a connection between two embedded components which means that they are not implemented as separate comopnents in software and so there is no "real" inter-component coupling going on.</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
                 mixed="true">
    <xs:annotation>
       <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, etc.   CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.  This codelist is synonomous with "realm" for the purposes of CMIP5.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ModelComponentType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Advection"/>
-      <xs:enumeration value="Aerosol3D-Sources"/>
-      <xs:enumeration value="Aerosol2D-Sources"/>
-      <xs:enumeration value="AerolEmissionAndConc"/>
-      <xs:enumeration value="AerosolKeyProperties"/>
-      <xs:enumeration value="AerosolModel"/>
-      <xs:enumeration value="Aerosols"/>
-      <xs:enumeration value="AerosolSpaceConfig"/>
-      <xs:enumeration value="AerosolTransport"/>
-      <xs:enumeration value="AtmChem2D-Sources"/>
-      <xs:enumeration value="AtmChem3D-Sources"/>
-      <xs:enumeration value="AtmChemEmissionAndConc"/>
-      <xs:enumeration value="AtmChemKeyProperties"/>
-      <xs:enumeration value="AtmChemSpaceConfig"/>
-      <xs:enumeration value="AtmChemTransport"/>
-      <xs:enumeration value="AtmGasPhaseChemistry"/>
-      <xs:enumeration value="AtmHeterogeneousChemistry"/>
-      <xs:enumeration value="AtmosAdvection"/>
-      <xs:enumeration value="AtmosCloudScheme"/>
-      <xs:enumeration value="AtmosConvectTurbulCloud"/>
-      <xs:enumeration value="AtmosDynamicalCore"/>
-      <xs:enumeration value="AtmosHorizontalDomain"/>
-      <xs:enumeration value="AtmosKeyProperties"/>
-      <xs:enumeration value="AtmosOrographyAndWaves"/>
-      <xs:enumeration value="Atmosphere"/>
-      <xs:enumeration value="AtmosphericChemistry"/>
-      <xs:enumeration value="AtmosRadiation"/>
-      <xs:enumeration value="AtmosSpaceConfiguration"/>
-      <xs:enumeration value="Climate"/>
-      <xs:enumeration value="CloudSimulator"/>
-      <xs:enumeration value="IceSheetDynamics"/>
-      <xs:enumeration value="LandIce"/>
-      <xs:enumeration value="LandIceGlaciers"/>
-      <xs:enumeration value="LandIceKeyProperties"/>
-      <xs:enumeration value="LandIceSheet"/>
-      <xs:enumeration value="LandIceShelves"/>
-      <xs:enumeration value="LandIceShelvesDynamics"/>
-      <xs:enumeration value="LandSurface"/>
-      <xs:enumeration value="LandSurfaceAlbedo"/>
-      <xs:enumeration value="LandSurfaceCarbonCycle"/>
-      <xs:enumeration value="LandSurfaceEnergyBalance"/>
-      <xs:enumeration value="LandSurfaceKeyProperties"/>
-      <xs:enumeration value="LandSurfaceLakes"/>
-      <xs:enumeration value="LandSurfaceSnow"/>
-      <xs:enumeration value="LandSurfaceSoil"/>
-      <xs:enumeration value="LandSurfaceSpaceConfiguration"/>
-      <xs:enumeration value="LandSurfaceVegetation"/>
-      <xs:enumeration value="LandSurfSoilHeatTreatment"/>
-      <xs:enumeration value="LandSurfSoilHydrology"/>
-      <xs:enumeration value="Ocean"/>
-      <xs:enumeration value="OceanAdvection"/>
-      <xs:enumeration value="OceanBioBoundaryForcing"/>
-      <xs:enumeration value="OceanBioChemistry"/>
-      <xs:enumeration value="OceanBioGasExchange"/>
-      <xs:enumeration value="OceanBioGeoChemistry"/>
-      <xs:enumeration value="OceanBioKeyProperties"/>
-      <xs:enumeration value="OceanBioSpaceConfig"/>
-      <xs:enumeration value="OceanBioTimeStepFramework"/>
-      <xs:enumeration value="OceanBioTracers"/>
-      <xs:enumeration value="OceanBioTracersEcosystem"/>
-      <xs:enumeration value="OceanBoundaryForcing"/>
-      <xs:enumeration value="OceanBoundaryForcingTracers"/>
-      <xs:enumeration value="OceanHorizontalDomain"/>
-      <xs:enumeration value="OceanInteriorMixing"/>
-      <xs:enumeration value="OceanKeyProperties"/>
-      <xs:enumeration value="OceanLateralPhysics"/>
-      <xs:enumeration value="OceanLateralPhysMomentum"/>
-      <xs:enumeration value="OceanLateralPhysTracers"/>
-      <xs:enumeration value="OceanMixedLayer"/>
-      <xs:enumeration value="OceanNudging"/>
-      <xs:enumeration value="OceanSpaceConfiguration"/>
-      <xs:enumeration value="OceanUpAndLowBoundaries"/>
-      <xs:enumeration value="OceanVerticalPhysics"/>
-      <xs:enumeration value="PhotoChemistry"/>
-      <xs:enumeration value="RiverRouting"/>
-      <xs:enumeration value="SeaIce"/>
-      <xs:enumeration value="SeaIceDynamics"/>
-      <xs:enumeration value="SeaIceKeyProperties"/>
-      <xs:enumeration value="SeaIceSpaceConfiguration"/>
-      <xs:enumeration value="SeaIceThermodynamics"/>
-      <xs:enumeration value="StratosphericHeterChem"/>
-      <xs:enumeration value="TopOfAtmosInsolation"/>
-      <xs:enumeration value="ToposphericHeterChem"/>
-      <xs:enumeration value="VegetationCarbonCycle"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalProperties">
    <xs:annotation>
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>

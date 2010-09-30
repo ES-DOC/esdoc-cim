@@ -310,6 +310,8 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:call-template name="guidTemplate"/>
                 <!-- and the version template -->
                 <xsl:call-template name="versionTemplate"/>
+                <!-- and the non-empty-string template -->
+                <xsl:call-template name="nonEmptyStringTemplate"/>
             </xsl:if>
 
             <!-- carry on with the parsing... -->
@@ -462,6 +464,26 @@ This is commented out b/c a Record is just a transfer convention
         </xs:simpleType>
     </xsl:template>
 
+    <!-- nonEmptyString template -->
+    <!-- a simpleType for strings that must have content -->
+    <xsl:template name="nonEmptyStringTemplate">
+        <xs:simpleType name="nonEmptyString">
+            <xs:annotation>
+                <xs:documentation>ensures string types are not empty and not just spaces</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+                <xsl:comment>
+                    <xsl:text>string cannot be null</xsl:text>
+                </xsl:comment>
+                <xs:minLength value="1"/>
+                <xsl:comment>
+                    <xsl:text>string has to start with something other than a space</xsl:text>
+                </xsl:comment>
+                <xs:pattern value=".*[^\s].*" />                
+            </xs:restriction>            
+        </xs:simpleType>
+    </xsl:template>
+    
     <!-- unused classes -->
     <xsl:template name="unusedTemplate">
         <xsl:param name="className"/>
@@ -545,12 +567,9 @@ This is commented out b/c a Record is just a transfer convention
 
 <!-- BEGIN NEW CODELIST TEMPLATE -->
     <!-- codelist template -->
-<!--    
     <xsl:template name="codelistTemplate">
         <xsl:variable name="id" select="@xmi.id"/>
--->        
         <!-- assume codelists are "closed" unless they are specified "open" -->
-<!--        
         <xsl:variable name="open"
         select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
         
@@ -561,27 +580,10 @@ This is commented out b/c a Record is just a transfer convention
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="name" type="xs:string"/>
+                            <xs:element name="version" type="version" minOccurs="0"/>
+                            <xs:element name="server" type="xs:anyURI"/>
                             <xs:element name="description" type="xs:string" minOccurs="0"/>
-                            <xs:choice>
-                                <xs:element name="cache">
-                                    <xs:complexType>
-                                        <xs:sequence>
-                                            <xs:element name="filePath" type="xs:string"/>
-                                            <xs:element name="fileVersion" type="version" minOccurs="0"/>
-                                            <xs:element name="details" type="xs:string" minOccurs="0"/>
-                                        </xs:sequence>
-                                    </xs:complexType>    
-                                </xs:element>
-                                <xs:element name="server">
-                                    <xs:complexType>
-                                        <xs:sequence>
-                                            <xs:element name="vocabURI" type="xs:anyURI"/>
-                                            <xs:element name="vocabVersion" type="version" minOccurs="0"/>
-                                            <xs:element name="details" type="xs:string" minOccurs="0"/>
-                                        </xs:sequence>
-                                    </xs:complexType>
-                                </xs:element>
-                            </xs:choice>
+                            <xs:element name="details" type="xs:string" minOccurs="0"/>
                         </xs:sequence>
                             <xsl:element name="xs:attribute">
                                 <xsl:attribute name="name">open</xsl:attribute>
@@ -592,32 +594,29 @@ This is commented out b/c a Record is just a transfer convention
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
--->            
+
             <!-- this lets validation code recognise a CV -->
-<!--
             <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
-            <xs:attribute name="value" use="required" type="xs:string"/>
+            <xs:attribute name="value" use="required" type="nonEmptyString"/>
         </xs:complexType>
     </xsl:template>
--->    
+    
 <!-- END NEW CODELIST TEMPLATE -->
     
 <!-- BEGIN OLD CODELIST TEMPLATE -->
     <!-- codelist template -->
-
+<!--
     <xsl:template name="codelistTemplate">
         <xsl:variable name="id" select="@xmi.id"/>
-        
+-->        
         <!-- assume codelists are "closed" unless they are specified "open" -->
-        
+<!--        
         <xsl:variable name="open"
             select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
 
         <xs:complexType name="{@name}" mixed="{$open}">
             <xsl:apply-templates mode="UMLclass"/>
-            
-            <!-- HARD-CODED FOR NOW; WILL REPLACE W/ UML STUFF SOON -->
-            
+                        
             <xs:sequence>
                 <xs:element name="vocabularyServer" minOccurs="0">
                     <xs:complexType>
@@ -637,9 +636,7 @@ This is commented out b/c a Record is just a transfer convention
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-        
-            <!-- END HARD-CODED BIT -->
-            
+                    
             <xs:attribute name="value" type="{concat(@name,'_Enumeration')}" use="required"/>
         </xs:complexType>
         <xsl:call-template name="enumerationTemplate">
@@ -647,7 +644,7 @@ This is commented out b/c a Record is just a transfer convention
             <xsl:with-param name="codelist" select="true()"/>
         </xsl:call-template>
     </xsl:template>
-
+-->
 <!-- END OLD CODELIST TEMPLATE -->            
 
     <xsl:template name="referenceTemplate">

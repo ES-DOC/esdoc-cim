@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 30 September 2010, 11:38 -->       
+<!-- generated: 30 September 2010, 13:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -88,32 +88,22 @@
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProjectType" mixed="true">
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ProjectType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProjectType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="CMIP5"/>
-      <xs:enumeration value="AMIP"/>
-      <xs:enumeration value="TAMIP"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RequirementOption">
    <xs:annotation>
       <xs:documentation>A NumericalRequirement that is being used as a set of related requirements; For example if a requirement is to use 1 of 3 boundary conditions, then that "parent" requirement would have three "child" RequirmentOptions (each of one with the XOR optionRelationship).</xs:documentation>
@@ -507,29 +497,22 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemporalAveType" mixed="true">
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="TemporalAveType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemporalAveType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Conformance">
    <xs:annotation>
       <xs:documentation>A conformance class maps how a configured model component met a specific numerical requirement.
@@ -1770,37 +1753,22 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleType" mixed="true">
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="EnsembleType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Perturbed Boundary Conditions"/>
-      <xs:enumeration value="Cross Model"/>
-      <xs:enumeration value="Initial Condition"/>
-      <xs:enumeration value="Model Modification"/>
-      <xs:enumeration value="Staggered Start"/>
-      <xs:enumeration value="Perturbed Physics"/>
-      <xs:enumeration value="Experiment Driven"/>
-      <xs:enumeration value="Mixed"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FixityType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="stationary"/>
@@ -1812,33 +1780,22 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
       <xs:documentation>Measures of frequency.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="FrequencyType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FrequencyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="daily"/>
-      <xs:enumeration value="monthly"/>
-      <xs:enumeration value="yearly"/>
-      <xs:enumeration value="hourly"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InitialCondition">
    <xs:annotation>
       <xs:documentation>An initial condition is a numerical requirement on a model prognostic variable value at time zero.</xs:documentation>
@@ -2048,29 +2005,22 @@ It is a place for the scientific description of the reason why an experiment was
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionType" mixed="true">
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ResolutionType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MIP">
    <xs:annotation>
       <xs:documentation>Model Intercomparison Project. Exmaple: CMIP5 and CCMVal. A MIP aggregates together many Numerical Experiments.  A MIP contains a reference to at least two experiments.</xs:documentation>

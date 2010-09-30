@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 September 2010, 11:38 -->       
+<!-- generated: 30 September 2010, 13:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -40,6 +40,14 @@
    </xs:annotation>
    <xs:restriction base="xs:string">
       <xs:pattern value="\d+(\.\d+)*"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="nonEmptyString">
+   <xs:annotation>
+      <xs:documentation>ensures string types are not empty and not just spaces</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string"><!--string cannot be null--><xs:minLength value="1"/>
+      <!--string has to start with something other than a space--><xs:pattern value=".*[^\s].*"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
@@ -122,36 +130,22 @@
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="CompilerType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Absoft"/>
-      <xs:enumeration value="Intel"/>
-      <xs:enumeration value="Lahey"/>
-      <xs:enumeration value="NAG"/>
-      <xs:enumeration value="Pathscale"/>
-      <xs:enumeration value="Portland PGI"/>
-      <xs:enumeration value="Silverfrost"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
    <xs:annotation>
       <xs:documentation>A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform. </xs:documentation>
@@ -371,27 +365,22 @@
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="false"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="CodeList_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList_Enumeration">
-   <xs:restriction base="xs:string"/>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
    <xs:annotation>
       <xs:documentation>A date range without a specified start and/or end point.</xs:documentation>
@@ -526,31 +515,22 @@
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="StandardNameType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardNameType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="CF"/>
-      <xs:enumeration value="DRS"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
    <xs:annotation>
       <xs:documentation>A description of a machine used by a particular platform.</xs:documentation>
@@ -597,36 +577,22 @@
       <xs:documentation>A list of common operating systems.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="OperatingSystemType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               name="OperatingSystemType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Linux"/>
-      <xs:enumeration value="AIX"/>
-      <xs:enumeration value="Darwin"/>
-      <xs:enumeration value="Unicos"/>
-      <xs:enumeration value="Irix64"/>
-      <xs:enumeration value="SunOS"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -804,128 +770,64 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A list of organisations that create machines.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="MachineVendorType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="ACTION"/>
-      <xs:enumeration value="Appro International"/>
-      <xs:enumeration value="Bull SA"/>
-      <xs:enumeration value="ClusterVision/Dell"/>
-      <xs:enumeration value="ClusterVision/IBM"/>
-      <xs:enumeration value="Cray Inc"/>
-      <xs:enumeration value="DALCO AG Switzerland"/>
-      <xs:enumeration value="Dawning"/>
-      <xs:enumeration value="Dell"/>
-      <xs:enumeration value="DELL/ACS"/>
-      <xs:enumeration value="Dell/Sun/IBM"/>
-      <xs:enumeration value="Fujitsu"/>
-      <xs:enumeration value="Hewlett-Packard"/>
-      <xs:enumeration value="Hitachi"/>
-      <xs:enumeration value="IBM"/>
-      <xs:enumeration value="Intel"/>
-      <xs:enumeration value="Koi Computers"/>
-      <xs:enumeration value="Lenovo"/>
-      <xs:enumeration value="Linux Networx"/>
-      <xs:enumeration value="NEC"/>
-      <xs:enumeration value="NEC/Sun"/>
-      <xs:enumeration value="NUDT"/>
-      <xs:enumeration value="Pyramid Computer"/>
-      <xs:enumeration value="Raytheon-Aspen Systems/Appro"/>
-      <xs:enumeration value="Self-made"/>
-      <xs:enumeration value="SGI"/>
-      <xs:enumeration value="SKIF/T-Platforms"/>
-      <xs:enumeration value="Sun Microsystems"/>
-      <xs:enumeration value="T-Platforms"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="InterconnectType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Myrinet"/>
-      <xs:enumeration value="Quadrics"/>
-      <xs:enumeration value="Gigabit Ethernet"/>
-      <xs:enumeration value="Infiniband"/>
-      <xs:enumeration value="Mixed"/>
-      <xs:enumeration value="NUMAlink"/>
-      <xs:enumeration value="SP Switch"/>
-      <xs:enumeration value="Cray Interconnect"/>
-      <xs:enumeration value="Fat Tree"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="UnitType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="meter"/>
-      <xs:enumeration value="hectopascal"/>
-      <xs:enumeration value="pascal"/>
-      <xs:enumeration value="sigma"/>
-      <xs:enumeration value="degrees_c"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
@@ -1082,35 +984,20 @@ With all the different ways of pinpointing an XML item, a reference can either u
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="ProcessorType_Enumeration" use="required"/>
-</xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="NEC"/>
-      <xs:enumeration value="Sparc"/>
-      <xs:enumeration value="Intel"/>
-      <xs:enumeration value="Intel IA-64"/>
-      <xs:enumeration value="Intel EM64T"/>
-      <xs:enumeration value="AMD X86_64"/>
-      <xs:enumeration value="Other Intel"/>
-      <xs:enumeration value="Other AMD"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>       
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
+</xs:complexType>       
 </xs:schema>

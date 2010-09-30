@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 30 September 2010, 11:38 -->       
+<!-- generated: 30 September 2010, 13:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,40 +43,22 @@
       <xs:documentation>Describes the internal format of the dataset.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="DataFormatType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataFormatType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Excel"/>
-      <xs:enumeration value="HDF"/>
-      <xs:enumeration value="NetCDF"/>
-      <xs:enumeration value="GRIB 1"/>
-      <xs:enumeration value="GRIB 2"/>
-      <xs:enumeration value="PP"/>
-      <xs:enumeration value="ASCII"/>
-      <xs:enumeration value="HDF EOS"/>
-      <xs:enumeration value="NCEP ON29"/>
-      <xs:enumeration value="NCEP ON129"/>
-      <xs:enumeration value="Binary"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
    <xs:annotation>
       <xs:documentation>Describes the content  of a data object; the variable's name, units, etc.</xs:documentation>
@@ -161,39 +143,22 @@
       <xs:documentation>The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
+               <xs:element name="name" type="xs:string"/>
+               <xs:element name="version" type="version" minOccurs="0"/>
+               <xs:element name="server" type="xs:anyURI"/>
+               <xs:element name="description" type="xs:string" minOccurs="0"/>
+               <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="value" type="DataHierarchyType_Enumeration" use="required"/>
+   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="run"/>
-      <xs:enumeration value="stream"/>
-      <xs:enumeration value="institute"/>
-      <xs:enumeration value="product"/>
-      <xs:enumeration value="model"/>
-      <xs:enumeration value="experiment"/>
-      <xs:enumeration value="frequency"/>
-      <xs:enumeration value="realm"/>
-      <xs:enumeration value="variable"/>
-      <xs:enumeration value="ensembleMember"/>
-      <xs:enumeration value="Other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
    <xs:annotation>
       <xs:documentation>Describes how a DataObject is distributed.</xs:documentation>
