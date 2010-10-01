@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 30 September 2010, 22:31 -->       
+<!-- generated: 1 October 2010, 6:49 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -97,7 +97,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -506,7 +505,6 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1762,7 +1760,6 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1789,7 +1786,6 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -2014,7 +2010,6 @@ It is a place for the scientific description of the reason why an experiment was
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>

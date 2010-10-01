@@ -573,7 +573,11 @@ This is commented out b/c a Record is just a transfer convention
         <xsl:variable name="open"
         select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
         
-        <xs:complexType name="{@name}" mixed="{$open}">
+<!-- MODIFIED BY AT -->
+<!-- NO LONGER ENCODING CLOSED/OPEN AS PART OF THE CIM -->        
+<!--        <xs:complexType name="{@name}" mixed="{$open}"> -->
+<!-- END MODIFIED BY AT -->       
+        <xs:complexType name="{@name}" mixed="true">
             <xsl:apply-templates mode="UMLclass"/>
             <xs:sequence>
                 <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
@@ -585,12 +589,15 @@ This is commented out b/c a Record is just a transfer convention
                             <xs:element name="description" type="xs:string" minOccurs="0"/>
                             <xs:element name="details" type="xs:string" minOccurs="0"/>
                         </xs:sequence>
-                            <xsl:element name="xs:attribute">
+<!-- MODIFIED BY AT -->
+<!-- NO LONGER ENCODING CLOSED/OPEN AS PART OF THE CIM -->                        
+<!--                            <xsl:element name="xs:attribute">
                                 <xsl:attribute name="name">open</xsl:attribute>
                                 <xsl:attribute name="use">required</xsl:attribute>
                                 <xsl:attribute name="type">xs:boolean</xsl:attribute>
                                 <xsl:attribute name="fixed" select="$open"/>
-                            </xsl:element>                        
+                            </xsl:element> -->
+<!-- END MODIFID BY AT -->                        
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>

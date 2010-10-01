@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 September 2010, 22:31 -->       
+<!-- generated: 1 October 2010, 6:49 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -139,7 +139,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -368,7 +367,7 @@
    <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="true">
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
@@ -382,7 +381,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="false"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -532,7 +530,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -594,7 +591,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -794,7 +790,6 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -815,7 +810,6 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -836,7 +830,6 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1008,7 +1001,6 @@ With all the different ways of pinpointing an XML item, a reference can either u
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>

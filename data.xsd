@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 30 September 2010, 22:31 -->       
+<!-- generated: 1 October 2010, 6:49 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -52,7 +52,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -152,7 +151,6 @@
                <xs:element name="description" type="xs:string" minOccurs="0"/>
                <xs:element name="details" type="xs:string" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
