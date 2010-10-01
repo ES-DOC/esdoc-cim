@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 September 2010, 22:09 -->       
+<!-- generated: 30 September 2010, 22:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -637,6 +637,12 @@
       <xs:enumeration value="years"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RelationshipDirectionType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="toTarget"/>
+      <xs:enumeration value="fromTarget"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
    <xs:annotation>
       <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
@@ -645,6 +651,7 @@
 <!--target is not used -->       
 <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="direction" use="required" type="RelationshipDirectionType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResponsibleParty">
    <xs:annotation>
