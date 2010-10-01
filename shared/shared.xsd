@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 September 2010, 13:22 -->       
+<!-- generated: 30 September 2010, 22:09 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -154,9 +154,8 @@
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
-      <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
       <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ResponsibleParty"/>
+      <xs:element name="unit" minOccurs="1" maxOccurs="unbounded" type="MachineCompilerUnit"/>
    </xs:sequence>
 </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
@@ -352,6 +351,15 @@
       </xs:element>
    </xs:sequence>
    <xs:attribute name="units" use="optional" type="CalendarUnit"/>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineCompilerUnit">
+   <xs:annotation>
+      <xs:documentation>Associates a machine with a [set of] compilers.  This is a separate class in case a platform needs to specify more than one machine/compiler pair.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
+      <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource" abstract="true">
    <xs:annotation>
