@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 1 October 2010, 9:39 -->       
+<!-- generated: 4 October 2010, 15:45 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1339,7 +1339,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName"/>
+      <xs:element name="ensembleMemberID" minOccurs="0" maxOccurs="unbounded" type="StandardName"/>
       <xs:element name="ensemble" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
