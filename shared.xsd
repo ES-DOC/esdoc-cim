@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 4 October 2010, 15:45 -->       
+<!-- generated: 20 October 2010, 9:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -405,6 +405,7 @@
       <xs:enumeration value="similarTo"/>
       <xs:enumeration value="other"/>
       <xs:enumeration value="laterVersionOf"/>
+      <xs:enumeration value="previousVersionOf"/>
       <xs:enumeration value="fixedVersionOf"/>
    </xs:restriction>
 </xs:simpleType>

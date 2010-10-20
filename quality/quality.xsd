@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 4 October 2010, 15:45 -->       
+<!-- generated: 20 October 2010, 9:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -59,7 +59,7 @@
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MD_ScopeCodeType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="metadata*">
+      <xs:enumeration value="metadata">
          <xs:annotation>
             <xs:documentation>This would cover quality issues with the CIM itself</xs:documentation>
          </xs:annotation>
@@ -68,12 +68,12 @@
       <xs:enumeration value="software"/>
       <xs:enumeration value="service"/>
       <xs:enumeration value="model"/>
-      <xs:enumeration value="modelComponent*"/>
-      <xs:enumeration value="simulation*"/>
-      <xs:enumeration value="experiment*"/>
-      <xs:enumeration value="numericalRequirement*"/>
-      <xs:enumeration value="ensemble*"/>
-      <xs:enumeration value="file*"/>
+      <xs:enumeration value="modelComponent"/>
+      <xs:enumeration value="simulation"/>
+      <xs:enumeration value="experiment"/>
+      <xs:enumeration value="numericalRequirement"/>
+      <xs:enumeration value="ensemble"/>
+      <xs:enumeration value="file"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CI_DateTypeCode">
@@ -191,9 +191,9 @@ These five entities represent elements of data quality and can be further subcla
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_Scope">
-                        <xs:complexContent>
-                        <xs:extension base="DQ_Scope">
-                    <xs:sequence>
+                                <xs:complexContent>
+                                <xs:extension base="gmd:DQ_Scope_Type">
+                            <xs:sequence>
       <xs:element name="availableAt" minOccurs="0" maxOccurs="1"
                   type="gmd:CI_OnlineResource_PropertyType"/>
    </xs:sequence>

@@ -1362,7 +1362,7 @@ This is commented out b/c a Record is just a transfer convention
     <xsl:template name="lowerCaseTemplate">
         <xsl:param name="string"/>
         <!-- TODO: somewhere in this mess I am passing multiple nodes in as string -->
-        <!-- the [1] gets around this; but I need to fix the source of the problem -->
+        <!-- the [1] gets around this -->
         <xsl:value-of select="translate($string[1],$upperCase,$lowerCase)"/>
     </xsl:template>
 
