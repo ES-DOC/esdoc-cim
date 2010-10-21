@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 20 October 2010, 9:25 -->       
+<!-- generated: 21 October 2010, 1:35 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -646,7 +646,7 @@
       <xs:documentation>A CIM-specific ResponsibleParty.  Sub-classes the gmd ResponsibleParty type and adds the attribute "abbreviation."</xs:documentation>
    </xs:annotation>
                                 <xs:complexContent>
-                                <xs:extension base="gmd:CI_ResponsibleParty_PropertyType">
+                                <xs:extension base="gmd:CI_ResponsibleParty_Type">
                             <xs:sequence>
       <xs:element name="abbreviation" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  

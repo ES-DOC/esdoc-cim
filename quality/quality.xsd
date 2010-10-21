@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 20 October 2010, 9:25 -->       
+<!-- generated: 21 October 2010, 1:35 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -113,7 +113,7 @@ These five entities represent elements of data quality and can be further subcla
          </xs:annotation>
       </xs:element>
       <xs:element name="evaluationProcedure" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_Citation_PropertyType">
+                  type="gmd:CI_Citation_Type">
          <xs:annotation>
             <xs:documentation>reference to the evaluation procedure</xs:documentation>
          </xs:annotation>
@@ -156,7 +156,7 @@ These five entities represent elements of data quality and can be further subcla
    <xs:sequence>
       <xs:element name="evaluationMethodDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="evaluationProcedure" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_Citation_PropertyType"/>
+                  type="gmd:CI_Citation_Type"/>
       <xs:element name="measureDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="nameOfMeasure" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
@@ -195,7 +195,7 @@ These five entities represent elements of data quality and can be further subcla
                                 <xs:extension base="gmd:DQ_Scope_Type">
                             <xs:sequence>
       <xs:element name="availableAt" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_OnlineResource_PropertyType"/>
+                  type="gmd:CI_OnlineResource_Type"/>
    </xs:sequence>
    <xs:attribute name="target" use="optional" type="xs:anyURI"/>  
                             </xs:extension>
