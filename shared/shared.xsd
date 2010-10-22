@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 21 October 2010, 1:35 -->       
+<!-- generated: 22 October 2010, 1:47 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -143,6 +143,7 @@
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
@@ -367,7 +368,7 @@
    <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="true">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
@@ -385,6 +386,7 @@
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="false"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
@@ -566,6 +568,7 @@
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
@@ -587,6 +590,7 @@
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
@@ -786,6 +790,7 @@ Currently unused in the CIM.</xs:documentation>
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
@@ -806,6 +811,7 @@ Currently unused in the CIM.</xs:documentation>
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
@@ -826,6 +832,7 @@ Currently unused in the CIM.</xs:documentation>
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
@@ -997,6 +1004,7 @@ With all the different ways of pinpointing an XML item, a reference can either u
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>       
 </xs:schema>

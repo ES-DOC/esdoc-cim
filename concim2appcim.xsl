@@ -573,11 +573,8 @@ This is commented out b/c a Record is just a transfer convention
         <xsl:variable name="open"
         select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
         
-<!-- MODIFIED BY AT -->
-<!-- NO LONGER ENCODING CLOSED/OPEN AS PART OF THE CIM -->        
-<!--        <xs:complexType name="{@name}" mixed="{$open}"> -->
-<!-- END MODIFIED BY AT -->       
-        <xs:complexType name="{@name}" mixed="true">
+<!-- NOTE THAT THE CONCIM SPECIFIES WHETHER A CV IS OPEN -->        
+        <xs:complexType name="{@name}" mixed="{$open}">        
             <xsl:apply-templates mode="UMLclass"/>
             <xs:sequence>
                 <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
@@ -588,22 +585,20 @@ This is commented out b/c a Record is just a transfer convention
                             <xs:element name="server" type="xs:anyURI"/>
                             <xs:element name="description" type="xs:string" minOccurs="0"/>
                             <xs:element name="details" type="xs:string" minOccurs="0"/>
-                        </xs:sequence>
-<!-- MODIFIED BY AT -->
-<!-- NO LONGER ENCODING CLOSED/OPEN AS PART OF THE CIM -->                        
-<!--                            <xsl:element name="xs:attribute">
-                                <xsl:attribute name="name">open</xsl:attribute>
-                                <xsl:attribute name="use">required</xsl:attribute>
-                                <xsl:attribute name="type">xs:boolean</xsl:attribute>
-                                <xsl:attribute name="fixed" select="$open"/>
-                            </xsl:element> -->
-<!-- END MODIFID BY AT -->                        
+                        </xs:sequence>                        
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
 
             <!-- this lets validation code recognise a CV -->
             <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+<!-- AGAIN, ENCODING A CV's "OPENNESS" -->                        
+            <xsl:element name="xs:attribute">
+                <xsl:attribute name="name">open</xsl:attribute>
+                <xsl:attribute name="use">required</xsl:attribute>
+                <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                <xsl:attribute name="fixed" select="$open"/>
+            </xsl:element>                                    
             <xs:attribute name="value" use="required" type="nonEmptyString"/>
         </xs:complexType>
     </xsl:template>

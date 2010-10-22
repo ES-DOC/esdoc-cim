@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 21 October 2010, 1:35 -->       
+<!-- generated: 22 October 2010, 1:47 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1015,6 +1015,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponent">
@@ -1243,6 +1244,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ScientificProperties">
@@ -1300,6 +1302,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
@@ -1321,6 +1324,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
    </xs:sequence>
    <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalProperties">
