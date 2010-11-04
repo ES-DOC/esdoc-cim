@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 22 October 2010, 6:31 -->       
+<!-- generated: 3 November 2010, 17:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1874,6 +1874,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
       <xs:enumeration value="higherResolutionVersionOf"/>
       <xs:enumeration value="lowerResolutionVersionOf"/>
       <xs:enumeration value="fixedVersionOf"/>
+      <xs:enumeration value="followingSimulation"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Experiment">

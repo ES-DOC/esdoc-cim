@@ -1187,6 +1187,22 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:attribute name="mixed">true</xsl:attribute>
             </xsl:if>
 
+<!-- AT: BEGIN MODIFICATIONS -->
+<!--            
+            <xsl:value-of select="$newline"/>
+            <xsl:comment><xsl:value-of select="$newline"/>
+                <xsl:text>nAssociations: </xsl:text><xsl:value-of select="$nAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nAttributes: </xsl:text><xsl:value-of select="$nAttributes"/><xsl:value-of select="$newline"/>
+                <xsl:text>generalisedClass: </xsl:text><xsl:value-of select="$generalisedClass"/><xsl:value-of select="$newline"/>
+                <xsl:text>specialisedClass: </xsl:text><xsl:value-of select="$specialisedClass"/><xsl:value-of select="$newline"/>
+                <xsl:text>nGeneralisedAssociations: </xsl:text><xsl:value-of select="$nGeneralisedAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nSpecialisedAssociations: </xsl:text><xsl:value-of select="$nSpecialisedAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nGeneralisedAttributes: </xsl:text><xsl:value-of select="$nGeneralisedAttributes"/><xsl:value-of select="$newline"/>
+                <xsl:text>nSpecialisedAttributes: </xsl:text><xsl:value-of select="$nSpecialisedAttributes"/><xsl:value-of select="$newline"/>
+            </xsl:comment>
+-->
+<!-- AT: END MODIFICATIONS -->  
+            
             <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
             <xsl:variable name="id" select="@xmi.id"/>
             <xsl:variable name="mixed"
