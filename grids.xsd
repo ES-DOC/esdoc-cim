@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 5 November 2010, 6:23 -->       
+<!-- generated: 9 November 2010, 8:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -331,9 +331,10 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:documentation>Simple data type for specifying a list of references.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="reference" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+      <xs:element name="reference" minOccurs="0" maxOccurs="unbounded"
+                  type="gmd:CI_Citation_Type">
          <xs:annotation>
-            <xs:documentation>A free-text description of a reference / citation.</xs:documentation>
+            <xs:documentation>A detailed description of a citation</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>

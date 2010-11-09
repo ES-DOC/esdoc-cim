@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-11-05 07:23:21">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-11-09 08:42:26">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -11011,16 +11011,16 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={04381886-7CD9-4a43-9E84-529802BAE4CB}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={AB5D3079-DD1E-4da3-BE08-9221461CACEF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D3934C84-9A03-419c-BD88-FFAE461794CB}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={C10D5A09-08CA-4a1c-95CF-F4CBC07B13D4};@ENDSTEREO;$DES;$CLT={AB5D3079-DD1E-4da3-BE08-9221461CACEF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="reference" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="reference" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid16"/>
+												<UML:Classifier xmi.idref="eaxmiid21"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="description" value="A free-text description of a reference / citation."/>
-												<UML:TaggedValue tag="type" value="String"/>
+												<UML:TaggedValue tag="description" value="A detailed description of a citation"/>
+												<UML:TaggedValue tag="type" value="gmd:CI_Citation_Type"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -12665,7 +12665,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid21"/>
+												<UML:Classifier xmi.idref="eaxmiid22"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the horizontal coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external horizontal CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document."/>
@@ -12691,7 +12691,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid21"/>
+												<UML:Classifier xmi.idref="eaxmiid22"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the vertical coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external vertical CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document."/>
@@ -13574,7 +13574,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid22"/>
+												<UML:Classifier xmi.idref="eaxmiid23"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_OnlineResource_PropertyType"/>
@@ -13618,7 +13618,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid23"/>
+												<UML:Classifier xmi.idref="eaxmiid24"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="CIM_ResultType"/>
@@ -13729,7 +13729,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid24"/>
+												<UML:Classifier xmi.idref="eaxmiid25"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:DQ_EvaluationMethodTypeCode_PropertyType"/>
@@ -13751,7 +13751,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid25"/>
+												<UML:Classifier xmi.idref="eaxmiid21"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_Type"/>
@@ -23484,7 +23484,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid25"/>
+												<UML:Classifier xmi.idref="eaxmiid21"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_Type"/>
@@ -25316,7 +25316,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid25"/>
+												<UML:Classifier xmi.idref="eaxmiid21"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_Type"/>
@@ -29134,22 +29134,22 @@
 				<UML:DataType xmi.id="eaxmiid8" name="StandardName" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid43" name="MachineType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid42" name="OperatingSystemType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid25" name="gmd:CI_Citation_Type" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid21" name="gmd:CI_Citation_Type" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid10" name="dateTime" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid2" name="Duration" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid7" name="EnsembleType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid23" name="CIM_ResultType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid22" name="gmd:CI_OnlineResource_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid24" name="CIM_ResultType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid23" name="gmd:CI_OnlineResource_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid35" name="DocumentRelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid39" name="DocumentStatusType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid1" name="CharacterString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid27" name="gmd:CI_OnlineResource_Type" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid21" name="gml:CRSPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid22" name="gml:CRSPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid33" name="Date" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid5" name="ResolutionType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid31" name="QualityIssueType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid11" name="DataFormatType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid24" name="gmd:DQ_EvaluationMethodTypeCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid25" name="gmd:DQ_EvaluationMethodTypeCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid13" name="gmd:CI_Citation_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid9" name="gmd:MD_RestrictionCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid45" name="RelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
