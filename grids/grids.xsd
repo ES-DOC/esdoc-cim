@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 5 November 2010, 6:23 -->       
+<!-- generated: 11 November 2010, 8:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -78,6 +78,7 @@
             <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
       <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
    </xs:sequence>
@@ -331,9 +332,10 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:documentation>Simple data type for specifying a list of references.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="reference" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+      <xs:element name="reference" minOccurs="0" maxOccurs="unbounded"
+                  type="gmd:CI_Citation_Type">
          <xs:annotation>
-            <xs:documentation>A free-text description of a reference / citation.</xs:documentation>
+            <xs:documentation>A detailed description of a citation</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
@@ -613,6 +615,7 @@ If required, two or more coordinate pole definitions may be distinguished by set
             <xs:documentation>This optional property may be used to specify the vertical coordinates (e.g. heights or model levels) at which a grid tile is utilised or realised. In the case of simple grid tiles the equivalent zcoords property on the SimpleGridGeometry data type would be used instead. The current property is intended to be used when the horizontal grid coordinates are defined by one of the other methods.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
    <xs:attribute name="id" use="required" type="Identifier">
       <xs:annotation>
