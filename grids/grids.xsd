@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 15 November 2010, 22:31 -->       
+<!-- generated: 17 November 2010, 20:00 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -78,6 +78,7 @@
             <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
       <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
@@ -174,6 +175,18 @@
       <xs:enumeration value="complex"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridExtent">
+   <xs:annotation>
+      <xs:documentation>DataType for recording the geographic extent of a gridMosaic or gridTile.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="latMin" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="latMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="lonMin" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="lonMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="units" minOccurs="1" maxOccurs="1" type="UnitType"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomFeatureGeometry">
    <xs:annotation>
       <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
@@ -615,6 +628,7 @@ If required, two or more coordinate pole definitions may be distinguished by set
             <xs:documentation>This optional property may be used to specify the vertical coordinates (e.g. heights or model levels) at which a grid tile is utilised or realised. In the case of simple grid tiles the equivalent zcoords property on the SimpleGridGeometry data type would be used instead. The current property is intended to be used when the horizontal grid coordinates are defined by one of the other methods.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
    <xs:attribute name="id" use="required" type="Identifier">
