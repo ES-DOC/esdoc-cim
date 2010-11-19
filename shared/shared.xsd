@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 18 November 2010, 21:50 -->       
+<!-- generated: 19 November 2010, 11:37 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -49,6 +49,15 @@
    <xs:restriction base="xs:string"><!--string cannot be null--><xs:minLength value="1"/>
       <!--string has to start with something other than a space--><xs:pattern value=".*[^\s].*"/>
    </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StringList">
+   <xs:list itemType="xs:string"/>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumberList">
+   <xs:list itemType="xs:integer"/>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GUIDList">
+   <xs:list itemType="guid"/>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
    <xs:annotation>

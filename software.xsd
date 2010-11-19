@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 18 November 2010, 21:50 -->       
+<!-- generated: 19 November 2010, 11:37 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -527,6 +527,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="dependencies" minOccurs="0" maxOccurs="1" type="Dependencies"/>
       <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"/>
    </xs:sequence>
    <xs:attribute name="embedded" use="optional" type="xs:boolean">
@@ -596,6 +597,11 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    <xs:sequence>
       <xs:element name="mappingType" minOccurs="1" maxOccurs="1" type="TimeMappingType"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Dependencies">
+   <xs:sequence>
+      <xs:element name="entryPoint" minOccurs="1" maxOccurs="unbounded" type="EntryPoint"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorComponent">
@@ -1027,6 +1033,25 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EntryPoint">
+   <xs:annotation>
+      <xs:documentation>Describes a function or subroutine of a SoftwareComponent.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="proceeds" minOccurs="0" maxOccurs="1" type="StringList">
+         <xs:annotation>
+            <xs:documentation>A list of the names of entryPoints that this entryPoint must preceed
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="follows" minOccurs="0" maxOccurs="1" type="StringList">
+         <xs:annotation>
+            <xs:documentation>A list of the names of entryPoints that this entryPoint must follow</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponent">
    <xs:annotation>
       <xs:documentation>A ModelCompnent is a scientific model; it represents code which models some physical phenomena for a particular length of time.</xs:documentation>
@@ -1279,7 +1304,8 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    <xs:sequence>
       <xs:element name="processes" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="rank" minOccurs="0" maxOccurs="1" type="xs:integer"/>
-   </xs:sequence>
+      <!--schedule is not used -->       
+</xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingProperty">
    <xs:annotation>

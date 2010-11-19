@@ -312,6 +312,8 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:call-template name="versionTemplate"/>
                 <!-- and the non-empty-string template -->
                 <xsl:call-template name="nonEmptyStringTemplate"/>
+                <!-- and the list templates -->
+                <xsl:call-template name="listsTemplate"/>
             </xsl:if>
 
             <!-- carry on with the parsing... -->
@@ -482,6 +484,21 @@ This is commented out b/c a Record is just a transfer convention
                 <xs:pattern value=".*[^\s].*" />                
             </xs:restriction>            
         </xs:simpleType>
+    </xsl:template>
+    
+    
+    <!-- lists template -->
+    <!-- a simpleType for lists of different types -->
+    <xsl:template name="listsTemplate">
+        <xs:simpleType name="StringList">
+            <xs:list itemType="xs:string"/>
+        </xs:simpleType>
+        <xs:simpleType name="NumberList">
+            <xs:list itemType="xs:integer"/>
+        </xs:simpleType>
+        <xs:simpleType name="GUIDList">
+            <xs:list itemType="guid"/>
+        </xs:simpleType>        
     </xsl:template>
     
     <!-- unused classes -->
@@ -1664,6 +1681,9 @@ This is commented out b/c a Record is just a transfer convention
                         <xsl:text>xs:duration</xsl:text>
                     </xsl:when>
                     
+                    <xsl:when test="$lowerCaseType='characterstringlist' or $lowerCaseType='stringlist' or $lowerCaseType='characterlist'">
+                        <xsl:text>StringList</xsl:text>
+                    </xsl:when>
                     <!-- if it's none of those built-in types, then don't convert it to any specific XML types -->
                     <xsl:otherwise>
                         <xsl:value-of select="$type"/>
