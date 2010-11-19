@@ -1712,6 +1712,7 @@ This is commented out b/c a Record is just a transfer convention
         <!-- the maximum is not greater than 1 -->
         <!-- AND the stereotype is either an enumeration or explicit attribute or the type is an explicit enumeration or boolean or URI  -->
         <!-- OR the type has a stereotype of enumeration -->
+        <!-- AND the stereotype is _not_ an explicit element -->
         <xsl:variable name="isAttribute"
             select="string($attMax)='1' 
             and
@@ -1719,7 +1720,9 @@ This is commented out b/c a Record is just a transfer convention
             ($attStereotype='enumeration' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
             or
             (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration')
-            )"/>
+            )
+            and
+            ($attStereotype!='element')"/>
 
         <xsl:choose>
             <!-- when isAttribute is true and you're looking for an attribute, call the attributeTemplate -->
