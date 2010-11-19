@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 11:37 -->       
+<!-- generated: 19 November 2010, 14:17 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -47,6 +47,20 @@ Documents should use either the spatialRegriddingStandardMethod _or_ the spatial
    </xs:sequence>
    <xs:attribute name="spatialRegriddingDimension" use="required"
                  type="SpatialRegriddingDimensionType"/>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentLanguage">
+   <xs:annotation>
+      <xs:documentation>Details of the programming language a component is written in. There is an assumption that all EntryPoints use the same ComponentLanguage.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of the language</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="componentLanguageProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="ComponentLanguageProperty"/>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
    <xs:annotation>
@@ -462,6 +476,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>Provides a URL location for this model.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="componentLanguage" minOccurs="0" maxOccurs="1" type="ComponentLanguage"/>
       <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"/>
       <!-- this is an abstract class --><xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
@@ -1041,8 +1056,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="proceeds" minOccurs="0" maxOccurs="1" type="StringList">
          <xs:annotation>
-            <xs:documentation>A list of the names of entryPoints that this entryPoint must preceed
-</xs:documentation>
+            <xs:documentation>A list of the names of entryPoints that this entryPoint must poeceed</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="follows" minOccurs="0" maxOccurs="1" type="StringList">
@@ -1500,6 +1514,16 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
       <xs:element name="executableArgument" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentLanguageProperty">
+   <xs:annotation>
+      <xs:documentation>This provides a place to include language-specific information.  Every property is basically a name/value pair, where the names are things like: moduleName, reservedUnits, reservedNames (these are all examples of Fortran-specific properties). </xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Timing">
    <xs:annotation>
       <xs:documentation>Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).</xs:documentation>
