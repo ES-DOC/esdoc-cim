@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 20:31 -->       
+<!-- generated: 19 November 2010, 20:57 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -114,127 +114,16 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>Temporal transformation performed on the coupling field before or after regridding onto the target grid. </xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="connectionSource" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="connectionSource" minOccurs="0" maxOccurs="unbounded"
+                  type="ConnectionEndPoint">
          <xs:annotation>
             <xs:documentation>The source property being connected.  (note that there can be multiple sources)  This is optional; the file/component source may have already been specified by the couplingSource.</xs:documentation>
          </xs:annotation>
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <!-- this is an abstract class --><xs:element name="connectionSource" minOccurs="0" maxOccurs="unbounded">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
-            </xs:choice>
-         </xs:complexType>
       </xs:element>
-      <xs:element name="connectionTarget" minOccurs="0" maxOccurs="1">
+      <xs:element name="connectionTarget" minOccurs="0" maxOccurs="1" type="ConnectionEndPoint">
          <xs:annotation>
             <xs:documentation>The target property being connected.  This is optional to support the way that input is handled in the CMIP5 questionnaire.</xs:documentation>
          </xs:annotation>
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <!-- this is an abstract class --><xs:element name="connectionTarget" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
-            </xs:choice>
-         </xs:complexType>
       </xs:element>
       <xs:element name="transformer" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
@@ -781,127 +670,16 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>Temporal transformation performed on the coupling field before or after regridding onto the target grid. </xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="couplingSource" minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="couplingSource" minOccurs="1" maxOccurs="unbounded"
+                  type="CouplingEndPoint">
          <xs:annotation>
             <xs:documentation>The source component of the coupling.  (note that there can be multiple sources)</xs:documentation>
          </xs:annotation>
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <!-- this is an abstract class --><xs:element name="couplingSource" minOccurs="1" maxOccurs="unbounded">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
-            </xs:choice>
-         </xs:complexType>
       </xs:element>
-      <xs:element name="couplingTarget" minOccurs="1" maxOccurs="1">
+      <xs:element name="couplingTarget" minOccurs="1" maxOccurs="1" type="CouplingEndPoint">
          <xs:annotation>
             <xs:documentation>The target component of the coupling</xs:documentation>
          </xs:annotation>
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <!-- this is an abstract class --><xs:element name="couplingTarget" minOccurs="1" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
-            </xs:choice>
-         </xs:complexType>
       </xs:element>
       <xs:element name="transformer" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
@@ -1320,6 +1098,146 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:element name="rank" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <!--schedule is not used -->       
 </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionEndPoint">
+   <xs:annotation>
+      <xs:documentation>The source/target of a connetion.  This is a DataSource (a ComponnetProperty or DataContent).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).  Realistically, tihe instanceID is unlikely to be used for a connection, only for a coupling.  It is provided here for consistency.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="source" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="source" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="instanceID" minOccurs="0" maxOccurs="1" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingEndPoint">
+   <xs:annotation>
+      <xs:documentation>The source/target of a coupling.  This is a DataSource (a SoftwareComponent or DataObject).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="source" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="source" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="dataObject"/>
+                        <xs:element name="dataContent" type="DataContent"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="instanceID" minOccurs="0" maxOccurs="1" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingProperty">
    <xs:annotation>

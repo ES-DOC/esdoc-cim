@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 19 November 2010, 20:31 -->       
+<!-- generated: 19 November 2010, 20:57 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -374,13 +374,7 @@
    <xs:annotation>
       <xs:documentation>A DataSource can be realised by either a DataObject (file), a DataContent (variable), a Component (model), or a ComponentProperty (variable); all of those can supply data.</xs:documentation>
    </xs:annotation>
-   <xs:sequence>
-      <xs:element name="instanceID" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-   </xs:sequence>
+   <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
