@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 22:19 -->       
+<!-- generated: 19 November 2010, 23:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1147,7 +1147,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="processes" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="rank" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rank" minOccurs="0" maxOccurs="unbounded" type="xs:integer"/>
       <!--schedule is not used -->       
 </xs:sequence>
 </xs:complexType>
