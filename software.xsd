@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 20:57 -->       
+<!-- generated: 19 November 2010, 21:05 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1449,8 +1449,13 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
    <xs:sequence>
       <xs:element name="start" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="end" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="rate" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rate" minOccurs="0" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
    <xs:attribute name="units" use="required" type="TimingUnits"/>
+   <xs:attribute name="variableRate" use="required" type="xs:boolean">
+      <xs:annotation>
+         <xs:documentation>Describes whether or not the model supports a variable timestep.  If set to true, then rate should not be specified.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>       
 </xs:schema>
