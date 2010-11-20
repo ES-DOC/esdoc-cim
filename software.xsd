@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 21:12 -->       
+<!-- generated: 19 November 2010, 22:00 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -275,19 +275,19 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>The license held by this piece of software</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="componentProperties" minOccurs="1" maxOccurs="1"
+      <xs:element name="componentProperties" minOccurs="0" maxOccurs="1"
                   type="ComponentProperties">
          <xs:annotation>
             <xs:documentation>The properties that this model simulates and/or couples.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="numericalProperties" minOccurs="1" maxOccurs="1"
+      <xs:element name="numericalProperties" minOccurs="0" maxOccurs="1"
                   type="NumericalProperties">
          <xs:annotation>
             <xs:documentation>The properties that this model simulates and/or couples. NumericalProperties contain those properties that describe _what_ a model simulates.  (Although, the distinction between numerical and scientific may be unused - all properties can be stored under the generic "ComponentProperties" attribute).</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="scientificProperties" minOccurs="1" maxOccurs="1"
+      <xs:element name="scientificProperties" minOccurs="0" maxOccurs="1"
                   type="ScientificProperties">
          <xs:annotation>
             <xs:documentation>The properties that this model simulates and/or couples. ScientificProperties contain those properties that describe _how_ a model simulates.  (Although, the distinction between numerical and scientific may be unused - all properties can be stored under the generic "ComponentProperties" attribute).</xs:documentation>
@@ -490,7 +490,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>Just acting as a container for multiple component properties.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
                   type="ComponentProperty"/>
    </xs:sequence>
 </xs:complexType>
@@ -1137,7 +1137,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
                   type="ComponentProperty"/>
    </xs:sequence>
 </xs:complexType>
@@ -1416,7 +1416,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
                   type="ComponentProperty"/>
    </xs:sequence>
 </xs:complexType>
