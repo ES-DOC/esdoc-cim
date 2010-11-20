@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 14:17 -->       
+<!-- generated: 19 November 2010, 20:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -626,9 +626,9 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                         <xs:complexContent>
                         <xs:extension base="SoftwareComponent">
                     <xs:sequence>
-      <xs:element name="type" minOccurs="1" maxOccurs="2" type="ProcessorComponentType">
+      <xs:element name="type" minOccurs="1" maxOccurs="unbounded" type="ProcessorComponentType">
          <xs:annotation>
-            <xs:documentation>Describes the type of component.  IThere can be two of these because of the realm/domain distinction)</xs:documentation>
+            <xs:documentation>Describes the type of component.  There can be multiple types.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="spatialRegridding" minOccurs="0" maxOccurs="3" type="SpatialRegridding">
@@ -1073,9 +1073,9 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                         <xs:complexContent>
                         <xs:extension base="SoftwareComponent">
                     <xs:sequence>
-      <xs:element name="type" minOccurs="1" maxOccurs="2" type="ModelComponentType">
+      <xs:element name="type" minOccurs="1" maxOccurs="unbounded" type="ModelComponentType">
          <xs:annotation>
-            <xs:documentation>Describes the type of component.  (There can be two of these because of the realm/domain distinction.)</xs:documentation>
+            <xs:documentation>Describes the type of component.  There can be multiple types.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="timing" minOccurs="0" maxOccurs="1" type="Timing">
