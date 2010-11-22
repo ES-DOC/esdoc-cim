@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 19 November 2010, 23:16 -->       
+<!-- generated: 22 November 2010, 10:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -447,6 +447,14 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Rank">
+   <xs:sequence>
+      <xs:element name="rankValue" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rankMin" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rankMax" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="rankIncrement" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeLag">
    <xs:annotation>
       <xs:documentation>The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.</xs:documentation>
@@ -1147,7 +1155,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="processes" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="rank" minOccurs="0" maxOccurs="unbounded" type="xs:integer"/>
+      <xs:element name="rank" minOccurs="0" maxOccurs="unbounded" type="Rank"/>
       <!--schedule is not used -->       
 </xs:sequence>
 </xs:complexType>
