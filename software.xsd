@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 22 November 2010, 10:54 -->       
+<!-- generated: 22 November 2010, 11:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1439,7 +1439,10 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
       <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="parallelisation" minOccurs="0" maxOccurs="1" type="Parallelisation"/>
-      <xs:element name="platform" minOccurs="1" maxOccurs="1">
+      <xs:element name="platform" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>The platform that this deployment has been run on.  It is optional to allow for "unconfigured" models, that nonetheless specify their parallelisation constraints (a feature needed by OASIS).</xs:documentation>
+         </xs:annotation>
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
