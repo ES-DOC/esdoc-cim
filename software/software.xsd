@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 22 November 2010, 11:38 -->       
+<!-- generated: 24 November 2010, 10:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1227,6 +1227,12 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="connectionProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="ConnectionProperty">
+         <xs:annotation>
+            <xs:documentation>The place to describe features specific to the source/target of a connection.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CouplingEndPoint">
@@ -1295,6 +1301,12 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       <xs:element name="instanceID" minOccurs="0" maxOccurs="1" type="Identifier">
          <xs:annotation>
             <xs:documentation>If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="couplingProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="CouplingProperty">
+         <xs:annotation>
+            <xs:documentation>A place to describe features specific to the source/target of a coupling</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
