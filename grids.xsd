@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 24 November 2010, 11:04 -->       
+<!-- generated: 30 November 2010, 6:50 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -73,7 +73,7 @@
             <xs:documentation>A free-text description of a grid mosaic.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="referenceList" minOccurs="0" maxOccurs="1" type="ReferenceList">
+      <xs:element name="citationList" minOccurs="0" maxOccurs="1" type="CitationList">
          <xs:annotation>
             <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
          </xs:annotation>
@@ -340,13 +340,12 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:enumeration value="spherical"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ReferenceList">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CitationList">
    <xs:annotation>
       <xs:documentation>Simple data type for specifying a list of references.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="reference" minOccurs="0" maxOccurs="unbounded"
-                  type="gmd:CI_Citation_Type">
+      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="gmd:CI_Citation_Type">
          <xs:annotation>
             <xs:documentation>A detailed description of a citation</xs:documentation>
          </xs:annotation>

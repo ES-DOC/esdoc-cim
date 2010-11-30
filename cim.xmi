@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-11-24 11:04:21">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-11-30 06:49:18">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -8818,7 +8818,7 @@
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="referenceList" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="citationList" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -8827,7 +8827,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Optional container element for specifying a list of references that describe the grid."/>
-												<UML:TaggedValue tag="type" value="ReferenceList"/>
+												<UML:TaggedValue tag="type" value="CitationList"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -11167,7 +11167,7 @@
 										</UML:Attribute>
 									</UML:Classifier.feature>
 								</UML:Class>
-								<UML:Class name="ReferenceList" xmi.id="EAID_AB5D3079_DD1E_4da3_BE08_9221461CACEF" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+								<UML:Class name="CitationList" xmi.id="EAID_AB5D3079_DD1E_4da3_BE08_9221461CACEF" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="DataType"/>
 									</UML:ModelElement.stereotype>
@@ -11179,7 +11179,7 @@
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 										<UML:TaggedValue tag="date_created" value="2009-01-29 12:08:50"/>
-										<UML:TaggedValue tag="date_modified" value="2009-02-02 15:52:02"/>
+										<UML:TaggedValue tag="date_modified" value="2010-11-30 06:48:30"/>
 										<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="grids"/>
@@ -11196,7 +11196,7 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={04381886-7CD9-4a43-9E84-529802BAE4CB}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={AB5D3079-DD1E-4da3-BE08-9221461CACEF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D3934C84-9A03-419c-BD88-FFAE461794CB}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={C10D5A09-08CA-4a1c-95CF-F4CBC07B13D4};@ENDSTEREO;$DES;$CLT={AB5D3079-DD1E-4da3-BE08-9221461CACEF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="reference" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="citation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
