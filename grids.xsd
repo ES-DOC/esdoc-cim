@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 30 November 2010, 6:50 -->       
+<!-- generated: 13 December 2010, 16:18 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -58,17 +58,17 @@
       <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the long name associated with a grid mosaic. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>A free-text description of a grid mosaic.</xs:documentation>
          </xs:annotation>
@@ -93,7 +93,7 @@
          <xs:documentation>Specifies the type of all the grid tiles contained in a grid mosaic. It is assumed that all of the tiles comprising a given grid mosaic are of the same type. The value domain is as per the specified enumeration list.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="congruentTiles" use="required" type="xs:boolean">
+   <xs:attribute name="congruentTiles" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Indicates whether or not all the tiles contained within a grid mosaic are congruent, that is, of the same size and shape.</xs:documentation>
       </xs:annotation>
@@ -184,7 +184,7 @@
       <xs:element name="latMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="lonMin" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="lonMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="units" minOccurs="1" maxOccurs="1" type="UnitType"/>
+      <xs:element name="units" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomFeatureGeometry">
@@ -430,7 +430,7 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
          <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="version" use="required" type="xs:string">
+   <xs:attribute name="version" use="optional" type="xs:string">
       <xs:annotation>
          <xs:documentation>Indicates the version of the GridSpec standard to which a grid specification instance conforms.</xs:documentation>
       </xs:annotation>
@@ -549,17 +549,17 @@ For all but the simplest grid tiles, it is envisaged that method 4 above will be
 A GridTile object is associated with a geodetic or projected CRS via the horizontalCRS property, and with a vertical CRS via the verticalCRS property.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid tile. The short name will typically be a convenient abbreviation used to refer to a grid tile, e.g. 'NEMO T-Grid'.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the long name associated with a grid tile. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>A free-text description of a grid tile.</xs:documentation>
          </xs:annotation>
@@ -630,7 +630,7 @@ If required, two or more coordinate pole definitions may be distinguished by set
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
-   <xs:attribute name="id" use="required" type="Identifier">
+   <xs:attribute name="id" use="optional" type="Identifier">
       <xs:annotation>
          <xs:documentation>Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental.</xs:documentation>
       </xs:annotation>
@@ -640,17 +640,17 @@ If required, two or more coordinate pole definitions may be distinguished by set
          <xs:documentation>Indicates the type of discretization applied to the grid tile, e.g. "logically_rectangular".</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="geometryType" use="required" type="GeometryTypeEnum">
+   <xs:attribute name="geometryType" use="optional" type="GeometryTypeEnum">
       <xs:annotation>
          <xs:documentation>Indicates the geometric figure used to approximate the figure of the Earth, e.g. "sphere".</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="isUniform" use="required" type="xs:boolean">
+   <xs:attribute name="isUniform" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>If true, indicates that horizontal coordinates have fixed offsets in the X and Y directions. If the offset is the same in both directions then the grids are logically square, otherwise they are logically rectangular. The offsets can be specified by two scalar values (or three values in the case of 3D grids).</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="isRegular" use="required" type="xs:boolean">
+   <xs:attribute name="isRegular" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>If true, indicates that the horizontal coordinates of the grid can be defined using 1D arrays (vectors). This means that grid node locations are defined by the cartesian product of the X/Lon and Y/Lat coordinate vectors. It also means that grid cells are logically rectangular (they may also be physically rectangular in the case of projected coordinates).</xs:documentation>
       </xs:annotation>
@@ -665,17 +665,17 @@ If required, two or more coordinate pole definitions may be distinguished by set
          <xs:documentation>Set to true if the vertical coordinate system is terrain-following even if, as is often the case, this only applies to the lower levels of the grid.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="nx" use="required" type="xs:integer">
+   <xs:attribute name="nx" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the length of the X, or longitude, dimension of the grid tile.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="ny" use="required" type="xs:integer">
+   <xs:attribute name="ny" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the length of the Y, or latitude, dimension of the grid tile.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="nz" use="required" type="xs:integer">
+   <xs:attribute name="nz" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the length of the Z, or height/level, dimension of the grid tile. The zcoords coordinate list property, if specified, should have this length.</xs:documentation>
       </xs:annotation>
