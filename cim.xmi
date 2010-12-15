@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-12-14 14:37:27">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-12-14 20:27:11">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -10200,7 +10200,7 @@
 												<UML:Classifier xmi.idref="eaxmiid18"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -10494,7 +10494,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the position of the first (start) point of the edge."/>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -10520,7 +10520,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the position of the second (end) point of the edge."/>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -12802,7 +12802,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="If required, defines the lat-long position of the 'north pole' used by the grid tile in the case of rotated/displaced pole grids. Not to be confused with the coordinatePole property."/>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -12828,7 +12828,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="The coordinatePole property may be used to specify the lat-long position of any coordinate poles (in the mathematical sense) that form part of the definition of a grid tile. Not to be confused with the gridNorthPole property.&#xA;&#xA;If required, two or more coordinate pole definitions may be distinguished by setting the gml:id attribute to appropriate values, such as &quot;spole&quot;, &quot;npole&quot;, etc."/>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -13138,7 +13138,7 @@
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Optionally specifies the coordinate location of the centroid of a grid cell."/>
-												<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+												<UML:TaggedValue tag="type" value="gml:PointType"/>
 												<UML:TaggedValue tag="derived" value="0"/>
 												<UML:TaggedValue tag="containment" value="Not Specified"/>
 												<UML:TaggedValue tag="length" value="0"/>
@@ -30371,11 +30371,11 @@
 				<UML:DataType xmi.id="eaxmiid30" name="QualityIssueType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid11" name="DataFormatType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid24" name="gmd:DQ_EvaluationMethodTypeCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid18" name="gml:PointType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid9" name="gmd:MD_RestrictionCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid44" name="RelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid16" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid6" name="TemporalAveType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid18" name="gml:PointPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid40" name="xs:anySimpleType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid15" name="Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid53" name="Schedule" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 14 December 2010, 14:38 -->       
+<!-- generated: 14 December 2010, 20:28 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -244,7 +244,7 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VertexArray">
    <xs:sequence>
-      <xs:element name="vertex" minOccurs="3" maxOccurs="unbounded" type="gml:PointPropertyType"/>
+      <xs:element name="vertex" minOccurs="3" maxOccurs="unbounded" type="gml:PointType"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridCellRef">
@@ -286,12 +286,12 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vertex1" minOccurs="1" maxOccurs="1" type="gml:PointPropertyType">
+      <xs:element name="vertex1" minOccurs="1" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>Specifies the position of the first (start) point of the edge.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="vertex2" minOccurs="1" maxOccurs="1" type="gml:PointPropertyType">
+      <xs:element name="vertex2" minOccurs="1" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>Specifies the position of the second (end) point of the edge.</xs:documentation>
          </xs:annotation>
@@ -579,13 +579,12 @@ A GridTile object is associated with a geodetic or projected CRS via the horizon
             <xs:documentation>Specifies the area of the grid tile in the units defined by the 'uom' attribute that is attached to the GML MeasureType data type.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="gridNorthPole" minOccurs="0" maxOccurs="1" type="gml:PointPropertyType">
+      <xs:element name="gridNorthPole" minOccurs="0" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>If required, defines the lat-long position of the 'north pole' used by the grid tile in the case of rotated/displaced pole grids. Not to be confused with the coordinatePole property.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="coordinatePole" minOccurs="0" maxOccurs="unbounded"
-                  type="gml:PointPropertyType">
+      <xs:element name="coordinatePole" minOccurs="0" maxOccurs="unbounded" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>The coordinatePole property may be used to specify the lat-long position of any coordinate poles (in the mathematical sense) that form part of the definition of a grid tile. Not to be confused with the gridNorthPole property.
 
@@ -686,7 +685,7 @@ If required, two or more coordinate pole definitions may be distinguished by set
       <xs:documentation>This abstract base class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. Vertices are either defined directly (e.g. in the case of a SimpleGridCell object), or indirectly by referencing a remote grid cell (in the case of an ExchangeGridCell object).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="centroid" minOccurs="0" maxOccurs="1" type="gml:PointPropertyType">
+      <xs:element name="centroid" minOccurs="0" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>Optionally specifies the coordinate location of the centroid of a grid cell.</xs:documentation>
          </xs:annotation>
