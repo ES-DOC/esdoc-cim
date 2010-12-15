@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 13 December 2010, 16:18 -->       
+<!-- generated: 14 December 2010, 14:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -482,7 +482,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="abstract" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="citation" minOccurs="1" maxOccurs="1" type="gmd:CI_Citation_PropertyType"/>
+      <xs:element name="citation" minOccurs="1" maxOccurs="1" type="gmd:CI_Citation_Type"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataContent">
