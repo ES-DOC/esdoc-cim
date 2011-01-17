@@ -17,6 +17,7 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
+    <xsl:param name="namespace">undefined</xsl:param>
     <xsl:param name="sort-attributes" select="false()"/>
     <xsl:param name="debug" select="false()"/>
 
@@ -37,6 +38,11 @@
         <xsl:if test="$version='undefined'">
             <xsl:message terminate="yes">
                 <xsl:text> please specify a version parameter </xsl:text>
+            </xsl:message>
+        </xsl:if>
+        <xsl:if test="$namespace='undefined'">
+            <xsl:message terminate="yes">
+                <xsl:text> please specify a CIM namespace (ie: 'http://www.metaforclimate.eu/schema/cim/1.5') </xsl:text>
             </xsl:message>
         </xsl:if>
         <xsl:if test="$debug">
@@ -114,12 +120,17 @@
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
             </xsl:text>
+            <xsl:text>xmlns="</xsl:text><xsl:value-of select="$namespace"/><xsl:text>"</xsl:text>
+            <xsl:value-of select="$newline"/>
+            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="$namespace"/><xsl:text>"</xsl:text>
+<!--
             <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
             <xsl:text disable-output-escaping="yes">" 
-            targetNamespace="http://www.metaforclimate.eu/schema/cim/</xsl:text>
+            targetNamespace="http://www.metafor.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
-            <xsl:text disable-output-escaping="yes">"&gt;</xsl:text>
+-->            
+            <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
 
             <!--                
             <xs:schema                 
