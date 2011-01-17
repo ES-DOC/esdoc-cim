@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 20 December 2010, 9:14 -->       
+<!-- generated: 4 January 2011, 14:26 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -165,7 +165,8 @@
                             <xs:sequence><!--dateTime is not used -->       
 <xs:element name="evaluator" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
       <!--result is not used -->       
-</xs:sequence>  
+<xs:element name="measure" minOccurs="0" maxOccurs="1" type="CIM_Measure"/>
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>

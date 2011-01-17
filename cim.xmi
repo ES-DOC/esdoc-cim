@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-12-20 09:13:45">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2011-01-04 14:23:07">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -14074,6 +14074,7 @@
 										<UML:TaggedValue tag="linecolor" value="-1"/>
 										<UML:TaggedValue tag="linewidth" value="0"/>
 										<UML:TaggedValue tag="seqno" value="0"/>
+										<UML:TaggedValue tag="subtype" value="Weak"/>
 										<UML:TaggedValue tag="headStyle" value="0"/>
 										<UML:TaggedValue tag="lineStyle" value="0"/>
 										<UML:TaggedValue tag="ea_localid" value="3242"/>
@@ -14086,16 +14087,19 @@
 										<UML:TaggedValue tag="$ea_src_xref_property" value="$XREFPROP=$XID={35F5D5AB-BDC8-4c37-9672-AA0354079A6C}$XID;$NAM=CustomProperties$NAM;$TYP=connectorSrcEnd property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={B4A7FC6B-86B8-4c6c-BADD-D5339BFF8F0A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 										<UML:TaggedValue tag="$ea_dst_xref_property" value="$XREFPROP=$XID={2B20B84E-7B8D-4fe6-92F3-1D50A193C6FF}$XID;$NAM=CustomProperties$NAM;$TYP=connectorDestEnd property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={B4A7FC6B-86B8-4c6c-BADD-D5339BFF8F0A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 										<UML:TaggedValue tag="virtualInheritance" value="0"/>
+										<UML:TaggedValue tag="lb" value="0..1"/>
+										<UML:TaggedValue tag="lt" value="+measure"/>
+										<UML:TaggedValue tag="rb" value="0"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Association.connection>
-										<UML:AssociationEnd visibility="public" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_67D94C1D_2C4C_407d_851B_72CEA065B62C">
+										<UML:AssociationEnd visibility="public" multiplicity="0..1" name="measure" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_67D94C1D_2C4C_407d_851B_72CEA065B62C">
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="containment" value="Unspecified"/>
 												<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
 												<UML:TaggedValue tag="ea_end" value="source"/>
 											</UML:ModelElement.taggedValue>
 										</UML:AssociationEnd>
-										<UML:AssociationEnd visibility="public" aggregation="shared" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_A3D18998_F666_45fd_B09F_5ED29766912F">
+										<UML:AssociationEnd visibility="public" multiplicity="0" aggregation="shared" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_A3D18998_F666_45fd_B09F_5ED29766912F">
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="containment" value="Unspecified"/>
 												<UML:TaggedValue tag="deststyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
@@ -30655,7 +30659,7 @@
 			</UML:ModelElement.taggedValue>
 			<UML:Diagram.element>
 				<UML:DiagramElement geometry="Left=40;Top=625;Right=186;Bottom=738;" subject="EAID_19189628_F3DC_40af_A550_F6AE1A73084F" seqno="1" style="DUID=559BBBE5;RzO=3;"/>
-				<UML:DiagramElement geometry="Left=1223;Top=183;Right=1425;Bottom=272;" subject="EAID_A59013AC_8739_44ec_97C4_2DE4E09D5420" seqno="2" style="NSL=0;DUID=AD80E67B;"/>
+				<UML:DiagramElement geometry="Left=1223;Top=183;Right=1434;Bottom=272;" subject="EAID_A59013AC_8739_44ec_97C4_2DE4E09D5420" seqno="2" style="NSL=0;DUID=AD80E67B;"/>
 				<UML:DiagramElement geometry="Left=959;Top=852;Right=1049;Bottom=1007;" subject="EAID_0B0C290B_9DFB_49b8_AAC7_07EC6A74FDAC" seqno="3" style="DUID=2A761A01;Tag=1;RzO=1;"/>
 				<UML:DiagramElement geometry="Left=856;Top=848;Right=946;Bottom=1003;" subject="EAID_EC5E1FB8_A07F_4091_83BA_30CFAC87B825" seqno="4" style="DUID=2A761A01;Tag=1;RzO=1;"/>
 				<UML:DiagramElement geometry="Left=761;Top=848;Right=851;Bottom=1003;" subject="EAID_5B1F1E66_03CC_43a4_A6AF_4FB1316BA006" seqno="5" style="DUID=2A761A01;Tag=1;RzO=1;"/>
