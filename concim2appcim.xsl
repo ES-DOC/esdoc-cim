@@ -152,25 +152,68 @@
             </xsl:for-each>
 
             <!-- if this is the top-level package (ie: the root of the domain model) -->
-            <!-- then create a root element "CIMRecord"-->
+            <!-- then create a root element -->
             <!-- which can contain a reference to _any_ <<document>> -->
             <!-- (this enables the CIM to work with GeoNetworks) -->
             <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
             <xsl:if test="$depth=0">
 
-                <!-- A CIM RecordSet -->
-                <xs:element name="CIMRecordSet">
+                <!-- A CIM DocumentSet -->
+                <xs:element name="CIMDocumentSet">
                     <xsl:comment>
-                        <xsl:text> a CIMRecordSet includes 1 or more CIMRecords </xsl:text>
+                        <xsl:text> a CIMDocumentSet includes 1 or more CIM documents </xsl:text>
                     </xsl:comment>
                     <xs:complexType>
-                        <xs:sequence>
+                        <xs:choice minOccurs="1" maxOccurs="unbounded">
+                            
+                            <xs:element name="reference">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xsl:for-each
+                                            select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                            <xsl:sort case-order="lower-first"
+                                                select="@name[$sort-attributes]"/>
+                                            <xsl:call-template
+                                                name="element-attributeTemplate">
+                                                <xsl:with-param name="element" select="true()"/>
+                                                <xsl:with-param name="attribute" select="false()"
+                                                />
+                                            </xsl:call-template>
+                                        </xsl:for-each>
+                                    </xs:sequence>
+                                    <xsl:for-each
+                                        select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                        <xsl:sort case-order="lower-first"
+                                            select="@name[$sort-attributes]"/>
+                                        <xsl:call-template
+                                            name="element-attributeTemplate">
+                                            <xsl:with-param name="element" select="false()"/>
+                                            <xsl:with-param name="attribute" select="true()"/>
+                                        </xsl:call-template>
+                                    </xsl:for-each>
+                                    <!-- ...with one extra hard-coded attribute... -->
+                                    <xs:attribute ref="xlink:href" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                            
+                            <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                <xsl:variable name="documentName">
+                                    <xsl:call-template name="camelCaseTemplate">
+                                        <xsl:with-param name="string"
+                                            select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
+                                        />
+                                    </xsl:call-template>
+                                </xsl:variable>
+                                <xs:element ref="{$documentName}"/>
+                            </xsl:for-each>
+                                                                                    
+                        </xs:choice>
                             
 <!-- 
-This has been commented out b/c a recordset is just a transfer convention    
+This has been commented out b/c a documentset is just a transfer convention    
                             <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
-                                    <xs:documentation>a unique indentifier for this RecordSet
+                                    <xs:documentation>a unique indentifier for this DocumentSet
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
@@ -178,7 +221,7 @@ This has been commented out b/c a recordset is just a transfer convention
                             <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
                                     <xs:documentation>the versions (internal &amp; external) of
-                                        the CIMRecordset</xs:documentation>
+                                        the CIMDocumentSet</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
 
@@ -198,110 +241,9 @@ This has been commented out b/c a recordset is just a transfer convention
                                 </xs:annotation>
                             </xs:element>
 -->
-                            <!-- a RecordSet includes a reference to a Record -->
-                            <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
-                                <!-- which is implemented as a choice between -->
-                                <xs:complexType>
-                                    <xs:choice>
-                                        <!-- ...the reference type as defined in the CIM... -->
-                                        <xs:element name="reference">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                  <xsl:for-each
-                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                                  <xsl:sort case-order="lower-first"
-                                                  select="@name[$sort-attributes]"/>
-                                                  <xsl:call-template
-                                                  name="element-attributeTemplate">
-                                                  <xsl:with-param name="element" select="true()"/>
-                                                  <xsl:with-param name="attribute" select="false()"
-                                                  />
-                                                  </xsl:call-template>
-                                                  </xsl:for-each>
-                                                </xs:sequence>
-                                                <xsl:for-each
-                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                                  <xsl:sort case-order="lower-first"
-                                                  select="@name[$sort-attributes]"/>
-                                                  <xsl:call-template
-                                                  name="element-attributeTemplate">
-                                                  <xsl:with-param name="element" select="false()"/>
-                                                  <xsl:with-param name="attribute" select="true()"/>
-                                                  </xsl:call-template>
-                                                </xsl:for-each>
-                                                <!-- ...with one extra hard-coded attribute... -->
-                                                <xs:attribute ref="xlink:href" use="optional"/>
-                                            </xs:complexType>
-                                        </xs:element>
-
-
-
-
-                                        <!-- ...and the actual element itself... -->
-                                        <xs:element ref="CIMRecord" minOccurs="1" maxOccurs="1"/>
-                                    </xs:choice>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
                     </xs:complexType>
                 </xs:element>
 
-                <!-- A CIM Record -->
-                <xsl:comment>
-                    <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
-                </xsl:comment>
-                <xsl:value-of select="$newline"/>
-                <xs:element name="CIMRecord">
-                    <xs:complexType>
-                        <xs:sequence>
-<!-- 
-This is commented out b/c a Record is just a transfer convention    
-                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
-                                <xs:annotation>
-                                    <xs:documentation>a unique indentifier for this
-                                        document</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
-                                <xs:annotation>
-                                    <xs:documentation>the version(s) (internal &amp; external)
-                                        of the CIMRecordset</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="metadataID" minOccurs="0" maxOccurs="1"
-                                type="xs:anyURI">
-                                <xs:annotation>
-                                    <xs:documentation>the location of the CIM being
-                                        used</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
-                                type="version">
-                                <xs:annotation>
-                                    <xs:documentation>the version of the CIM being
-                                        used</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
--->                            
-
-                            <xs:choice minOccurs="1" maxOccurs="1">
-                                <xsl:for-each select="//UML:Stereotype[@name='document']">
-                                    <xsl:variable name="documentName">
-                                        <xsl:call-template name="camelCaseTemplate">
-                                            <xsl:with-param name="string"
-                                                select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
-                                            />
-                                        </xsl:call-template>
-                                    </xsl:variable>
-                                    <xs:element ref="{$documentName}"/>
-                                </xsl:for-each>
-                            </xs:choice>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
             </xsl:if>
 
             <!-- if this is the shared package -->
