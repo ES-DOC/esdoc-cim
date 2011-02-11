@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 11 February 2011, 9:56 -->       
+<!-- generated: 11 February 2011, 12:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -160,6 +160,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                <!-- this is an abstract class --><xs:element name="requirement" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="outputConstraint" type="OutputConstraint"/>
                         <xs:element name="initialCondition" type="InitialCondition"/>
                         <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                         <xs:element name="boundaryCondition" type="BoundaryCondition"/>
@@ -204,6 +205,24 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       </xs:element>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OutputConstraint">
+                        <xs:complexContent>
+                        <xs:extension base="NumericalRequirement">
+                    <xs:sequence>
+      <xs:element name="outputFrequency" minOccurs="0" maxOccurs="1" type="FrequencyType"/>
+      <!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="temporalAveraging" minOccurs="0" maxOccurs="1" type="TemporalAveType"/>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRun">
    <xs:annotation>
       <xs:documentation>A SimulationRun is, as the name implies, one single model run.  
@@ -575,6 +594,7 @@ If something is purpopsefully non-conformant then the conformant attribute would
                <!-- this is an abstract class --><xs:element name="requirement" minOccurs="1" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="outputConstraint" type="OutputConstraint"/>
                         <xs:element name="initialCondition" type="InitialCondition"/>
                         <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                         <xs:element name="boundaryCondition" type="BoundaryCondition"/>
@@ -955,11 +975,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatioTemporalConstraint">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
-                    <xs:sequence>
-      <xs:element name="outputFrequency" minOccurs="1" maxOccurs="1" type="FrequencyType"/>
-      <xs:element name="spatialResolution" minOccurs="0" maxOccurs="1" type="ResolutionType"/>
-      <xs:element name="temporalAveraging" minOccurs="0" maxOccurs="1" type="TemporalAveType"/>
-      <!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="requiredDuration" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>
@@ -967,6 +983,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="spatialResolution" minOccurs="0" maxOccurs="1" type="ResolutionType"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -991,10 +1008,10 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="requiredDuration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       <!-- this is an abstract class --><xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="outputConstraint" type="OutputConstraint"/>
                <xs:element name="initialCondition" type="InitialCondition"/>
                <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                <xs:element name="boundaryCondition" type="BoundaryCondition"/>
@@ -1884,14 +1901,7 @@ It is a place for the scientific description of the reason why an experiment was
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Activity">
-                    <xs:sequence><!-- this is an abstract class --><xs:element name="duration" minOccurs="0" maxOccurs="1">
-         <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="closedDateRange" type="ClosedDateRange"/>
-               <xs:element name="openDateRange" type="OpenDateRange"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
+                    <xs:sequence>
       <xs:element name="measurementCampaign" minOccurs="0" maxOccurs="unbounded"
                   type="MeasurementCampaign"/>
       <xs:element name="requires" minOccurs="0" maxOccurs="unbounded">
