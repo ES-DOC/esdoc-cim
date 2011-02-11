@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 10 February 2011, 21:53 -->       
+<!-- generated: 10 February 2011, 22:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -113,6 +113,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
          <xs:documentation>Specifies the number of mosaics associated with a non-leaf grid mosaic. Set to zero if the grid mosaic is a leaf mosaic, i.e. it contains child grid tiles not mosaics.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="refinementScheme" use="optional" type="RefinementTypeEnum"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimpleGridGeometry">
    <xs:annotation>
@@ -679,6 +680,7 @@ If required, two or more coordinate pole definitions may be distinguished by set
          <xs:documentation>Specifies the length of the Z, or height/level, dimension of the grid tile. The zcoords coordinate list property, if specified, should have this length.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="refinementScheme" use="optional" type="RefinementTypeEnum"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridCell">
    <xs:annotation>
