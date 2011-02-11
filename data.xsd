@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 18 January 2011, 6:55 -->       
+<!-- generated: 10 February 2011, 21:53 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://metaforclimate.eu/schema/cim/1.5"       
-targetNamespace="http://metaforclimate.eu/schema/cim/1.5">       
+            xmlns="http://metafor.eu/cim/schemas/1.5"       
+targetNamespace="http://metafor.eu/cim/schemas/1.5">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -421,7 +421,7 @@ targetNamespace="http://metaforclimate.eu/schema/cim/1.5">
       <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
    </xs:sequence>
-   <xs:attribute name="dataStatus" use="required" type="DataStatusType">
+   <xs:attribute name="dataStatus" use="optional" type="DataStatusType">
       <xs:annotation>
          <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
       </xs:annotation>

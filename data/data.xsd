@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 17 January 2011, 11:49 -->       
+<!-- generated: 10 February 2011, 21:53 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -421,7 +421,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
    </xs:sequence>
-   <xs:attribute name="dataStatus" use="required" type="DataStatusType">
+   <xs:attribute name="dataStatus" use="optional" type="DataStatusType">
       <xs:annotation>
          <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
       </xs:annotation>
