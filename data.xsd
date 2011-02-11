@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 10 February 2011, 22:02 -->       
+<!-- generated: 11 February 2011, 9:56 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -92,7 +92,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
-      <xs:element name="modificationDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="modificationDate" minOccurs="0" maxOccurs="1" type="dateTime">
          <xs:annotation>
             <xs:documentation>The date that the file (or other storage medium) has been updated</xs:documentation>
          </xs:annotation>
@@ -455,7 +455,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>

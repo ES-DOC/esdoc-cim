@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 10 February 2011, 22:02 -->       
+<!-- generated: 11 February 2011, 9:56 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -59,6 +59,12 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GUIDList">
    <xs:list itemType="guid"/>
 </xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dateTime">
+   <xs:annotation>
+      <xs:documentation> a simpleType for specifying either a complete date and time, a date only, or a year only </xs:documentation>
+   </xs:annotation>
+   <xs:union memberTypes="xs:dateTime xs:date xs:gYear"/>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
    <xs:annotation>
       <xs:documentation>A date range with specified start and end points.</xs:documentation>
@@ -66,8 +72,8 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence>
-      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="dateTime"/>
+      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="dateTime"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -193,7 +199,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -405,8 +411,8 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence>
-      <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="dateTime"/>
+      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="dateTime"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -486,7 +492,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
          <xs:annotation>
             <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
          </xs:annotation>
@@ -745,7 +751,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="changeDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="changeDate" minOccurs="0" maxOccurs="1" type="dateTime">
          <xs:annotation>
             <xs:documentation>The date the change was implemented.</xs:documentation>
          </xs:annotation>

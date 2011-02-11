@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 10 February 2011, 22:02 -->       
+<!-- generated: 11 February 2011, 9:56 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -347,7 +347,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
                   type="ResponsibleParty"/>
-      <xs:element name="releaseDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="releaseDate" minOccurs="0" maxOccurs="1" type="dateTime">
          <xs:annotation>
             <xs:documentation>The date of publication of the software component code (as opposed to the date of publication of the metadata document, or the date of deployment of the model)</xs:documentation>
          </xs:annotation>
@@ -622,7 +622,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -1000,7 +1000,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -1448,7 +1448,7 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
 </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="dateTime"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="parallelisation" minOccurs="0" maxOccurs="1" type="Parallelisation"/>
       <xs:element name="platform" minOccurs="0" maxOccurs="1">
@@ -1522,8 +1522,8 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
       <xs:documentation>Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="start" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="end" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="start" minOccurs="0" maxOccurs="1" type="dateTime"/>
+      <xs:element name="end" minOccurs="0" maxOccurs="1" type="dateTime"/>
       <xs:element name="rate" minOccurs="0" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
    <xs:attribute name="units" use="required" type="TimingUnits"/>

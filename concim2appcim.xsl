@@ -267,6 +267,8 @@ This has been commented out b/c a documentset is just a transfer convention
                 <xsl:call-template name="nonEmptyStringTemplate"/>
                 <!-- and the list templates -->
                 <xsl:call-template name="listsTemplate"/>
+                <!-- and the dateTime template -->
+                <xsl:call-template name="dateTimeTemplate"/>
             </xsl:if>
 
             <!-- carry on with the parsing... -->
@@ -451,6 +453,17 @@ This has been commented out b/c a documentset is just a transfer convention
         </xs:simpleType>
         <xs:simpleType name="GUIDList">
             <xs:list itemType="guid"/>
+        </xs:simpleType>        
+    </xsl:template>
+    
+    <!-- dateTime template -->
+    <!-- a simpleType for specifying a dateTime either as a complete dateTime, a complete date, or a year only -->
+    <xsl:template name="dateTimeTemplate">
+        <xs:simpleType name="dateTime">
+            <xs:annotation>
+                <xs:documentation> a simpleType for specifying either a complete date and time, a date only, or a year only </xs:documentation>
+            </xs:annotation>
+            <xs:union memberTypes="xs:dateTime xs:date xs:gYear"/>                            
         </xs:simpleType>        
     </xsl:template>
     
@@ -1627,7 +1640,9 @@ This has been commented out b/c a documentset is just a transfer convention
                     </xsl:when>
                     
                     <xsl:when test="$lowerCaseType='date' or $lowerCaseType='datetime'">
-                        <xsl:text>xs:dateTime</xsl:text>
+                        <!-- replaced built-in dateTime type w/ custom dateTime type -->
+                        <!--<xsl:text>xs:dateTime</xsl:text>-->
+                        <xsl:text>dateTime</xsl:text>
                     </xsl:when>
                     
                     <xsl:when test="$lowerCaseType='duration'">
