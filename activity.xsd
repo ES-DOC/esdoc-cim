@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 11 February 2011, 12:51 -->       
+<!-- generated: 11 February 2011, 13:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -160,7 +160,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                <!-- this is an abstract class --><xs:element name="requirement" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="outputConstraint" type="OutputConstraint"/>
+                        <xs:element name="outputRequirement" type="OutputRequirement"/>
                         <xs:element name="initialCondition" type="InitialCondition"/>
                         <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                         <xs:element name="boundaryCondition" type="BoundaryCondition"/>
@@ -205,7 +205,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       </xs:element>
    </xs:sequence>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OutputConstraint">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OutputRequirement">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
                     <xs:sequence>
@@ -594,7 +594,7 @@ If something is purpopsefully non-conformant then the conformant attribute would
                <!-- this is an abstract class --><xs:element name="requirement" minOccurs="1" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="outputConstraint" type="OutputConstraint"/>
+                        <xs:element name="outputRequirement" type="OutputRequirement"/>
                         <xs:element name="initialCondition" type="InitialCondition"/>
                         <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                         <xs:element name="boundaryCondition" type="BoundaryCondition"/>
@@ -1011,7 +1011,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <!-- this is an abstract class --><xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="outputConstraint" type="OutputConstraint"/>
+               <xs:element name="outputRequirement" type="OutputRequirement"/>
                <xs:element name="initialCondition" type="InitialCondition"/>
                <xs:element name="spatioTemporalConstraint" type="SpatioTemporalConstraint"/>
                <xs:element name="boundaryCondition" type="BoundaryCondition"/>
