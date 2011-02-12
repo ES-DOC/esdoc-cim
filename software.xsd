@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 11 February 2011, 13:08 -->       
+<!-- generated: 11 February 2011, 18:00 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -481,6 +481,13 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EntryPointType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="init"/>
+      <xs:enumeration value="run"/>
+      <xs:enumeration value="finalise"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimingUnits">
    <xs:restriction base="xs:string">
       <xs:enumeration value="seconds"/>
@@ -903,6 +910,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
          </xs:complexType>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="type" use="optional" type="EntryPointType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponent">
    <xs:annotation>
