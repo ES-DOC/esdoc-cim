@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 13 February 2011, 21:44 -->       
+<!-- generated: 14 February 2011, 9:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -422,20 +422,11 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
    </xs:annotation>
                                 <xs:complexContent>
                                 <xs:extension base="gml:AbstractGeometryType">
-                            <xs:sequence>
-      <xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+                            <xs:sequence><!--id is not used -->       
+<!--version is not used -->       
+<xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
       <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-   </xs:sequence>
-   <xs:attribute name="id" use="optional" type="Identifier">
-      <xs:annotation>
-         <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
-   <xs:attribute name="version" use="optional" type="xs:string">
-      <xs:annotation>
-         <xs:documentation>Indicates the version of the GridSpec standard to which a grid specification instance conforms.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
