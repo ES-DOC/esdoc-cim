@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 February 2011, 21:33 -->       
+<!-- generated: 13 February 2011, 21:44 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -130,11 +130,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="group" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1"/>
-                  </xs:complexType>
-               </xs:element>
+               <xs:element name="propertyGroup" type="PropertyGroup"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -853,7 +849,7 @@ Currently unused in the CIM.</xs:documentation>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
    <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup">
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
@@ -880,11 +876,7 @@ Currently unused in the CIM.</xs:documentation>
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <!-- this is an abstract class --><xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded" type="PropertyGroup"/>
       <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
@@ -930,11 +922,7 @@ Currently unused in the CIM.</xs:documentation>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1"/>
-                  </xs:complexType>
-               </xs:element>
+               <xs:element name="propertyGroup" type="PropertyGroup"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
