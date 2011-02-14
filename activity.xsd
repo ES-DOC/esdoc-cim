@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 14 February 2011, 9:16 -->       
+<!-- generated: 14 February 2011, 9:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -677,11 +677,6 @@ If something is purpopsefully non-conformant then the conformant attribute would
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="dataHolder" minOccurs="0" maxOccurs="unbounded" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The point of contact for the data associated with this activity; may have to exist before a record of the data exists in the CIM.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="supports" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
