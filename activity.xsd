@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 13 February 2011, 21:27 -->       
+<!-- generated: 13 February 2011, 21:33 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -231,21 +231,13 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
-                    <xs:sequence>
-      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="dateTime">
-         <xs:annotation>
-            <xs:documentation>The start (in simulated time) time of this run</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="endPoint" minOccurs="0" maxOccurs="1" type="dateTime">
-         <xs:annotation>
-            <xs:documentation>The end (in simulated time) time of this run</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="xs:duration">
-         <xs:annotation>
-            <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
-         </xs:annotation>
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="dateRange" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
       <xs:element name="model" minOccurs="1" maxOccurs="1">
          <xs:complexType>
@@ -781,12 +773,13 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="dateTime"/>
-      <xs:element name="endPoint" minOccurs="0" maxOccurs="1" type="dateTime"/>
-      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="xs:duration">
-         <xs:annotation>
-            <xs:documentation>Can be used instead of endPoint  to specify a length of time.</xs:documentation>
-         </xs:annotation>
+      <!-- this is an abstract class --><xs:element name="dateRange" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
       </xs:element>
       <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
