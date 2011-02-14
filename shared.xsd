@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 11 February 2011, 18:00 -->       
+<!-- generated: 13 February 2011, 21:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -767,7 +767,9 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
    <xs:attribute name="type" use="optional" type="ChangePropertyType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
-   <xs:sequence/>
+   <xs:sequence>
+      <xs:element name="duration" minOccurs="0" maxOccurs="1" type="xs:duration"/>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangeProperty">
    <xs:annotation>
