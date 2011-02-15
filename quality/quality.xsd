@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 14 February 2011, 9:27 -->       
+<!-- generated: 15 February 2011, 6:55 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -51,9 +51,12 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       <xs:enumeration value="file"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_FeatureType" mixed="true">
-   <xs:sequence/>
-</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_FeatureType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="file"/>
+      <xs:enumeration value="diagnostic"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_Result">
    <xs:sequence>
       <xs:element name="availableFrom" minOccurs="1" maxOccurs="1"
@@ -203,11 +206,6 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             <xs:documentation>a description of the quality issue with reference to this specific feature</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="featureType" minOccurs="1" maxOccurs="1" type="CIM_FeatureType">
-         <xs:annotation>
-            <xs:documentation>the type of feature that the quality issue refers too (for METAFOR this could be simulation, file, boundary condition etc.)</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="feature" minOccurs="1" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>the reference to the specific feature (e.g. a URI to a file)</xs:documentation>
@@ -277,6 +275,11 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
          </xs:complexType>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="featureType" use="required" type="CIM_FeatureType">
+      <xs:annotation>
+         <xs:documentation>the type of feature that the quality issue refers too (for METAFOR this could be simulation, file, boundary condition etc.)</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_QualityIssue">
    <xs:annotation>
