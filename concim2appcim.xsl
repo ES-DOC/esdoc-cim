@@ -166,6 +166,7 @@
             <!-- then create a root element -->
             <!-- which can contain a reference to _any_ <<document>> -->
             <!-- (this enables the CIM to work with GeoNetworks) -->
+            <!-- the top-level package should also include every <<document>> as a possible root element -->
             <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
             <xsl:if test="$depth=0">
 
@@ -254,7 +255,7 @@ This has been commented out b/c a documentset is just a transfer convention
 -->
                     </xs:complexType>
                 </xs:element>
-
+                
             </xsl:if>
 
             <!-- if this is the shared package -->
@@ -995,7 +996,7 @@ This has been commented out b/c a documentset is just a transfer convention
                                 <xsl:with-param name="attribute" select="."/>
                             </xsl:call-template>
                         </xsl:when>
-
+                        
                         <!-- or it might be an extension point -->
 
                         <xsl:when test="$stereotype='extensible'">
@@ -1398,7 +1399,7 @@ This has been commented out b/c a documentset is just a transfer convention
     <!-- an association from one (UML) class to another -->
     <xsl:template match="UML:Association" mode="UMLclass">
         <xsl:param name="class"/>
-
+        
         <!-- I am matching the associationEnd that is _not_ the current class -->
         <!-- b/c UML associations are "backwards" -->
 
@@ -1470,6 +1471,10 @@ This has been commented out b/c a documentset is just a transfer convention
                         </xsl:call-template>
                     </xsl:variable>
 
+
+                    <xsl:variable name="specialisedID"
+                        select="//UML:Generalization[@supertype=$endClass/@xmi.id]/@subtype"/>
+                    
                     <!-- 
                     either the association is to a normal class
                     or an abstract class
@@ -1501,12 +1506,47 @@ This has been commented out b/c a documentset is just a transfer convention
                             </xsl:call-template>
                         </xsl:when>
 
+                        <!-- if the associated class has specialisations -->
+                        <!-- (but isn't abstract) -->
+                        <!-- then create a choice among the parent and all child classes -->
+                        <!-- (a better way to do this would be with substitution groups) -->
+                        
+                        <xsl:when test="count($specialisedID)&gt;0">
+                            <xs:choice minOccurs="{$associationMin}" maxOccurs="{$associationMax}">
+                                <xsl:comment>
+                                    <xsl:text> these elements include all specialisations of </xsl:text>
+                                    <xsl:value-of select="$associationName"/>
+                                </xsl:comment>
+                                <xsl:element name="xs:element">
+                                    <xsl:attribute name="name" select="$associationName"/>
+                                    <xsl:attribute name="type" select="$endClass/@name"/>
+                                </xsl:element>
+                                <xsl:for-each select="$specialisedID">
+                                    <xsl:variable name="currentSpecialisedID" select="."/>
+                                    <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
+                                    <xsl:variable name="currentSpecialisedCamelCaseName">
+                                        <xsl:call-template name="camelCaseTemplate">
+                                            <xsl:with-param name="string" select="$currentSpecialisedName"/>
+                                        </xsl:call-template>
+                                    </xsl:variable>                                                                        
+                                    
+                                    <xsl:element name="xs:element">
+                                        <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
+                                        <xsl:attribute name="type" select="$currentSpecialisedName"/>
+                                    </xsl:element>
+                                    
+                                </xsl:for-each>
+                            </xs:choice>
+                        </xsl:when>
+                        
                         <!-- otherwise it's just a normal element -->
                         <xsl:otherwise>
                             <xsl:element name="xs:element">
+
                                 <xsl:attribute name="name" select="$associationName"/>
                                 <xsl:attribute name="minOccurs" select="$associationMin"/>
                                 <xsl:attribute name="maxOccurs" select="$associationMax"/>
+                                
                                 <xsl:choose>
                                     <xsl:when test="$endStereotype='extensible'">
 
@@ -1523,7 +1563,8 @@ This has been commented out b/c a documentset is just a transfer convention
                                                   <xsl:with-param name="attribute" select="true()"/>
                                                   <xsl:with-param name="element" select="false()"/>
                                                   </xsl:call-template>
-                                                </xs:extension>
+                                                </xs:extension>                                                
+                                                
                                             </xs:complexContent>
                                         </xs:complexType>
 
@@ -1534,6 +1575,28 @@ This has been commented out b/c a documentset is just a transfer convention
                                         </xsl:attribute>
                                     </xsl:otherwise>
                                 </xsl:choose>
+                                <xsl:comment>
+                                    <xsl:text>I am looking at: </xsl:text>
+                                    <xsl:value-of select="name(.)"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>And the class is: </xsl:text>
+                                    <xsl:value-of select="$endClass/@name"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>Whose id is: </xsl:text>
+                                    <xsl:value-of select="$endClassId"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>And there were this many specialisations: </xsl:text>
+                                    <xsl:value-of select="count($specialisedID)"/>
+                                </xsl:comment>
+                                <xsl:for-each select="$specialisedID">
+                                    <xsl:comment>                                        
+                                        <xsl:text>$specialisedID: </xsl:text>                                    
+                                        <xsl:value-of select="."/>                                    
+                                    </xsl:comment>
+                                </xsl:for-each>
                             </xsl:element>
                         </xsl:otherwise>
                     </xsl:choose>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 15 February 2011, 6:55 -->       
+<!-- generated: 21 February 2011, 18:28 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,7 +43,7 @@ Documents should use either the spatialRegriddingStandardMethod _or_ the spatial
       <xs:element name="spatialRegriddingUserMethod" minOccurs="0" maxOccurs="1"
                   type="SpatialRegriddingUserMethod"/>
       <xs:element name="spatialRegriddingProperty" minOccurs="0" maxOccurs="unbounded"
-                  type="SpatialRegriddingProperty"/>
+                  type="SpatialRegriddingProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: SpatialRegriddingProperty--><!--Whose id is: EAID_7EE91063_48BD_4e06_8ADE_02F275B47ADA--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="spatialRegriddingDimension" use="required"
                  type="SpatialRegriddingDimensionType"/>
@@ -59,7 +59,7 @@ Documents should use either the spatialRegriddingStandardMethod _or_ the spatial
          </xs:annotation>
       </xs:element>
       <xs:element name="componentLanguageProperty" minOccurs="0" maxOccurs="unbounded"
-                  type="ComponentLanguageProperty"/>
+                  type="ComponentLanguageProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentLanguageProperty--><!--Whose id is: EAID_E52C1D0D_730A_46c2_998D_8ACC67D1DE85--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
@@ -366,7 +366,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
          </xs:annotation>
       </xs:element>
       <xs:element name="componentLanguage" minOccurs="0" maxOccurs="1" type="ComponentLanguage"/>
-      <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"/>
+      <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Composition--><!--Whose id is: EAID_44C533A0_F8E2_4ce4_B065_E2D45210BE53--><!--And there were this many specialisations: 0--></xs:element>
       <!-- this is an abstract class --><xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -431,8 +431,8 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="dependencies" minOccurs="0" maxOccurs="1" type="Dependencies"/>
-      <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"/>
+      <xs:element name="dependencies" minOccurs="0" maxOccurs="1" type="Dependencies"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Dependencies--><!--Whose id is: EAID_8C4F4CB1_E064_4893_B273_28636DAF03D8--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Deployment--><!--Whose id is: EAID_E26C5CC0_EC73_4dfc_B206_99751DDA51BD--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="embedded" use="optional" type="xs:boolean">
       <xs:annotation>
@@ -506,7 +506,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
-                  type="ComponentProperty"/>
+                  type="ComponentProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentProperty--><!--Whose id is: EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeTransformation">
@@ -520,7 +520,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Dependencies">
    <xs:sequence>
-      <xs:element name="entryPoint" minOccurs="1" maxOccurs="unbounded" type="EntryPoint"/>
+      <xs:element name="entryPoint" minOccurs="1" maxOccurs="unbounded" type="EntryPoint"><!--I am looking at: UML:AssociationEnd--><!--And the class is: EntryPoint--><!--Whose id is: EAID_91EC96EA_A47A_4c78_912D_4CDB97AA583D--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorComponent">
@@ -811,7 +811,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
       </xs:element>
       <xs:element name="couplingProperty" minOccurs="0" maxOccurs="unbounded"
                   type="CouplingProperty"/>
-      <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"/>
+      <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Connection--><!--Whose id is: EAID_5B0610EB_15AA_43ed_81EC_EF0191C04178--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="purpose" use="required" type="DataPurpose"/>
    <xs:attribute name="fullySpecified" use="required" type="xs:boolean">
@@ -1111,7 +1111,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
          </xs:complexType>
       </xs:element>
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
-                  type="ComponentProperty"/>
+                  type="ComponentProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentProperty--><!--Whose id is: EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="intent" use="optional" type="ComponentPropertyIntentType">
       <xs:annotation>
@@ -1154,7 +1154,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
-                  type="ComponentProperty"/>
+                  type="ComponentProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentProperty--><!--Whose id is: EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Parallelisation">
@@ -1445,7 +1445,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
    </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="1" maxOccurs="unbounded"
-                  type="ComponentProperty"/>
+                  type="ComponentProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentProperty--><!--Whose id is: EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Deployment">

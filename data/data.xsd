@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 15 February 2011, 6:55 -->       
+<!-- generated: 21 February 2011, 18:28 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -308,7 +308,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
+      <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataRestriction--><!--Whose id is: EAID_3698B5BB_D04C_4878_B2DA_75AB029B099C--><!--And there were this many specialisations: 0--></xs:element>
       <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -318,7 +318,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="distribution" minOccurs="0" maxOccurs="1" type="DataDistribution"/>
+      <xs:element name="distribution" minOccurs="0" maxOccurs="1" type="DataDistribution"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataDistribution--><!--Whose id is: EAID_A26D57FC_2979_465b_B8D2_9C3F1E7ECFB8--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
@@ -417,9 +417,9 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="citation" minOccurs="0" maxOccurs="1" type="DataCitation"/>
-      <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
-      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
+      <xs:element name="citation" minOccurs="0" maxOccurs="1" type="DataCitation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCitation--><!--Whose id is: EAID_AD573D72_4F78_4ca9_AC47_D7E4FCAE4987--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataContent--><!--Whose id is: EAID_CBC6B7E7_8B14_4581_8285_7395FE84F406--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataExtent--><!--Whose id is: EAID_F3F07939_D20D_424b_8706_3072A3238697--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="dataStatus" use="optional" type="DataStatusType">
       <xs:annotation>
@@ -503,7 +503,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             <xs:documentation>Describes the frequency of the data content: daily, hourly, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
+      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCitation--><!--Whose id is: EAID_AD573D72_4F78_4ca9_AC47_D7E4FCAE4987--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>

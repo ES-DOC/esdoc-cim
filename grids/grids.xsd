@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 15 February 2011, 6:55 -->       
+<!-- generated: 21 February 2011, 18:28 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -80,8 +80,8 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       </xs:element>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
+      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridTile--><!--Whose id is: EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="id" use="required" type="Identifier">
       <xs:annotation>
@@ -424,8 +424,8 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                                 <xs:extension base="gml:AbstractGeometryType">
                             <xs:sequence><!--id is not used -->       
 <!--version is not used -->       
-<xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-      <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+<xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
