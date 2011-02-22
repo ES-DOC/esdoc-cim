@@ -1512,31 +1512,39 @@ This has been commented out b/c a documentset is just a transfer convention
                         <!-- (a better way to do this would be with substitution groups) -->
                         
                         <xsl:when test="count($specialisedID)&gt;0">
-                            <xs:choice minOccurs="{$associationMin}" maxOccurs="{$associationMax}">
-                                <xsl:comment>
-                                    <xsl:text> these elements include all specialisations of </xsl:text>
-                                    <xsl:value-of select="$associationName"/>
-                                </xsl:comment>
-                                <xsl:element name="xs:element">
-                                    <xsl:attribute name="name" select="$associationName"/>
-                                    <xsl:attribute name="type" select="$endClass/@name"/>
-                                </xsl:element>
-                                <xsl:for-each select="$specialisedID">
-                                    <xsl:variable name="currentSpecialisedID" select="."/>
-                                    <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
-                                    <xsl:variable name="currentSpecialisedCamelCaseName">
-                                        <xsl:call-template name="camelCaseTemplate">
-                                            <xsl:with-param name="string" select="$currentSpecialisedName"/>
-                                        </xsl:call-template>
-                                    </xsl:variable>                                                                        
+                            <xs:element name="{$associationName}" minOccurs="{$associationMin}" maxOccurs="{$associationMax}">
+                                <xs:complexType>                                
+                                    <xs:choice>
+                                        <xsl:comment>
+                                            <xsl:text> these elements include all specialisations of </xsl:text>
+                                            <xsl:value-of select="$associationName"/>
+                                        </xsl:comment>
+                                        <xsl:element name="xs:element">
+                                            <xsl:attribute name="name">
+                                                <xsl:call-template name="camelCaseTemplate">
+                                                    <xsl:with-param name="string" select="$endClass/@name"/>
+                                                </xsl:call-template>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="type" select="$endClass/@name"/>
+                                        </xsl:element>
+                                        <xsl:for-each select="$specialisedID">
+                                            <xsl:variable name="currentSpecialisedID" select="."/>
+                                            <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
+                                            <xsl:variable name="currentSpecialisedCamelCaseName">
+                                                <xsl:call-template name="camelCaseTemplate">
+                                                    <xsl:with-param name="string" select="$currentSpecialisedName"/>
+                                                </xsl:call-template>
+                                            </xsl:variable>                                                                        
                                     
-                                    <xsl:element name="xs:element">
-                                        <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
-                                        <xsl:attribute name="type" select="$currentSpecialisedName"/>
-                                    </xsl:element>
+                                            <xsl:element name="xs:element">
+                                                <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
+                                                <xsl:attribute name="type" select="$currentSpecialisedName"/>
+                                            </xsl:element>
                                     
-                                </xsl:for-each>
-                            </xs:choice>
+                                        </xsl:for-each>
+                                    </xs:choice>
+                                </xs:complexType>
+                                </xs:element>
                         </xsl:when>
                         
                         <!-- otherwise it's just a normal element -->

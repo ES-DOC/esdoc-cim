@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 21 February 2011, 18:28 -->       
+<!-- generated: 21 February 2011, 20:06 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -398,10 +398,14 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:choice minOccurs="0" maxOccurs="unbounded"><!-- these elements include all specialisations of child--><xs:element name="child" type="Project"/>
-         <xs:element name="dataCollection" type="DataCollection"/>
-         <xs:element name="mIP" type="MIP"/>
-      </xs:choice>
+      <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice><!-- these elements include all specialisations of child--><xs:element name="project" type="Project"/>
+               <xs:element name="dataCollection" type="DataCollection"/>
+               <xs:element name="mIP" type="MIP"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -411,9 +415,13 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         <xs:extension base="Activity">
                     <xs:sequence>
       <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-      <xs:choice minOccurs="1" maxOccurs="unbounded"><!-- these elements include all specialisations of experiment--><xs:element name="experiment" type="Experiment"/>
-         <xs:element name="numericalExperiment" type="NumericalExperiment"/>
-      </xs:choice>
+      <xs:element name="experiment" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice><!-- these elements include all specialisations of experiment--><xs:element name="experiment" type="Experiment"/>
+               <xs:element name="numericalExperiment" type="NumericalExperiment"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -1011,9 +1019,13 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:choice minOccurs="0" maxOccurs="unbounded"><!-- these elements include all specialisations of supports--><xs:element name="supports" type="Experiment"/>
-         <xs:element name="numericalExperiment" type="NumericalExperiment"/>
-      </xs:choice>
+      <xs:element name="supports" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice><!-- these elements include all specialisations of supports--><xs:element name="experiment" type="Experiment"/>
+               <xs:element name="numericalExperiment" type="NumericalExperiment"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -1664,9 +1676,13 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:anyAttribute namespace="##any" processContents="lax"/>
          </xs:complexType>
       </xs:element>
-      <xs:choice minOccurs="0" maxOccurs="unbounded"><!-- these elements include all specialisations of conformance--><xs:element name="conformance" type="Conformance"/>
-         <xs:element name="physicalModification" type="PhysicalModification"/>
-      </xs:choice>
+      <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice><!-- these elements include all specialisations of conformance--><xs:element name="conformance" type="Conformance"/>
+               <xs:element name="physicalModification" type="PhysicalModification"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Deployment--><!--Whose id is: EAID_E26C5CC0_EC73_4dfc_B206_99751DDA51BD--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>  
                             </xs:extension>
