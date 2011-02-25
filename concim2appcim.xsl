@@ -769,6 +769,15 @@ This has been commented out b/c a documentset is just a transfer convention
         </xsl:comment>
 
         <xsl:element name="xs:element">
+            <xsl:if test="not($isAssociation or $isAttribute)">
+                <xsl:attribute name="name">
+                    <xsl:call-template name="camelCaseTemplate">
+                        <xsl:with-param name="string" select="$class/@name"/>
+                    </xsl:call-template>
+                </xsl:attribute>
+                <xsl:attribute name="minOccurs" select="1"/>
+                <xsl:attribute name="maxOccurs" select="1"/>
+            </xsl:if>
             <xsl:if test="$isAssociation">
                 <xsl:variable name="name">
                     <xsl:variable name="roleName" select="$association/@name"/>
@@ -828,14 +837,24 @@ This has been commented out b/c a documentset is just a transfer convention
 
                         <xsl:variable name="specialisedID" select="@subtype"/>
                         <xsl:variable name="specialisedClass"
-                            select="//UML:Class[@xmi.id=$specialisedID]"/>
+                        select="//UML:Class[@xmi.id=$specialisedID]"/>
+                        <xsl:variable name="specialisedStereotype">
+                            <xsl:call-template name="lowerCaseTemplate">
+                                <xsl:with-param name="string" select="$specialisedClass//UML:Stereotype/@name"/>
+                            </xsl:call-template>
+                        </xsl:variable>
 
+                        <xsl:variable name="furtherSpecialisedIDs"
+                            select="//UML:Generalization[@supertype=$specialisedID]/@subtype"/>
+                        
+                        
                         <xsl:variable name="ea_xref_property">
                             <xsl:text>$ea_xref_property</xsl:text>
                         </xsl:variable>
                         <xsl:choose>
                             <!-- if the specialised class is unused, do nothing... -->
                             <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=unused')"/>
+
                             <!-- if the specialised class is a document, then make a reference to the global element, not the complex type... -->
                             <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=document')">
                                 <xsl:element name="xs:element">
@@ -849,6 +868,53 @@ This has been commented out b/c a documentset is just a transfer convention
                                     </xsl:attribute>                                    
                                 </xsl:element>
                             </xsl:when>
+                            
+                            <!-- it could be an abstract class itself -->
+                            <xsl:when test="$specialisedStereotype='abstract'">
+                                <xsl:call-template name="abstractTemplate">
+                                    <xsl:with-param name="class" select="$specialisedClass"/>
+                                    <!-- an abstract class of an abstract class is just going to have a cardinality of 1 -->
+                                    <!-- and the name will be trivial to work out -->
+                                    <!-- so don't bother passing these parameters -->
+                                    <xsl:with-param name="attribute" select="false()"/>
+                                    <xsl:with-param name="association" select="false()"/>
+                                </xsl:call-template>
+                            </xsl:when>
+                                
+                            <!-- I AM HERE -->
+                            <!-- it could be a generalised (but not abstract) class itself -->
+                            <xsl:when test="count($furtherSpecialisedIDs)&gt;0">
+                                <xs:choice minOccurs="1" maxOccurs="1">
+                                    <xsl:element name="xs:element">
+                                        <xsl:attribute name="name">
+                                            <xsl:call-template name="camelCaseTemplate">
+                                                <xsl:with-param name="string" select="$specialisedClass/@name"/>
+                                            </xsl:call-template>
+                                        </xsl:attribute>
+                                    </xsl:element>
+                                    
+                                    <xsl:for-each select="$furtherSpecialisedIDs">
+                                        <xsl:variable name="currentSpecialisedID" select="."/>
+                                        <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
+                                        <xsl:variable name="currentSpecialisedCamelCaseName">
+                                            <xsl:call-template name="camelCaseTemplate">
+                                                <xsl:with-param name="string" select="$currentSpecialisedName"/>
+                                            </xsl:call-template>
+                                        </xsl:variable>                                                                        
+                                        
+                                        <xsl:element name="xs:element">
+                                            <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
+                                            <xsl:attribute name="type" select="$currentSpecialisedName"/>
+                                        </xsl:element>
+                                        
+                                    </xsl:for-each>
+                                                                                                            
+                                </xs:choice>
+                            </xsl:when>
+                            <!-- I AM HERE -->
+                            
+                            
+                            
                             <!-- otherwise, its just a normal class... -->
                             <xsl:otherwise>
                                 <xsl:element name="xs:element">
