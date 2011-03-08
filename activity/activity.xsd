@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<<<<<<< .mine
-<!-- generated: 8 March 2011, 2:15 -->       
-=======
-<!-- generated: 24 February 2011, 22:24 -->       
->>>>>>> .r2719
+<!-- generated: 8 March 2011, 2:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1640,59 +1636,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
-=======
-      <xs:element name="restart" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <xs:element ref="dataObject"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
->>>>>>> .r2719
       <xs:element name="spinupDateRange" minOccurs="0" maxOccurs="1" type="ClosedDateRange">
          <xs:annotation>
             <xs:documentation>The date range that a simulation is engaged in "spinup."</xs:documentation>
@@ -1765,18 +1709,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Deployment--><!--Whose id is: EAID_E26C5CC0_EC73_4dfc_B206_99751DDA51BD--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:choice><!-- these elements include all specialisations of conformance--><xs:element name="conformance" type="Conformance"/>
-               <xs:element name="physicalModification" type="PhysicalModification"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
-      <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Deployment--><!--Whose id is: EAID_E26C5CC0_EC73_4dfc_B206_99751DDA51BD--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -1875,12 +1808,7 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
             </xs:choice>
          </xs:complexType>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded" type="EnsembleMember"><!--I am looking at: UML:AssociationEnd--><!--And the class is: EnsembleMember--><!--Whose id is: EAID_A59013AC_8739_44ec_97C4_2DE4E09D5420--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="ensembleType" minOccurs="1" maxOccurs="unbounded" type="EnsembleType"/>
-      <xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded" type="EnsembleMember"><!--I am looking at: UML:AssociationEnd--><!--And the class is: EnsembleMember--><!--Whose id is: EAID_A59013AC_8739_44ec_97C4_2DE4E09D5420--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
