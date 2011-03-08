@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<<<<<<< .mine
-<!-- generated: 8 March 2011, 2:15 -->       
-=======
-<!-- generated: 24 February 2011, 22:24 -->       
->>>>>>> .r2719
+<!-- generated: 8 March 2011, 2:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -242,27 +238,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-<<<<<<< .mine
                <xs:element ref="processorComponent"/>
-=======
-               <!-- this is an abstract class --><xs:element name="priming" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <!-- this is an abstract class --><xs:element name="softwareComponent" minOccurs="1" maxOccurs="1">
-                           <xs:complexType>
-                              <xs:choice minOccurs="1" maxOccurs="1">
-                                 <xs:element ref="modelComponent"/>
-                                 <xs:element ref="processorComponent"/>
-                              </xs:choice>
-                           </xs:complexType>
-                        </xs:element>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
->>>>>>> .r2719
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -378,7 +354,6 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             <xs:documentation>Provides a URL location for this model.</xs:documentation>
          </xs:annotation>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="previousVersion" minOccurs="0" maxOccurs="1" type="version"/>
       <xs:element name="releaseDate" minOccurs="0" maxOccurs="1" type="dateTime">
          <xs:annotation>
@@ -399,10 +374,6 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
          </xs:annotation>
       </xs:element>
       <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Composition--><!--Whose id is: EAID_44C533A0_F8E2_4ce4_B065_E2D45210BE53--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="componentLanguage" minOccurs="0" maxOccurs="1" type="ComponentLanguage"/>
-      <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Composition--><!--Whose id is: EAID_44C533A0_F8E2_4ce4_B065_E2D45210BE53--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
       <!-- this is an abstract class --><xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -845,42 +816,16 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-<<<<<<< .mine
                <xs:element ref="processorComponent"/>
-=======
-               <!-- this is an abstract class --><xs:element name="priming" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element ref="dataObject"/>
-                        <xs:element name="dataContent" type="DataContent"/>
-                        <xs:element name="componentProperty" type="ComponentProperty"/>
-                        <!-- this is an abstract class --><xs:element name="softwareComponent" minOccurs="1" maxOccurs="1">
-                           <xs:complexType>
-                              <xs:choice minOccurs="1" maxOccurs="1">
-                                 <xs:element ref="modelComponent"/>
-                                 <xs:element ref="processorComponent"/>
-                              </xs:choice>
-                           </xs:complexType>
-                        </xs:element>
-                     </xs:choice>
-                  </xs:complexType>
-               </xs:element>
->>>>>>> .r2719
             </xs:choice>
          </xs:complexType>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="type" minOccurs="0" maxOccurs="1" type="ConnectionType">
          <xs:annotation>
             <xs:documentation>Describes the method of coupling.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Connection--><!--Whose id is: EAID_5B0610EB_15AA_43ed_81EC_EF0191C04178--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="couplingProperty" minOccurs="0" maxOccurs="unbounded"
-                  type="CouplingProperty"/>
-      <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Connection--><!--Whose id is: EAID_5B0610EB_15AA_43ed_81EC_EF0191C04178--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
    </xs:sequence>
    <xs:attribute name="fullySpecified" use="required" type="xs:boolean">
       <xs:annotation>

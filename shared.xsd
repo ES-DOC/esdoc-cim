@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<<<<<<< .mine
-<!-- generated: 8 March 2011, 2:15 -->       
-=======
-<!-- generated: 24 February 2011, 22:24 -->       
->>>>>>> .r2719
+<!-- generated: 8 March 2011, 2:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -167,14 +163,10 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
    </xs:annotation>
    <xs:sequence>
       <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ResponsibleParty"/>
-<<<<<<< .mine
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="unit" minOccurs="1" maxOccurs="unbounded" type="MachineCompilerUnit"><!--I am looking at: UML:AssociationEnd--><!--And the class is: MachineCompilerUnit--><!--Whose id is: EAID_5754A253_3BAC_4d55_9EF9_D0A0D3CD1E92--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="unit" minOccurs="1" maxOccurs="unbounded" type="MachineCompilerUnit"><!--I am looking at: UML:AssociationEnd--><!--And the class is: MachineCompilerUnit--><!--Whose id is: EAID_5754A253_3BAC_4d55_9EF9_D0A0D3CD1E92--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
    </xs:sequence>
 </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
@@ -767,12 +759,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             <xs:documentation>A mnemonic for describing a particular change.</xs:documentation>
          </xs:annotation>
       </xs:element>
-<<<<<<< .mine
       <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ChangeProperty--><!--Whose id is: EAID_BC80E80E_EC3C_4d14_AFDD_AD8ABAEF5F1B--><!--And there were this many specialisations: 0--></xs:element>
-=======
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ChangeProperty--><!--Whose id is: EAID_BC80E80E_EC3C_4d14_AFDD_AD8ABAEF5F1B--><!--And there were this many specialisations: 0--></xs:element>
->>>>>>> .r2719
    </xs:sequence>
    <xs:attribute name="type" use="optional" type="ChangePropertyType"/>
 </xs:complexType>
