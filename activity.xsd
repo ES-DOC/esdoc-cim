@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 8 March 2011, 2:27 -->       
+<!-- generated: 14 March 2011, 16:48 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -304,7 +304,9 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
             <xs:sequence>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
@@ -506,7 +508,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
-                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
                      </xs:choice>
                   </xs:complexType>
@@ -752,16 +754,67 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Assimilation">
    <xs:annotation>
-      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an actual period in the past eg ERA-40. </xs:documentation>
+      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an actual period in the past eg ERA-40. 
+</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
                     <xs:sequence>
-      <xs:element name="dataCollection" minOccurs="1" maxOccurs="unbounded" type="DataCollection"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCollection--><!--Whose id is: EAID_AC712658_636F_4422_8656_AAB91C48F5EE--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="exploits" minOccurs="1" maxOccurs="unbounded" type="DataCollection"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCollection--><!--Whose id is: EAID_AC712658_636F_4422_8656_AAB91C48F5EE--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="assimilation">
+   <xs:annotation>
+      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an actual period in the past eg ERA-40. 
+</xs:documentation>
+   </xs:annotation>
+   <xs:complexType>
+      <xs:complexContent>
+         <xs:extension base="Assimilation">
+            <xs:sequence>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
+                  <xs:annotation>
+                     <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PhysicalModification">
    <xs:annotation>
       <xs:documentation>Physical modification is the implementation of a boundary condition numerical requirement that is achieved within the model code rather than from some external source file. It  might include, for example,  a specific rate constant within a chemical reaction, or coefficient value(s) in a parameterisation. 
@@ -844,7 +897,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
-                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
                      </xs:choice>
                   </xs:complexType>
@@ -869,7 +922,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:sequence>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
@@ -1052,7 +1107,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:sequence>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
@@ -1295,7 +1352,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:sequence>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
@@ -1384,7 +1443,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
-                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
                      </xs:choice>
                   </xs:complexType>
@@ -1525,7 +1584,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
-                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
                      </xs:choice>
                   </xs:complexType>
@@ -1694,7 +1753,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
-                        <xs:element name="assimilation" type="Assimilation"/>
+                        <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
                      </xs:choice>
                   </xs:complexType>
@@ -1728,7 +1787,55 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="assimilation" minOccurs="0" maxOccurs="unbounded" type="Assimilation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Assimilation--><!--Whose id is: EAID_66B9B544_A02A_4194_A504_6C7D6CD6CCF8--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="inSupportOf" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element ref="assimilation"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -1825,7 +1932,9 @@ An ensemble bundles together sets of ensembleMembers, all of which reference the
             <xs:sequence>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
@@ -2058,7 +2167,7 @@ It is a place for the scientific description of the reason why an experiment was
                            <xs:complexType>
                               <xs:choice minOccurs="1" maxOccurs="1">
                                  <xs:element ref="simulationRun"/>
-                                 <xs:element name="assimilation" type="Assimilation"/>
+                                 <xs:element ref="assimilation"/>
                                  <xs:element ref="simulationComposite"/>
                               </xs:choice>
                            </xs:complexType>

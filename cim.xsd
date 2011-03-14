@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 8 March 2011, 2:27 -->       
+<!-- generated: 14 March 2011, 16:48 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -70,6 +70,7 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
             </xs:complexType>
          </xs:element>
          <xs:element ref="simulationRun"/>
+         <xs:element ref="assimilation"/>
          <xs:element ref="simulationComposite"/>
          <xs:element ref="numericalExperiment"/>
          <xs:element ref="dataProcessing"/>
