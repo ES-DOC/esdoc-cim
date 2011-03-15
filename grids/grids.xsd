@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 14 March 2011, 16:48 -->       
+<!-- generated: 15 March 2011, 9:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -170,10 +170,10 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                         </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArcTypeEnum">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="complex"/>
       <xs:enumeration value="geodesic"/>
       <xs:enumeration value="great_circle"/>
       <xs:enumeration value="small_circle"/>
-      <xs:enumeration value="complex"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridExtent">
@@ -356,15 +356,15 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridNodePositionEnum">
    <xs:restriction base="xs:string">
       <xs:enumeration value="centre"/>
+      <xs:enumeration value="east"/>
       <xs:enumeration value="north"/>
       <xs:enumeration value="northeast"/>
-      <xs:enumeration value="east"/>
-      <xs:enumeration value="southeast"/>
-      <xs:enumeration value="south"/>
-      <xs:enumeration value="southwest"/>
-      <xs:enumeration value="west"/>
       <xs:enumeration value="northwest"/>
+      <xs:enumeration value="south"/>
+      <xs:enumeration value="southeast"/>
+      <xs:enumeration value="southwest"/>
       <xs:enumeration value="undefined"/>
+      <xs:enumeration value="west"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimpleGridCell">
@@ -410,10 +410,10 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DiscretizationEnum">
    <xs:restriction base="xs:string">
       <xs:enumeration value="logically_rectangular"/>
-      <xs:enumeration value="structured_triangular"/>
-      <xs:enumeration value="unstructured_triangular"/>
       <xs:enumeration value="pixel-based_catchment"/>
+      <xs:enumeration value="structured_triangular"/>
       <xs:enumeration value="unstructured_polygonal"/>
+      <xs:enumeration value="unstructured_triangular"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridSpec">
@@ -511,20 +511,20 @@ This includes information about the authoring institution.</xs:documentation>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FeatureTypeEnum">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="point"/>
       <xs:enumeration value="edge"/>
+      <xs:enumeration value="point"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RefinementTypeEnum">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="none">
-         <xs:annotation>
-            <xs:documentation>Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous.</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="integer">
          <xs:annotation>
             <xs:documentation>The refinement is integer when grid lines from the coarser grid are continuous on the finer grid, but not vice versa.</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="none">
+         <xs:annotation>
+            <xs:documentation>Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous.</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="rational">

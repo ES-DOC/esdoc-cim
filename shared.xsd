@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 14 March 2011, 16:48 -->       
+<!-- generated: 15 March 2011, 9:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -72,7 +72,12 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence>
-      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="dateTime"/>
+      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="dateTime">
+         <xs:annotation>
+            <xs:documentation>EndDate is optional becuase the length of a ClosedDateRange can be calculated from the StartDate plus the Duration element.
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="dateTime"/>
    </xs:sequence>  
                             </xs:extension>
@@ -418,38 +423,22 @@ This includes information about the authoring institution.</xs:documentation>
                         </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationshipType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="similarTo"/>
-      <xs:enumeration value="other"/>
-      <xs:enumeration value="laterVersionOf"/>
-      <xs:enumeration value="previousVersionOf"/>
       <xs:enumeration value="fixedVersionOf"/>
+      <xs:enumeration value="laterVersionOf"/>
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="previousVersionOf"/>
+      <xs:enumeration value="similarTo"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineType">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="Beowulf"/>
       <xs:enumeration value="Parallel"/>
       <xs:enumeration value="Vector"/>
-      <xs:enumeration value="Beowulf"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="InputMod"/>
-      <xs:enumeration value="ModelMod"/>
-      <xs:enumeration value="Decrement"/>
-      <xs:enumeration value="Increment"/>
-      <xs:enumeration value="Redistribution"/>
-      <xs:enumeration value="Replacement"/>
-      <xs:enumeration value="ParameterChange">
-         <xs:annotation>
-            <xs:documentation>a specific type of ModelMod</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CodeChange">
-         <xs:annotation>
-            <xs:documentation>a specific type of ModelMod</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="AncillaryFile">
          <xs:annotation>
             <xs:documentation>a specific type of InputMod</xs:documentation>
@@ -460,11 +449,27 @@ This includes information about the authoring institution.</xs:documentation>
             <xs:documentation>a specific type of InputMod</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="CodeChange">
+         <xs:annotation>
+            <xs:documentation>a specific type of ModelMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Decrement"/>
+      <xs:enumeration value="Increment"/>
       <xs:enumeration value="InitialCondition">
          <xs:annotation>
             <xs:documentation>a specific type of InputMod</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="InputMod"/>
+      <xs:enumeration value="ModelMod"/>
+      <xs:enumeration value="ParameterChange">
+         <xs:annotation>
+            <xs:documentation>a specific type of ModelMod</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Redistribution"/>
+      <xs:enumeration value="Replacement"/>
       <xs:enumeration value="Unused"/>
    </xs:restriction>
 </xs:simpleType>
@@ -648,8 +653,8 @@ This includes information about the authoring institution.</xs:documentation>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RelationshipDirectionType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="toTarget"/>
       <xs:enumeration value="fromTarget"/>
+      <xs:enumeration value="toTarget"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
