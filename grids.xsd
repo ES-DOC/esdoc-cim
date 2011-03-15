@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 15 March 2011, 9:38 -->       
+<!-- generated: 15 March 2011, 13:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -353,6 +353,28 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       </xs:element>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridProperty">
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HorizontalResolutionType">
+   <xs:annotation>
+      <xs:documentation>Provides a description and set of named properties for the horizontal resolution.
+</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="GridProperty"/>
+   </xs:sequence>
+   <xs:attribute name="description" use="required">
+      <xs:annotation>
+         <xs:documentation>A description of the horizontal resolution.
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+</xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridNodePositionEnum">
    <xs:restriction base="xs:string">
       <xs:enumeration value="centre"/>
@@ -586,9 +608,11 @@ If required, two or more coordinate pole definitions may be distinguished by set
             <xs:documentation>Specifies the horizontal coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external horizontal CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="horizontalResolution" minOccurs="0" maxOccurs="1" type="xs:string">
+      <xs:element name="horizontalResolution" minOccurs="0" maxOccurs="1"
+                  type="HorizontalResolutionType">
          <xs:annotation>
-            <xs:documentation>Provides an indication of the approximate spatial sampling size of the grid tile, i.e. the size of the underlying grid cells. (Note: the maximum spatial resolution of the grid is twice the sampling size (e.g. 2 km for a 1 km x 1 km grid pitch).</xs:documentation>
+            <xs:documentation>Provides an indication of the approximate spatial sampling size of the grid tile, i.e. the size of the underlying grid cells. (Note: the maximum spatial resolution of the grid is twice the sampling size (e.g. 2 km for a 1 km x 1 km grid pitch).
+</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
