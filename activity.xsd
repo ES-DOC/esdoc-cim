@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 15 March 2011, 13:43 -->       
+<!-- generated: 15 March 2011, 14:06 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -205,6 +205,40 @@ targetNamespace="http://metafor.eu/cim/schemas/1.5">
       </xs:element>
    </xs:sequence>
 </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConformanceType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="combination">
+         <xs:annotation>
+            <xs:documentation>Describes a simulation that conforms to an experimental requirement by using more than one method.
+</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="not conformant">
+         <xs:annotation>
+            <xs:documentation>Describes a simulation that is purpefully non-conformant to an experimental requirement.
+</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="standard config">
+         <xs:annotation>
+            <xs:documentation>Describes a simulation that is "naturally" conformant to an experimental requirement.
+</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="via inputs">
+         <xs:annotation>
+            <xs:documentation>Describes a simulation that conforms to an experimental requirement by using particular inputs.
+</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="via model mods">
+         <xs:annotation>
+            <xs:documentation>Describes a simulation that conforms to an experimental requirement by changing the configuration of the software model implementing that simulation.
+</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OutputRequirement">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
@@ -685,6 +719,12 @@ If something is purpopsefully non-conformant then the conformant attribute would
    <xs:attribute name="conformant" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Records whether or not this conformance satisfies the requirement.  A simulation should have at least one conformance mapping to every experimental requirement.  If a simulation satisfies the requirement - the usual case - then conformant should have a value of "true."  If conformant is true but there is no reference to a source for the conformance, then we can assume that the simulation conforms to the requirement _naturally_, that is without having to modify code or inputs. If a simulation does not conform to a requirement then conformant should be set to "false."</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="type" use="optional" type="ConformanceType">
+      <xs:annotation>
+         <xs:documentation>Describes the method that this simulation conforms to an experimental requirement (in case it is not specified by the change property of the reference to the source of this conformance)
+</xs:documentation>
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
