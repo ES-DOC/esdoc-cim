@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::ProcessorComponentType</title>
+<title>EntryPointType</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ProcessorComponentType  : public  &lt;&lt;CodeList&gt;&gt; class</span>
+	<span class="ObjectTitle">EntryPointType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/9/2008 3:29:35 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/8/2008 12:08:34 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/9/2009 2:29:34 PM</td>
+			<td class="ObjectDetailsValue">2/11/2011 5:59:45 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,18 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A7018688-1D25-4531-B63E-513015FFA404}</td>
+			<td class="ObjectDetailsValue">{7F115964-E081-4bd9-AA31-142D3F757B98}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA195.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA201.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;An enumeration of types of ProcessorComponent.&#160; This includes things like transformers and post-processors.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;Describes the intended use of an EntryPoint (subroutine).&#160; This is required for ESMF models.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -77,23 +76,34 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;post_processor</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;init</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes885" onclick="parent.toggleDiv('detailsDIVAttributes885','DetailsImageAttributes885')" />Details:
-						<div id="detailsDIVAttributes885" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes833" onclick="parent.toggleDiv('detailsDIVAttributes833','DetailsImageAttributes833')" />Details:
+						<div id="detailsDIVAttributes833" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;transformer</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;run</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes886" onclick="parent.toggleDiv('detailsDIVAttributes886','DetailsImageAttributes886')" />Details:
-						<div id="detailsDIVAttributes886" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes834" onclick="parent.toggleDiv('detailsDIVAttributes834','DetailsImageAttributes834')" />Details:
+						<div id="detailsDIVAttributes834" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;finalise</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes835" onclick="parent.toggleDiv('detailsDIVAttributes835','DetailsImageAttributes835')" />Details:
+						<div id="detailsDIVAttributes835" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
@@ -101,20 +111,7 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-	<tr>
-			<td width="30%" class="TableHeading">Tag</td>
-			<td width="30%" class="TableHeading">Value</td>
-			<td width="40%" class="TableHeading">Details</td>
-	</tr>
-					<tr>
-				<td width="30%" class="TableRow" valign="top">open</td>
-				<td width="30%" class="TableRow" valign="top">true</td>
-				<td width="30%" class="TableRow" valign="top">&nbsp;</td>
-			</tr>
-</table>
-</div>	</div>
+	</div>
 <div class="pageFooter"></div>
  
 </body>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::ProcessorComponent</title>
+<title>EntryPoint</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ProcessorComponent  : public  &lt;&lt;document&gt;&gt; class</span>
+	<span class="ObjectTitle">EntryPoint  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11/17/2008 4:04:11 PM</td>
+			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/26/2009 2:14:05 PM</td>
+			<td class="ObjectDetailsValue">3/6/2011 10:49:14 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8F759CBE-164C-4bfd-9B6E-BA96B48FDC61}</td>
+			<td class="ObjectDetailsValue">{91EC96EA-A47A-4c78-912D-4CDB97AA583D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA195.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA201.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A ProcessorComponent is a component which does not model some physical phenomena.&#160; It still processes data, but it is not a &quot;scientific model&quot; in the strict sense.&#160; Examples of ProcessorComponents include transformers and post-processors.&#160; ProcessorComponents may be assocaited with a DataProcessing activity as opposed to a Simulation activity.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;Describes a function or subroutine of a SoftwareComponent.&#160; BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.&#160; Currently, a very basic schedule can be approximated by using the &quot;proceeds&quot; and &quot;follows&quot; attributes, however a more complete system is required for full BFG compatibility.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Every EntryPoint can have a set of arguments associated with it.&#160; These reference (previously defined) ComponentProperties.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,19 +78,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA232.htm">ProcessorComponentType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA219.htm">ComponentProperty</a></i><br /><strong>&nbsp;&nbsp;argument</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes879" onclick="parent.toggleDiv('detailsDIVAttributes879','DetailsImageAttributes879')" />Details:
-						<div id="detailsDIVAttributes879" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes826" onclick="parent.toggleDiv('detailsDIVAttributes826','DetailsImageAttributes826')" />Details:
+						<div id="detailsDIVAttributes826" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes the type of component.&nbsp;<WBR> There can be multiple types.
+			A reference to an argument used by this EntryPoint
 		</td>
 	</tr>
 </table></div>
@@ -99,65 +99,66 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;conservative</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterStringList</i><br /><strong>&nbsp;&nbsp;follows</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes880" onclick="parent.toggleDiv('detailsDIVAttributes880','DetailsImageAttributes880')" />Details:
-						<div id="detailsDIVAttributes880" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A conservative component conserves fluxes across corresponding times and areas for different grids.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA236.htm">SpatialRegridding</a></i><br /><strong>&nbsp;&nbsp;spatialRegridding</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes881" onclick="parent.toggleDiv('detailsDIVAttributes881','DetailsImageAttributes881')" />Details:
-						<div id="detailsDIVAttributes881" class="DetailsDiv" >
-						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA243.htm">TimeTransformation</a></i><br /><strong>&nbsp;&nbsp;timeTransformation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes882" onclick="parent.toggleDiv('detailsDIVAttributes882','DetailsImageAttributes882')" />Details:
-						<div id="detailsDIVAttributes882" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes827" onclick="parent.toggleDiv('detailsDIVAttributes827','DetailsImageAttributes827')" />Details:
+						<div id="detailsDIVAttributes827" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			 Temporal transformation performed on the coupling field before or after regridding onto the target grid. 
+			A list of the names of entryPoints that this entryPoint must follow
 		</td>
 	</tr>
 </table></div>
 
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes828" onclick="parent.toggleDiv('detailsDIVAttributes828','DetailsImageAttributes828')" />Details:
+						<div id="detailsDIVAttributes828" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterStringList</i><br /><strong>&nbsp;&nbsp;proceeds</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes829" onclick="parent.toggleDiv('detailsDIVAttributes829','DetailsImageAttributes829')" />Details:
+						<div id="detailsDIVAttributes829" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A list of the names of entryPoints that this entryPoint must poeceed
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public EntryPointType</i><br /><strong>&nbsp;&nbsp;type</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes830" onclick="parent.toggleDiv('detailsDIVAttributes830','DetailsImageAttributes830')" />Details:
+						<div id="detailsDIVAttributes830" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -173,22 +174,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA1/EA28.htm">«document» DataProcessing</a><br />
+						<a href="EA229.htm">Dependencies</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> processor<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> activity<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink883" onclick="parent.toggleDiv('detailsDIVLink883','DetailsImageLink883')" />Details:
-							<div id="detailsDIVLink883" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink831" onclick="parent.toggleDiv('detailsDIVLink831','DetailsImageLink831')" />Details:
+							<div id="detailsDIVLink831" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -206,13 +207,7 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA235.htm">«abstract» SoftwareComponent</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA28.htm">«document» DataProcessing</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA229.htm">Dependencies</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

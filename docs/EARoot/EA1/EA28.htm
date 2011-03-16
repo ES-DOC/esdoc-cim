@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::DataProcessing</title>
+<title>DataCollection</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DataProcessing  : public  &lt;&lt;document&gt;&gt; class</span>
+	<span class="ObjectTitle">DataCollection  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/24/2008 12:11:01 PM</td>
+			<td width="85%" class="ObjectDetailsValue">9/18/2008 10:43:46 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 8:28:50 PM</td>
+			<td class="ObjectDetailsValue">8/5/2009 4:42:38 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">lawrence</td>
+			<td class="ObjectDetailsValue">bnl</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{9816C4A1-AB15-4535-ACC2-D35AB56C8D9A}</td>
+			<td class="ObjectDetailsValue">{AC712658-636F-4422-8656-AAB91C48F5EE}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA11.htm">Brown: Implementation</a>, <a href="EA9.htm">Activity</a></td>
+			<td class="ObjectDetailsValue"><a href="EA13.htm">Green: Observations</a>, <a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate scientific phenomena like a Simulation activity does.&#160; It is associated with a ProcessorComponent as opposed to a ModelComponent.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A DataCollection activity is one which is not aimed at supporting any specific experiment. &lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,44 +78,13 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA165.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;inputs</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes25" onclick="parent.toggleDiv('detailsDIVAttributes25','DetailsImageAttributes25')" />Details:
-						<div id="detailsDIVAttributes25" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			the data being processed.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA165.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;outputs</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA172.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;Duration</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes26" onclick="parent.toggleDiv('detailsDIVAttributes26','DetailsImageAttributes26')" />Details:
 						<div id="detailsDIVAttributes26" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			the data being generated.
-		</td>
-	</tr>
-</table></div>
-
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -131,22 +100,45 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA6/EA231.htm">«document» ProcessorComponent</a><br />
+						<a href="EA42.htm">ObservationStation</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> processor<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> activity<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink28" onclick="parent.toggleDiv('detailsDIVLink28','DetailsImageLink28')" />Details:
-							<div id="detailsDIVLink28" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink29" onclick="parent.toggleDiv('detailsDIVLink29','DetailsImageLink29')" />Details:
+							<div id="detailsDIVLink29" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA24.htm">«document» Assimilation</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> inSupportOf<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> exploits<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink30" onclick="parent.toggleDiv('detailsDIVLink30','DetailsImageLink30')" />Details:
+							<div id="detailsDIVLink30" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -164,13 +156,7 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA231.htm">«document» ProcessorComponent</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA38.htm">«abstract» NumericalActivity</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA57.htm">Project</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

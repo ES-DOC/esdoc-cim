@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::DiscretizationEnum</title>
+<title>CustomGridGeometry</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DiscretizationEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">CustomGridGeometry  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/7/2008 5:14:28 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 1:42:01 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">2/3/2009 10:49:19 AM</td>
+			<td class="ObjectDetailsValue">3/9/2009 10:16:40 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{C7C41452-0C00-4875-B79F-6AA4F770921C}</td>
+			<td class="ObjectDetailsValue">{0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA83.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;The Discretization enumeration may be used to indicate the manner in which a grid tile is discretized. It is envisaged that the majority of model grids described by CIM metadata documents will be logically rectangular in construction.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,57 +76,44 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;logically_rectangular</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;geometrySpec</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes266" onclick="parent.toggleDiv('detailsDIVAttributes266','DetailsImageAttributes266')" />Details:
-						<div id="detailsDIVAttributes266" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes277" onclick="parent.toggleDiv('detailsDIVAttributes277','DetailsImageAttributes277')" />Details:
+						<div id="detailsDIVAttributes277" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;structured_triangular</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Identifier</i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes267" onclick="parent.toggleDiv('detailsDIVAttributes267','DetailsImageAttributes267')" />Details:
-						<div id="detailsDIVAttributes267" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;unstructured_triangular</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes268" onclick="parent.toggleDiv('detailsDIVAttributes268','DetailsImageAttributes268')" />Details:
-						<div id="detailsDIVAttributes268" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;pixel-based_catchment</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes269" onclick="parent.toggleDiv('detailsDIVAttributes269','DetailsImageAttributes269')" />Details:
-						<div id="detailsDIVAttributes269" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;unstructured_polygonal</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes270" onclick="parent.toggleDiv('detailsDIVAttributes270','DetailsImageAttributes270')" />Details:
-						<div id="detailsDIVAttributes270" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes278" onclick="parent.toggleDiv('detailsDIVAttributes278','DetailsImageAttributes278')" />Details:
+						<div id="detailsDIVAttributes278" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

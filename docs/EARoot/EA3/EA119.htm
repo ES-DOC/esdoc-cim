@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::HorizontalCSEnum</title>
+<title>GridTileRef</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">HorizontalCSEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">GridTileRef  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/9/2008 11:12:15 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 4:58:04 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">2/3/2009 11:21:21 AM</td>
+			<td class="ObjectDetailsValue">2/3/2009 10:08:23 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{A29C5C26-F82C-4165-BD3E-822A1AC1ADC4}</td>
+			<td class="ObjectDetailsValue">{BFD9169E-2ED2-42de-A0B3-8779E9FAA442}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA83.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;The HorizontalCS enumeration is used to indicate the construction of the coordinate system used for horizontal grid coordinates.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Note: this enumeration is not required by the current version of the CIM. The horizontalCRS property of a grid tile may be used to provide equivalent information.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;This data type is used to encode a reference to a grid tile defined as part of some other grid mosaic, which may itself be part of the same hierarchy of grid mosaics or else part of an entirely separate mosaic (possibly even in a separate physical realisation, e.g. XML file or database table).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A grid tile reference is a list of ID references from the top-level mosaic down to the grid tile itself. A tile reference can be specified either as a sequence of mosaic ID elements and a tile ID element, or as a text string attribute (idPath) containing colon-separated ID values (e.g. &quot;m1:m2:m3:t1&quot;).&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,46 +76,65 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;cartesian</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes378" onclick="parent.toggleDiv('detailsDIVAttributes378','DetailsImageAttributes378')" />Details:
-						<div id="detailsDIVAttributes378" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ellipsoidal</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes379" onclick="parent.toggleDiv('detailsDIVAttributes379','DetailsImageAttributes379')" />Details:
-						<div id="detailsDIVAttributes379" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;polar</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;idPath</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes380" onclick="parent.toggleDiv('detailsDIVAttributes380','DetailsImageAttributes380')" />Details:
 						<div id="detailsDIVAttributes380" class="DetailsDiv" >
-						<i></i>&nbsp;
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The idPath property may be used as a more compact alternative to specifying a grid tile reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, and a tile ID.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;spherical</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;mosaicID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes381" onclick="parent.toggleDiv('detailsDIVAttributes381','DetailsImageAttributes381')" />Details:
 						<div id="detailsDIVAttributes381" class="DetailsDiv" >
-						<i></i>&nbsp;
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the ID of a remotely-defined grid mosaic object.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;tileID</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes382" onclick="parent.toggleDiv('detailsDIVAttributes382','DetailsImageAttributes382')" />Details:
+						<div id="detailsDIVAttributes382" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the ID of a remotely-defined grid tile object.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

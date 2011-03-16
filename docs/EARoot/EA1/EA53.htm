@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::TemporalAveType</title>
+<title>SpatioTemporalConstraint</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TemporalAveType  : public  &lt;&lt;CodeList&gt;&gt; class</span>
+	<span class="ObjectTitle">SpatioTemporalConstraint  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/24/2008 1:32:03 PM</td>
+			<td width="85%" class="ObjectDetailsValue">9/24/2008 12:47:02 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/25/2010 12:12:00 PM</td>
+			<td class="ObjectDetailsValue">11/3/2008 5:07:41 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,32 +57,67 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{5B1F1E66-03CC-43a4-A6AF-4FB1316BA006}</td>
+			<td class="ObjectDetailsValue">{82799C15-51DA-4af1-9B25-F1C0C7391F54}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA9.htm">Activity</a></td>
+			<td class="ObjectDetailsValue"><a href="EA15.htm">Yellow: Requirements</a>, <a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
 	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-	<tr>
-			<td width="30%" class="TableHeading">Tag</td>
-			<td width="30%" class="TableHeading">Value</td>
-			<td width="40%" class="TableHeading">Details</td>
-	</tr>
-					<tr>
-				<td width="30%" class="TableRow" valign="top">open</td>
-				<td width="30%" class="TableRow" valign="top">true</td>
-				<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="100%" class="TableHeading">Attribute</td>
+		</tr>
+						<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA172.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;requiredDuration</strong></td>
 			</tr>
-</table>
-</div>	</div>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes141" onclick="parent.toggleDiv('detailsDIVAttributes141','DetailsImageAttributes141')" />Details:
+						<div id="detailsDIVAttributes141" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public ResolutionType</i><br /><strong>&nbsp;&nbsp;spatialResolution</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes142" onclick="parent.toggleDiv('detailsDIVAttributes142','DetailsImageAttributes142')" />Details:
+						<div id="detailsDIVAttributes142" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA41.htm">«abstract» NumericalRequirement</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
 <div class="pageFooter"></div>
  
 </body>

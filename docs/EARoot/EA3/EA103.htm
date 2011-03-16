@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::Edge</title>
+<title>DiscretizationEnum</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Edge  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">DiscretizationEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/9/2008 1:44:02 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 5:14:28 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 10:01:28 PM</td>
+			<td class="ObjectDetailsValue">2/3/2009 10:49:19 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{7EF8EAD4-70CC-461e-8A5A-DB30EFE3C9AE}</td>
+			<td class="ObjectDetailsValue">{C7C41452-0C00-4875-B79F-6AA4F770921C}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA83.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;The Edge data type is used to define the topological edge between adjacent (touching) grid cells. &lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;The Discretization enumeration may be used to indicate the manner in which a grid tile is discretized. It is envisaged that the majority of model grids described by CIM metadata documents will be logically rectangular in construction.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,98 +76,57 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA96.htm">ArcTypeEnum</a></i><br /><strong>&nbsp;&nbsp;arcType</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;logically_rectangular</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes271" onclick="parent.toggleDiv('detailsDIVAttributes271','DetailsImageAttributes271')" />Details:
-						<div id="detailsDIVAttributes271" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes279" onclick="parent.toggleDiv('detailsDIVAttributes279','DetailsImageAttributes279')" />Details:
+						<div id="detailsDIVAttributes279" class="DetailsDiv" >
 						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private gml:PointType</i><br /><strong>&nbsp;&nbsp;vertex1</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;structured_triangular</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes272" onclick="parent.toggleDiv('detailsDIVAttributes272','DetailsImageAttributes272')" />Details:
-						<div id="detailsDIVAttributes272" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the position of the first (start) point of the edge.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes280" onclick="parent.toggleDiv('detailsDIVAttributes280','DetailsImageAttributes280')" />Details:
+						<div id="detailsDIVAttributes280" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private gml:PointType</i><br /><strong>&nbsp;&nbsp;vertex2</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;unstructured_triangular</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes273" onclick="parent.toggleDiv('detailsDIVAttributes273','DetailsImageAttributes273')" />Details:
-						<div id="detailsDIVAttributes273" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the position of the second (end) point of the edge.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes281" onclick="parent.toggleDiv('detailsDIVAttributes281','DetailsImageAttributes281')" />Details:
+						<div id="detailsDIVAttributes281" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private gml:MeasureType</i><br /><strong>&nbsp;&nbsp;length</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;pixel-based_catchment</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes274" onclick="parent.toggleDiv('detailsDIVAttributes274','DetailsImageAttributes274')" />Details:
-						<div id="detailsDIVAttributes274" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the length of the edge in the units defined using the &#39;uom&#39; attribute that is attached to the GML MeasureType data type.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes282" onclick="parent.toggleDiv('detailsDIVAttributes282','DetailsImageAttributes282')" />Details:
+						<div id="detailsDIVAttributes282" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private gml:MeasureType</i><br /><strong>&nbsp;&nbsp;arrivalAngle</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public String</i><br /><strong>&nbsp;&nbsp;unstructured_polygonal</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes275" onclick="parent.toggleDiv('detailsDIVAttributes275','DetailsImageAttributes275')" />Details:
-						<div id="detailsDIVAttributes275" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private gml:MeasureType</i><br /><strong>&nbsp;&nbsp;departureAngle</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes276" onclick="parent.toggleDiv('detailsDIVAttributes276','DetailsImageAttributes276')" />Details:
-						<div id="detailsDIVAttributes276" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes283" onclick="parent.toggleDiv('detailsDIVAttributes283','DetailsImageAttributes283')" />Details:
+						<div id="detailsDIVAttributes283" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>

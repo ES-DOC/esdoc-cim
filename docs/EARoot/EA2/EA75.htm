@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>data::DataStatusType</title>
+<title>DataRestrictionScopeType</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,7 +16,7 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DataStatusType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">DataRestrictionScopeType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{822406C9-0D7A-46c0-902F-371267022B33}</td>
+			<td class="ObjectDetailsValue">{F3A5ECB1-9F60-459f-82FC-BFEEA2B4110A}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA57.htm">Data</a></td>
+			<td class="ObjectDetailsValue"><a href="EA58.htm">Data</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;The current status of a data object - complete, always updated, or available as a metadata description only (ie: the actual data is unavailable).&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;The method by which a data object is restricted.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,65 +76,46 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;complete</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;metadataAccessConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes228" onclick="parent.toggleDiv('detailsDIVAttributes228','DetailsImageAttributes228')" />Details:
-						<div id="detailsDIVAttributes228" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This DataObject is complete.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes237" onclick="parent.toggleDiv('detailsDIVAttributes237','DetailsImageAttributes237')" />Details:
+						<div id="detailsDIVAttributes237" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;metadataOnly</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;metadataUseConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes229" onclick="parent.toggleDiv('detailsDIVAttributes229','DetailsImageAttributes229')" />Details:
-						<div id="detailsDIVAttributes229" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This DataObject is incomplete - it is described in metadata but the actual data has not yet been linked to it.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes238" onclick="parent.toggleDiv('detailsDIVAttributes238','DetailsImageAttributes238')" />Details:
+						<div id="detailsDIVAttributes238" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;continuouslySupplemented</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;dataAccessConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes230" onclick="parent.toggleDiv('detailsDIVAttributes230','DetailsImageAttributes230')" />Details:
-						<div id="detailsDIVAttributes230" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This DataObject&#39;s actual data is continuously updated.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes239" onclick="parent.toggleDiv('detailsDIVAttributes239','DetailsImageAttributes239')" />Details:
+						<div id="detailsDIVAttributes239" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;dataUseConstraint</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes240" onclick="parent.toggleDiv('detailsDIVAttributes240','DetailsImageAttributes240')" />Details:
+						<div id="detailsDIVAttributes240" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
