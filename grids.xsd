@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 15 March 2011, 17:38 -->       
+<!-- generated: 16 March 2011, 12:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -438,6 +438,21 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:enumeration value="unstructured_triangular"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VerticalCoordList">
+   <xs:annotation>
+      <xs:documentation>There are some specific attributes that are associated with vertical coordinates.
+</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="CoordList">
+                    <xs:sequence>
+      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="GridProperty"/>
+   </xs:sequence>
+   <xs:attribute name="coordinateForm" use="optional" type="VerticalCoordinateFormTypeEnum"/>
+   <xs:attribute name="coordinateType" use="optional" type="VerticalCoordinateTypeEnum"/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridSpec">
    <xs:annotation>
       <xs:documentation>This is a container class for GridSpec objects. A GridSpec object can contain one or more esmModelGrid objects, and one or more esmExchangeGrid objects. These objects may be serialised to one or possibly several files according to taste. Since GridSpec is sub-typed from GML's AbstractGeometryType it can, and should, be identified using a gml:id attribute.</xs:documentation>
@@ -505,26 +520,23 @@ This includes information about the authoring institution.</xs:documentation>
    <xs:annotation>
       <xs:documentation>The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate value and the offset (spacing) value need to be specified; however, the length attribute must still define the final 'as-built' size of the coordinate list.</xs:documentation>
    </xs:annotation>
-                                <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                            <xs:attribute name="hasConstantOffset" use="required" type="xs:boolean">
+   <xs:sequence/>
+   <xs:attribute name="hasConstantOffset" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Set to true if coordinates in the built array have constant offset.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="length" use="required" type="xs:integer">
+   <xs:attribute name="length" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the length of the coordinate array. This should always be the final, as-built length of the array if the hasConstantOffset property is set to true and the compact notation (start coordinate plus offset) is used.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="uom" use="required" type="xs:string">
+   <xs:attribute name="uom" use="optional" type="xs:string">
       <xs:annotation>
          <xs:documentation>Units of measure used by the coordinates.</xs:documentation>
       </xs:annotation>
-   </xs:attribute>  
-                            </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
+   </xs:attribute>
+</xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ContactTypeEnum">
    <xs:restriction base="xs:string">
       <xs:enumeration value="boundary"/>
@@ -643,9 +655,10 @@ If required, two or more coordinate pole definitions may be distinguished by set
 </xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="zcoords" minOccurs="0" maxOccurs="1" type="CoordList">
+      <xs:element name="zcoords" minOccurs="0" maxOccurs="1" type="VerticalCoordList">
          <xs:annotation>
-            <xs:documentation>This optional property may be used to specify the vertical coordinates (e.g. heights or model levels) at which a grid tile is utilised or realised. In the case of simple grid tiles the equivalent zcoords property on the SimpleGridGeometry data type would be used instead. The current property is intended to be used when the horizontal grid coordinates are defined by one of the other methods.</xs:documentation>
+            <xs:documentation>This optional property may be used to specify the vertical coordinates (e.g. heights or model levels) at which a grid tile is utilised or realised. In the case of simple grid tiles the equivalent zcoords property on the SimpleGridGeometry data type would be used instead. The current property is intended to be used when the horizontal grid coordinates are defined by one of the other methods.
+</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
@@ -701,6 +714,37 @@ If required, two or more coordinate pole definitions may be distinguished by set
    </xs:attribute>
    <xs:attribute name="refinementScheme" use="optional" type="RefinementTypeEnum"/>
 </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VerticalCoordinateFormTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="double sigma"/>
+      <xs:enumeration value="hybrid floating Lagrangian"/>
+      <xs:enumeration value="hybrid height"/>
+      <xs:enumeration value="hybrid sigma-pressure"/>
+      <xs:enumeration value="hybrid sigma-z"/>
+      <xs:enumeration value="hybrid Z-isopycnic"/>
+      <xs:enumeration value="hybrid Z-S"/>
+      <xs:enumeration value="isentropic"/>
+      <xs:enumeration value="isopycnic"/>
+      <xs:enumeration value="natural log pressure"/>
+      <xs:enumeration value="P*-coordinate"/>
+      <xs:enumeration value="pressure"/>
+      <xs:enumeration value="pressure-height"/>
+      <xs:enumeration value="S-coordinate"/>
+      <xs:enumeration value="sigma"/>
+      <xs:enumeration value="Z**-coordinate"/>
+      <xs:enumeration value="Z*-coordinate"/>
+      <xs:enumeration value="Z-coordinate"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VerticalCoordinateTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="hybrid"/>
+      <xs:enumeration value="mass-based"/>
+      <xs:enumeration value="not-applicable"/>
+      <xs:enumeration value="space-based"/>
+      <xs:enumeration value="terrain-following"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridCell">
    <xs:annotation>
       <xs:documentation>This abstract base class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. Vertices are either defined directly (e.g. in the case of a SimpleGridCell object), or indirectly by referencing a remote grid cell (in the case of an ExchangeGridCell object).</xs:documentation>
