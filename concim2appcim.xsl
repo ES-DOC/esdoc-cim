@@ -17,9 +17,9 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
-    <xsl:param name="namespace">undefined</xsl:param>
-    <xsl:param name="sort-attributes" select="false()"/>
-    <xsl:param name="debug" select="false()"/>
+    <xsl:param name="namespace">http://www.purl.org/esmetadata/cim</xsl:param>
+    <xsl:param name="sort-attributes">false</xsl:param>
+    <xsl:param name="debug">false</xsl:param>
 
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
@@ -42,22 +42,24 @@
         </xsl:if>
         <xsl:if test="$namespace='undefined'">
             <xsl:message terminate="yes">
-                <xsl:text> please specify a CIM namespace (ie: 'http://www.metaforclimate.eu/schema/cim/1.5') </xsl:text>
+                <xsl:text> please specify a CIM namespace (ie: 'http://www.purl.org/esmetadata/cim') </xsl:text>
             </xsl:message>
         </xsl:if>
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:value-of select="$newline"/>
             </xsl:message>
             <xsl:choose>
-                <xsl:when test="$sort-attributes">
+                <xsl:when test="$sort-attributes='true'">
                     <xsl:message>
                         <xsl:text> UML attributes will be processed in lexical order </xsl:text>
+                        <xsl:value-of select="$sort-attributes"/>
                     </xsl:message>
                 </xsl:when>
-                <xsl:when test="not($sort-attributes)">
+                <xsl:when test="not($sort-attributes='true')">
                     <xsl:message>
                         <xsl:text> UML attributes will be processed in the order in which they appear </xsl:text>
+                        <xsl:value-of select="$sort-attributes"/>
                     </xsl:message>
                 </xsl:when>
                 <xsl:otherwise>
@@ -87,7 +89,7 @@
         <xsl:variable name="packageName" select="@name"/>
         <xsl:variable name="fileName" select="concat($packageName,'.xsd')"/>
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:value-of select="$newline"/>
             </xsl:message>
@@ -120,9 +122,9 @@
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
             </xsl:text>
-            <xsl:text>xmlns="</xsl:text><xsl:value-of select="$namespace"/><xsl:text>"</xsl:text>
+            <xsl:text>xmlns="</xsl:text><xsl:value-of select="concat($namespace,'/',$version)"/><xsl:text>"</xsl:text>
             <xsl:value-of select="$newline"/>
-            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="$namespace"/><xsl:text>"</xsl:text>
+            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="concat($namespace,'/',$version)"/><xsl:text>"</xsl:text>
 <!--
             <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
@@ -184,7 +186,7 @@
                                         <xsl:for-each
                                             select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
                                             <xsl:sort case-order="lower-first"
-                                                select="@name[$sort-attributes]"/>
+                                                select="@name[$sort-attributes='true']"/>
                                             <xsl:call-template
                                                 name="element-attributeTemplate">
                                                 <xsl:with-param name="element" select="true()"/>
@@ -196,7 +198,7 @@
                                     <xsl:for-each
                                         select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
                                         <xsl:sort case-order="lower-first"
-                                            select="@name[$sort-attributes]"/>
+                                            select="@name[$sort-attributes='true']"/>
                                         <xsl:call-template
                                             name="element-attributeTemplate">
                                             <xsl:with-param name="element" select="false()"/>
@@ -288,7 +290,7 @@ This has been commented out b/c a documentset is just a transfer convention
     <!-- <<document>> stereotypes are also global elements -->
     <xsl:template match="UML:Package//UML:Class">
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:text>processing class: </xsl:text>
                 <xsl:value-of select="@name"/>
@@ -311,7 +313,7 @@ This has been commented out b/c a documentset is just a transfer convention
             </xsl:when>
 
             <xsl:when test="$classStereotype='enumeration'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an enumeration </xsl:text>
                     </xsl:message>
@@ -320,7 +322,7 @@ This has been commented out b/c a documentset is just a transfer convention
             </xsl:when>
 
             <xsl:when test="$classStereotype='codelist'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's a codelist </xsl:text>
                     </xsl:message>
@@ -332,7 +334,7 @@ This has been commented out b/c a documentset is just a transfer convention
             don't need to do anything _here_ for extensible classes
             I'll do it when I'm dealing w/ complexTypes
             <xsl:when test="$classStereotype='extensible'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's extensible</xsl:text>
                     </xsl:message>
@@ -344,7 +346,7 @@ This has been commented out b/c a documentset is just a transfer convention
             don't need to do anything special for _global_ <<abstract>> classes;
             there's nothing different about them - only when other classes point to them do I need to bother
             <xsl:when test="$classStereotype='abstract'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's abstract </xsl:text>
                     </xsl:message>
@@ -356,7 +358,7 @@ This has been commented out b/c a documentset is just a transfer convention
             <!-- simpleTypes are used in order to force UML classes to be used as XML attributes -->
             <!-- This mixes a bit of implementation-specific logic into the UML; but I can live with that -->
             <xsl:when test="$classStereotype='attribute'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text> it's a simpleType </xsl:text>
                     </xsl:message>
@@ -367,7 +369,7 @@ This has been commented out b/c a documentset is just a transfer convention
             <!-- if it's not a simpleType (codelist or enumeration or explicit attribute) -->
             <!-- then it must be a complexType -->
             <xsl:otherwise>
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's a complexType </xsl:text>
                     </xsl:message>
@@ -377,7 +379,7 @@ This has been commented out b/c a documentset is just a transfer convention
         </xsl:choose>
 
         <xsl:if test="$classStereotype='document'">
-            <xsl:if test="$debug">
+            <xsl:if test="$debug='true'">
                 <xsl:message>
                     <xsl:text> it's a document too </xsl:text>
                 </xsl:message>
@@ -536,7 +538,7 @@ This has been commented out b/c a documentset is just a transfer convention
                     <!-- this cunning little bit of XSL below will find @name only if $sort-attribute='true' -->
                     <!-- therefore, the xsl:sort element does nothing when $sort-attribute='false' -->
                     <!-- this is used throughout this stylesheet -->
-                    <xsl:sort select="@name[$sort-attributes]" case-order="lower-first"/>
+                    <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
 
                     <xs:enumeration value="{@name}">
                         <xsl:apply-templates mode="UMLattribute"/>
@@ -653,7 +655,7 @@ This has been commented out b/c a documentset is just a transfer convention
                         <xs:sequence>
                             <xsl:for-each
                                 select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
                                     <xsl:with-param name="attribute" select="false()"/>
@@ -662,7 +664,7 @@ This has been commented out b/c a documentset is just a transfer convention
                         </xs:sequence>
                         <xsl:for-each
                             select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
                                 <xsl:with-param name="attribute" select="true()"/>
@@ -977,7 +979,7 @@ This has been commented out b/c a documentset is just a transfer convention
                         <xs:sequence>
                             <xsl:for-each
                                 select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
@@ -990,7 +992,7 @@ This has been commented out b/c a documentset is just a transfer convention
                         <!-- add document-specific attributes here -->
                         <xsl:for-each
                             select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
@@ -1278,7 +1280,7 @@ This has been commented out b/c a documentset is just a transfer convention
                     <xsl:variable name="generalClass"
                         select="//UML:Class[@xmi.id=$internalGeneralisation/attribute::supertype]"/>
 
-                    <xsl:if test="$debug">
+                    <xsl:if test="$debug='true'">
                         <xsl:message>
                             <xsl:value-of select="$class/@name"/>
                             <xsl:text> is a specialisation of </xsl:text>
@@ -1303,7 +1305,7 @@ This has been commented out b/c a documentset is just a transfer convention
                         <xsl:variable name="generalClass"
                             select="substring-before(substring-after($externalGeneralisation/attribute::value,'Parent='),';')"/>
 
-                        <xsl:if test="$debug">
+                        <xsl:if test="$debug='true'">
                             <xsl:message>
                                 <xsl:value-of select="$class/@name"/>
                                 <xsl:text> is a specialisation of </xsl:text>
@@ -1344,7 +1346,7 @@ This has been commented out b/c a documentset is just a transfer convention
 
                     <!-- first check if any of the (UML) attributes should be (XML) elements -->
                     <xsl:for-each select="descendant::UML:Attribute">
-                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                         <xsl:call-template name="element-attributeTemplate">
                             <xsl:with-param name="element" select="true()"/>
                             <xsl:with-param name="attribute" select="false()"/>
@@ -1357,9 +1359,9 @@ This has been commented out b/c a documentset is just a transfer convention
                         select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
                         mode="UMLclass">
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes]"/>
+                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes='true']"/>
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes]"/>
+                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes='true']"/>
                         <xsl:with-param name="class" select="$class"/>
                     </xsl:apply-templates>
 
@@ -1375,7 +1377,7 @@ This has been commented out b/c a documentset is just a transfer convention
 
             <!-- that's if for the elements, now we loop again and process any attributes -->
             <xsl:for-each select="descendant::UML:Attribute">
-                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                 <xsl:call-template name="element-attributeTemplate">
                     <xsl:with-param name="element" select="false()"/>
@@ -1810,7 +1812,7 @@ This has been commented out b/c a documentset is just a transfer convention
         <xsl:variable name="attStereotype"
             select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:text>processing attribute: </xsl:text>
                 <xsl:value-of select="@name"/>
@@ -1852,7 +1854,7 @@ This has been commented out b/c a documentset is just a transfer convention
         <xsl:choose>
             <!-- when isAttribute is true and you're looking for an attribute, call the attributeTemplate -->
             <xsl:when test="$isAttribute and $attribute">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an attribute </xsl:text>
                     </xsl:message>
@@ -1865,7 +1867,7 @@ This has been commented out b/c a documentset is just a transfer convention
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="$isAttribute and $element">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an attribute (deal w/ it later)</xsl:text>
                     </xsl:message>
@@ -1873,7 +1875,7 @@ This has been commented out b/c a documentset is just a transfer convention
             </xsl:when>
             <!-- when isAttribute is false and you're looking for an element, call the elementTemplate -->
             <xsl:when test="not($isAttribute) and $element">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an element </xsl:text>
                     </xsl:message>
@@ -1886,7 +1888,7 @@ This has been commented out b/c a documentset is just a transfer convention
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="not($isAttribute) and $attribute">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an element (already dealt w/ it) </xsl:text>
                     </xsl:message>
