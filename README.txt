@@ -5,6 +5,8 @@ The CIM is broken up into several UML packages for ease of development.  Each of
 All of the packages are developed together as a single Enterprise Architect (EA) project.  This project is stored in the top-level cim.xmi file.  As changes to the UML ocurr, this file gets overwritten.
 
 The concim2appcim.xsl file can be used to transform that cim.xmi file to a series of XSD files defining the APPCIM.  The CIM makes use of some external schemas (xlink, gmd, gml, etc.).  These can be found in the "external_schemas" project w/in this SVN repository.
+Be sure to specify the "namespace" and "version" paramters for that transformation (you can also use set debug to "true" to print out what the code is doing).
+
 
 **********
 
