@@ -1,0 +1,53 @@
+<html>
+<body>
+
+<h1>Model Overview</h1>
+
+<h2>Technical Overview</h2>
+
+<p>The CIM is a model of climate data, the models used to generate that data, and the experiments for which those models are run.  The CIM is intended to be a community standard.  For that reason, we have concentrated on defining a conceptual schema in UML (CONCIM).  UML provides an implementation-neutral framework to describe the domain model.</p>
+
+<p>It is expected that different user communities will want to create a "profile" of the CIM which suits their particular needs.  They may add additional features beyond the core model presented here.  It is also expected that different user communities will want to create an application schema derived from the CIM to suit their particular applications  (APPCIM).  In the case of METAFOR we use an XSD application schema.  We have developed an XSL transformer to convert directly from our UML model to our XSD model.</p
+
+<p>That transformer relies on a particular "meta-model" which defines how various UML constructs should be interpreted.  Most of these restrictions are very straightforward.  There are four UML stereotypes the CIM uses that may be unfamiliar:
+<ul>
+<li>codelist - an open-ended "dictionary" which can be served externally.  Codelists in the CIM contain enumerations giving sample dictionary entries, however the real values of those enumerations  will come from an external vocabulary server.  Codelists can be either "open" or "closed".  An open codelist is one that can be extended by a user (in which case they would choose the enumerated value "other" and then provide their own term).  All codelists are assumed to be closed unless specified as open.</li>
+<li>document - a class that can be exchanged as a physical document.  All documents have certain characteristics such as an author, creationDate, unique identifier and version, "genealogy" (a record of its relationship to any previous documents), and a record of document quality.</li>
+<li>reference - a "pointer" to another UML feature.  In the METAFOR APPCIM a reference is serialised as a choice between  embedding the referenced element at the current location or else by using a combination of XPath expressions, and element names to refer to an external element.  In addition, a reference can include a modification element describing a change made to the item being referenced.</li>  
+<li>extensible - indicates that the concept can be extended by a third party.  In XML terms, this means that the element can contain additional sub-elements and attributes without having to be bound to a namespace nor specified in a schema file.</li>
+</ul>
+</p>
+
+<p>There are currently four parameters than can be passed to the XSL transformer:
+<ul>
+<li>version - the version of the CIM being targeted; must be set</li>
+<li>debug - if set to "true" this will print out a record of the transformation process</li>
+<li>sort-attributes - if set to "true" this will process all UML attributes in lexical order, otherwise it will process them in the order that they appear in the XMI file.</li>
+<li>namespace - provides the namespace used by the APPCIM (for example "http://www.purl.org/esmetadata/cim/1.5")</li>
+</ul>
+</p>
+
+<p>The CIM has been broken down into several sub-packages for convenience:
+<ul>
+<li>shared - contains general classes used throughout the CIM</li>
+<li>quality - contains classes used to describe the quality of metadata or the data/models that metadata describes.</li>
+<li>grids - contains classes used to describe the geographic grids that data is mapped onto, software adheres to, and activities constrain.</li>
+<li>data - contains classes used to describe the actual archived data.</li>
+<li>software - contains classes used to describe the software that produced data</li>
+<li>activity - contains classes used to describe the experiments in support of which software is run.</li>
+</ul>
+</p>
+
+<p>In addition, many concepts from existing ISO standards, particularly the Geographic Markup Language (GML) 19136 series, are referred to from within the CIM.</p>
+
+<h2>Conceptual Overview</h2>
+
+<p>The domain model of the CIM is structured as follows.</p>
+
+<p>DataObjects can be collected together in any number of ways and stored in a variety of mediums.  Any given DataObject can be associated with documents from the grids, activity, or software packages.  The grid package describes the geographical grid that a DataObject is mapped onto.  The activity package describes the experiments for which DataObjects are generated or otherwise used.  And the software package describes the models that actually generate, or otherwise use, DataObjects.</p>
+
+<p>The activity package describes climate Experiments.  Each Experiment can have several Requirements.  These include things like using a particular set of forcings.  A Simulation is run in support of an Experiment.  In order to be valid, that Simulation must conform to the Experiment's Requirements. The Conformance class links Simulations and Requirements by pointing to the method by which the Simulation satisfies the Requirement; this may be by using a particular DataObject or by setting a particular ComponentProperty.</p>
+
+<p>The software package describes the climate models that are used by Simulations.  A SoftwareComponent is organised as a hierarchical set of child and parent components.  Each one has a set of ComponentProperties which describe what an element of software models and how it models it.  These ComponentProperties can be coupled together in a Composition (ComponentProperties can also couple to DataObjects).  A SoftwareComponent can also have a Deployment which describes how the software was run on computing resources.</p>
+
+<p>The CIM, especially the software package, is intentionally generic.  It provides a structure to describe climate models, but it does not provide names for the models or the properties that a model should be simulating, nor does it prescribe any particular relationships among named models.  Instead, this is separated off into a "Controlled Vocabulary" (CV).  The CV is where information like "there are atmosphere models which simulate temperature" or "The long-term CMIP5 experiments require double CO2 forcings" reside.  It is expected that different user communities will have their own CV (which is governed separately from the CIM) which can be paired with the CIM.  The CIM is thus "future-proofed" against new experimental regimes and/or new developments in scientific climate modelling.</p>
