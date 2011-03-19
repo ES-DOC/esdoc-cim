@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 18 March 2011, 21:06 -->       
+<!-- generated: 19 March 2011, 3:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -231,7 +231,7 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="compilerVersion" minOccurs="1" maxOccurs="1" type="version"/>
       <xs:element name="compilerLanguage" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="compilerType" minOccurs="1" maxOccurs="1" type="CompilerType"/>
+      <xs:element name="compilerType" minOccurs="0" maxOccurs="1" type="CompilerType"/>
       <xs:element name="compilerOptions" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>The set of options used during compilation (recorded here as a single string rather than separate elements)</xs:documentation>
