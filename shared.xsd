@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 21 March 2011, 0:51 -->       
+<!-- generated: 21 March 2011, 15:40 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -573,26 +573,18 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:enumeration value="initialCondition"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName" mixed="true">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName">
    <xs:annotation>
-      <xs:documentation>Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be "CF" and the name might be "atmospheric_pressure".</xs:documentation>
+      <xs:documentation>Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be "CF" and the name might be "atmospheric_pressure".
+</xs:documentation>
    </xs:annotation>
-   <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
-   </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
+   <xs:sequence/>
+   <xs:attribute name="standard" use="required" type="xs:string">
+      <xs:annotation>
+         <xs:documentation>The name of the standard being used.
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
                 mixed="true">
