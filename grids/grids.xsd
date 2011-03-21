@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 18 March 2011, 20:52 -->       
+<!-- generated: 21 March 2011, 0:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -331,6 +331,8 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:enumeration value="spectral_gaussian"/>
       <xs:enumeration value="tripolar"/>
       <xs:enumeration value="yin_yang"/>
+      <xs:enumeration value="composite"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HorizontalCSEnum">
@@ -436,6 +438,7 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:enumeration value="unstructured_triangular"/>
       <xs:enumeration value="pixel-based_catchment"/>
       <xs:enumeration value="unstructured_polygonal"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VerticalCoordList">
