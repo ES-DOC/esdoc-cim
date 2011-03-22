@@ -551,7 +551,7 @@ This has been commented out b/c a documentset is just a transfer convention
         </xs:simpleType>
     </xsl:template>
 
-<!-- BEGIN NEWER CODELIST TEMPLATE -->
+<!-- BEGIN NEW CODELIST TEMPLATE -->
     <xsl:template name="codelistTemplate">
         
         <xsl:variable name="id" select="@xmi.id"/>
@@ -596,11 +596,11 @@ This has been commented out b/c a documentset is just a transfer convention
             </xsl:element>                                                
         </xs:complexType>
     </xsl:template>    
-<!-- END NEWER CODELIST TEMPLATE -->
+<!-- END NEW CODELIST TEMPLATE -->
     
-<!-- BEGIN NEW CODELIST TEMPLATE -->
+<!-- BEGIN OLD CODELIST TEMPLATE -->
     <!-- codelist template -->
-    <xsl:template name="codelistTemplate2">
+    <xsl:template name="codelistTemplate.OLD">
         <xsl:variable name="id" select="@xmi.id"/>
         <!-- assume codelists are "closed" unless they are specified "open" -->
         <xsl:variable name="open"
@@ -624,8 +624,7 @@ This has been commented out b/c a documentset is just a transfer convention
             </xs:sequence>
 
             <!-- this lets validation code recognise a CV -->
-            <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
-<!-- AGAIN, ENCODING A CV's "OPENNESS" -->                        
+            <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>                        
             <xsl:element name="xs:attribute">
                 <xsl:attribute name="name">open</xsl:attribute>
                 <xsl:attribute name="use">required</xsl:attribute>
@@ -636,16 +635,15 @@ This has been commented out b/c a documentset is just a transfer convention
         </xs:complexType>
     </xsl:template>
     
-<!-- END NEW CODELIST TEMPLATE -->
+<!-- END OLD CODELIST TEMPLATE -->
     
-<!-- BEGIN OLD CODELIST TEMPLATE -->
+<!-- BEGIN OLDER CODELIST TEMPLATE -->
     <!-- codelist template -->
-<!--
-    <xsl:template name="codelistTemplate">
+    <xsl:template name="codelistTemplate.OLDER">
         <xsl:variable name="id" select="@xmi.id"/>
--->        
+        
         <!-- assume codelists are "closed" unless they are specified "open" -->
-<!--        
+        
         <xsl:variable name="open"
             select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
 
@@ -679,7 +677,7 @@ This has been commented out b/c a documentset is just a transfer convention
             <xsl:with-param name="codelist" select="true()"/>
         </xsl:call-template>
     </xsl:template>
--->
+
 <!-- END OLD CODELIST TEMPLATE -->            
 
     <xsl:template name="referenceTemplate">
@@ -1301,14 +1299,14 @@ This has been commented out b/c a documentset is just a transfer convention
             </xsl:comment>
 -->
 <!-- AT: END MODIFICATIONS -->  
-            
-            <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
+                       
             <xsl:variable name="id" select="@xmi.id"/>
+            <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
             <xsl:variable name="mixed"
             select="//UML:TaggedValue[@tag='mixed'][@modelElement=$id]/@value='true'"/>
             <xsl:if test="$mixed">
                 <xsl:attribute name="mixed">true</xsl:attribute>
-            </xsl:if>
+            </xsl:if>            
             
             <xsl:apply-templates mode="UMLclass"/>
 
@@ -1432,6 +1430,18 @@ This has been commented out b/c a documentset is just a transfer convention
                 </xsl:call-template>
 
             </xsl:for-each>
+
+            <!-- also check if it has a tagged value explicitly specifying 'open' (for CVs and StandardNames) -->           
+            <xsl:variable name="open"
+                select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+            <xsl:if test="$open">                
+                <xsl:element name="xs:attribute">
+                    <xsl:attribute name="name">open</xsl:attribute>
+                    <xsl:attribute name="use">required</xsl:attribute>
+                    <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                    <xsl:attribute name="fixed" select="$open"/>
+                </xsl:element>                                                                
+            </xsl:if>            
 
             <xsl:if test="$stereotype='extensible'">
                 <xsl:call-template name="extensibleTemplate">
