@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 21 March 2011, 15:40 -->       
+<!-- generated: 22 March 2011, 15:57 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -42,7 +42,7 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5">
       <xs:pattern value="\d+(\.\d+)*"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="nonEmptyString">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NonEmptyString">
    <xs:annotation>
       <xs:documentation>ensures string types are not empty and not just spaces</xs:documentation>
    </xs:annotation>
@@ -141,26 +141,38 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5">
       </xs:element>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Standard">
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of the standard
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+         <xs:annotation>
+            <xs:documentation>The version of the standard
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
    <xs:annotation>
@@ -388,26 +400,50 @@ This includes information about the authoring institution.</xs:documentation>
    <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
-   <xs:annotation>
-      <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
-   </xs:annotation>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ControlledVocabulary">
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of the CV
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+         <xs:annotation>
+            <xs:documentation>The version of the CV
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="server" minOccurs="1" maxOccurs="1" type="xs:anyURI">
+         <xs:annotation>
+            <xs:documentation>The location (URI) of the CV
+</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="details" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Details on how to access the CV
+</xs:documentation>
+         </xs:annotation>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="open" use="required" type="xs:boolean" fixed="false"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" abstract="true">
+   <xs:annotation>
+      <xs:documentation>A placeholder for codelists (required for XSL generation).
+</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
+   </xs:sequence>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
    <xs:annotation>
@@ -578,35 +614,35 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be "CF" and the name might be "atmospheric_pressure".
 </xs:documentation>
    </xs:annotation>
-   <xs:sequence/>
-   <xs:attribute name="standard" use="required" type="xs:string">
-      <xs:annotation>
-         <xs:documentation>The name of the standard being used.
+                        <xs:complexContent>
+                        <xs:extension base="CodeList">
+                    <xs:sequence>
+      <xs:element name="standard" minOccurs="0" maxOccurs="unbounded" type="Standard">
+         <xs:annotation>
+            <xs:documentation>Details of the standard being used.
 </xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
-</xs:complexType>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
                 mixed="true">
    <xs:annotation>
       <xs:documentation>A list of common operating systems.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
@@ -795,63 +831,48 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A list of organisations that create machines.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup">
    <xs:annotation>
@@ -1003,20 +1024,15 @@ With all the different ways of pinpointing an XML item, a reference can either u
       <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>       
 </xs:schema>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 21 March 2011, 15:40 -->       
+<!-- generated: 22 March 2011, 15:57 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,21 +43,16 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5">
       <xs:documentation>Describes the internal format of the dataset.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
    <xs:annotation>
@@ -143,21 +138,16 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5">
       <xs:documentation>The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
    <xs:annotation>

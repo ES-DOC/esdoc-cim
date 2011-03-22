@@ -427,7 +427,7 @@ This has been commented out b/c a documentset is just a transfer convention
     <!-- nonEmptyString template -->
     <!-- a simpleType for strings that must have content -->
     <xsl:template name="nonEmptyStringTemplate">
-        <xs:simpleType name="nonEmptyString">
+        <xs:simpleType name="NonEmptyString">
             <xs:annotation>
                 <xs:documentation>ensures string types are not empty and not just spaces</xs:documentation>
             </xs:annotation>
@@ -551,9 +551,56 @@ This has been commented out b/c a documentset is just a transfer convention
         </xs:simpleType>
     </xsl:template>
 
+<!-- BEGIN NEWER CODELIST TEMPLATE -->
+    <xsl:template name="codelistTemplate">
+        
+        <xsl:variable name="id" select="@xmi.id"/>
+        <!-- assume codelists are "closed" unless they are specified "open" -->
+        <xsl:variable name="open"
+            select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+       
+        <xs:complexType name="{@name}" mixed="{$open}">        
+            <xsl:apply-templates mode="UMLclass"/>
+            
+            <!-- add codelist-specific elements here -->
+            <xs:sequence>
+                <xsl:for-each
+                    select="//UML:Class[@name='CodeList']/descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                
+                    <xsl:call-template name="element-attributeTemplate">
+                        <xsl:with-param name="element" select="true()"/>
+                        <xsl:with-param name="attribute" select="false()"/>
+                    </xsl:call-template>
+                
+                </xsl:for-each>
+            </xs:sequence>
+        
+            <!-- add codelist-specific attributes here -->
+            <xsl:for-each
+                select="//UML:Class[@name='CodeList']/descendant::UML:Attribute">
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+            
+                <xsl:call-template name="element-attributeTemplate">
+                    <xsl:with-param name="element" select="false()"/>
+                    <xsl:with-param name="attribute" select="true()"/>
+                </xsl:call-template>
+            
+            </xsl:for-each>
+            <!-- encode a codelist's openness here -->
+            <xsl:element name="xs:attribute">
+                <xsl:attribute name="name">open</xsl:attribute>
+                <xsl:attribute name="use">required</xsl:attribute>
+                <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                <xsl:attribute name="fixed" select="$open"/>
+            </xsl:element>                                                
+        </xs:complexType>
+    </xsl:template>    
+<!-- END NEWER CODELIST TEMPLATE -->
+    
 <!-- BEGIN NEW CODELIST TEMPLATE -->
     <!-- codelist template -->
-    <xsl:template name="codelistTemplate">
+    <xsl:template name="codelistTemplate2">
         <xsl:variable name="id" select="@xmi.id"/>
         <!-- assume codelists are "closed" unless they are specified "open" -->
         <xsl:variable name="open"
@@ -585,7 +632,7 @@ This has been commented out b/c a documentset is just a transfer convention
                 <xsl:attribute name="type">xs:boolean</xsl:attribute>
                 <xsl:attribute name="fixed" select="$open"/>
             </xsl:element>                                    
-            <xs:attribute name="value" use="required" type="nonEmptyString"/>
+            <xs:attribute name="value" use="required" type="NonEmptyString"/>
         </xs:complexType>
     </xsl:template>
     

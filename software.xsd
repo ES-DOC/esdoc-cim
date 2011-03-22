@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 21 March 2011, 15:40 -->       
+<!-- generated: 22 March 2011, 15:57 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -841,21 +841,16 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>Enumerates the different ways that time can be mapped when transforming from one field to another.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EntryPoint">
    <xs:annotation>
@@ -1152,21 +1147,16 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>An enumeration of types of ProcessorComponent.  This includes things like transformers and post-processors.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ScientificProperties">
    <xs:annotation>
@@ -1378,21 +1368,16 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>The ConnectionType enumeration describes the mechanism of transport for a connection.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
                 mixed="true">
@@ -1400,21 +1385,16 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, etc.   CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.  This codelist is synonomous with "realm" for the purposes of CMIP5.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" type="xs:string"/>
-               <xs:element name="version" type="version" minOccurs="0"/>
-               <xs:element name="server" type="xs:anyURI"/>
-               <xs:element name="description" type="xs:string" minOccurs="0"/>
-               <xs:element name="details" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
-   <xs:attribute name="value" use="required" type="nonEmptyString"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatialRegriddingUserMethod">
    <xs:annotation>
