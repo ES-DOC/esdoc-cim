@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Compiler</title>
+<title>shared::CodeList</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Compiler  : public   class</span>
+	<span class="ObjectTitle">CodeList  : public  &lt;&lt;abstract&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:43:33 AM</td>
+			<td width="85%" class="ObjectDetailsValue">12/10/2008 5:03:56 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 11:08:59 PM</td>
+			<td class="ObjectDetailsValue">3/22/2011 2:00:40 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{356E35A2-A47E-4d06-9E84-E11EF7ECF7EE}</td>
+			<td class="ObjectDetailsValue">{60BFCCDE-6F80-4545-96A4-62F1E8AB7191}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A description of a compiler used on a particular platform.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A placeholder for codelists (required for XSL generation).&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,84 +77,30 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;compilerName</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public ControlledVocabulary</i><br /><strong>&nbsp;&nbsp;controlledVocabulary</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes561" onclick="parent.toggleDiv('detailsDIVAttributes561','DetailsImageAttributes561')" />Details:
-						<div id="detailsDIVAttributes561" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes568" onclick="parent.toggleDiv('detailsDIVAttributes568','DetailsImageAttributes568')" />Details:
+						<div id="detailsDIVAttributes568" class="DetailsDiv" >
+						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public version</i><br /><strong>&nbsp;&nbsp;compilerVersion</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public NonEmptyString</i><br /><strong>&nbsp;&nbsp;value</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes562" onclick="parent.toggleDiv('detailsDIVAttributes562','DetailsImageAttributes562')" />Details:
-						<div id="detailsDIVAttributes562" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;compilerLanguage</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes563" onclick="parent.toggleDiv('detailsDIVAttributes563','DetailsImageAttributes563')" />Details:
-						<div id="detailsDIVAttributes563" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA168.htm">CompilerType</a></i><br /><strong>&nbsp;&nbsp;compilerType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes564" onclick="parent.toggleDiv('detailsDIVAttributes564','DetailsImageAttributes564')" />Details:
-						<div id="detailsDIVAttributes564" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;compilerOptions</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes565" onclick="parent.toggleDiv('detailsDIVAttributes565','DetailsImageAttributes565')" />Details:
-						<div id="detailsDIVAttributes565" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes569" onclick="parent.toggleDiv('detailsDIVAttributes569','DetailsImageAttributes569')" />Details:
+						<div id="detailsDIVAttributes569" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The set of options used during compilation (recorded here as a single string rather than separate elements)
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;compilerEnvironmentVariables</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes566" onclick="parent.toggleDiv('detailsDIVAttributes566','DetailsImageAttributes566')" />Details:
-						<div id="detailsDIVAttributes566" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The state of envrionment variables used during compilation (recorded here as a single string rather than separate elements)
+			The term being used for this CV (or standard)&lt;br /&gt;
 		</td>
 	</tr>
 </table></div>
@@ -164,6 +111,23 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA202.htm">StandardName</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

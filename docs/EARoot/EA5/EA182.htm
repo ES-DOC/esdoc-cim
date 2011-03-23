@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Machine</title>
+<title>shared::License</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Machine  : public   class</span>
+	<span class="ObjectTitle">License  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:43:33 AM</td>
+			<td width="85%" class="ObjectDetailsValue">8/14/2009 11:40:23 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 11:09:15 PM</td>
+			<td class="ObjectDetailsValue">8/14/2009 11:41:08 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue">allyn</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8D7AB250-025B-4dd9-82F6-7254486204F6}</td>
+			<td class="ObjectDetailsValue">{3FF98F2D-DDCC-4660-A9B6-883A366D7129}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A description of a machine used by a particular platform.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A description of a license restricting access to a unit of data or software.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,41 +76,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;machineName</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;licenseName</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes621" onclick="parent.toggleDiv('detailsDIVAttributes621','DetailsImageAttributes621')" />Details:
-						<div id="detailsDIVAttributes621" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;machineSystem</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes622" onclick="parent.toggleDiv('detailsDIVAttributes622','DetailsImageAttributes622')" />Details:
-						<div id="detailsDIVAttributes622" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;machineLibrary</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes623" onclick="parent.toggleDiv('detailsDIVAttributes623','DetailsImageAttributes623')" />Details:
-						<div id="detailsDIVAttributes623" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes628" onclick="parent.toggleDiv('detailsDIVAttributes628','DetailsImageAttributes628')" />Details:
+						<div id="detailsDIVAttributes628" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A library residing on this machine.
+			The name that the license goes by (ie: &quot;GPL&quot;)
 		</td>
 	</tr>
 </table></div>
@@ -119,101 +97,65 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;machineDescription</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes624" onclick="parent.toggleDiv('detailsDIVAttributes624','DetailsImageAttributes624')" />Details:
-						<div id="detailsDIVAttributes624" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;machineLocation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes625" onclick="parent.toggleDiv('detailsDIVAttributes625','DetailsImageAttributes625')" />Details:
-						<div id="detailsDIVAttributes625" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public OperatingSystemType</i><br /><strong>&nbsp;&nbsp;machineOperatingSystem</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes626" onclick="parent.toggleDiv('detailsDIVAttributes626','DetailsImageAttributes626')" />Details:
-						<div id="detailsDIVAttributes626" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public MachineType</i><br /><strong>&nbsp;&nbsp;machineType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes627" onclick="parent.toggleDiv('detailsDIVAttributes627','DetailsImageAttributes627')" />Details:
-						<div id="detailsDIVAttributes627" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public MachineVendorType</i><br /><strong>&nbsp;&nbsp;machineVendor</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes628" onclick="parent.toggleDiv('detailsDIVAttributes628','DetailsImageAttributes628')" />Details:
-						<div id="detailsDIVAttributes628" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA179.htm">InterconnectType</a></i><br /><strong>&nbsp;&nbsp;machineInterconnect</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;licenseContact</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes629" onclick="parent.toggleDiv('detailsDIVAttributes629','DetailsImageAttributes629')" />Details:
 						<div id="detailsDIVAttributes629" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The point of contact for access to this artifact; may be either a person or an institution
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;machineMaximumProcessors</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;licenseDescription</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes630" onclick="parent.toggleDiv('detailsDIVAttributes630','DetailsImageAttributes630')" />Details:
 						<div id="detailsDIVAttributes630" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A textual description of the license; might be the full text of the license, more likely to be a brief summary
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;machineCoresPerProcessor</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;unrestricted</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes631" onclick="parent.toggleDiv('detailsDIVAttributes631','DetailsImageAttributes631')" />Details:
 						<div id="detailsDIVAttributes631" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA190.htm">ProcessorType</a></i><br /><strong>&nbsp;&nbsp;machineProcessorType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes632" onclick="parent.toggleDiv('detailsDIVAttributes632','DetailsImageAttributes632')" />Details:
-						<div id="detailsDIVAttributes632" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			If unrestricted=&quot;true&quot; then the artifact can be downloaded with no restrictions (ie: there are no administrative steps for the user to deal with; code or data can be downloaded and used directly).
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

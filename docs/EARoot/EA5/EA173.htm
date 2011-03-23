@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Document</title>
+<title>shared::DataSource</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Document  : public  &lt;&lt;abstract&gt;&gt; class</span>
+	<span class="ObjectTitle">DataSource  : public  &lt;&lt;abstract&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">12/12/2008 11:08:08 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/10/2008 10:42:02 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">8/5/2009 1:41:28 PM</td>
+			<td class="ObjectDetailsValue">7/9/2010 9:24:47 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{74368B1B-3C39-486a-A318-3C6AB0AFE1DD}</td>
+			<td class="ObjectDetailsValue">{58FBA630-1EF2-4e9a-ACA8-854D78978061}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A DataSource can be realised by either a DataObject (file), a DataContent (variable), a Component (model), or a ComponentProperty (variable); all of those can supply data.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,178 +77,54 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public guid</i><br /><strong>&nbsp;&nbsp;documentID</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public DataPurpose</i><br /><strong>&nbsp;&nbsp;purpose</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes582" onclick="parent.toggleDiv('detailsDIVAttributes582','DetailsImageAttributes582')" />Details:
-						<div id="detailsDIVAttributes582" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a unique indentifier for this document
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public version</i><br /><strong>&nbsp;&nbsp;documentVersion</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes583" onclick="parent.toggleDiv('detailsDIVAttributes583','DetailsImageAttributes583')" />Details:
-						<div id="detailsDIVAttributes583" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public xs:anyURI</i><br /><strong>&nbsp;&nbsp;metadataID</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes584" onclick="parent.toggleDiv('detailsDIVAttributes584','DetailsImageAttributes584')" />Details:
-						<div id="detailsDIVAttributes584" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes592" onclick="parent.toggleDiv('detailsDIVAttributes592','DetailsImageAttributes592')" />Details:
+						<div id="detailsDIVAttributes592" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public version</i><br /><strong>&nbsp;&nbsp;metadataVersion</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes585" onclick="parent.toggleDiv('detailsDIVAttributes585','DetailsImageAttributes585')" />Details:
-						<div id="detailsDIVAttributes585" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA199.htm">StandardName</a></i><br /><strong>&nbsp;&nbsp;externalID</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes586" onclick="parent.toggleDiv('detailsDIVAttributes586','DetailsImageAttributes586')" />Details:
-						<div id="detailsDIVAttributes586" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The id of this document as referenced by an external body (ie: DOI, or even IPSL)
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA198.htm">ResponsibleParty</a></i><br /><strong>&nbsp;&nbsp;documentAuthor</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes587" onclick="parent.toggleDiv('detailsDIVAttributes587','DetailsImageAttributes587')" />Details:
-						<div id="detailsDIVAttributes587" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A contact for the author of this &lt;i&gt;document &lt;/i&gt;(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).&lt;br /&gt;&lt;br /&gt;This includes information about the authoring institution.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Date</i><br /><strong>&nbsp;&nbsp;documentCreationDate</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes588" onclick="parent.toggleDiv('detailsDIVAttributes588','DetailsImageAttributes588')" />Details:
-						<div id="detailsDIVAttributes588" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The date the &lt;i&gt;document &lt;/i&gt;was created.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA177.htm">Genealogy</a></i><br /><strong>&nbsp;&nbsp;documentGenealogy</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes589" onclick="parent.toggleDiv('detailsDIVAttributes589','DetailsImageAttributes589')" />Details:
-						<div id="detailsDIVAttributes589" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public DocumentStatusType</i><br /><strong>&nbsp;&nbsp;documentStatus</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes590" onclick="parent.toggleDiv('detailsDIVAttributes590','DetailsImageAttributes590')" />Details:
-						<div id="detailsDIVAttributes590" class="DetailsDiv" >
-						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA4/EA140.htm">CIM_Quality</a></i><br /><strong>&nbsp;&nbsp;quality</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes591" onclick="parent.toggleDiv('detailsDIVAttributes591','DetailsImageAttributes591')" />Details:
-						<div id="detailsDIVAttributes591" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a (set of) quality record(s) for this document.
-		</td>
-	</tr>
-</table></div>
-
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA244.htm">«abstract» SoftwareComponent</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA222.htm">ComponentProperty</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA72.htm">«document» DataObject</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA67.htm">DataContent</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::Rank</title>
+<title>software::Parallelisation</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Rank  : public   class</span>
+	<span class="ObjectTitle">Parallelisation  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/10/2008 2:45:26 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">11/22/2010 10:51:48 AM</td>
+			<td class="ObjectDetailsValue">7/8/2010 4:33:19 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,15 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{731AD29C-F9F2-48f7-9472-CF8573856C05}</td>
+			<td class="ObjectDetailsValue">{AE820132-8673-49df-8D4B-6437C0433ED7}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA201.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">&lt;p&gt;Describes how a deployment has been parallelised across a computing platform.&lt;br /&gt;&lt;/p&gt;</div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
@@ -75,46 +76,45 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;rankValue</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;processes</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes940" onclick="parent.toggleDiv('detailsDIVAttributes940','DetailsImageAttributes940')" />Details:
-						<div id="detailsDIVAttributes940" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes944" onclick="parent.toggleDiv('detailsDIVAttributes944','DetailsImageAttributes944')" />Details:
+						<div id="detailsDIVAttributes944" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;rankMin</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA242.htm">Rank</a></i><br /><strong>&nbsp;&nbsp;rank</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes941" onclick="parent.toggleDiv('detailsDIVAttributes941','DetailsImageAttributes941')" />Details:
-						<div id="detailsDIVAttributes941" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes945" onclick="parent.toggleDiv('detailsDIVAttributes945','DetailsImageAttributes945')" />Details:
+						<div id="detailsDIVAttributes945" class="DetailsDiv" >
+						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;rankMax</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public Schedule</i><br /><strong>&nbsp;&nbsp;schedule</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes942" onclick="parent.toggleDiv('detailsDIVAttributes942','DetailsImageAttributes942')" />Details:
-						<div id="detailsDIVAttributes942" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;rankIncrement</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes943" onclick="parent.toggleDiv('detailsDIVAttributes943','DetailsImageAttributes943')" />Details:
-						<div id="detailsDIVAttributes943" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes946" onclick="parent.toggleDiv('detailsDIVAttributes946','DetailsImageAttributes946')" />Details:
+						<div id="detailsDIVAttributes946" class="DetailsDiv" >
+						<i>&lt;&lt;unused&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Information about how entrypoints are connected will be specified here.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

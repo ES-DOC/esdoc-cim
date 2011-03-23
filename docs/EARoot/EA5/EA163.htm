@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ChangeProperty</title>
+<title>shared::Change</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ChangeProperty  : public   class</span>
+	<span class="ObjectTitle">Change  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">12/22/2008 9:57:31 AM</td>
+			<td width="85%" class="ObjectDetailsValue">12/4/2008 11:24:52 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">2/28/2010 2:05:15 PM</td>
+			<td class="ObjectDetailsValue">2/28/2010 2:05:24 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{BC80E80E-EC3C-4d14-AFDD-AD8ABAEF5F1B}</td>
+			<td class="ObjectDetailsValue">{BA8D0604-859B-4189-96DB-5B6C5C4D8C92}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A description of a single change applied to a single target.&#160; Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Currently unused in the CIM.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath). Currently unused in the CIM.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -78,19 +78,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes543" onclick="parent.toggleDiv('detailsDIVAttributes543','DetailsImageAttributes543')" />Details:
-						<div id="detailsDIVAttributes543" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes542" onclick="parent.toggleDiv('detailsDIVAttributes542','DetailsImageAttributes542')" />Details:
+						<div id="detailsDIVAttributes542" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A text description of the change.&nbsp;<WBR> May be used in addition to, or instead of, the more formal description provided by the &quot;value&quot; attribute.
+			A mnemonic for describing a particular change.
 		</td>
 	</tr>
 </table></div>
@@ -99,12 +99,86 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA178.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;id</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA175.htm">Document</a></i><br /><strong>&nbsp;&nbsp;changeTarget</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes543" onclick="parent.toggleDiv('detailsDIVAttributes543','DetailsImageAttributes543')" />Details:
+						<div id="detailsDIVAttributes543" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The CIM element being changed.&nbsp;<WBR> If this is blank, then it is implied by the target of its parent (a Change instance currently can only appear as part of a reference which has a target anyway).
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public Date</i><br /><strong>&nbsp;&nbsp;changeDate</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes544" onclick="parent.toggleDiv('detailsDIVAttributes544','DetailsImageAttributes544')" />Details:
 						<div id="detailsDIVAttributes544" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The date the change was implemented.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA200.htm">ResponsibleParty</a></i><br /><strong>&nbsp;&nbsp;changeAuthor</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes545" onclick="parent.toggleDiv('detailsDIVAttributes545','DetailsImageAttributes545')" />Details:
+						<div id="detailsDIVAttributes545" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The person that made the change.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA165.htm">ChangePropertyType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes546" onclick="parent.toggleDiv('detailsDIVAttributes546','DetailsImageAttributes546')" />Details:
+						<div id="detailsDIVAttributes546" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes547" onclick="parent.toggleDiv('detailsDIVAttributes547','DetailsImageAttributes547')" />Details:
+						<div id="detailsDIVAttributes547" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
@@ -112,7 +186,7 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
+		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -121,7 +195,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA162.htm">Change</a><br />
+						<a href="EA164.htm">ChangeProperty</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -135,8 +209,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink545" onclick="parent.toggleDiv('detailsDIVLink545','DetailsImageLink545')" />Details:
-							<div id="detailsDIVLink545" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink549" onclick="parent.toggleDiv('detailsDIVLink549','DetailsImageLink549')" />Details:
+							<div id="detailsDIVLink549" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -154,15 +228,9 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA162.htm">Change</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA164.htm">ChangeProperty</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA191.htm">«abstract» Property</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

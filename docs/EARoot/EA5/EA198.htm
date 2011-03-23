@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ResponsibleParty</title>
+<title>shared::Relationship</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ResponsibleParty  : public   class</span>
+	<span class="ObjectTitle">Relationship  : public  &lt;&lt;abstract&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">6/29/2009 6:42:33 AM</td>
+			<td width="85%" class="ObjectDetailsValue">6/29/2009 6:54:04 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/1/2010 4:25:05 PM</td>
+			<td class="ObjectDetailsValue">8/5/2009 1:58:12 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{B8669DE3-AB12-4ee9-948D-507F6779E06F}</td>
+			<td class="ObjectDetailsValue">{B7077CAD-A00C-4f59-AF1E-7731B72B30E6}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A CIM-specific ResponsibleParty.&#160; Sub-classes the gmd ResponsibleParty type and adds the attribute &quot;abbreviation.&quot;&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A record of a relationship between one document and another.&#160; This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document&#39;s genealogy.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,19 +78,130 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;abbreviation</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public RelationshipType</i><br /><strong>&nbsp;&nbsp;type</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes723" onclick="parent.toggleDiv('detailsDIVAttributes723','DetailsImageAttributes723')" />Details:
-						<div id="detailsDIVAttributes723" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes729" onclick="parent.toggleDiv('detailsDIVAttributes729','DetailsImageAttributes729')" />Details:
+						<div id="detailsDIVAttributes729" class="DetailsDiv" >
+						<i>&lt;&lt;unused&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			This attribute is &lt;&lt;unused&gt;&gt;; it is a placeholder for specific relationshipTypes used by specialisations of Relationship.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA175.htm">Document</a></i><br /><strong>&nbsp;&nbsp;target</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes730" onclick="parent.toggleDiv('detailsDIVAttributes730','DetailsImageAttributes730')" />Details:
+						<div id="detailsDIVAttributes730" class="DetailsDiv" >
+						<i>&lt;&lt;unused&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes731" onclick="parent.toggleDiv('detailsDIVAttributes731','DetailsImageAttributes731')" />Details:
+						<div id="detailsDIVAttributes731" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public RelationshipDirectionType</i><br /><strong>&nbsp;&nbsp;direction</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes732" onclick="parent.toggleDiv('detailsDIVAttributes732','DetailsImageAttributes732')" />Details:
+						<div id="detailsDIVAttributes732" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA179.htm">Genealogy</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> relationship<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink733" onclick="parent.toggleDiv('detailsDIVLink733','DetailsImageLink733')" />Details:
+							<div id="detailsDIVLink733" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA179.htm">Genealogy</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA176.htm">DocumentRelationship</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA50.htm">SimulationRelationship</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA32.htm">ExperimentRelationship</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

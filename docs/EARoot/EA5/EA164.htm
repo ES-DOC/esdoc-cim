@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ChangePropertyType</title>
+<title>shared::ChangeProperty</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ChangePropertyType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">ChangeProperty  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">3/4/2010 9:18:51 AM</td>
+			<td width="85%" class="ObjectDetailsValue">12/22/2008 9:57:31 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/4/2010 9:23:49 AM</td>
+			<td class="ObjectDetailsValue">2/28/2010 2:05:15 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,18 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{72E45810-6CC8-483f-AC5F-A85AD7E49405}</td>
+			<td class="ObjectDetailsValue">{BC80E80E-EC3C-4d14-AFDD-AD8ABAEF5F1B}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A list of modification types.&#160; Modifications are optional sub-elements of references that describe how the referenced element has changed.&#160; They are particularly relevant for ensemble members and conformances (where the modification types &quot;modelMod&quot; or &quot;inputMod&quot; would be used).&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A description of a single change applied to a single target.&#160; Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Currently unused in the CIM.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,190 +78,96 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;InputMod</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes547" onclick="parent.toggleDiv('detailsDIVAttributes547','DetailsImageAttributes547')" />Details:
-						<div id="detailsDIVAttributes547" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ModelMod</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes548" onclick="parent.toggleDiv('detailsDIVAttributes548','DetailsImageAttributes548')" />Details:
-						<div id="detailsDIVAttributes548" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Decrement</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes549" onclick="parent.toggleDiv('detailsDIVAttributes549','DetailsImageAttributes549')" />Details:
-						<div id="detailsDIVAttributes549" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Increment</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes550" onclick="parent.toggleDiv('detailsDIVAttributes550','DetailsImageAttributes550')" />Details:
 						<div id="detailsDIVAttributes550" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A text description of the change.&nbsp;<WBR> May be used in addition to, or instead of, the more formal description provided by the &quot;value&quot; attribute.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Redistribution</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA180.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes551" onclick="parent.toggleDiv('detailsDIVAttributes551','DetailsImageAttributes551')" />Details:
 						<div id="detailsDIVAttributes551" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Replacement</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes552" onclick="parent.toggleDiv('detailsDIVAttributes552','DetailsImageAttributes552')" />Details:
-						<div id="detailsDIVAttributes552" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ParameterChange</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes553" onclick="parent.toggleDiv('detailsDIVAttributes553','DetailsImageAttributes553')" />Details:
-						<div id="detailsDIVAttributes553" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a specific type of ModelMod
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;CodeChange</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes554" onclick="parent.toggleDiv('detailsDIVAttributes554','DetailsImageAttributes554')" />Details:
-						<div id="detailsDIVAttributes554" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a specific type of ModelMod
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;AncillaryFile</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes555" onclick="parent.toggleDiv('detailsDIVAttributes555','DetailsImageAttributes555')" />Details:
-						<div id="detailsDIVAttributes555" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a specific type of InputMod
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;BoundaryCondition</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes556" onclick="parent.toggleDiv('detailsDIVAttributes556','DetailsImageAttributes556')" />Details:
-						<div id="detailsDIVAttributes556" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a specific type of InputMod
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;InitialCondition</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes557" onclick="parent.toggleDiv('detailsDIVAttributes557','DetailsImageAttributes557')" />Details:
-						<div id="detailsDIVAttributes557" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			a specific type of InputMod
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Unused</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes558" onclick="parent.toggleDiv('detailsDIVAttributes558','DetailsImageAttributes558')" />Details:
-						<div id="detailsDIVAttributes558" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA163.htm">Change</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> detail<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink552" onclick="parent.toggleDiv('detailsDIVLink552','DetailsImageLink552')" />Details:
+							<div id="detailsDIVLink552" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA163.htm">Change</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA193.htm">«abstract» Property</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

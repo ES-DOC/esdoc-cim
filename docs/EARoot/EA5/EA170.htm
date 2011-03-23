@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>DataPurpose</title>
+<title>shared::ControlledVocabulary</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DataPurpose  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">ControlledVocabulary  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">6/29/2009 6:53:56 PM</td>
+			<td width="85%" class="ObjectDetailsValue">12/10/2008 5:03:56 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 11:12:52 PM</td>
+			<td class="ObjectDetailsValue">3/22/2011 2:14:12 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,15 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8F19E1EE-6298-41a1-89FA-3B06D1745668}</td>
+			<td class="ObjectDetailsValue">{5C349C28-E082-4f64-AFB2-06F1528A3A1F}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;Describes what purpose a particular simulation input has: ancillary file, boundary condition, or initial condition.&lt;br /&gt;&lt;/p&gt;</div>
-
+	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
@@ -76,35 +75,97 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ancillaryFile</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes575" onclick="parent.toggleDiv('detailsDIVAttributes575','DetailsImageAttributes575')" />Details:
-						<div id="detailsDIVAttributes575" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes584" onclick="parent.toggleDiv('detailsDIVAttributes584','DetailsImageAttributes584')" />Details:
+						<div id="detailsDIVAttributes584" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The name of the CV&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;boundaryCondition</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public version</i><br /><strong>&nbsp;&nbsp;version</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes576" onclick="parent.toggleDiv('detailsDIVAttributes576','DetailsImageAttributes576')" />Details:
-						<div id="detailsDIVAttributes576" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes585" onclick="parent.toggleDiv('detailsDIVAttributes585','DetailsImageAttributes585')" />Details:
+						<div id="detailsDIVAttributes585" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The version of the CV&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;initialCondition</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public URI</i><br /><strong>&nbsp;&nbsp;server</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes577" onclick="parent.toggleDiv('detailsDIVAttributes577','DetailsImageAttributes577')" />Details:
-						<div id="detailsDIVAttributes577" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes586" onclick="parent.toggleDiv('detailsDIVAttributes586','DetailsImageAttributes586')" />Details:
+						<div id="detailsDIVAttributes586" class="DetailsDiv" >
+						<i>&lt;&lt;element&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The location (URI) of the CV&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes587" onclick="parent.toggleDiv('detailsDIVAttributes587','DetailsImageAttributes587')" />Details:
+						<div id="detailsDIVAttributes587" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;details</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes588" onclick="parent.toggleDiv('detailsDIVAttributes588','DetailsImageAttributes588')" />Details:
+						<div id="detailsDIVAttributes588" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Details on how to access the CV&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

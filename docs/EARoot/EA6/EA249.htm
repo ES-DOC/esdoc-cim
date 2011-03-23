@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::TimeTransformation</title>
+<title>software::SpatialRegriddingUserMethod</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,7 +16,7 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TimeTransformation  : public   class</span>
+	<span class="ObjectTitle">SpatialRegriddingUserMethod  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
@@ -24,7 +24,7 @@ function initPage(src) {
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">10/12/2009 9:47:50 AM</td>
+			<td class="ObjectDetailsValue">11/18/2010 9:48:57 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8B7746D0-6C8A-4913-BC90-6F0B56790D95}</td>
+			<td class="ObjectDetailsValue">{DDD39E37-1CBD-4a26-B7AE-C26676643B68}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA201.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) &lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;Allows users to bypass the SpatialRegriddingStandardMethod and instead provide a set of weights and addresses for regridding via a file.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,24 +76,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA248.htm">TimeMappingType</a></i><br /><strong>&nbsp;&nbsp;mappingType</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes996" onclick="parent.toggleDiv('detailsDIVAttributes996','DetailsImageAttributes996')" />Details:
-						<div id="detailsDIVAttributes996" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1002" onclick="parent.toggleDiv('detailsDIVAttributes1002','DetailsImageAttributes1002')" />Details:
+						<div id="detailsDIVAttributes1002" class="DetailsDiv" >
 						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA2/EA72.htm">DataObject</a></i><br /><strong>&nbsp;&nbsp;file</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes997" onclick="parent.toggleDiv('detailsDIVAttributes997','DetailsImageAttributes997')" />Details:
-						<div id="detailsDIVAttributes997" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1003" onclick="parent.toggleDiv('detailsDIVAttributes1003','DetailsImageAttributes1003')" />Details:
+						<div id="detailsDIVAttributes1003" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>

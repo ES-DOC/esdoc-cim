@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Property</title>
+<title>shared::Platform</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Property  : public  &lt;&lt;abstract&gt;&gt; class</span>
+	<span class="ObjectTitle">Platform  : public  &lt;&lt;document&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/31/2008 2:25:42 PM</td>
+			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:43:33 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 11:35:29 PM</td>
+			<td class="ObjectDetailsValue">7/8/2010 3:03:32 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
+			<td class="ObjectDetailsValue"></td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,19 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{063684D8-BF5A-42a7-9EBD-A7968AACE56E}</td>
+			<td class="ObjectDetailsValue">{2C64F7B8-314C-4d6a-A4E5-674AFC9BA6E1}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA151.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;An abstract property is simply a name/value pair.&#160; Properties may be grouped into PropertyGroups.&#160; Properties are used to describe features of a class whose details can&#39;t be known beforehand and, hence, can&#39;t be hard-coded into the schema.&#160; &lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">&lt;p&gt;A platform is a description of resources used to deploy a component/simulation.&#160; A platform pairs a machine with a (set of) compilers.&#160; There is also a point of contact for the platform. &lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -78,7 +78,18 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA193.htm">PropertyValue</a></i><br /><strong>&nbsp;&nbsp;value</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;shortName</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes693" onclick="parent.toggleDiv('detailsDIVAttributes693','DetailsImageAttributes693')" />Details:
+						<div id="detailsDIVAttributes693" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;longName</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
@@ -89,7 +100,7 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
@@ -99,10 +110,21 @@ function initPage(src) {
 						</div>
 					</div>
 				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA200.htm">ResponsibleParty</a></i><br /><strong>&nbsp;&nbsp;contact</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes696" onclick="parent.toggleDiv('detailsDIVAttributes696','DetailsImageAttributes696')" />Details:
+						<div id="detailsDIVAttributes696" class="DetailsDiv" >
+						<i>Range:0 to *</i>&nbsp;
+						</div>
+					</div>
+				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
+		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -111,22 +133,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA192.htm">PropertyGroup</a><br />
+						<a href="EA185.htm">MachineCompilerUnit</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> unit<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> group<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink696" onclick="parent.toggleDiv('detailsDIVLink696','DetailsImageLink696')" />Details:
-							<div id="detailsDIVLink696" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink698" onclick="parent.toggleDiv('detailsDIVLink698','DetailsImageLink698')" />Details:
+							<div id="detailsDIVLink698" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -144,51 +166,9 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA163.htm">ChangeProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA192.htm">PropertyGroup</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA185.htm">MachineCompilerUnit</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA217.htm">ComponentLanguageProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA244.htm">SpatialRegriddingProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA228.htm">CouplingProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA224.htm">ConnectionProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA2/EA73.htm">DataProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA3/EA116.htm">GridProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 
