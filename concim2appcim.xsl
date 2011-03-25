@@ -122,9 +122,9 @@
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
             </xsl:text>
-            <xsl:text>xmlns="</xsl:text><xsl:value-of select="concat($namespace,'/',$version)"/><xsl:text>"</xsl:text>
+            <xsl:text>xmlns="</xsl:text><xsl:value-of select="concat($namespace,'/',$version,'/schemas')"/><xsl:text>"</xsl:text>
             <xsl:value-of select="$newline"/>
-            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="concat($namespace,'/',$version)"/><xsl:text>"</xsl:text>
+            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="concat($namespace,'/',$version,'/schemas')"/><xsl:text>"</xsl:text>
 <!--
             <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
