@@ -17,8 +17,9 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
-    <xsl:param name="sort-attributes" select="false()"/>
-    <xsl:param name="debug" select="false()"/>
+    <xsl:param name="namespace">http://www.purl.org/esmetadata/cim</xsl:param>
+    <xsl:param name="sort-attributes">false</xsl:param>
+    <xsl:param name="debug">false</xsl:param>
 
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
@@ -39,19 +40,26 @@
                 <xsl:text> please specify a version parameter </xsl:text>
             </xsl:message>
         </xsl:if>
-        <xsl:if test="$debug">
+        <xsl:if test="$namespace='undefined'">
+            <xsl:message terminate="yes">
+                <xsl:text> please specify a CIM namespace (ie: 'http://www.purl.org/esmetadata/cim') </xsl:text>
+            </xsl:message>
+        </xsl:if>
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:value-of select="$newline"/>
             </xsl:message>
             <xsl:choose>
-                <xsl:when test="$sort-attributes">
+                <xsl:when test="$sort-attributes='true'">
                     <xsl:message>
                         <xsl:text> UML attributes will be processed in lexical order </xsl:text>
+                        <xsl:value-of select="$sort-attributes"/>
                     </xsl:message>
                 </xsl:when>
-                <xsl:when test="not($sort-attributes)">
+                <xsl:when test="not($sort-attributes='true')">
                     <xsl:message>
                         <xsl:text> UML attributes will be processed in the order in which they appear </xsl:text>
+                        <xsl:value-of select="$sort-attributes"/>
                     </xsl:message>
                 </xsl:when>
                 <xsl:otherwise>
@@ -81,7 +89,7 @@
         <xsl:variable name="packageName" select="@name"/>
         <xsl:variable name="fileName" select="concat($packageName,'.xsd')"/>
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:value-of select="$newline"/>
             </xsl:message>
@@ -114,12 +122,17 @@
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
             </xsl:text>
-            <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/cim/</xsl:text>
+            <xsl:text>xmlns="</xsl:text><xsl:value-of select="concat($namespace,'/',$version,'/schemas')"/><xsl:text>"</xsl:text>
+            <xsl:value-of select="$newline"/>
+            <xsl:text>targetNamespace="</xsl:text><xsl:value-of select="concat($namespace,'/',$version,'/schemas')"/><xsl:text>"</xsl:text>
+<!--
+            <xsl:text disable-output-escaping="yes">xmlns="http://www.metaforclimate.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
             <xsl:text disable-output-escaping="yes">" 
-            targetNamespace="http://www.metaforclimate.eu/cim/</xsl:text>
+            targetNamespace="http://www.metafor.eu/schema/cim/</xsl:text>
             <xsl:value-of select="$version"/>
-            <xsl:text disable-output-escaping="yes">"&gt;</xsl:text>
+-->            
+            <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
 
             <!--                
             <xs:schema                 
@@ -127,8 +140,8 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-                xmlns="{concat('http://www.metaforclimate.eu/cim/',$version)}"
-                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
+                xmlns="{concat('http://www.metaforclimate.eu/schema/cim/',$version)}"
+                targetNamespace="{concat('http://www.metaforclimate.eu/schema/cim/',$version)}"
                 elementFormDefault="qualified" attributeFormDefault="unqualified">
             -->
             <xsl:value-of select="$newline"/>
@@ -152,25 +165,69 @@
             </xsl:for-each>
 
             <!-- if this is the top-level package (ie: the root of the domain model) -->
-            <!-- then create a root element "CIMRecord"-->
+            <!-- then create a root element -->
             <!-- which can contain a reference to _any_ <<document>> -->
             <!-- (this enables the CIM to work with GeoNetworks) -->
+            <!-- the top-level package should also include every <<document>> as a possible root element -->
             <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
             <xsl:if test="$depth=0">
 
-                <!-- A CIM RecordSet -->
-                <xs:element name="CIMRecordSet">
+                <!-- A CIM DocumentSet -->
+                <xs:element name="CIMDocumentSet">
                     <xsl:comment>
-                        <xsl:text> a CIMRecordSet includes 1 or more CIMRecords </xsl:text>
+                        <xsl:text> a CIMDocumentSet includes 1 or more CIM documents </xsl:text>
                     </xsl:comment>
                     <xs:complexType>
-                        <xs:sequence>
+                        <xs:choice minOccurs="1" maxOccurs="unbounded">
+                            
+                            <xs:element name="reference">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xsl:for-each
+                                            select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                            <xsl:sort case-order="lower-first"
+                                                select="@name[$sort-attributes='true']"/>
+                                            <xsl:call-template
+                                                name="element-attributeTemplate">
+                                                <xsl:with-param name="element" select="true()"/>
+                                                <xsl:with-param name="attribute" select="false()"
+                                                />
+                                            </xsl:call-template>
+                                        </xsl:for-each>
+                                    </xs:sequence>
+                                    <xsl:for-each
+                                        select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                        <xsl:sort case-order="lower-first"
+                                            select="@name[$sort-attributes='true']"/>
+                                        <xsl:call-template
+                                            name="element-attributeTemplate">
+                                            <xsl:with-param name="element" select="false()"/>
+                                            <xsl:with-param name="attribute" select="true()"/>
+                                        </xsl:call-template>
+                                    </xsl:for-each>
+                                    <!-- ...with one extra hard-coded attribute... -->
+                                    <xs:attribute ref="xlink:href" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                            
+                            <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                <xsl:variable name="documentName">
+                                    <xsl:call-template name="camelCaseTemplate">
+                                        <xsl:with-param name="string"
+                                            select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
+                                        />
+                                    </xsl:call-template>
+                                </xsl:variable>
+                                <xs:element ref="{$documentName}"/>
+                            </xsl:for-each>
+                                                                                    
+                        </xs:choice>
                             
 <!-- 
-This has been commented out b/c a recordset is just a transfer convention    
+This has been commented out b/c a documentset is just a transfer convention    
                             <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
-                                    <xs:documentation>a unique indentifier for this RecordSet
+                                    <xs:documentation>a unique indentifier for this DocumentSet
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
@@ -178,7 +235,7 @@ This has been commented out b/c a recordset is just a transfer convention
                             <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
                                     <xs:documentation>the versions (internal &amp; external) of
-                                        the CIMRecordset</xs:documentation>
+                                        the CIMDocumentSet</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
 
@@ -198,110 +255,9 @@ This has been commented out b/c a recordset is just a transfer convention
                                 </xs:annotation>
                             </xs:element>
 -->
-                            <!-- a RecordSet includes a reference to a Record -->
-                            <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
-                                <!-- which is implemented as a choice between -->
-                                <xs:complexType>
-                                    <xs:choice>
-                                        <!-- ...the reference type as defined in the CIM... -->
-                                        <xs:element name="reference">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                  <xsl:for-each
-                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                                  <xsl:sort case-order="lower-first"
-                                                  select="@name[$sort-attributes]"/>
-                                                  <xsl:call-template
-                                                  name="element-attributeTemplate">
-                                                  <xsl:with-param name="element" select="true()"/>
-                                                  <xsl:with-param name="attribute" select="false()"
-                                                  />
-                                                  </xsl:call-template>
-                                                  </xsl:for-each>
-                                                </xs:sequence>
-                                                <xsl:for-each
-                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                                  <xsl:sort case-order="lower-first"
-                                                  select="@name[$sort-attributes]"/>
-                                                  <xsl:call-template
-                                                  name="element-attributeTemplate">
-                                                  <xsl:with-param name="element" select="false()"/>
-                                                  <xsl:with-param name="attribute" select="true()"/>
-                                                  </xsl:call-template>
-                                                </xsl:for-each>
-                                                <!-- ...with one extra hard-coded attribute... -->
-                                                <xs:attribute ref="xlink:href" use="optional"/>
-                                            </xs:complexType>
-                                        </xs:element>
-
-
-
-
-                                        <!-- ...and the actual element itself... -->
-                                        <xs:element ref="CIMRecord" minOccurs="1" maxOccurs="1"/>
-                                    </xs:choice>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-
-                <!-- A CIM Record -->
-                <xsl:comment>
-                    <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
-                </xsl:comment>
-                <xsl:value-of select="$newline"/>
-                <xs:element name="CIMRecord">
-                    <xs:complexType>
-                        <xs:sequence>
-<!-- 
-This is commented out b/c a Record is just a transfer convention    
-                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
-                                <xs:annotation>
-                                    <xs:documentation>a unique indentifier for this
-                                        document</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
-                                <xs:annotation>
-                                    <xs:documentation>the version(s) (internal &amp; external)
-                                        of the CIMRecordset</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="metadataID" minOccurs="0" maxOccurs="1"
-                                type="xs:anyURI">
-                                <xs:annotation>
-                                    <xs:documentation>the location of the CIM being
-                                        used</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
-
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
-                                type="version">
-                                <xs:annotation>
-                                    <xs:documentation>the version of the CIM being
-                                        used</xs:documentation>
-                                </xs:annotation>
-                            </xs:element>
--->                            
-
-                            <xs:choice minOccurs="1" maxOccurs="1">
-                                <xsl:for-each select="//UML:Stereotype[@name='document']">
-                                    <xsl:variable name="documentName">
-                                        <xsl:call-template name="camelCaseTemplate">
-                                            <xsl:with-param name="string"
-                                                select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
-                                            />
-                                        </xsl:call-template>
-                                    </xsl:variable>
-                                    <xs:element ref="{$documentName}"/>
-                                </xsl:for-each>
-                            </xs:choice>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+                
             </xsl:if>
 
             <!-- if this is the shared package -->
@@ -310,6 +266,12 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:call-template name="guidTemplate"/>
                 <!-- and the version template -->
                 <xsl:call-template name="versionTemplate"/>
+                <!-- and the non-empty-string template -->
+                <xsl:call-template name="nonEmptyStringTemplate"/>
+                <!-- and the list templates -->
+                <xsl:call-template name="listsTemplate"/>
+                <!-- and the dateTime template -->
+                <xsl:call-template name="dateTimeTemplate"/>
             </xsl:if>
 
             <!-- carry on with the parsing... -->
@@ -328,7 +290,7 @@ This is commented out b/c a Record is just a transfer convention
     <!-- <<document>> stereotypes are also global elements -->
     <xsl:template match="UML:Package//UML:Class">
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:text>processing class: </xsl:text>
                 <xsl:value-of select="@name"/>
@@ -351,7 +313,7 @@ This is commented out b/c a Record is just a transfer convention
             </xsl:when>
 
             <xsl:when test="$classStereotype='enumeration'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an enumeration </xsl:text>
                     </xsl:message>
@@ -360,7 +322,7 @@ This is commented out b/c a Record is just a transfer convention
             </xsl:when>
 
             <xsl:when test="$classStereotype='codelist'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's a codelist </xsl:text>
                     </xsl:message>
@@ -372,7 +334,7 @@ This is commented out b/c a Record is just a transfer convention
             don't need to do anything _here_ for extensible classes
             I'll do it when I'm dealing w/ complexTypes
             <xsl:when test="$classStereotype='extensible'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's extensible</xsl:text>
                     </xsl:message>
@@ -384,7 +346,7 @@ This is commented out b/c a Record is just a transfer convention
             don't need to do anything special for _global_ <<abstract>> classes;
             there's nothing different about them - only when other classes point to them do I need to bother
             <xsl:when test="$classStereotype='abstract'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's abstract </xsl:text>
                     </xsl:message>
@@ -396,7 +358,7 @@ This is commented out b/c a Record is just a transfer convention
             <!-- simpleTypes are used in order to force UML classes to be used as XML attributes -->
             <!-- This mixes a bit of implementation-specific logic into the UML; but I can live with that -->
             <xsl:when test="$classStereotype='attribute'">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text> it's a simpleType </xsl:text>
                     </xsl:message>
@@ -407,7 +369,7 @@ This is commented out b/c a Record is just a transfer convention
             <!-- if it's not a simpleType (codelist or enumeration or explicit attribute) -->
             <!-- then it must be a complexType -->
             <xsl:otherwise>
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's a complexType </xsl:text>
                     </xsl:message>
@@ -417,7 +379,7 @@ This is commented out b/c a Record is just a transfer convention
         </xsl:choose>
 
         <xsl:if test="$classStereotype='document'">
-            <xsl:if test="$debug">
+            <xsl:if test="$debug='true'">
                 <xsl:message>
                     <xsl:text> it's a document too </xsl:text>
                 </xsl:message>
@@ -462,6 +424,52 @@ This is commented out b/c a Record is just a transfer convention
         </xs:simpleType>
     </xsl:template>
 
+    <!-- nonEmptyString template -->
+    <!-- a simpleType for strings that must have content -->
+    <xsl:template name="nonEmptyStringTemplate">
+        <xs:simpleType name="NonEmptyString">
+            <xs:annotation>
+                <xs:documentation>ensures string types are not empty and not just spaces</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+                <xsl:comment>
+                    <xsl:text>string cannot be null</xsl:text>
+                </xsl:comment>
+                <xs:minLength value="1"/>
+                <xsl:comment>
+                    <xsl:text>string has to start with something other than a space</xsl:text>
+                </xsl:comment>
+                <xs:pattern value=".*[^\s].*" />                
+            </xs:restriction>            
+        </xs:simpleType>
+    </xsl:template>
+    
+    
+    <!-- lists template -->
+    <!-- a simpleType for lists of different types -->
+    <xsl:template name="listsTemplate">
+        <xs:simpleType name="StringList">
+            <xs:list itemType="xs:string"/>
+        </xs:simpleType>
+        <xs:simpleType name="NumberList">
+            <xs:list itemType="xs:integer"/>
+        </xs:simpleType>
+        <xs:simpleType name="GUIDList">
+            <xs:list itemType="guid"/>
+        </xs:simpleType>        
+    </xsl:template>
+    
+    <!-- dateTime template -->
+    <!-- a simpleType for specifying a dateTime either as a complete dateTime, a complete date, or a year only -->
+    <xsl:template name="dateTimeTemplate">
+        <xs:simpleType name="dateTime">
+            <xs:annotation>
+                <xs:documentation> a simpleType for specifying either a complete date and time, a date only, or a year only </xs:documentation>
+            </xs:annotation>
+            <xs:union memberTypes="xs:dateTime xs:date xs:gYear"/>                            
+        </xs:simpleType>        
+    </xsl:template>
+    
     <!-- unused classes -->
     <xsl:template name="unusedTemplate">
         <xsl:param name="className"/>
@@ -530,30 +538,118 @@ This is commented out b/c a Record is just a transfer convention
                     <!-- this cunning little bit of XSL below will find @name only if $sort-attribute='true' -->
                     <!-- therefore, the xsl:sort element does nothing when $sort-attribute='false' -->
                     <!-- this is used throughout this stylesheet -->
-                    <xsl:sort select="@name[$sort-attributes]" case-order="lower-first"/>
+                    <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
 
                     <xs:enumeration value="{@name}">
                         <xsl:apply-templates mode="UMLattribute"/>
                     </xs:enumeration>
                 </xsl:for-each>
                 <xsl:if test="$open">
-                    <xs:enumeration value="other"/>
+                    <xs:enumeration value="Other"/>
                 </xsl:if>
             </xs:restriction>
         </xs:simpleType>
     </xsl:template>
 
-
-    <!-- codelist template -->
+<!-- BEGIN NEW CODELIST TEMPLATE -->
     <xsl:template name="codelistTemplate">
+        
         <xsl:variable name="id" select="@xmi.id"/>
         <!-- assume codelists are "closed" unless they are specified "open" -->
+        <xsl:variable name="open"
+            select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+       
+        <xs:complexType name="{@name}" mixed="{$open}">        
+            <xsl:apply-templates mode="UMLclass"/>
+            
+            <!-- add codelist-specific elements here -->
+            <xs:sequence>
+                <xsl:for-each
+                    select="//UML:Class[@name='CodeList']/descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                
+                    <xsl:call-template name="element-attributeTemplate">
+                        <xsl:with-param name="element" select="true()"/>
+                        <xsl:with-param name="attribute" select="false()"/>
+                    </xsl:call-template>
+                
+                </xsl:for-each>
+            </xs:sequence>
+        
+            <!-- add codelist-specific attributes here -->
+            <xsl:for-each
+                select="//UML:Class[@name='CodeList']/descendant::UML:Attribute">
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+            
+                <xsl:call-template name="element-attributeTemplate">
+                    <xsl:with-param name="element" select="false()"/>
+                    <xsl:with-param name="attribute" select="true()"/>
+                </xsl:call-template>
+            
+            </xsl:for-each>
+            <!-- encode a codelist's openness here -->
+            <xsl:element name="xs:attribute">
+                <xsl:attribute name="name">open</xsl:attribute>
+                <xsl:attribute name="use">required</xsl:attribute>
+                <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                <xsl:attribute name="fixed" select="$open"/>
+            </xsl:element>                                                
+        </xs:complexType>
+    </xsl:template>    
+<!-- END NEW CODELIST TEMPLATE -->
+    
+<!-- BEGIN OLD CODELIST TEMPLATE -->
+    <!-- codelist template -->
+    <xsl:template name="codelistTemplate.OLD">
+        <xsl:variable name="id" select="@xmi.id"/>
+        <!-- assume codelists are "closed" unless they are specified "open" -->
+        <xsl:variable name="open"
+        select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+        
+<!-- NOTE THAT THE CONCIM SPECIFIES WHETHER A CV IS OPEN -->        
+        <xs:complexType name="{@name}" mixed="{$open}">        
+            <xsl:apply-templates mode="UMLclass"/>
+            <xs:sequence>
+                <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="version" type="version" minOccurs="0"/>
+                            <xs:element name="server" type="xs:anyURI"/>
+                            <xs:element name="description" type="xs:string" minOccurs="0"/>
+                            <xs:element name="details" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>                        
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+
+            <!-- this lets validation code recognise a CV -->
+            <xs:attribute name="cv" use="required" type="xs:boolean" fixed="true"/>                        
+            <xsl:element name="xs:attribute">
+                <xsl:attribute name="name">open</xsl:attribute>
+                <xsl:attribute name="use">required</xsl:attribute>
+                <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                <xsl:attribute name="fixed" select="$open"/>
+            </xsl:element>                                    
+            <xs:attribute name="value" use="required" type="NonEmptyString"/>
+        </xs:complexType>
+    </xsl:template>
+    
+<!-- END OLD CODELIST TEMPLATE -->
+    
+<!-- BEGIN OLDER CODELIST TEMPLATE -->
+    <!-- codelist template -->
+    <xsl:template name="codelistTemplate.OLDER">
+        <xsl:variable name="id" select="@xmi.id"/>
+        
+        <!-- assume codelists are "closed" unless they are specified "open" -->
+        
         <xsl:variable name="open"
             select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
 
         <xs:complexType name="{@name}" mixed="{$open}">
             <xsl:apply-templates mode="UMLclass"/>
-            <!-- HARD-CODED FOR NOW; WILL REPLACE W/ UML STUFF SOON -->
+                        
             <xs:sequence>
                 <xs:element name="vocabularyServer" minOccurs="0">
                     <xs:complexType>
@@ -573,7 +669,7 @@ This is commented out b/c a Record is just a transfer convention
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <!-- END HARD-CODED BIT -->
+                    
             <xs:attribute name="value" type="{concat(@name,'_Enumeration')}" use="required"/>
         </xs:complexType>
         <xsl:call-template name="enumerationTemplate">
@@ -581,6 +677,8 @@ This is commented out b/c a Record is just a transfer convention
             <xsl:with-param name="codelist" select="true()"/>
         </xsl:call-template>
     </xsl:template>
+
+<!-- END OLD CODELIST TEMPLATE -->            
 
     <xsl:template name="referenceTemplate">
         <xsl:param name="class"/>
@@ -602,7 +700,7 @@ This is commented out b/c a Record is just a transfer convention
                         <xs:sequence>
                             <xsl:for-each
                                 select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
                                     <xsl:with-param name="attribute" select="false()"/>
@@ -611,7 +709,7 @@ This is commented out b/c a Record is just a transfer convention
                         </xs:sequence>
                         <xsl:for-each
                             select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
                                 <xsl:with-param name="attribute" select="true()"/>
@@ -718,6 +816,15 @@ This is commented out b/c a Record is just a transfer convention
         </xsl:comment>
 
         <xsl:element name="xs:element">
+            <xsl:if test="not($isAssociation or $isAttribute)">
+                <xsl:attribute name="name">
+                    <xsl:call-template name="camelCaseTemplate">
+                        <xsl:with-param name="string" select="$class/@name"/>
+                    </xsl:call-template>
+                </xsl:attribute>
+                <xsl:attribute name="minOccurs" select="1"/>
+                <xsl:attribute name="maxOccurs" select="1"/>
+            </xsl:if>
             <xsl:if test="$isAssociation">
                 <xsl:variable name="name">
                     <xsl:variable name="roleName" select="$association/@name"/>
@@ -777,14 +884,24 @@ This is commented out b/c a Record is just a transfer convention
 
                         <xsl:variable name="specialisedID" select="@subtype"/>
                         <xsl:variable name="specialisedClass"
-                            select="//UML:Class[@xmi.id=$specialisedID]"/>
+                        select="//UML:Class[@xmi.id=$specialisedID]"/>
+                        <xsl:variable name="specialisedStereotype">
+                            <xsl:call-template name="lowerCaseTemplate">
+                                <xsl:with-param name="string" select="$specialisedClass//UML:Stereotype/@name"/>
+                            </xsl:call-template>
+                        </xsl:variable>
 
+                        <xsl:variable name="furtherSpecialisedIDs"
+                            select="//UML:Generalization[@supertype=$specialisedID]/@subtype"/>
+                        
+                        
                         <xsl:variable name="ea_xref_property">
                             <xsl:text>$ea_xref_property</xsl:text>
                         </xsl:variable>
                         <xsl:choose>
                             <!-- if the specialised class is unused, do nothing... -->
                             <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=unused')"/>
+
                             <!-- if the specialised class is a document, then make a reference to the global element, not the complex type... -->
                             <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=document')">
                                 <xsl:element name="xs:element">
@@ -798,6 +915,53 @@ This is commented out b/c a Record is just a transfer convention
                                     </xsl:attribute>                                    
                                 </xsl:element>
                             </xsl:when>
+                            
+                            <!-- it could be an abstract class itself -->
+                            <xsl:when test="$specialisedStereotype='abstract'">
+                                <xsl:call-template name="abstractTemplate">
+                                    <xsl:with-param name="class" select="$specialisedClass"/>
+                                    <!-- an abstract class of an abstract class is just going to have a cardinality of 1 -->
+                                    <!-- and the name will be trivial to work out -->
+                                    <!-- so don't bother passing these parameters -->
+                                    <xsl:with-param name="attribute" select="false()"/>
+                                    <xsl:with-param name="association" select="false()"/>
+                                </xsl:call-template>
+                            </xsl:when>
+                                
+                            <!-- I AM HERE -->
+                            <!-- it could be a generalised (but not abstract) class itself -->
+                            <xsl:when test="count($furtherSpecialisedIDs)&gt;0">
+                                <xs:choice minOccurs="1" maxOccurs="1">
+                                    <xsl:element name="xs:element">
+                                        <xsl:attribute name="name">
+                                            <xsl:call-template name="camelCaseTemplate">
+                                                <xsl:with-param name="string" select="$specialisedClass/@name"/>
+                                            </xsl:call-template>
+                                        </xsl:attribute>
+                                    </xsl:element>
+                                    
+                                    <xsl:for-each select="$furtherSpecialisedIDs">
+                                        <xsl:variable name="currentSpecialisedID" select="."/>
+                                        <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
+                                        <xsl:variable name="currentSpecialisedCamelCaseName">
+                                            <xsl:call-template name="camelCaseTemplate">
+                                                <xsl:with-param name="string" select="$currentSpecialisedName"/>
+                                            </xsl:call-template>
+                                        </xsl:variable>                                                                        
+                                        
+                                        <xsl:element name="xs:element">
+                                            <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
+                                            <xsl:attribute name="type" select="$currentSpecialisedName"/>
+                                        </xsl:element>
+                                        
+                                    </xsl:for-each>
+                                                                                                            
+                                </xs:choice>
+                            </xsl:when>
+                            <!-- I AM HERE -->
+                            
+                            
+                            
                             <!-- otherwise, its just a normal class... -->
                             <xsl:otherwise>
                                 <xsl:element name="xs:element">
@@ -860,7 +1024,7 @@ This is commented out b/c a Record is just a transfer convention
                         <xs:sequence>
                             <xsl:for-each
                                 select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
@@ -873,7 +1037,7 @@ This is commented out b/c a Record is just a transfer convention
                         <!-- add document-specific attributes here -->
                         <xsl:for-each
                             select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
@@ -945,26 +1109,58 @@ This is commented out b/c a Record is just a transfer convention
                                 <xsl:with-param name="attribute" select="."/>
                             </xsl:call-template>
                         </xsl:when>
-
+                        
                         <!-- or it might be an extension point -->
 
                         <xsl:when test="$stereotype='extensible'">
-                            <xs:complexType>
-                                <xs:complexContent>
-                                    <xs:extension base="{$type}">
+                            
+                            <xsl:variable name="typeAttribute">
+                                <xsl:value-of>
+                                    <xsl:call-template name="typeTemplate">
+                                        <xsl:with-param name="type" select="$type"/>                                    
+                                    </xsl:call-template>
+                                </xsl:value-of>
+                            </xsl:variable>                            
+                            
+                            <xsl:choose>                                
+                                <xsl:when test="starts-with(data($typeAttribute),'xs:')">
+                                    <!-- extension of a built-in type  -->
+                                    <xs:annotation>
+                                        <xs:documentation>this element contains extensions to the CIM; a
+                                            container element is required to prevent ambiguity among extensible
+                                            content and optional content (please use namespaces for extended
+                                            content)</xs:documentation>
+                                        </xs:annotation>
+                                    <xs:complexType>
                                         <xs:sequence>
-                                            <xsl:call-template name="extensibleTemplate">
-                                                <xsl:with-param name="attribute" select="false()"/>
-                                                <xsl:with-param name="element" select="true()"/>
-                                            </xsl:call-template>
+                                            <xs:any namespace="##any" processContents="lax" minOccurs="0"
+                                                maxOccurs="unbounded"/>
                                         </xs:sequence>
-                                        <xsl:call-template name="extensibleTemplate">
-                                            <xsl:with-param name="attribute" select="true()"/>
-                                            <xsl:with-param name="element" select="false()"/>
-                                        </xsl:call-template>
-                                    </xs:extension>
-                                </xs:complexContent>
-                            </xs:complexType>
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:complexType>                                    
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <!-- extension of a known type -->
+                                    <xs:complexType>
+                                        <xs:complexContent>
+                                            <xs:extension base="{data($typeAttribute)}">
+                                                <xs:sequence>                                           
+                                                    <xsl:call-template name="extensibleTemplate">
+                                                        <xsl:with-param name="attribute" select="false()"/>
+                                                        <xsl:with-param name="element" select="true()"/>
+                                                    </xsl:call-template>
+                                                </xs:sequence>
+                                                <xsl:call-template name="extensibleTemplate">
+                                                    <xsl:with-param name="attribute" select="true()"/>
+                                                    <xsl:with-param name="element" select="false()"/>
+                                                </xsl:call-template>
+                                            </xs:extension>
+                                        </xs:complexContent>
+                                    </xs:complexType>                                
+                                    
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            
                         </xsl:when>
 
                         <!-- otherwise, use its specified type -->
@@ -1088,13 +1284,29 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:attribute name="mixed">true</xsl:attribute>
             </xsl:if>
 
-            <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
+<!-- AT: BEGIN MODIFICATIONS -->
+<!--            
+            <xsl:value-of select="$newline"/>
+            <xsl:comment><xsl:value-of select="$newline"/>
+                <xsl:text>nAssociations: </xsl:text><xsl:value-of select="$nAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nAttributes: </xsl:text><xsl:value-of select="$nAttributes"/><xsl:value-of select="$newline"/>
+                <xsl:text>generalisedClass: </xsl:text><xsl:value-of select="$generalisedClass"/><xsl:value-of select="$newline"/>
+                <xsl:text>specialisedClass: </xsl:text><xsl:value-of select="$specialisedClass"/><xsl:value-of select="$newline"/>
+                <xsl:text>nGeneralisedAssociations: </xsl:text><xsl:value-of select="$nGeneralisedAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nSpecialisedAssociations: </xsl:text><xsl:value-of select="$nSpecialisedAssociations"/><xsl:value-of select="$newline"/>
+                <xsl:text>nGeneralisedAttributes: </xsl:text><xsl:value-of select="$nGeneralisedAttributes"/><xsl:value-of select="$newline"/>
+                <xsl:text>nSpecialisedAttributes: </xsl:text><xsl:value-of select="$nSpecialisedAttributes"/><xsl:value-of select="$newline"/>
+            </xsl:comment>
+-->
+<!-- AT: END MODIFICATIONS -->  
+                       
             <xsl:variable name="id" select="@xmi.id"/>
+            <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
             <xsl:variable name="mixed"
             select="//UML:TaggedValue[@tag='mixed'][@modelElement=$id]/@value='true'"/>
             <xsl:if test="$mixed">
                 <xsl:attribute name="mixed">true</xsl:attribute>
-            </xsl:if>
+            </xsl:if>            
             
             <xsl:apply-templates mode="UMLclass"/>
 
@@ -1113,7 +1325,7 @@ This is commented out b/c a Record is just a transfer convention
                     <xsl:variable name="generalClass"
                         select="//UML:Class[@xmi.id=$internalGeneralisation/attribute::supertype]"/>
 
-                    <xsl:if test="$debug">
+                    <xsl:if test="$debug='true'">
                         <xsl:message>
                             <xsl:value-of select="$class/@name"/>
                             <xsl:text> is a specialisation of </xsl:text>
@@ -1138,7 +1350,7 @@ This is commented out b/c a Record is just a transfer convention
                         <xsl:variable name="generalClass"
                             select="substring-before(substring-after($externalGeneralisation/attribute::value,'Parent='),';')"/>
 
-                        <xsl:if test="$debug">
+                        <xsl:if test="$debug='true'">
                             <xsl:message>
                                 <xsl:value-of select="$class/@name"/>
                                 <xsl:text> is a specialisation of </xsl:text>
@@ -1179,7 +1391,7 @@ This is commented out b/c a Record is just a transfer convention
 
                     <!-- first check if any of the (UML) attributes should be (XML) elements -->
                     <xsl:for-each select="descendant::UML:Attribute">
-                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
                         <xsl:call-template name="element-attributeTemplate">
                             <xsl:with-param name="element" select="true()"/>
                             <xsl:with-param name="attribute" select="false()"/>
@@ -1192,9 +1404,9 @@ This is commented out b/c a Record is just a transfer convention
                         select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
                         mode="UMLclass">
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes]"/>
+                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes='true']"/>
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes]"/>
+                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes='true']"/>
                         <xsl:with-param name="class" select="$class"/>
                     </xsl:apply-templates>
 
@@ -1210,7 +1422,7 @@ This is commented out b/c a Record is just a transfer convention
 
             <!-- that's if for the elements, now we loop again and process any attributes -->
             <xsl:for-each select="descendant::UML:Attribute">
-                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
 
                 <xsl:call-template name="element-attributeTemplate">
                     <xsl:with-param name="element" select="false()"/>
@@ -1218,6 +1430,18 @@ This is commented out b/c a Record is just a transfer convention
                 </xsl:call-template>
 
             </xsl:for-each>
+
+            <!-- also check if it has a tagged value explicitly specifying 'open' (for CVs and StandardNames) -->           
+            <xsl:variable name="open"
+                select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+            <xsl:if test="$open">                
+                <xsl:element name="xs:attribute">
+                    <xsl:attribute name="name">open</xsl:attribute>
+                    <xsl:attribute name="use">required</xsl:attribute>
+                    <xsl:attribute name="type">xs:boolean</xsl:attribute>
+                    <xsl:attribute name="fixed" select="$open"/>
+                </xsl:element>                                                                
+            </xsl:if>            
 
             <xsl:if test="$stereotype='extensible'">
                 <xsl:call-template name="extensibleTemplate">
@@ -1258,7 +1482,7 @@ This is commented out b/c a Record is just a transfer convention
     <xsl:template name="lowerCaseTemplate">
         <xsl:param name="string"/>
         <!-- TODO: somewhere in this mess I am passing multiple nodes in as string -->
-        <!-- the [1] gets around this; but I need to fix the source of the problem -->
+        <!-- the [1] gets around this -->
         <xsl:value-of select="translate($string[1],$upperCase,$lowerCase)"/>
     </xsl:template>
 
@@ -1300,7 +1524,7 @@ This is commented out b/c a Record is just a transfer convention
     <!-- an association from one (UML) class to another -->
     <xsl:template match="UML:Association" mode="UMLclass">
         <xsl:param name="class"/>
-
+        
         <!-- I am matching the associationEnd that is _not_ the current class -->
         <!-- b/c UML associations are "backwards" -->
 
@@ -1372,6 +1596,10 @@ This is commented out b/c a Record is just a transfer convention
                         </xsl:call-template>
                     </xsl:variable>
 
+
+                    <xsl:variable name="specialisedID"
+                        select="//UML:Generalization[@supertype=$endClass/@xmi.id]/@subtype"/>
+                    
                     <!-- 
                     either the association is to a normal class
                     or an abstract class
@@ -1403,12 +1631,55 @@ This is commented out b/c a Record is just a transfer convention
                             </xsl:call-template>
                         </xsl:when>
 
+                        <!-- if the associated class has specialisations -->
+                        <!-- (but isn't abstract) -->
+                        <!-- then create a choice among the parent and all child classes -->
+                        <!-- (a better way to do this would be with substitution groups) -->
+                        
+                        <xsl:when test="count($specialisedID)&gt;0">
+                            <xs:element name="{$associationName}" minOccurs="{$associationMin}" maxOccurs="{$associationMax}">
+                                <xs:complexType>                                
+                                    <xs:choice>
+                                        <xsl:comment>
+                                            <xsl:text> these elements include all specialisations of </xsl:text>
+                                            <xsl:value-of select="$associationName"/>
+                                        </xsl:comment>
+                                        <xsl:element name="xs:element">
+                                            <xsl:attribute name="name">
+                                                <xsl:call-template name="camelCaseTemplate">
+                                                    <xsl:with-param name="string" select="$endClass/@name"/>
+                                                </xsl:call-template>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="type" select="$endClass/@name"/>
+                                        </xsl:element>
+                                        <xsl:for-each select="$specialisedID">
+                                            <xsl:variable name="currentSpecialisedID" select="."/>
+                                            <xsl:variable name="currentSpecialisedName" select="//UML:Class[@xmi.id=$currentSpecialisedID]/@name"/>
+                                            <xsl:variable name="currentSpecialisedCamelCaseName">
+                                                <xsl:call-template name="camelCaseTemplate">
+                                                    <xsl:with-param name="string" select="$currentSpecialisedName"/>
+                                                </xsl:call-template>
+                                            </xsl:variable>                                                                        
+                                    
+                                            <xsl:element name="xs:element">
+                                                <xsl:attribute name="name" select="$currentSpecialisedCamelCaseName"/>
+                                                <xsl:attribute name="type" select="$currentSpecialisedName"/>
+                                            </xsl:element>
+                                    
+                                        </xsl:for-each>
+                                    </xs:choice>
+                                </xs:complexType>
+                                </xs:element>
+                        </xsl:when>
+                        
                         <!-- otherwise it's just a normal element -->
                         <xsl:otherwise>
                             <xsl:element name="xs:element">
+
                                 <xsl:attribute name="name" select="$associationName"/>
                                 <xsl:attribute name="minOccurs" select="$associationMin"/>
                                 <xsl:attribute name="maxOccurs" select="$associationMax"/>
+                                
                                 <xsl:choose>
                                     <xsl:when test="$endStereotype='extensible'">
 
@@ -1425,7 +1696,8 @@ This is commented out b/c a Record is just a transfer convention
                                                   <xsl:with-param name="attribute" select="true()"/>
                                                   <xsl:with-param name="element" select="false()"/>
                                                   </xsl:call-template>
-                                                </xs:extension>
+                                                </xs:extension>                                                
+                                                
                                             </xs:complexContent>
                                         </xs:complexType>
 
@@ -1436,6 +1708,28 @@ This is commented out b/c a Record is just a transfer convention
                                         </xsl:attribute>
                                     </xsl:otherwise>
                                 </xsl:choose>
+                                <xsl:comment>
+                                    <xsl:text>I am looking at: </xsl:text>
+                                    <xsl:value-of select="name(.)"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>And the class is: </xsl:text>
+                                    <xsl:value-of select="$endClass/@name"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>Whose id is: </xsl:text>
+                                    <xsl:value-of select="$endClassId"/>
+                                </xsl:comment>
+                                <xsl:comment>
+                                    <xsl:text>And there were this many specialisations: </xsl:text>
+                                    <xsl:value-of select="count($specialisedID)"/>
+                                </xsl:comment>
+                                <xsl:for-each select="$specialisedID">
+                                    <xsl:comment>                                        
+                                        <xsl:text>$specialisedID: </xsl:text>                                    
+                                        <xsl:value-of select="."/>                                    
+                                    </xsl:comment>
+                                </xsl:for-each>
                             </xsl:element>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -1527,17 +1821,32 @@ This is commented out b/c a Record is just a transfer convention
                     <xsl:when test="$lowerCaseType='integer' or $lowerCaseType='int'">
                         <xsl:text>xs:integer</xsl:text>
                     </xsl:when>
-                    <xsl:when test="$lowerCaseType='real' or $lowerCaseType='double'">
+                    <xsl:when test="$lowerCaseType='real' or $lowerCaseType='double' or $lowerCaseType='number'">
+                        <!-- sometimes the UML uses the term "number" -->
+                        <!-- the APPCIM maps it to xs:double  -->
                         <xsl:text>xs:double</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='boolean'">
                         <xsl:text>xs:boolean</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='uri'">
                         <xsl:text>xs:anyURI</xsl:text>
                     </xsl:when>
+                    
                     <xsl:when test="$lowerCaseType='date' or $lowerCaseType='datetime'">
-                        <xsl:text>xs:dateTime</xsl:text>
+                        <!-- replaced built-in dateTime type w/ custom dateTime type -->
+                        <!--<xsl:text>xs:dateTime</xsl:text>-->
+                        <xsl:text>dateTime</xsl:text>
+                    </xsl:when>
+                    
+                    <xsl:when test="$lowerCaseType='duration'">
+                        <xsl:text>xs:duration</xsl:text>
+                    </xsl:when>
+                    
+                    <xsl:when test="$lowerCaseType='characterstringlist' or $lowerCaseType='stringlist' or $lowerCaseType='characterlist'">
+                        <xsl:text>StringList</xsl:text>
                     </xsl:when>
                     <!-- if it's none of those built-in types, then don't convert it to any specific XML types -->
                     <xsl:otherwise>
@@ -1560,7 +1869,7 @@ This is commented out b/c a Record is just a transfer convention
         <xsl:variable name="attStereotype"
             select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
 
-        <xsl:if test="$debug">
+        <xsl:if test="$debug='true'">
             <xsl:message>
                 <xsl:text>processing attribute: </xsl:text>
                 <xsl:value-of select="@name"/>
@@ -1587,6 +1896,7 @@ This is commented out b/c a Record is just a transfer convention
         <!-- the maximum is not greater than 1 -->
         <!-- AND the stereotype is either an enumeration or explicit attribute or the type is an explicit enumeration or boolean or URI  -->
         <!-- OR the type has a stereotype of enumeration -->
+        <!-- AND the stereotype is _not_ an explicit element -->
         <xsl:variable name="isAttribute"
             select="string($attMax)='1' 
             and
@@ -1594,12 +1904,14 @@ This is commented out b/c a Record is just a transfer convention
             ($attStereotype='enumeration' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
             or
             (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration')
-            )"/>
+            )
+            and
+            ($attStereotype!='element')"/>
 
         <xsl:choose>
             <!-- when isAttribute is true and you're looking for an attribute, call the attributeTemplate -->
             <xsl:when test="$isAttribute and $attribute">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an attribute </xsl:text>
                     </xsl:message>
@@ -1612,7 +1924,7 @@ This is commented out b/c a Record is just a transfer convention
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="$isAttribute and $element">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an attribute (deal w/ it later)</xsl:text>
                     </xsl:message>
@@ -1620,7 +1932,7 @@ This is commented out b/c a Record is just a transfer convention
             </xsl:when>
             <!-- when isAttribute is false and you're looking for an element, call the elementTemplate -->
             <xsl:when test="not($isAttribute) and $element">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an element </xsl:text>
                     </xsl:message>
@@ -1633,7 +1945,7 @@ This is commented out b/c a Record is just a transfer convention
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="not($isAttribute) and $attribute">
-                <xsl:if test="$debug">
+                <xsl:if test="$debug='true'">
                     <xsl:message>
                         <xsl:text>it's an element (already dealt w/ it) </xsl:text>
                     </xsl:message>

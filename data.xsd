@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 13 April 2010, 23:24 -->       
+<!-- generated: 25 March 2011, 15:17 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.4" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.4">       
+            xmlns="http://www.purl.org/org/esmetadata/cim/1.5/schemas"       
+targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -24,15 +24,15 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LocalFileStorage">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FileStorage">
    <xs:annotation>
       <xs:documentation>Contains attributes to describe a DataObject stored as a single file.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="fileSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="fileSystem" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
@@ -43,47 +43,24 @@
       <xs:documentation>Describes the internal format of the dataset.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="value" type="DataFormatType_Enumeration" use="required"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataFormatType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Excel"/>
-      <xs:enumeration value="HDF"/>
-      <xs:enumeration value="NetCDF"/>
-      <xs:enumeration value="GRIB 1"/>
-      <xs:enumeration value="GRIB 2"/>
-      <xs:enumeration value="PP"/>
-      <xs:enumeration value="ASCII"/>
-      <xs:enumeration value="HDF EOS"/>
-      <xs:enumeration value="NCEP ON29"/>
-      <xs:enumeration value="NCEP ON129"/>
-      <xs:enumeration value="Binary"/>
-      <xs:enumeration value="other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
    <xs:annotation>
       <xs:documentation>Describes the content  of a data object; the variable's name, units, etc.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="standardName" minOccurs="0" maxOccurs="1" type="StandardName"/>
+      <xs:element name="standardName" minOccurs="0" maxOccurs="unbounded" type="StandardName"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="unit" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
@@ -108,10 +85,15 @@
       <xs:documentation>Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="modificationDate" minOccurs="0" maxOccurs="1" type="dateTime">
+         <xs:annotation>
+            <xs:documentation>The date that the file (or other storage medium) has been updated</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
-   <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
+   <xs:attribute name="dataLocation" use="optional" type="xs:anyURI">
       <xs:annotation>
          <xs:documentation>Points to the actual location of the data (used to be dataURI, a feature of DataObject).</xs:documentation>
       </xs:annotation>
@@ -124,10 +106,10 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="dbAccessString" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dbAccessString" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="dbName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="owner" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="dbTable" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dbTable" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -153,45 +135,30 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
    <xs:annotation>
-      <xs:documentation>The type of data object that is grouped together into a particular hierarchy.</xs:documentation>
+      <xs:documentation>The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
-         </xs:complexType>
-      </xs:element>
+      <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"
+                  type="ControlledVocabulary"/>
    </xs:sequence>
-   <xs:attribute name="value" type="DataHierarchyType_Enumeration" use="required"/>
+   <xs:attribute name="value" use="required" type="NonEmptyString">
+      <xs:annotation>
+         <xs:documentation>The term being used for this CV (or standard)
+</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="open" use="required" type="xs:boolean" fixed="true"/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="variable"/>
-      <xs:enumeration value="run"/>
-      <xs:enumeration value="stream"/>
-      <xs:enumeration value="other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
    <xs:annotation>
       <xs:documentation>Describes how a DataObject is distributed.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="distributionFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
-      <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="ResponsibleParty"/>
+      <xs:element name="distributionFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="responsibleParty" minOccurs="0" maxOccurs="1" type="ResponsibleParty"/>
    </xs:sequence>
-   <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>
+   <xs:attribute name="distributionAccess" use="optional" type="DataAccessType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataObject">
    <xs:annotation>
@@ -200,7 +167,7 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="acronym" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="acronym" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
          <xs:annotation>
@@ -243,12 +210,17 @@
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -261,18 +233,82 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <!--objectProperty is not used -->       
-<xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
+      <xs:element name="dataProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">
+         <xs:annotation>
+            <xs:documentation>May not be used</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="sourceSimulation" minOccurs="1" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>Points to the simulation that generated this dataset.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="sourceSimulation" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element ref="assimilation"/>
+                        <xs:element ref="simulationComposite"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataRestriction--><!--Whose id is: EAID_3698B5BB_D04C_4878_B2DA_75AB029B099C--><!--And there were this many specialisations: 0--></xs:element>
       <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="localFileStorage" type="LocalFileStorage"/>
+               <xs:element name="fileStorage" type="FileStorage"/>
                <xs:element name="dbStorage" type="DbStorage"/>
                <xs:element name="ipStorage" type="IpStorage"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="distribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
+      <xs:element name="distribution" minOccurs="0" maxOccurs="1" type="DataDistribution"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataDistribution--><!--Whose id is: EAID_A26D57FC_2979_465b_B8D2_9C3F1E7ECFB8--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
@@ -299,12 +335,17 @@
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -343,12 +384,17 @@
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
                            <xs:annotation>
                               <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
@@ -361,11 +407,11 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
-      <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
-      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
+      <xs:element name="citation" minOccurs="0" maxOccurs="1" type="DataCitation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCitation--><!--Whose id is: EAID_AD573D72_4F78_4ca9_AC47_D7E4FCAE4987--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataContent--><!--Whose id is: EAID_CBC6B7E7_8B14_4581_8285_7395FE84F406--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataExtent--><!--Whose id is: EAID_F3F07939_D20D_424b_8706_3072A3238697--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
-   <xs:attribute name="dataStatus" use="required" type="DataStatusType">
+   <xs:attribute name="dataStatus" use="optional" type="DataStatusType">
       <xs:annotation>
          <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
       </xs:annotation>
@@ -387,15 +433,21 @@
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
-               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
                   <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
+
+This includes information about the authoring institution.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -405,7 +457,7 @@
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                   </xs:annotation>
@@ -422,29 +474,32 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="abstract" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="citation" minOccurs="1" maxOccurs="1" type="gmd:CI_Citation_PropertyType"/>
+      <xs:element name="citation" minOccurs="1" maxOccurs="1" type="gmd:CI_Citation_Type"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataContent">
    <xs:annotation>
       <xs:documentation>The contents of the data object; like ISO: MD_ContentInformation.</xs:documentation>
    </xs:annotation>
-   <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DataSource">
+                    <xs:sequence>
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>
-      <xs:element name="aggregation" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="aggregation" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>sum, min, mean, max, ...</xs:documentation>
+            <xs:documentation>Describes how the content has been aggregated together: sum, min, mean, max, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="frequency" minOccurs="1" maxOccurs="1"
-                  type="gmd:MD_MaintenanceFrequencyCode_PropertyType">
+      <xs:element name="frequency" minOccurs="0" maxOccurs="1" type="FrequencyType">
          <xs:annotation>
-            <xs:documentation>daily, hourly, ...</xs:documentation>
+            <xs:documentation>Describes the frequency of the data content: daily, hourly, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
-   </xs:sequence>
-</xs:complexType>
+      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCitation--><!--Whose id is: EAID_AD573D72_4F78_4ca9_AC47_D7E4FCAE4987--><!--And there were this many specialisations: 0--></xs:element>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataAccessType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="CD-ROM"/>
@@ -455,7 +510,18 @@
       <xs:enumeration value="OnlineFileFTP"/>
    </xs:restriction>
 </xs:simpleType>
-<!--DataProperty is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProperty">
+   <xs:annotation>
+      <xs:documentation>A property of a DataObject.  Currently this is intended to be used to record CF specific information (like packing, scaling, etc.) for OASIS4.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestrictionScopeType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="metadataAccessConstraint"/>
@@ -469,7 +535,7 @@
       <xs:documentation>Records the geographic (horizontal and vertical) and temporal extent of the DataObject.  </xs:documentation>
    </xs:annotation>
                                 <xs:complexContent>
-                                <xs:extension base="gmd:EX_Extent_PropertyType">
+                                <xs:extension base="gmd:EX_Extent_Type">
                             <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
@@ -478,9 +544,9 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="protocol" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="host" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="protocol" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="host" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
