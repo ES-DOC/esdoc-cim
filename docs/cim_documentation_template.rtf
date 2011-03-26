@@ -562,8 +562,9 @@ expressions, and element names to refer to an external element.  In addition, a 
 <<extensible>> - indicates that the concept can be extended by a third party.  In XML terms, this means that the element can contain additional sub-elements and attributes without having to be bound to a namespace nor specified in a schema file.  \lang2057\hich\f4\dbch\f4\loch\f4\par
 \pard\s0\ltrpar\ql\plain\f1\fs20\lang1033\hich\f5\dbch\f5\loch\f5\cf0\par
 \par
-There are currently three parameters than can be passed to the XSL transformer:\par
+There are currently four parameters than can be passed to the XSL transformer:\par
 \pard\s0{\pntext\pard\plain\f3\fs20 \'b7\tab}{\*\pn\pnlvlblt\ls3\ilvl0\pnhang\pnf1{\pntxtb \'b7}}\ls3\ilvl0\fi-360\li360\ltrpar\ql\plain\f1\fs20\lang1033\hich\f5\dbch\f5\loch\f5\cf0 version - the version of the CIM being targeted; must be set\par
+namespace - the namespace of the CIM Schemas to use (this should be set to "http://www.purl.org/org/cim/schemas")\par
 debug - if set to "true" this will print out a record of the transformation process\par
 sort-attributes - if set to "true" this will process all UML attributes in lexical order, otherwise it will process them in the order that they appear in the XMI file.\par
 \pard\s0\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0\par
@@ -571,7 +572,7 @@ The CIM has been broken down into several sub-packages for convenience:\par
 \pard\s0{\pntext\pard\plain\f3\fs20 \'b7\tab}{\*\pn\pnlvlblt\ls2\ilvl0\pnhang\pnf1{\pntxtb \'b7}}\ls2\ilvl0\fi-360\li360\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0 shared - contains general classes used throughout the CIM\par
 quality - contains cla\lang1033\hich\f5\dbch\f5\loch\f5 s\lang2057\hich\f4\dbch\f4\loch\f4 ses used to describe the quality of metadata or the data/models that metadata describes.\par
 grids - contains clas\lang1033\hich\f5\dbch\f5\loch\f5 s\lang2057\hich\f4\dbch\f4\loch\f4 es used to describe the geographic grids that data is mapped onto, software adheres to, and activities constrain.\par
-data - contains classes used to describe the \lang1033\hich\f5\dbch\f5\loch\f5 actual \lang2057\hich\f4\dbch\f4\loch\f4 archived data.\par
+data - contains classes used to describe the \lang1033\hich\f5\dbch\f5\loch\f5 actual \lang2057\hich\f4\dbch\f4\loch\f4 archived data\lang1033\hich\f5\dbch\f5\loch\f5  used as model input or output\lang2057\hich\f4\dbch\f4\loch\f4 .\par
 software - contains classes used to describe the software that produced data\par
 activity - contains classes used to describe the experiments in support of which software is run.\par
 \pard\s0\ltrpar\ql\plain\f1\fs20\lang2057\hich\f4\dbch\f4\loch\f4\cf0\par
