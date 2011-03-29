@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:Dictionary gml:id="CIM-CRS-Dictionary"
+	xmlns="http://www.opengis.net/gml/3.2"
+	xmlns:cim="http://www.metaforclimate.eu"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	dc:creator="Phil Bentley"
+	dc:date="2009-12-16">
+
+	<gml:identifier codeSpace="metafor">CIM-CRS-Dictionary</gml:identifier>
+	<gml:name>CIM Coordinate Reference System Dictionary</gml:name>
+
+<!-- Coordinate Reference Systems -->
+
+	<!-- Geodetic 2D CRS based upon International 1924 Authalic Sphere -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="EPSG-4053">
+			<gml:identifier codeSpace="EPSG">EPSG-4053</gml:identifier>
+			<gml:name>Geodetic 2D CRS / International 1924 Authalic Sphere</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#EPSG-6053"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+	
+	<!-- Geodetic 2D CRS based upon WGS 1984 -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="EPSG-4326">
+			<gml:identifier codeSpace="EPSG">EPSG-4326</gml:identifier>
+			<gml:name>Geodetic 2D CRS / WGS 1984</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#EPSG-6326"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+
+	<!-- Geodetic 3D CRS based upon WGS 1984 -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="EPSG-4979">
+			<gml:identifier codeSpace="EPSG">EPSG-4979</gml:identifier>
+			<gml:name>Geodetic 3D CRS / WGS 1984</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6423"/>
+			<gml:geodeticDatum xlink:href="#EPSG-6326"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+
+	<!-- Mercator Projected CRS based upon WGS 1984 -->
+	<gml:dictionaryEntry>
+		<gml:ProjectedCRS gml:id="EPSG-3395">
+			<gml:identifier codeSpace="EPSG">EPSG-3395</gml:identifier>
+			<gml:name>Mercator Projected CRS / WGS 1984</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:conversion xlink:href="#EPSG-19883"/>
+			<gml:baseGeodeticCRS xlink:href="#EPSG-4326"/>
+			<gml:cartesianCS xlink:href="#EPSG-4400"/>
+		</gml:ProjectedCRS>
+	</gml:dictionaryEntry>
+
+	<!-- Vertical CRS based upon Mean Sea Level Height -->
+	<gml:dictionaryEntry>
+		<gml:VerticalCRS gml:id="EPSG-5714">
+			<gml:identifier codeSpace="EPSG">EPSG-5714</gml:identifier>
+			<gml:name>Mean Sea Level Height</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:verticalCS xlink:href="#EPSG-6499"/>
+			<gml:verticalDatum xlink:href="#EPSG-5100"/>
+		</gml:VerticalCRS>
+	</gml:dictionaryEntry>
+
+	<!-- Vertical CRS based upon Mean Sea Level Depth -->
+	<gml:dictionaryEntry>
+		<gml:VerticalCRS gml:id="EPSG-5715">
+			<gml:identifier codeSpace="EPSG">EPSG-5715</gml:identifier>
+			<gml:name>Mean Sea Level Depth</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:verticalCS xlink:href="#EPSG-6498"/>
+			<gml:verticalDatum xlink:href="#EPSG-5100"/>
+		</gml:VerticalCRS>
+	</gml:dictionaryEntry>
+
+	<!-- UM Global Atmosphere Model CRS based upon spherical earth (R = 6371229m) -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="UKMO-UM-CRS-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-CRS-1</gml:identifier>
+			<gml:name>UM Global Atmosphere Model CRS</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#UKMO-UM-DATUM-1"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+	
+	<!-- NEMO Ocean Model CRS based upon spherical earth (R = 6371229m) -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="UKMO-NEMO-CRS-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-CRS-1</gml:identifier>
+			<gml:name>NEMO Ocean Model CRS</gml:name>
+			<gml:scope>World Oceans</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#UKMO-NEMO-DATUM-1"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+
+<!-- Coordinate Systems -->
+
+	<!-- Cartesian 2D CS based upon Eastings and Northings -->
+	<gml:dictionaryEntry>
+		<gml:CartesianCS gml:id="EPSG-4400">
+			<gml:identifier codeSpace="EPSG">EPSG-4400</gml:identifier>
+			<gml:name>Cartesian 2D CS: Eastings and Northings</gml:name>
+			<gml:axis xlink:href="#EPSG-9906"/>
+			<gml:axis xlink:href="#EPSG-9907"/>
+		</gml:CartesianCS>
+	</gml:dictionaryEntry>
+
+	<!-- Ellipsoidal 2D CS based upon Geodetic Latitude and Longitude -->
+	<gml:dictionaryEntry>
+		<gml:EllipsoidalCS gml:id="EPSG-6422">
+			<gml:identifier codeSpace="EPSG">EPSG-6422</gml:identifier>
+			<gml:name>Ellipsoidal 2D CS: Geodetic Latitude and Longitude</gml:name>
+			<gml:axis xlink:href="#EPSG-9901"/>
+			<gml:axis xlink:href="#EPSG-9902"/>
+		</gml:EllipsoidalCS>
+	</gml:dictionaryEntry>
+
+	<!-- Ellipsoidal 3D CS based upon Geodetic Latitude & Longitude, plus Ellipsoidal Height -->
+	<gml:dictionaryEntry>
+		<gml:EllipsoidalCS gml:id="EPSG-6423">
+			<gml:identifier codeSpace="EPSG">EPSG-6423</gml:identifier>
+			<gml:name>Ellipsoidal 3D CS: Geodetic Latitude and Longitude, Ellipsoidal Height</gml:name>
+			<gml:axis xlink:href="#EPSG-9901"/>
+			<gml:axis xlink:href="#EPSG-9902"/>
+			<gml:axis xlink:href="#EPSG-9903"/>
+		</gml:EllipsoidalCS>
+	</gml:dictionaryEntry>
+	
+	<!-- Spherical 3D CS based upon Sperical Latitude & Longitude, plus Geocentric Radius -->
+	<gml:dictionaryEntry>
+		<gml:SphericalCS gml:id="EPSG-6404">
+			<gml:identifier codeSpace="EPSG">EPSG-6404</gml:identifier>
+			<gml:name>Spherical 3D CS: Sperical Latitude and Longitude, Geocentric Radius</gml:name>
+			<gml:axis xlink:href="#EPSG-9926"/>
+			<gml:axis xlink:href="#EPSG-9927"/>
+			<gml:axis xlink:href="#EPSG-9928"/>
+		</gml:SphericalCS>
+	</gml:dictionaryEntry>
+
+	<!-- Vertical CS based upon Gravity-related Depth -->
+	<gml:dictionaryEntry>
+		<gml:VerticalCS gml:id="EPSG-6498">
+			<gml:identifier codeSpace="EPSG">EPSG-6498</gml:identifier>
+			<gml:name>Vertical CS: Gravity-related Depth</gml:name>
+			<gml:axis xlink:href="#EPSG-9905"/>
+		</gml:VerticalCS>
+	</gml:dictionaryEntry>
+
+	<!-- Vertical CS based upon Gravity-related Height -->
+	<gml:dictionaryEntry>
+		<gml:VerticalCS gml:id="EPSG-6499">
+			<gml:identifier codeSpace="EPSG">EPSG-6499</gml:identifier>
+			<gml:name>Vertical CS: Gravity-related Height</gml:name>
+			<gml:axis xlink:href="#EPSG-9904"/>
+		</gml:VerticalCS>
+	</gml:dictionaryEntry>
+	
+	<!-- TODO: Add parametric coordinate system for model levels -->
+
+<!-- Coordinate Conversions & Operation Methods -->
+
+	<!-- Mercator conversion operation -->
+	<gml:dictionaryEntry>
+		<gml:Conversion gml:id="EPSG-19883">
+			<gml:identifier codeSpace="EPSG">EPSG-19883</gml:identifier>
+			<gml:name>World Mercator</gml:name>
+			<gml:scope>World between 80S and 84N</gml:scope>
+			<gml:method xlink:href="#EPSG-9804"></gml:method>
+			<gml:parameterValue>
+				<gml:ParameterValue>
+					<gml:value uom="urn:x-epsg:v6.17:uom:degree">0.0</gml:value>
+					<gml:operationParameter xlink:href="#EPSG-8801"/>
+				</gml:ParameterValue>
+			</gml:parameterValue>
+			<gml:parameterValue>
+				<gml:ParameterValue>
+					<gml:value uom="urn:x-epsg:v6.17:uom:degree">0.0</gml:value>
+					<gml:operationParameter xlink:href="#EPSG-8802"/>
+				</gml:ParameterValue>
+			</gml:parameterValue>
+		</gml:Conversion>
+	</gml:dictionaryEntry>
+	
+	<!-- Mercator operation method -->
+	<gml:dictionaryEntry>
+		<gml:OperationMethod gml:id="EPSG-9804">
+			<gml:identifier codeSpace="EPSG">EPSG-9804</gml:identifier>
+			<gml:name>Mercator Projection (Spherical, Standard Parallel = Equator)</gml:name>
+			<gml:formula>x = R.(lon-lon0); y = R.ln(tan(PI/4+lat/2))</gml:formula>
+		</gml:OperationMethod>
+	</gml:dictionaryEntry>
+
+	<!-- Latitude of natural origin -->
+	<gml:dictionaryEntry>
+		<gml:OperationParameter gml:id="EPSG-8801">
+			<gml:identifier codeSpace="EPSG">EPSG-8801</gml:identifier>
+			<gml:name>Latitude of natural origin</gml:name>
+		</gml:OperationParameter>
+	</gml:dictionaryEntry>
+	
+	<!-- Longitude of natural origin -->
+	<gml:dictionaryEntry>
+		<gml:OperationParameter gml:id="EPSG-8802">
+			<gml:identifier codeSpace="EPSG">EPSG-8802</gml:identifier>
+			<gml:name>Longitude of natural origin</gml:name>
+		</gml:OperationParameter>
+	</gml:dictionaryEntry>
+	
+<!-- Datums -->
+
+	<!-- World Geodetic System 1984 datum -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="EPSG-6326">
+			<gml:identifier codeSpace="EPSG">EPSG-6326</gml:identifier>
+			<gml:name>World Geodetic System 1984</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#EPSG-7030"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
+	<!-- International 1924 Authalic Sphere datum -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="EPSG-6053">
+			<gml:identifier codeSpace="EPSG">EPSG-6053</gml:identifier>
+			<gml:name>International 1924 Authalic Sphere</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#EPSG-7057"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
+	<!-- Mean Sea Level datum -->
+	<gml:dictionaryEntry>
+		<gml:VerticalDatum gml:id="EPSG-5100">
+			<gml:identifier codeSpace="EPSG">EPSG-5100</gml:identifier>
+			<gml:name>Mean Sea Level</gml:name>
+			<gml:scope>World</gml:scope>
+		</gml:VerticalDatum>
+	</gml:dictionaryEntry>
+
+	<!-- Unified Model Datum -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="UKMO-UM-DATUM-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-DATUM-1</gml:identifier>
+			<gml:name>Unified Model Datum</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#UKMO-UM-SPHERE-1"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
+	<!-- NEMO Ocean Model Datum -->
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="UKMO-NEMO-DATUM-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-DATUM-1</gml:identifier>
+			<gml:name>NEMO Ocean Model Datum</gml:name>
+			<gml:scope>World Oceans</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#UKMO-NEMO-SPHERE-1"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
+<!-- Prime Meridians -->
+
+	<!-- Greenwich meridian -->
+	<gml:dictionaryEntry>
+		<gml:PrimeMeridian gml:id="EPSG-8901">
+			<gml:identifier codeSpace="EPSG">EPSG-8901</gml:identifier>
+			<gml:name>Greenwich</gml:name>
+			<gml:greenwichLongitude uom="urn:x-epsg:v6.17:uom:degree">0</gml:greenwichLongitude>
+		</gml:PrimeMeridian>
+	</gml:dictionaryEntry>
+
+<!-- Ellipsoids -->
+
+	<!-- WGS 1984 ellipsoid -->
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="EPSG-7030">
+			<gml:identifier codeSpace="EPSG">EPSG-7030</gml:identifier>
+			<gml:name>WGS 1984</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6378137.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter>
+					<gml:inverseFlattening uom="urn:x-epsg:v6.17:uom:unity">298.257223563</gml:inverseFlattening>
+				</gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<!-- GRS 1980 Authalic Sphere -->
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="EPSG-7048">
+			<gml:identifier codeSpace="EPSG">EPSG-7048</gml:identifier>
+			<gml:name>GRS 1980 Authalic Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371007.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<!-- International 1924 Authalic Sphere -->
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="EPSG-7057">
+			<gml:identifier codeSpace="EPSG">EPSG-7057</gml:identifier>
+			<gml:name>International 1924 Authalic Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371228.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<!-- Unified Model Sphere -->
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="UKMO-UM-SPHERE-1">
+			<gml:identifier codeSpace="UKMO">UKMO-UM-SPHERE-1</gml:identifier>
+			<gml:name>Unified Model Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<!-- NEMO/ORCA Grid Sphere -->
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="UKMO-NEMO-SPHERE-1">
+			<gml:identifier codeSpace="UKMO">UKMO-NEMO-SPHERE-1</gml:identifier>
+			<gml:name>NEMO/ORCA Grid Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+<!-- Coordinate System Axes -->
+
+	<!-- Geodetic Latitude -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9901" uom="urn:x-epsg:v6.17:uom:degree">
+			<gml:identifier codeSpace="EPSG">EPSG-9901</gml:identifier>
+			<gml:name>Geodetic Latitude</gml:name>
+			<gml:axisAbbrev>Latitude</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">north</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Geodetic Longitude -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9902" uom="urn:x-epsg:v6.17:uom:degree">
+			<gml:identifier codeSpace="EPSG">EPSG-9902</gml:identifier>
+			<gml:name>Geodetic Longitude</gml:name>
+			<gml:axisAbbrev>Longitude</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">east</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Ellipsoidal Height -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9903" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9903</gml:identifier>
+			<gml:name>Ellipsoidal Height</gml:name>
+			<gml:axisAbbrev>Height</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">up</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Gravity-related Height -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9904" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9904</gml:identifier>
+			<gml:name>Gravity-related Height</gml:name>
+			<gml:axisAbbrev>Height</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">up</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Gravity-related Depth -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9905" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9905</gml:identifier>
+			<gml:name>Gravity-related Depth</gml:name>
+			<gml:axisAbbrev>Depth</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">down</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+	
+	<!-- Spherical Latitude -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9926" uom="urn:x-epsg:v6.17:uom:degree">
+			<gml:identifier codeSpace="EPSG">EPSG-9926</gml:identifier>
+			<gml:name>Spherical Latitude</gml:name>
+			<gml:axisAbbrev>Latitude</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">north</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Spherical Longitude -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9927" uom="urn:x-epsg:v6.17:uom:degree">
+			<gml:identifier codeSpace="EPSG">EPSG-9927</gml:identifier>
+			<gml:name>Spherical Longitude</gml:name>
+			<gml:axisAbbrev>Longitude</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">east</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Geocentric Radius -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9928" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9928</gml:identifier>
+			<gml:name>Geocentric Radius</gml:name>
+			<gml:axisAbbrev>Radius</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">up</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Easting -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9906" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9906</gml:identifier>
+			<gml:name>Easting</gml:name>
+			<gml:axisAbbrev>X</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">east</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+		
+	<!-- Northing -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9907" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9907</gml:identifier>
+			<gml:name>Northing</gml:name>
+			<gml:axisAbbrev>Y</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">north</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Model Level -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="UKMO-AXIS-MLEVEL" uom="urn:x-epsg:v6.17:uom:unity">
+			<gml:identifier codeSpace="UKMO">UKMO-AXIS-MLEVEL</gml:identifier>
+			<gml:name>Model Level</gml:name>
+			<gml:axisAbbrev>L</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="UKMO">up</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+
+	<!-- Pressure Level -->
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="UKMO-AXIS-PLEVEL" uom="hPa">
+			<gml:identifier codeSpace="UKMO">UKMO-AXIS-PLEVEL</gml:identifier>
+			<gml:name>Pressure Level</gml:name>
+			<gml:axisAbbrev>P</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="UKMO">down</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+	
+</gml:Dictionary>

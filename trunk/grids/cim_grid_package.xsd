@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
+	elementFormDefault="qualified"
+	version="0.1">
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/geometryBasic0d1d.xsd"/>
+	<!--  -->
+	<!-- Definition of CustomGridGeometry element and type  -->
+	<xs:element name="CustomGridGeometry" type="CustomGridGeometryType" substitutionGroup="gml:AbstractGeometry"/>
+	<xs:complexType name="CustomGridGeometryType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractGeometryType">
+				<xs:sequence>
+					<xs:element name="geometrySpec" type="xs:anyType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--  -->
+	<!-- Definition of CustomFeatureGeometry element and type -->
+	<xs:element name="CustomFeatureGeometry" type="CustomFeatureGeometryType" substitutionGroup="gml:AbstractGeometry"/>
+	<xs:complexType name="CustomFeatureGeometryType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractGeometryType">
+				<xs:sequence>
+					<xs:element name="geometrySpec" type="xs:anyType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
