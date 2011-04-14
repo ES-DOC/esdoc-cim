@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 13 April 2011, 17:14 -->       
+<!-- generated: 13 April 2011, 18:20 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -58,9 +58,14 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
       <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="citationList" minOccurs="0" maxOccurs="1" type="CitationList">
+      <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
+            <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Specifies the long name associated with a grid mosaic. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
@@ -68,24 +73,19 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
             <xs:documentation>A free-text description of a grid mosaic.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="citationList" minOccurs="0" maxOccurs="1" type="CitationList">
+         <xs:annotation>
+            <xs:documentation>Optional container element for specifying a list of references that describe the grid.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
-      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Specifies the long name associated with a grid mosaic. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridTile--><!--Whose id is: EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
-   <xs:attribute name="congruentTiles" use="optional" type="xs:boolean">
+   <xs:attribute name="id" use="required" type="Identifier">
       <xs:annotation>
-         <xs:documentation>Indicates whether or not all the tiles contained within a grid mosaic are congruent, that is, of the same size and shape.</xs:documentation>
+         <xs:documentation>Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records within a given modelling activity (such as CMIP5).</xs:documentation>
       </xs:annotation>
    </xs:attribute>
    <xs:attribute name="gridType" use="required" type="GridTypeEnum">
@@ -93,9 +93,9 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
          <xs:documentation>Specifies the type of all the grid tiles contained in a grid mosaic. It is assumed that all of the tiles comprising a given grid mosaic are of the same type. The value domain is as per the specified enumeration list.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="id" use="required" type="Identifier">
+   <xs:attribute name="congruentTiles" use="optional" type="xs:boolean">
       <xs:annotation>
-         <xs:documentation>Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records within a given modelling activity (such as CMIP5).</xs:documentation>
+         <xs:documentation>Indicates whether or not all the tiles contained within a grid mosaic are congruent, that is, of the same size and shape.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
    <xs:attribute name="isLeaf" use="required" type="xs:boolean">
@@ -103,14 +103,14 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
          <xs:documentation>Indicates whether or not a grid mosaic is a leaf mosaic, that is, it only contains child grid tiles not further mosaics.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="numMosaics" use="optional" type="xs:integer">
-      <xs:annotation>
-         <xs:documentation>Specifies the number of mosaics associated with a non-leaf grid mosaic. Set to zero if the grid mosaic is a leaf mosaic, i.e. it contains child grid tiles not mosaics.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="numTiles" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the number of tiles associated with a leaf grid mosaic. Set to zero if the grid mosaic is not a leaf mosaic, i.e. it contains child grid mosaics rather than tiles. (Added to align with equivalent ESG/Curator property.)</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="numMosaics" use="optional" type="xs:integer">
+      <xs:annotation>
+         <xs:documentation>Specifies the number of mosaics associated with a non-leaf grid mosaic. Set to zero if the grid mosaic is a leaf mosaic, i.e. it contains child grid tiles not mosaics.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
    <xs:attribute name="refinementScheme" use="optional" type="RefinementTypeEnum"/>
@@ -136,6 +136,11 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
          </xs:annotation>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="numDims" use="required" type="xs:integer">
+      <xs:annotation>
+         <xs:documentation>Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
    <xs:attribute name="dimOrder" use="optional" type="xs:string">
       <xs:annotation>
          <xs:documentation>Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is "yx" ("zyx" for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.</xs:documentation>
@@ -144,11 +149,6 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
    <xs:attribute name="isMesh" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Set to True if the grid geometry defines a grid mesh that fully partitions a 2D or 3D space. Set to false (the default) if the grid geometry simply defines the locations of grid nodes, making no statement about the shape or extent of surrounding grid cells.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
-   <xs:attribute name="numDims" use="required" type="xs:integer">
-      <xs:annotation>
-         <xs:documentation>Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
@@ -181,10 +181,10 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
       <xs:documentation>DataType for recording the geographic extent of a gridMosaic or gridTile.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="latMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="latMin" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="lonMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="latMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="lonMin" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="lonMax" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="units" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
 </xs:complexType>
@@ -223,9 +223,9 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identification">
    <xs:sequence>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EdgeArray">
@@ -255,16 +255,6 @@ targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">
 A GridCellRef object consists of a reference to a cell in a separately-defined grid tile, together with an optional fractional area that indicates the portion of the target cell 'occupied' by the referring cell. If this area is not specified, a default value of 1.0 is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell ID elements, or as a text string attribute (idPath) containing colon-separated ID values terminated with a number representing the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="cellID" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Specifies the ID of a remotely-defined grid cell object</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="fractionalArea" minOccurs="0" maxOccurs="1" type="xs:double">
-         <xs:annotation>
-            <xs:documentation>This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual geometry of the fractional part is not defined. If this property is not specified a default value of 1 is assumed.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="mosaicID" minOccurs="0" maxOccurs="unbounded" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the ID of a remotely-defined grid mosaic object.</xs:documentation>
@@ -273,6 +263,16 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:element name="tileID" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the ID of a remotely-defined grid tile object</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="cellID" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Specifies the ID of a remotely-defined grid cell object</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="fractionalArea" minOccurs="0" maxOccurs="1" type="xs:double">
+         <xs:annotation>
+            <xs:documentation>This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual geometry of the fractional part is not defined. If this property is not specified a default value of 1 is assumed.</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
@@ -287,13 +287,6 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="arrivalAngle" minOccurs="0" maxOccurs="1" type="gml:MeasureType"/>
-      <xs:element name="departureAngle" minOccurs="0" maxOccurs="1" type="gml:MeasureType"/>
-      <xs:element name="length" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
-         <xs:annotation>
-            <xs:documentation>Specifies the length of the edge in the units defined using the 'uom' attribute that is attached to the GML MeasureType data type.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="vertex1" minOccurs="1" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>Specifies the position of the first (start) point of the edge.</xs:documentation>
@@ -304,6 +297,13 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
             <xs:documentation>Specifies the position of the second (end) point of the edge.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
+         <xs:annotation>
+            <xs:documentation>Specifies the length of the edge in the units defined using the 'uom' attribute that is attached to the GML MeasureType data type.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalAngle" minOccurs="0" maxOccurs="1" type="gml:MeasureType"/>
+      <xs:element name="departureAngle" minOccurs="0" maxOccurs="1" type="gml:MeasureType"/>
    </xs:sequence>
    <xs:attribute name="arcType" use="required" type="ArcTypeEnum"/>
 </xs:complexType>
@@ -452,8 +452,8 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                     <xs:sequence>
       <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="GridProperty"/>
    </xs:sequence>
-   <xs:attribute name="coordinateForm" use="optional" type="VerticalCoordinateFormTypeEnum"/>
-   <xs:attribute name="coordinateType" use="optional" type="VerticalCoordinateTypeEnum"/>  
+   <xs:attribute name="coordinateType" use="optional" type="VerticalCoordinateTypeEnum"/>
+   <xs:attribute name="coordinateForm" use="optional" type="VerticalCoordinateFormTypeEnum"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -479,6 +479,19 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:complexContent>
          <xs:extension base="GridSpec">
             <xs:sequence>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
@@ -496,19 +509,6 @@ This includes information about the authoring institution.</xs:documentation>
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
-                  <xs:annotation>
-                     <xs:documentation>a unique indentifier for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                  <xs:annotation>
-                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
-               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
@@ -525,14 +525,14 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:documentation>The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate value and the offset (spacing) value need to be specified; however, the length attribute must still define the final 'as-built' size of the coordinate list.</xs:documentation>
    </xs:annotation>
    <xs:sequence/>
-   <xs:attribute name="hasConstantOffset" use="optional" type="xs:boolean">
-      <xs:annotation>
-         <xs:documentation>Set to true if coordinates in the built array have constant offset.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="length" use="optional" type="xs:integer">
       <xs:annotation>
          <xs:documentation>Specifies the length of the coordinate array. This should always be the final, as-built length of the array if the hasConstantOffset property is set to true and the compact notation (start coordinate plus offset) is used.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="hasConstantOffset" use="optional" type="xs:boolean">
+      <xs:annotation>
+         <xs:documentation>Set to true if coordinates in the built array have constant offset.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
    <xs:attribute name="uom" use="optional" type="xs:string">
@@ -755,14 +755,14 @@ If required, two or more coordinate pole definitions may be distinguished by set
       <xs:documentation>This abstract base class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. Vertices are either defined directly (e.g. in the case of a SimpleGridCell object), or indirectly by referencing a remote grid cell (in the case of an ExchangeGridCell object).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="area" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
-         <xs:annotation>
-            <xs:documentation>Optionally specifies the area of a 2D grid cell (or the footprint of a 3D grid cell). The units used must be specified via the 'uom' attribute associated with GML's MeasureType class.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="centroid" minOccurs="0" maxOccurs="1" type="gml:PointType">
          <xs:annotation>
             <xs:documentation>Optionally specifies the coordinate location of the centroid of a grid cell.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="area" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
+         <xs:annotation>
+            <xs:documentation>Optionally specifies the area of a 2D grid cell (or the footprint of a 3D grid cell). The units used must be specified via the 'uom' attribute associated with GML's MeasureType class.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="volume" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
