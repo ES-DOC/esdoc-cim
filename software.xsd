@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 13 April 2011, 18:20 -->       
+<!-- generated: 14 April 2011, 5:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.purl.org/esmetadata/cim/1.5/schemas"       
-targetNamespace="http://www.purl.org/esmetadata/cim/1.5/schemas">       
+            xmlns="http://www.purl.org/org/esmetadata/cim/1.5/schemas"       
+targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -45,7 +45,7 @@ Documents should use either the spatialRegriddingStandardMethod _or_ the spatial
       <xs:element name="spatialRegriddingProperty" minOccurs="0" maxOccurs="unbounded"
                   type="SpatialRegriddingProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: SpatialRegriddingProperty--><!--Whose id is: EAID_7EE91063_48BD_4e06_8ADE_02F275B47ADA--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
-   <xs:attribute name="spatialRegriddingDimension" use="required"
+   <xs:attribute name="spatialRegriddingDimension" use="optional"
                  type="SpatialRegriddingDimensionType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentLanguage">
@@ -1361,6 +1361,8 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:enumeration value="cubic"/>
       <xs:enumeration value="conservative-first-order"/>
       <xs:enumeration value="conservative-second-order"/>
+      <xs:enumeration value="conservative"/>
+      <xs:enumeration value="non-conservative"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType" mixed="true">
@@ -1549,7 +1551,7 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
       <xs:element name="rate" minOccurs="0" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
    <xs:attribute name="units" use="required" type="TimingUnits"/>
-   <xs:attribute name="variableRate" use="required" type="xs:boolean">
+   <xs:attribute name="variableRate" use="optional" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Describes whether or not the model supports a variable timestep.  If set to true, then rate should not be specified.</xs:documentation>
       </xs:annotation>
