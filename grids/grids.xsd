@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 29 March 2011, 9:02 -->       
+<!-- generated: 14 April 2011, 5:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -80,8 +80,8 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">
       </xs:element>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="GridExtent"/>
       <xs:element name="mnemonic" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridTile--><!--Whose id is: EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"><!--I am looking at: UML:AssociationEnd--><!--And the class is: GridMosaic--><!--Whose id is: EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="id" use="required" type="Identifier">
       <xs:annotation>
@@ -438,6 +438,7 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:enumeration value="unstructured_triangular"/>
       <xs:enumeration value="pixel-based_catchment"/>
       <xs:enumeration value="unstructured_polygonal"/>
+      <xs:enumeration value="spherical_harmonics"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
