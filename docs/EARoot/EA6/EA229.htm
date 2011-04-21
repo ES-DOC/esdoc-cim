@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::Coupling</title>
+<title>software::CouplingEndPoint</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Coupling  : public   class</span>
+	<span class="ObjectTitle">CouplingEndPoint  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/17/2008 1:08:27 PM</td>
+			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/26/2009 3:01:03 PM</td>
+			<td class="ObjectDetailsValue">11/19/2010 8:51:32 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,20 +57,18 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8F8A0E0F-1405-406c-B767-8204C217EE0F}</td>
+			<td class="ObjectDetailsValue">{B1CC549E-2556-455e-98D9-9A8DA2551597}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A coupling represents a set of Connections between a source and target component.&#160; Couplings can be complete or incomplete.&#160; If they are complete then they must include all Connections between model properties.&#160; If they are incomplete then the connections can be underspecified or not listed at all.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">The source/target of a coupling.&#160; This is a DataSource (a SoftwareComponent or DataObject).&#160; This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
-			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -78,240 +76,30 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA173.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;dataSource</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes811" onclick="parent.toggleDiv('detailsDIVAttributes811','DetailsImageAttributes811')" />Details:
-						<div id="detailsDIVAttributes811" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes836" onclick="parent.toggleDiv('detailsDIVAttributes836','DetailsImageAttributes836')" />Details:
+						<div id="detailsDIVAttributes836" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA180.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;instanceID</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes837" onclick="parent.toggleDiv('detailsDIVAttributes837','DetailsImageAttributes837')" />Details:
+						<div id="detailsDIVAttributes837" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A free-text description of the coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA228.htm">ConnectionType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes812" onclick="parent.toggleDiv('detailsDIVAttributes812','DetailsImageAttributes812')" />Details:
-						<div id="detailsDIVAttributes812" class="DetailsDiv" >
-						<i>Range:0 to 1</i>anonymousRole=false<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes the method of coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA172.htm">DataPurpose</a></i><br /><strong>&nbsp;&nbsp;purpose</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes813" onclick="parent.toggleDiv('detailsDIVAttributes813','DetailsImageAttributes813')" />Details:
-						<div id="detailsDIVAttributes813" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;fullySpecified</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes814" onclick="parent.toggleDiv('detailsDIVAttributes814','DetailsImageAttributes814')" />Details:
-						<div id="detailsDIVAttributes814" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			If &quot;true&quot; then the coupling is fully-specified.&nbsp;<WBR> If &quot;false&quot; then not every Connection has been described within the coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA253.htm">Timing</a></i><br /><strong>&nbsp;&nbsp;timeProfile</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes815" onclick="parent.toggleDiv('detailsDIVAttributes815','DetailsImageAttributes815')" />Details:
-						<div id="detailsDIVAttributes815" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes how often the coupling takes place.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public TimeLag</i><br /><strong>&nbsp;&nbsp;timeLag</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes816" onclick="parent.toggleDiv('detailsDIVAttributes816','DetailsImageAttributes816')" />Details:
-						<div id="detailsDIVAttributes816" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			 The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public SpatialRegridding</i><br /><strong>&nbsp;&nbsp;spatialRegridding</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes817" onclick="parent.toggleDiv('detailsDIVAttributes817','DetailsImageAttributes817')" />Details:
-						<div id="detailsDIVAttributes817" class="DetailsDiv" >
-						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public TimeTransformation</i><br /><strong>&nbsp;&nbsp;timeTransformation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes818" onclick="parent.toggleDiv('detailsDIVAttributes818','DetailsImageAttributes818')" />Details:
-						<div id="detailsDIVAttributes818" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Temporal transformation performed on the coupling field before or after regridding onto the target grid. 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA230.htm">CouplingEndPoint</a></i><br /><strong>&nbsp;&nbsp;couplingSource</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes819" onclick="parent.toggleDiv('detailsDIVAttributes819','DetailsImageAttributes819')" />Details:
-						<div id="detailsDIVAttributes819" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The source component of the coupling.&nbsp;<WBR> (note that there can be multiple sources)
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA230.htm">CouplingEndPoint</a></i><br /><strong>&nbsp;&nbsp;couplingTarget</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes820" onclick="parent.toggleDiv('detailsDIVAttributes820','DetailsImageAttributes820')" />Details:
-						<div id="detailsDIVAttributes820" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The target component of the coupling
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA240.htm">ProcessorComponent</a></i><br /><strong>&nbsp;&nbsp;transformer</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes821" onclick="parent.toggleDiv('detailsDIVAttributes821','DetailsImageAttributes821')" />Details:
-						<div id="detailsDIVAttributes821" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			An &quot;in-line&quot; transformer.&nbsp;<WBR> This references a fully-described transformer (typically that forms part of the top-level composition) used in the context of this coupling.&nbsp;<WBR> It is used instead of separately specifying a spatialRegridding, timeTransformation, etc. here.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA173.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;priming</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes822" onclick="parent.toggleDiv('detailsDIVAttributes822','DetailsImageAttributes822')" />Details:
-						<div id="detailsDIVAttributes822" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A priming source is one that is active on the first available timestep only (before &quot;proper&quot; coupling can ocurr).&nbsp;<WBR> It can either be described here explicitly, or else a separate coupling/connection with a timing profile that is active on only the first timestep can be created.
+			If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).
 		</td>
 	</tr>
 </table></div>
@@ -324,65 +112,25 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes823" onclick="parent.toggleDiv('detailsDIVAttributes823','DetailsImageAttributes823')" />Details:
-						<div id="detailsDIVAttributes823" class="DetailsDiv" >
-						<i>Range:0 to *</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes838" onclick="parent.toggleDiv('detailsDIVAttributes838','DetailsImageAttributes838')" />Details:
+						<div id="detailsDIVAttributes838" class="DetailsDiv" >
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A place to describe features specific to the source/target of a coupling
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsFromTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA225.htm">Connection</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink825" onclick="parent.toggleDiv('detailsDIVLink825','DetailsImageLink825')" />Details:
-							<div id="detailsDIVLink825" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="LinksTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="15%" class="TableHeading">Type</td>
-					<td width="15%" class="TableHeading">Connection</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA225.htm">Connection</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
 	</div>
 <div class="pageFooter"></div>
  

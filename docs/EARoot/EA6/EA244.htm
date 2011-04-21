@@ -16,7 +16,7 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">SoftwareComponent  : public  &lt;&lt;abstract&gt;&gt; class</span>
+	<span class="ObjectTitle">SoftwareComponent  : public  &lt;&lt;abstract&gt;&gt; abstract</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
@@ -64,11 +64,12 @@ function initPage(src) {
 			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA204.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">&lt;p&gt;A SofwareCompnent is an abstract component from which all other components derive.&#160; It represents an element that takes input data and generates output data.&#160; A SoftwareCompnent can include nested &quot;child&quot; components.&#160; Every component can have &quot;componentProperties&quot; which describe the scientific properties that a component simulates (for example, temperature, pressure, etc.) and the numerical properties that influence how a component performs its simulation (for example, the force of gravity). A SoftwareComponent can also have a Deployment, which describes how software is deployed onto computing resources.&#160; And a SoftwareComponent can have a composition, which describes how ComponentProperties are coupled together either to/from other SoftwareComponents or external data files.&#160; The properties specified by a component&#39;s composition must be owned by that component or a child of that component; child components cannot couple together their parents&#39; properties.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">A SofwareCompnent is an abstract component from which all other components derive.&#160; It represents an element that takes input data and generates output data.&#160; A SoftwareCompnent can include nested &quot;child&quot; components.&#160; Every component can have &quot;componentProperties&quot; which describe the scientific properties that a component simulates (for example, temperature, pressure, etc.) and the numerical properties that influence how a component performs its simulation (for example, the force of gravity). A SoftwareComponent can also have a Deployment, which describes how software is deployed onto computing resources.&#160; And a SoftwareComponent can have a composition, which describes how ComponentProperties are coupled together either to/from other SoftwareComponents or external data files.&#160; The properties specified by a component&#39;s composition must be owned by that component or a child of that component; child components cannot couple together their parents&#39; properties.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
@@ -82,8 +83,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes962" onclick="parent.toggleDiv('detailsDIVAttributes962','DetailsImageAttributes962')" />Details:
-						<div id="detailsDIVAttributes962" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes975" onclick="parent.toggleDiv('detailsDIVAttributes975','DetailsImageAttributes975')" />Details:
+						<div id="detailsDIVAttributes975" class="DetailsDiv" >
 						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -103,8 +104,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes963" onclick="parent.toggleDiv('detailsDIVAttributes963','DetailsImageAttributes963')" />Details:
-						<div id="detailsDIVAttributes963" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes976" onclick="parent.toggleDiv('detailsDIVAttributes976','DetailsImageAttributes976')" />Details:
+						<div id="detailsDIVAttributes976" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -124,8 +125,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes964" onclick="parent.toggleDiv('detailsDIVAttributes964','DetailsImageAttributes964')" />Details:
-						<div id="detailsDIVAttributes964" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes977" onclick="parent.toggleDiv('detailsDIVAttributes977','DetailsImageAttributes977')" />Details:
+						<div id="detailsDIVAttributes977" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -145,8 +146,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes965" onclick="parent.toggleDiv('detailsDIVAttributes965','DetailsImageAttributes965')" />Details:
-						<div id="detailsDIVAttributes965" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes978" onclick="parent.toggleDiv('detailsDIVAttributes978','DetailsImageAttributes978')" />Details:
+						<div id="detailsDIVAttributes978" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -162,12 +163,12 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA221.htm">ComponentProperties</a></i><br /><strong>&nbsp;&nbsp;componentProperties</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA220.htm">ComponentProperties</a></i><br /><strong>&nbsp;&nbsp;componentProperties</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes966" onclick="parent.toggleDiv('detailsDIVAttributes966','DetailsImageAttributes966')" />Details:
-						<div id="detailsDIVAttributes966" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes979" onclick="parent.toggleDiv('detailsDIVAttributes979','DetailsImageAttributes979')" />Details:
+						<div id="detailsDIVAttributes979" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -187,8 +188,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes967" onclick="parent.toggleDiv('detailsDIVAttributes967','DetailsImageAttributes967')" />Details:
-						<div id="detailsDIVAttributes967" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes980" onclick="parent.toggleDiv('detailsDIVAttributes980','DetailsImageAttributes980')" />Details:
+						<div id="detailsDIVAttributes980" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -208,8 +209,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes968" onclick="parent.toggleDiv('detailsDIVAttributes968','DetailsImageAttributes968')" />Details:
-						<div id="detailsDIVAttributes968" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes981" onclick="parent.toggleDiv('detailsDIVAttributes981','DetailsImageAttributes981')" />Details:
+						<div id="detailsDIVAttributes981" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -229,8 +230,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes969" onclick="parent.toggleDiv('detailsDIVAttributes969','DetailsImageAttributes969')" />Details:
-						<div id="detailsDIVAttributes969" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes982" onclick="parent.toggleDiv('detailsDIVAttributes982','DetailsImageAttributes982')" />Details:
+						<div id="detailsDIVAttributes982" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -250,8 +251,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes970" onclick="parent.toggleDiv('detailsDIVAttributes970','DetailsImageAttributes970')" />Details:
-						<div id="detailsDIVAttributes970" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes983" onclick="parent.toggleDiv('detailsDIVAttributes983','DetailsImageAttributes983')" />Details:
+						<div id="detailsDIVAttributes983" class="DetailsDiv" >
 						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
@@ -261,8 +262,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes971" onclick="parent.toggleDiv('detailsDIVAttributes971','DetailsImageAttributes971')" />Details:
-						<div id="detailsDIVAttributes971" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes984" onclick="parent.toggleDiv('detailsDIVAttributes984','DetailsImageAttributes984')" />Details:
+						<div id="detailsDIVAttributes984" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -282,8 +283,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes972" onclick="parent.toggleDiv('detailsDIVAttributes972','DetailsImageAttributes972')" />Details:
-						<div id="detailsDIVAttributes972" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes985" onclick="parent.toggleDiv('detailsDIVAttributes985','DetailsImageAttributes985')" />Details:
+						<div id="detailsDIVAttributes985" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
@@ -293,8 +294,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes973" onclick="parent.toggleDiv('detailsDIVAttributes973','DetailsImageAttributes973')" />Details:
-						<div id="detailsDIVAttributes973" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes986" onclick="parent.toggleDiv('detailsDIVAttributes986','DetailsImageAttributes986')" />Details:
+						<div id="detailsDIVAttributes986" class="DetailsDiv" >
 						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -314,8 +315,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes974" onclick="parent.toggleDiv('detailsDIVAttributes974','DetailsImageAttributes974')" />Details:
-						<div id="detailsDIVAttributes974" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes987" onclick="parent.toggleDiv('detailsDIVAttributes987','DetailsImageAttributes987')" />Details:
+						<div id="detailsDIVAttributes987" class="DetailsDiv" >
 						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
@@ -325,8 +326,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes975" onclick="parent.toggleDiv('detailsDIVAttributes975','DetailsImageAttributes975')" />Details:
-						<div id="detailsDIVAttributes975" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes988" onclick="parent.toggleDiv('detailsDIVAttributes988','DetailsImageAttributes988')" />Details:
+						<div id="detailsDIVAttributes988" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -346,8 +347,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes976" onclick="parent.toggleDiv('detailsDIVAttributes976','DetailsImageAttributes976')" />Details:
-						<div id="detailsDIVAttributes976" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes989" onclick="parent.toggleDiv('detailsDIVAttributes989','DetailsImageAttributes989')" />Details:
+						<div id="detailsDIVAttributes989" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -363,12 +364,12 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA219.htm">ComponentLanguage</a></i><br /><strong>&nbsp;&nbsp;componentLanguage</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA218.htm">ComponentLanguage</a></i><br /><strong>&nbsp;&nbsp;componentLanguage</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes977" onclick="parent.toggleDiv('detailsDIVAttributes977','DetailsImageAttributes977')" />Details:
-						<div id="detailsDIVAttributes977" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes990" onclick="parent.toggleDiv('detailsDIVAttributes990','DetailsImageAttributes990')" />Details:
+						<div id="detailsDIVAttributes990" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
@@ -378,8 +379,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes978" onclick="parent.toggleDiv('detailsDIVAttributes978','DetailsImageAttributes978')" />Details:
-						<div id="detailsDIVAttributes978" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes991" onclick="parent.toggleDiv('detailsDIVAttributes991','DetailsImageAttributes991')" />Details:
+						<div id="detailsDIVAttributes991" class="DetailsDiv" >
 						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -397,6 +398,39 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA244.htm">«abstract» SoftwareComponent</a><br />
+						Abstract &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> childComponent<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> parentComponent<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink994" onclick="parent.toggleDiv('detailsDIVLink994','DetailsImageLink994')" />Details:
+							<div id="detailsDIVLink994" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
 		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
@@ -420,31 +454,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink983" onclick="parent.toggleDiv('detailsDIVLink983','DetailsImageLink983')" />Details:
-							<div id="detailsDIVLink983" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA224.htm">Composition</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink985" onclick="parent.toggleDiv('detailsDIVLink985','DetailsImageLink985')" />Details:
-							<div id="detailsDIVLink985" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink997" onclick="parent.toggleDiv('detailsDIVLink997','DetailsImageLink997')" />Details:
+							<div id="detailsDIVLink997" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -466,8 +477,54 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink986" onclick="parent.toggleDiv('detailsDIVLink986','DetailsImageLink986')" />Details:
-							<div id="detailsDIVLink986" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink998" onclick="parent.toggleDiv('detailsDIVLink998','DetailsImageLink998')" />Details:
+							<div id="detailsDIVLink998" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA244.htm">«abstract» SoftwareComponent</a><br />
+						Abstract &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> childComponent<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> parentComponent<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink999" onclick="parent.toggleDiv('detailsDIVLink999','DetailsImageLink999')" />Details:
+							<div id="detailsDIVLink999" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA223.htm">Composition</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1000" onclick="parent.toggleDiv('detailsDIVLink1000','DetailsImageLink1000')" />Details:
+							<div id="detailsDIVLink1000" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -497,13 +554,25 @@ function initPage(src) {
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA232.htm">Dependencies</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
 					<td width="30%" class="TableRow" valign="top"><a href="EA236.htm">«document» ModelComponent</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA224.htm">Composition</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA244.htm">«abstract» SoftwareComponent</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA223.htm">Composition</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
@@ -512,12 +581,6 @@ function initPage(src) {
 					<td width="30%" class="TableRow" valign="top"><a href="../EA5/EA173.htm">«abstract» DataSource</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA232.htm">Dependencies</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 
