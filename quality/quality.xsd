@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 29 March 2011, 9:02 -->       
+<!-- generated: 14 April 2011, 5:31 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -310,10 +310,10 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">
          </xs:annotation>
       </xs:element>
       <xs:element name="detail" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityDetail"><!--I am looking at: UML:AssociationEnd--><!--And the class is: CIM_QualityDetail--><!--Whose id is: EAID_D518865F_97F7_4b53_AD48_7A2CB5FFCA95--><!--And there were this many specialisations: 0--></xs:element>
-      <xs:element name="subIssue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"><!--I am looking at: UML:AssociationEnd--><!--And the class is: CIM_QualityIssue--><!--Whose id is: EAID_E2CD66DE_B23F_4021_BD65_4EB8139E413E--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="finalResolution" minOccurs="0" maxOccurs="1" type="CIM_QualityResolution"><!--I am looking at: UML:AssociationEnd--><!--And the class is: CIM_QualityResolution--><!--Whose id is: EAID_F0233E60_11F1_4745_B709_591B9AABB50E--><!--And there were this many specialisations: 0--></xs:element>
       <xs:element name="partialResolution" minOccurs="0" maxOccurs="unbounded"
                   type="CIM_QualityResolution"><!--I am looking at: UML:AssociationEnd--><!--And the class is: CIM_QualityResolution--><!--Whose id is: EAID_F0233E60_11F1_4745_B709_591B9AABB50E--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="subIssue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"><!--I am looking at: UML:AssociationEnd--><!--And the class is: CIM_QualityIssue--><!--Whose id is: EAID_E2CD66DE_B23F_4021_BD65_4EB8139E413E--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>
    <xs:attribute name="issueSeverity" use="required" type="QualitySeverityType">
       <xs:annotation>

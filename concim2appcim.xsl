@@ -17,7 +17,7 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
-    <xsl:param name="namespace">http://www.purl.org/esmetadata/cim</xsl:param>
+    <xsl:param name="namespace">http://www.purl.org/org/esmetadata/cim</xsl:param>
     <xsl:param name="sort-attributes">false</xsl:param>
     <xsl:param name="debug">false</xsl:param>
 
