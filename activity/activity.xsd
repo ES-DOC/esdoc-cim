@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 14 April 2011, 5:31 -->       
+<!-- generated: 29 April 2011, 6:49 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1810,7 +1810,12 @@ This includes information about the authoring institution.</xs:documentation>
          </xs:complexType>
       </xs:element>
       <xs:element name="deployment" minOccurs="0" maxOccurs="unbounded" type="Deployment"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Deployment--><!--Whose id is: EAID_E26C5CC0_EC73_4dfc_B206_99751DDA51BD--><!--And there were this many specialisations: 0--></xs:element>
-   </xs:sequence>  
+   </xs:sequence>
+   <xs:attribute name="simulationURL" use="optional" type="xs:anyURI">
+      <xs:annotation>
+         <xs:documentation>Points to the URL where information about this simulation is maintained (primarily for CCSM)</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
