@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 29 April 2011, 17:32 -->       
+<!-- generated: 3 May 2011, 10:13 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -373,7 +373,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="esmfAttributes" minOccurs="0" maxOccurs="1">
+      <xs:element name="externalAttributes" minOccurs="0" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>this element contains extensions to the CIM; a
                                             container element is required to prevent ambiguity among extensible
