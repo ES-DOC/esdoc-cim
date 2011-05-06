@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 3 May 2011, 10:13 -->       
+<!-- generated: 6 May 2011, 9:25 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -371,20 +371,6 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                </xs:element>
                <xs:element name="grid" type="gml:AbstractGeometryType"/>
             </xs:choice>
-         </xs:complexType>
-      </xs:element>
-      <xs:element name="externalAttributes" minOccurs="0" maxOccurs="1">
-         <xs:annotation>
-            <xs:documentation>this element contains extensions to the CIM; a
-                                            container element is required to prevent ambiguity among extensible
-                                            content and optional content (please use namespaces for extended
-                                            content)</xs:documentation>
-         </xs:annotation>
-         <xs:complexType>
-            <xs:sequence>
-               <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
-            <xs:anyAttribute namespace="##any" processContents="lax"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="composition" minOccurs="0" maxOccurs="1" type="Composition"><!--I am looking at: UML:AssociationEnd--><!--And the class is: Composition--><!--Whose id is: EAID_44C533A0_F8E2_4ce4_B065_E2D45210BE53--><!--And there were this many specialisations: 0--></xs:element>
