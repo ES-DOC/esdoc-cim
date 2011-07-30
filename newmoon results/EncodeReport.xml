@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ndg.services.newmoon/results-stylesheet.xsl"?>
+<cr:results xmlns:cr="http://ndg.service.newmoon.conftest-result/1.0" resource="MyResource">
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="1" suiteId="xmi11ea" description="Creates a the base xmldb collection and sub-collections where output documents are built up."/>
+    <enc:msg>Deleted existing base collection and created a new collection.</enc:msg>
+    <enc:msg>Created a new working collection.</enc:msg>
+    <enc:msg>Created a new mapping collection.</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="2" suiteId="xmi11ea" description="Populates the type-mapping XMLDB collection."/>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19103_CSL_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19107_Spatial_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19108_Temporal_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19111_CRS_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19115_Metadata.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19115-2_Metadata.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19123_Coverage_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_InterleavedCoverages_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_IS_19136_Annex_D_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_Observation_Core_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_measurement_GML32.xml</enc:msg>
+    <enc:msg>Failed to load https://www.seegrid.csiro.au/subversion/HollowWorld/trunk/ClassMaps/ClassMap_ISO_DIS_19156_Specialized_Observation_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_Coverage_Observation_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_timeSeriesObservation_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_Sampling_Core_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_spatialSamplingFeature_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_samplingPoint_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_samplingCurve_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_samplingSurface_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_samplingSolid_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_Specimen_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_General_Feature_Instance_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19156_Temporal_Coverage_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_sweCommon_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_sweCommon_20_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_SensorML_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_OM1_Observation_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_OM1_Extensions_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_OM2_Sampling_GML32.xml</enc:msg>
+    <enc:msg>Added type-mapping table /db/schema-encoding/xmi11ea/mapping/ClassMap_ISO_19110_GML32.xml</enc:msg>
+    <enc:msg>Failed to load file:///opt/JBoss/server/newmoon/deploy/newmoon.war/WEB-INF/tmpDir/1312056967325/localClassmaps/ClassMap_MOLES34_GML32.xml</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="3" suiteId="xmi11ea" description="Creates stub XML Schema docs for all packages."/>
+    <enc:msg>Stored stub for schema cim.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimGrids.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimCommon.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimQuality.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimProcess.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimData.xsd</enc:msg>
+    <enc:msg>Stored stub for schema cimActivity.xsd</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="4" suiteId="xmi11ea" description="Handles FeatureType stereotyped classes."/>
+    <enc:msg>Added schema annotation from UML:Package/@name='cim 1.91' to schema cim.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cim.xsd</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Grids' to schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimGrids.xsd</enc:msg>
+    <enc:msg>Added global element for class M4G_ExchangeGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_ExchangeGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_ExchangeGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'parentCell' to complexType M4G_ExchangeGridCellType</enc:msg>
+    <enc:msg>Added global element for class M4G_GridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'centroid' to complexType M4G_GridCellType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'area' to complexType M4G_GridCellType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'volume' to complexType M4G_GridCellType</enc:msg>
+    <enc:msg>Added global element for class M4G_GridTile in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridTile in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridTile in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'area' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'cellArray' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'cellRefArray' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'coordFile' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'coordinatePole' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'description' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'discretizationType' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'extent' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'earthFigureGeometry' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'gridNorthPole' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'horizontalCRS' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'horizontalResolution' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'isConformal' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'isRegular' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'isTerrainFollowing' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'isUniform' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'longName' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'mnemonic' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'nx' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'ny' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'nz' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'refinementScheme' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'shortName' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'simpleGridGeom' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'verticalCRS' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'verticalResolution' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'zcoords' to complexType M4G_GridTileType</enc:msg>
+    <enc:msg>Added global element for class M4G_GridMosaic in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridMosaic in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridMosaic in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'shortName' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'longName' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'description' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'gridType' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'congruentTiles' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'isLeaf' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'citationList' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'numTiles' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'numMosaics' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'extent' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'mnemonic' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'refinementScheme' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'gridMosaic' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'gridTile' to complexType M4G_GridMosaicType</enc:msg>
+    <enc:msg>Added global element for class M4G_GridSpec in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridSpec in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridSpec in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'documentMetadata' to complexType M4G_GridSpecType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'esmModelGrid' to complexType M4G_GridSpecType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'esmExchangeGrid' to complexType M4G_GridSpecType</enc:msg>
+    <enc:msg>Added global element for class M4G_SimpleGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_SimpleGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_SimpleGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'vertexArray' to complexType M4G_SimpleGridCellType</enc:msg>
+    <enc:msg>Added global element for class M4G_UnstructuredGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_UnstructuredGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_UnstructuredGridCell in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'edgeArray' to complexType M4G_UnstructuredGridCellType</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Common' to schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimCommon.xsd</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Quality' to schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimQuality.xsd</enc:msg>
+    <enc:msg>Added global element for class M4Q_Quality in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_Quality in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_Quality in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'scope' to complexType M4Q_QualityType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'documentMetadata' to complexType M4Q_QualityType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'issue' to complexType M4Q_QualityType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'report' to complexType M4Q_QualityType</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Process' to schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimProcess.xsd</enc:msg>
+    <enc:msg>Added global element for class M4P_ConfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ConfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ConfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'scientificDescription' to complexType M4P_ConfiguredProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'softwareDescription' to complexType M4P_ConfiguredProcessType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'configures' to complexType M4P_ConfiguredProcessType</enc:msg>
+    <enc:msg>Added global element for class M4P_NumericalProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_NumericalProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_NumericalProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'description' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'type' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'shortName' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'longName' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'documentMetadata' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'generatedObservation' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'simulates' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'compositeObservation' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'previousVersion' to complexType M4P_NumericalProcessType</enc:msg>
+    <enc:msg>Added global element for class M4P_UnconfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_UnconfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_UnconfiguredProcess in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'scientificDescription' to complexType M4P_UnconfiguredProcessType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'softwareDescription' to complexType M4P_UnconfiguredProcessType</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Data' to schema cimData.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimData.xsd</enc:msg>
+    <enc:msg>Added global element for class M4D_DataCollection in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_DataCollection in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_DataCollection in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'dataStatus' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'acronym' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'description' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'hierarchyLevelName' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'hierarchyLevelValue' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'keyword' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'geometryModel' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'documentMetadata' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'storage' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'restriction' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'extent' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'distribution' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'citation' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'content' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'childObject' to complexType M4D_DataCollectionType</enc:msg>
+    <enc:msg>Added schema annotation from UML:Package/@name='Activity' to schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added gml import statement to cimActivity.xsd</enc:msg>
+    <enc:msg>Added global element for class M4A_Project in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Project in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Project in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'fundingSource' to complexType M4A_ProjectType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'projectType' to complexType M4A_ProjectType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'child' to complexType M4A_ProjectType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'procedure' to complexType M4A_ProjectType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'parent' to complexType M4A_ProjectType</enc:msg>
+    <enc:msg>Added global element for class M4A_ObservationStation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_ObservationStation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_ObservationStation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'fixity' to complexType M4A_ObservationStationType</enc:msg>
+    <enc:msg>Added global element for class M4A_Observation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Observation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Observation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'procedure' to complexType M4A_ObservationType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'result' to complexType M4A_ObservationType</enc:msg>
+    <enc:msg>Added global element for class M4A_CompositeObservation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_CompositeObservation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_CompositeObservation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'parameter' to complexType M4A_CompositeObservationType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'procedure' to complexType M4A_CompositeObservationType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'relatedCompositeObservation' to complexType M4A_CompositeObservationType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'result' to complexType M4A_CompositeObservationType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'includes' to complexType M4A_CompositeObservationType</enc:msg>
+    <enc:msg>Added global element for class M4A_NumericalExperiment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_NumericalExperiment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_NumericalExperiment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'shortName' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'longName' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'description' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'experimentID' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'timePeriod' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'numericalRequirement' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:Attribute 'documentMetadata' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'rationale' to complexType M4A_NumericalExperimentType</enc:msg>
+    <enc:msg>Added element for UML:AssociationEnd 'target' to complexType M4A_NumericalExperimentType</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="5" suiteId="xmi11ea" description="Handles Type stereotyped classes."/>
+    <enc:msg>Added global element for class M4G_VerticalCoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_VerticalCoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_VerticalCoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute coordinateType to complexType M4G_VerticalCoordListType</enc:msg>
+    <enc:msg>Added element for attribute property to complexType M4G_VerticalCoordListType</enc:msg>
+    <enc:msg>Added element for attribute coordinateForm to complexType M4G_VerticalCoordListType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_VerticalCoordList</enc:msg>
+    <enc:msg>Added global element for class M4G_GridCellRef in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridCellRef in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridCellRef in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute mosaicID to complexType M4G_GridCellRefType</enc:msg>
+    <enc:msg>Added element for attribute tileID to complexType M4G_GridCellRefType</enc:msg>
+    <enc:msg>Added element for attribute cellID to complexType M4G_GridCellRefType</enc:msg>
+    <enc:msg>Added element for attribute fractionalArea to complexType M4G_GridCellRefType</enc:msg>
+    <enc:msg>Added element for attribute idPath to complexType M4G_GridCellRefType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_GridCellRef</enc:msg>
+    <enc:msg>Added global element for class M4G_SimpleGridGeometry in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_SimpleGridGeometry in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_SimpleGridGeometry in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute numDims to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>Added element for attribute dimOrder to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>Added element for attribute isMesh to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>Added element for attribute xcoords to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>Added element for attribute ycoords to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>Added element for attribute zcoords to complexType M4G_SimpleGridGeometryType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_SimpleGridGeometry</enc:msg>
+    <enc:msg>Added global element for class M4G_GridTileResolution in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridTileResolution in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridTileResolution in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4G_GridTileResolutionType</enc:msg>
+    <enc:msg>Added element for attribute property to complexType M4G_GridTileResolutionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_GridTileResolution</enc:msg>
+    <enc:msg>Added global element for class M4G_GridCellRefArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridCellRefArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridCellRefArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute gridCellRef to complexType M4G_GridCellRefArrayType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_GridCellRefArray</enc:msg>
+    <enc:msg>Added global element for class M4G_VertexArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_VertexArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_VertexArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute vertex to complexType M4G_VertexArrayType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_VertexArray</enc:msg>
+    <enc:msg>Added global element for class M4G_GridProperty in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridProperty in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridProperty in schema cimGrids.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4G_GridProperty</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_GridProperty</enc:msg>
+    <enc:msg>Added global element for class M4G_GridCellArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_GridCellArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_GridCellArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute gridCell to complexType M4G_GridCellArrayType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_GridCellArray</enc:msg>
+    <enc:msg>Added global element for class M4G_CoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4G_CoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4G_CoordList in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute length to complexType M4G_CoordListType</enc:msg>
+    <enc:msg>Added element for attribute hasConstantOffset to complexType M4G_CoordListType</enc:msg>
+    <enc:msg>Added element for attribute uom to complexType M4G_CoordListType</enc:msg>
+    <enc:msg>No outbound associations found for class M4G_CoordList</enc:msg>
+    <enc:msg>Added global element for class M4C_MachineCompilerUnit in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_MachineCompilerUnit in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_MachineCompilerUnit in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute machine to complexType M4C_MachineCompilerUnitType</enc:msg>
+    <enc:msg>Added element for attribute compiler to complexType M4C_MachineCompilerUnitType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_MachineCompilerUnit</enc:msg>
+    <enc:msg>Added global element for class M4C_Machine in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_Machine in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_Machine in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute machineName to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineSystem to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineDescription to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineLocation to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineOperatingSystem to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineType to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineVendor to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineInterconnect to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineMaximumProcessors to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineCoresPerProcessor to complexType M4C_MachineType</enc:msg>
+    <enc:msg>Added element for attribute machineProcessorType to complexType M4C_MachineType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_Machine</enc:msg>
+    <enc:msg>Added global element for class M4C_Change in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_Change in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_Change in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>Added element for attribute changeTarget to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>Added element for attribute changeDate to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>Added element for attribute changeAuthor to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>Added element for attribute type to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4C_ChangeType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_Change</enc:msg>
+    <enc:msg>Added global element for class M4C_DocumentMetadata in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_DocumentMetadata in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_DocumentMetadata in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute documentVersion to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute metadataID to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute metadataVersion to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute externalID to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute documentAuthor to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute documentCreationDate to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for attribute documentStatus to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for outbound association target to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added element for outbound association restriction to complexType M4C_DocumentMetadataType</enc:msg>
+    <enc:msg>Added global element for class M4C_Platform in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_Platform in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_Platform in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute shortName to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added element for attribute longName to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added element for attribute contact to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added element for attribute documentMetadata to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added element for outbound association unit to complexType M4C_PlatformType</enc:msg>
+    <enc:msg>Added global element for class M4C_Library in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_Library in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_Library in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute version to complexType M4C_LibraryType</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4C_LibraryType</enc:msg>
+    <enc:msg>Added element for outbound association installedOn to complexType M4C_LibraryType</enc:msg>
+    <enc:msg>Added global element for class M4C_Compiler in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_Compiler in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_Compiler in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute compilerName to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for attribute compilerVersion to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for attribute compilerLanguage to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for attribute compilerOptions to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for attribute compilerEnvironmentVariables to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for attribute compilerType to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added element for outbound association installedOn to complexType M4C_CompilerType</enc:msg>
+    <enc:msg>Added global element for class M4C_DocumentRelationship in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_DocumentRelationship in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_DocumentRelationship in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute type to complexType M4C_DocumentRelationshipType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4C_DocumentRelationshipType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_DocumentRelationship</enc:msg>
+    <enc:msg>Added global element for class M4C_License in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_License in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_License in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute licenseName to complexType M4C_LicenseType</enc:msg>
+    <enc:msg>Added element for attribute licenseContact to complexType M4C_LicenseType</enc:msg>
+    <enc:msg>Added element for attribute licenseDescription to complexType M4C_LicenseType</enc:msg>
+    <enc:msg>Added element for attribute unrestricted to complexType M4C_LicenseType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_License</enc:msg>
+    <enc:msg>Added global element for class M4C_ResponsibleParty in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4C_ResponsibleParty in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4C_ResponsibleParty in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute abbreviation to complexType M4C_ResponsiblePartyType</enc:msg>
+    <enc:msg>No outbound associations found for class M4C_ResponsibleParty</enc:msg>
+    <enc:msg>Added global element for class M4Q_Measure in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_Measure in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_Measure in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute evaluationMethodDescription to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>Added element for attribute evaluationMethodType to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>Added element for attribute evaluationProcedure to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>Added element for attribute measureDescription to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>Added element for attribute measureIdentification to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>Added element for attribute nameOfMeasure to complexType M4Q_MeasureType</enc:msg>
+    <enc:msg>No outbound associations found for class M4Q_Measure</enc:msg>
+    <enc:msg>Added global element for class M4Q_QualityIssue in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_QualityIssue in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_QualityIssue in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute issueCreationDate to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueDescription to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueIdentifiedBy to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueResponsibilityOf to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueSeverity to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueStatus to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for attribute issueType to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for outbound association partialResolution to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for outbound association finalResolution to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for outbound association  to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added element for outbound association detail to complexType M4Q_QualityIssueType</enc:msg>
+    <enc:msg>Added global element for class M4Q_QualityResolution in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_QualityResolution in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_QualityResolution in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute dateTime to complexType M4Q_QualityResolutionType</enc:msg>
+    <enc:msg>Added element for attribute resolutionDescription to complexType M4Q_QualityResolutionType</enc:msg>
+    <enc:msg>Added element for attribute resolvedBy to complexType M4Q_QualityResolutionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4Q_QualityResolution</enc:msg>
+    <enc:msg>Added global element for class M4Q_QualityDetail in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_QualityDetail in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_QualityDetail in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute detailedDescription to complexType M4Q_QualityDetailType</enc:msg>
+    <enc:msg>Added element for attribute target to complexType M4Q_QualityDetailType</enc:msg>
+    <enc:msg>No outbound associations found for class M4Q_QualityDetail</enc:msg>
+    <enc:msg>Added global element for class M4Q_Scope in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_Scope in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_Scope in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute availableAt to complexType M4Q_ScopeType</enc:msg>
+    <enc:msg>Added element for attribute target to complexType M4Q_ScopeType</enc:msg>
+    <enc:msg>No outbound associations found for class M4Q_Scope</enc:msg>
+    <enc:msg>Added global element for class M4Q_DomainConsistency in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_DomainConsistency in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_DomainConsistency in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute evaluator to complexType M4Q_DomainConsistencyType</enc:msg>
+    <enc:msg>Added element for outbound association measure to complexType M4Q_DomainConsistencyType</enc:msg>
+    <enc:msg>Added global element for class M4Q_Result in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_Result in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_Result in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute availableFrom to complexType M4Q_ResultType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4Q_ResultType</enc:msg>
+    <enc:msg>Added element for attribute resultType to complexType M4Q_ResultType</enc:msg>
+    <enc:msg>No outbound associations found for class M4Q_Result</enc:msg>
+    <enc:msg>Added global element for class M4Q_ResultSet in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4Q_ResultSet in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4Q_ResultSet in schema cimQuality.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4Q_ResultSet</enc:msg>
+    <enc:msg>Added element for outbound association member to complexType M4Q_ResultSetType</enc:msg>
+    <enc:msg>Added global element for class M4P_PossiblePropertyValue in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_PossiblePropertyValue in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_PossiblePropertyValue in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute possibleRangeMaximum to complexType M4P_PossiblePropertyValueType</enc:msg>
+    <enc:msg>Added element for attribute possibleRangeMinimum to complexType M4P_PossiblePropertyValueType</enc:msg>
+    <enc:msg>Added element for attribute possibleSet to complexType M4P_PossiblePropertyValueType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_PossiblePropertyValue</enc:msg>
+    <enc:msg>Added global element for class M4P_SimulatedProperty in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_SimulatedProperty in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_SimulatedProperty in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute propertyRole to complexType M4P_SimulatedPropertyType</enc:msg>
+    <enc:msg>Added element for attribute grid to complexType M4P_SimulatedPropertyType</enc:msg>
+    <enc:msg>Added element for attribute timeProfile to complexType M4P_SimulatedPropertyType</enc:msg>
+    <enc:msg>Added element for attribute partition to complexType M4P_SimulatedPropertyType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_SimulatedProperty</enc:msg>
+    <enc:msg>Added global element for class M4P_Timing in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_Timing in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_Timing in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute rate to complexType M4P_TimingType</enc:msg>
+    <enc:msg>Added element for attribute units to complexType M4P_TimingType</enc:msg>
+    <enc:msg>Added element for attribute variableRate to complexType M4P_TimingType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_Timing</enc:msg>
+    <enc:msg>Added global element for class M4P_ActualConfiguration in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ActualConfiguration in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ActualConfiguration in schema cimProcess.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4P_ActualConfiguration</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_ActualConfiguration</enc:msg>
+    <enc:msg>Added global element for class M4P_SpatialRegridding in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_SpatialRegridding in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_SpatialRegridding in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute spatialRegriddingDimension to complexType M4P_SpatialRegriddingType</enc:msg>
+    <enc:msg>Added element for attribute spatialRegriddingStandardMethod to complexType M4P_SpatialRegriddingType</enc:msg>
+    <enc:msg>Added element for attribute spatialRegriddingUserMethod to complexType M4P_SpatialRegriddingType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_SpatialRegridding</enc:msg>
+    <enc:msg>Added global element for class M4P_ConfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ConfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ConfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute configuration to complexType M4P_ConfiguredScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association configures to complexType M4P_ConfiguredScienceDescriptionType</enc:msg>
+    <enc:msg>Added global element for class M4P_ComponentLanguage in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ComponentLanguage in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ComponentLanguage in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4P_ComponentLanguageType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_ComponentLanguage</enc:msg>
+    <enc:msg>Added global element for class M4P_ScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute conservative to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute procedureDescription to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute documentation to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute spatialRegridding to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute timeTransformation to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute timing to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association  to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association algorithm to complexType M4P_ScienceDescriptionType</enc:msg>
+    <enc:msg>Added global element for class M4P_TimeTransformation in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_TimeTransformation in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_TimeTransformation in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute mappingType to complexType M4P_TimeTransformationType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4P_TimeTransformationType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_TimeTransformation</enc:msg>
+    <enc:msg>Added global element for class M4P_Interaction in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_Interaction in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_Interaction in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for attribute interactionType to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for attribute type to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for attribute purpose to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for attribute timeLag to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association source to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association isMediatedBy to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association target to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association target to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association source to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association source to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association target to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association target to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added element for outbound association source to complexType M4P_InteractionType</enc:msg>
+    <enc:msg>Added global element for class M4P_SpatialRegriddingUserMethod in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_SpatialRegriddingUserMethod in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_SpatialRegriddingUserMethod in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4P_SpatialRegriddingUserMethodType</enc:msg>
+    <enc:msg>Added element for attribute file to complexType M4P_SpatialRegriddingUserMethodType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_SpatialRegriddingUserMethod</enc:msg>
+    <enc:msg>Added global element for class M4P_UnconfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_UnconfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_UnconfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute compiletimeOptions to complexType M4P_UnconfiguredSoftwareDescriptionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_UnconfiguredSoftwareDescription</enc:msg>
+    <enc:msg>Added global element for class M4P_UnconfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_UnconfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_UnconfiguredScienceDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute possibleScience to complexType M4P_UnconfiguredScienceDescriptionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_UnconfiguredScienceDescription</enc:msg>
+    <enc:msg>Added global element for class M4P_SoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_SoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_SoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute documentation to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute license to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute embedded to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute releaseDate to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute timing to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute couplingFramework to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for attribute componentLanguage to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association implements to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association  to complexType M4P_SoftwareDescriptionType</enc:msg>
+    <enc:msg>Added global element for class M4P_PossibleConfigurations in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_PossibleConfigurations in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_PossibleConfigurations in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute interaction to complexType M4P_PossibleConfigurationsType</enc:msg>
+    <enc:msg>Added element for attribute property to complexType M4P_PossibleConfigurationsType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_PossibleConfigurations</enc:msg>
+    <enc:msg>Added global element for class M4P_ConfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_ConfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_ConfiguredSoftwareDescription in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute configuration to complexType M4P_ConfiguredSoftwareDescriptionType</enc:msg>
+    <enc:msg>Added element for outbound association configures to complexType M4P_ConfiguredSoftwareDescriptionType</enc:msg>
+    <enc:msg>Added global element for class M4P_Property in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_Property in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_Property in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute actualValue to complexType M4P_PropertyType</enc:msg>
+    <enc:msg>Added element for attribute possibleValue to complexType M4P_PropertyType</enc:msg>
+    <enc:msg>Added element for outbound association represents to complexType M4P_PropertyType</enc:msg>
+    <enc:msg>Added global element for class M4P_TimeLag in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4P_TimeLag in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4P_TimeLag in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute value to complexType M4P_TimeLagType</enc:msg>
+    <enc:msg>Added element for attribute units to complexType M4P_TimeLagType</enc:msg>
+    <enc:msg>No outbound associations found for class M4P_TimeLag</enc:msg>
+    <enc:msg>Added global element for class M4D_DataStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_DataStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_DataStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute dataSize to complexType M4D_DataStorageType</enc:msg>
+    <enc:msg>Added element for attribute dataFormat to complexType M4D_DataStorageType</enc:msg>
+    <enc:msg>Added element for attribute dataLocation to complexType M4D_DataStorageType</enc:msg>
+    <enc:msg>Added element for attribute modificationDate to complexType M4D_DataStorageType</enc:msg>
+    <enc:msg>No outbound associations found for class M4D_DataStorage</enc:msg>
+    <enc:msg>Added global element for class M4D_DbStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_DbStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_DbStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute dbAccessString to complexType M4D_DbStorageType</enc:msg>
+    <enc:msg>Added element for attribute dbName to complexType M4D_DbStorageType</enc:msg>
+    <enc:msg>Added element for attribute owner to complexType M4D_DbStorageType</enc:msg>
+    <enc:msg>Added element for attribute dbTable to complexType M4D_DbStorageType</enc:msg>
+    <enc:msg>No outbound associations found for class M4D_DbStorage</enc:msg>
+    <enc:msg>Added global element for class M4D_IpStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_IpStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_IpStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute protocol to complexType M4D_IpStorageType</enc:msg>
+    <enc:msg>Added element for attribute host to complexType M4D_IpStorageType</enc:msg>
+    <enc:msg>Added element for attribute path to complexType M4D_IpStorageType</enc:msg>
+    <enc:msg>Added element for attribute fileName to complexType M4D_IpStorageType</enc:msg>
+    <enc:msg>No outbound associations found for class M4D_IpStorage</enc:msg>
+    <enc:msg>Added global element for class M4D_FileStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_FileStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_FileStorage in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute fileSystem to complexType M4D_FileStorageType</enc:msg>
+    <enc:msg>Added element for attribute path to complexType M4D_FileStorageType</enc:msg>
+    <enc:msg>Added element for attribute fileName to complexType M4D_FileStorageType</enc:msg>
+    <enc:msg>No outbound associations found for class M4D_FileStorage</enc:msg>
+    <enc:msg>Added global element for class M4D_DataAtom in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4D_DataAtom in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4D_DataAtom in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute aggregation to complexType M4D_DataAtomType</enc:msg>
+    <enc:msg>Added element for attribute frequency to complexType M4D_DataAtomType</enc:msg>
+    <enc:msg>Added element for attribute grid to complexType M4D_DataAtomType</enc:msg>
+    <enc:msg>Added element for outbound association citation to complexType M4D_DataAtomType</enc:msg>
+    <enc:msg>Added global element for class M4A_CodeModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_CodeModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_CodeModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_CodeModificationType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_CodeModification</enc:msg>
+    <enc:msg>Added global element for class M4A_NumericalRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_NumericalRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_NumericalRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4A_NumericalRequirementType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_NumericalRequirementType</enc:msg>
+    <enc:msg>Added element for outbound association childRequirement to complexType M4A_NumericalRequirementType</enc:msg>
+    <enc:msg>Added global element for class M4A_RuntimeChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_RuntimeChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_RuntimeChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_RuntimeChangeType</enc:msg>
+    <enc:msg>Added element for outbound association configChange to complexType M4A_RuntimeChangeType</enc:msg>
+    <enc:msg>Added element for outbound association codeModification to complexType M4A_RuntimeChangeType</enc:msg>
+    <enc:msg>Added element for outbound association valueModification to complexType M4A_RuntimeChangeType</enc:msg>
+    <enc:msg>Added global element for class M4A_OutputRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_OutputRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_OutputRequirement in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute outputFrequency to complexType M4A_OutputRequirementType</enc:msg>
+    <enc:msg>Added element for attribute outputPeriod to complexType M4A_OutputRequirementType</enc:msg>
+    <enc:msg>Added element for attribute temporalAveraging to complexType M4A_OutputRequirementType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_OutputRequirement</enc:msg>
+    <enc:msg>Added global element for class M4A_Deployment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Deployment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Deployment in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute deploymentDate to complexType M4A_DeploymentType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_DeploymentType</enc:msg>
+    <enc:msg>Added element for outbound association hasExecutable to complexType M4A_DeploymentType</enc:msg>
+    <enc:msg>Added element for outbound association hasSchedule to complexType M4A_DeploymentType</enc:msg>
+    <enc:msg>Added element for outbound association isMediatedBy to complexType M4A_DeploymentType</enc:msg>
+    <enc:msg>Added global element for class M4A_ConfigurationChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_ConfigurationChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_ConfigurationChange in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute newConfiguration to complexType M4A_ConfigurationChangeType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_ConfigurationChangeType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_ConfigurationChange</enc:msg>
+    <enc:msg>Added global element for class M4A_Mediation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Mediation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Mediation in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute mediator to complexType M4A_MediationType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_Mediation</enc:msg>
+    <enc:msg>Added global element for class M4A_InitialCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_InitialCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_InitialCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute source to complexType M4A_InitialConditionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_InitialCondition</enc:msg>
+    <enc:msg>Added global element for class M4A_Conformance in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Conformance in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Conformance in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute conformant to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>Added element for attribute frequency to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>Added element for attribute requirement to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>Added element for attribute type to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>Added element for attribute source to complexType M4A_ConformanceType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_Conformance</enc:msg>
+    <enc:msg>Added global element for class M4A_RequirementOption in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_RequirementOption in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_RequirementOption in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute requirement to complexType M4A_RequirementOptionType</enc:msg>
+    <enc:msg>Added element for attribute optionRelationship to complexType M4A_RequirementOptionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_RequirementOption</enc:msg>
+    <enc:msg>Added global element for class M4A_SpatioTemporalConstraint in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_SpatioTemporalConstraint in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_SpatioTemporalConstraint in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute requiredDuration to complexType M4A_SpatioTemporalConstraintType</enc:msg>
+    <enc:msg>Added element for attribute spatialResolution to complexType M4A_SpatioTemporalConstraintType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_SpatioTemporalConstraint</enc:msg>
+    <enc:msg>Added global element for class M4A_BoundaryCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_BoundaryCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_BoundaryCondition in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute source to complexType M4A_BoundaryConditionType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_BoundaryCondition</enc:msg>
+    <enc:msg>Added global element for class M4A_Schedule in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Schedule in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Schedule in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute scheduleDetails to complexType M4A_ScheduleType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_Schedule</enc:msg>
+    <enc:msg>Added global element for class M4A_Executable in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_Executable in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_Executable in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute name to complexType M4A_ExecutableType</enc:msg>
+    <enc:msg>Added element for attribute arguements to complexType M4A_ExecutableType</enc:msg>
+    <enc:msg>Added element for outbound association hasProcessSet to complexType M4A_ExecutableType</enc:msg>
+    <enc:msg>Added element for outbound association ranOn to complexType M4A_ExecutableType</enc:msg>
+    <enc:msg>Added element for outbound association linkedTo to complexType M4A_ExecutableType</enc:msg>
+    <enc:msg>Added global element for class M4A_ValueModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_ValueModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_ValueModification in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute description to complexType M4A_ValueModificationType</enc:msg>
+    <enc:msg>Added element for attribute parameter to complexType M4A_ValueModificationType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_ValueModification</enc:msg>
+    <enc:msg>Added global element for class M4A_CompositeObservationContext in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_CompositeObservationContext in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_CompositeObservationContext in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute role to complexType M4A_CompositeObservationContextType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_CompositeObservationContext</enc:msg>
+    <enc:msg>Added global element for class M4A_ExperimentRelationship in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_ExperimentRelationship in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_ExperimentRelationship in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute relationshipType to complexType M4A_ExperimentRelationshipType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_ExperimentRelationship</enc:msg>
+    <enc:msg>Added global element for class M4A_ProcessSet in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_ProcessSet in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_ProcessSet in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute processes to complexType M4A_ProcessSetType</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_ProcessSet</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="6" suiteId="xmi11ea" description="Handles DataType stereotyped classes."/>
+    <enc:msg>Added global element for class M4A_NamedValue in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global complexType for class M4A_NamedValue in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global property type for class M4A_NamedValue in schema cimActivity.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4A_NamedValue</enc:msg>
+    <enc:msg>No outbound associations found for class M4A_NamedValue</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="7" suiteId="xmi11ea" description="Handles Union stereotyped classes (Using new proposed encoding method from https://www.seegrid.csiro.au/twiki/bin/view/AppSchemas/UmL2GMLAS#4_Class_association_pattern_targ)."/>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="8" suiteId="xmi11ea" description="Handles Enumeration stereotyped classes."/>
+    <enc:msg>Added global simpleType for class M4G_RefinementType in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'integer' to simpleType M4G_RefinementTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'none' to simpleType M4G_RefinementTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'rational' to simpleType M4G_RefinementTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4G_VerticalCoordinateType in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'space-based' to simpleType M4G_VerticalCoordinateTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'terrain-following' to simpleType M4G_VerticalCoordinateTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'mass-based' to simpleType M4G_VerticalCoordinateTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'hybrid' to simpleType M4G_VerticalCoordinateTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'not-applicable' to simpleType M4G_VerticalCoordinateTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4G_VerticalCoordinateFormType in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'S-coordinate' to simpleType M4G_VerticalCoordinateFormTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'sigma' to simpleType M4G_VerticalCoordinateFormTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4G_EdgeArray in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'edge' to simpleType M4G_EdgeArrayType</enc:msg>
+    <enc:msg>Added global simpleType for class M4G_GridType in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'displaced_pole' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'cubed_sphere' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'icosahedral_geodesic' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'reduced_gaussian' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'regular_lat_lon' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'spectral_gaussian' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'tripolar' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'yin_yang' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'composite' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'other' to simpleType M4G_GridTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4G_DiscretizationType in schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'structured_triangular' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'logically_rectangular' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'unstructured_triangular' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'pixel-based_catchment' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'unstructured_polygonal' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'other' to simpleType M4G_DiscretizationTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_MachineType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'Vector' to simpleType M4C_MachineTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Parallel' to simpleType M4C_MachineTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Beowulf' to simpleType M4C_MachineTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_TimeUnitType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'minute' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'second' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'hour' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'day' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'month' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'year' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'decade' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'century' to simpleType M4C_TimeUnitTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_LogicalChoiceType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'OR' to simpleType M4C_LogicalChoiceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'AND' to simpleType M4C_LogicalChoiceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'XOR' to simpleType M4C_LogicalChoiceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'keyboard' to simpleType M4C_LogicalChoiceTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_DocumentRelationshipType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'other' to simpleType M4C_DocumentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'similarTo' to simpleType M4C_DocumentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'laterVersionOf' to simpleType M4C_DocumentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'previousVersionOf' to simpleType M4C_DocumentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'fixedVersionOf' to simpleType M4C_DocumentRelationshipTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_ChangePropertyType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'ModelMod' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Unused' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Decrement' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Increment' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Redistribution' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'Replacement' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'ParameterChange' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'CodeChange' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'AncillaryFile' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'BoundaryCondition' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'InitialCondition' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'InputMod' to simpleType M4C_ChangePropertyTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4Q_QualityIssueType in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'data_format' to simpleType M4Q_QualityIssueTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'metadata' to simpleType M4Q_QualityIssueTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'data_content' to simpleType M4Q_QualityIssueTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'data_indexing' to simpleType M4Q_QualityIssueTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'science' to simpleType M4Q_QualityIssueTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4Q_QualitySeverityType in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'minor' to simpleType M4Q_QualitySeverityTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'cosmetic' to simpleType M4Q_QualitySeverityTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'major' to simpleType M4Q_QualitySeverityTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4Q_QualityStatusType in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'confirmed' to simpleType M4Q_QualityStatusTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'reported' to simpleType M4Q_QualityStatusTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'partially_resolved' to simpleType M4Q_QualityStatusTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'resolved' to simpleType M4Q_QualityStatusTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4Q_ResultType in schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'document' to simpleType M4Q_ResultTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'plot' to simpleType M4Q_ResultTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'logfile' to simpleType M4Q_ResultTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_CouplingFrameworkType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'ESMF' to simpleType M4P_CouplingFrameworkTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'BFG' to simpleType M4P_CouplingFrameworkTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'OASIS' to simpleType M4P_CouplingFrameworkTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_PropertyRoleType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'out' to simpleType M4P_PropertyRoleTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'in' to simpleType M4P_PropertyRoleTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_InteractionType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'predecessor' to simpleType M4P_InteractionTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'successor' to simpleType M4P_InteractionTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_SpatialRegriddingStandardMethodType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'near-neighbour' to simpleType M4P_SpatialRegriddingStandardMethodTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'linear' to simpleType M4P_SpatialRegriddingStandardMethodTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'cubic' to simpleType M4P_SpatialRegriddingStandardMethodTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'conservative-first-order' to simpleType M4P_SpatialRegriddingStandardMethodTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'conservative-second-order' to simpleType M4P_SpatialRegriddingStandardMethodTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_SpatialRegriddingDimensionType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute '2D' to simpleType M4P_SpatialRegriddingDimensionTypeType</enc:msg>
+    <enc:msg>Added element for attribute '1D' to simpleType M4P_SpatialRegriddingDimensionTypeType</enc:msg>
+    <enc:msg>Added element for attribute '3D' to simpleType M4P_SpatialRegriddingDimensionTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4D_DataStatusType in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'metadataOnly' to simpleType M4D_DataStatusTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'complete' to simpleType M4D_DataStatusTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'continuouslySupplemented' to simpleType M4D_DataStatusTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_FixityType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'moving' to simpleType M4A_FixityTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'stationary' to simpleType M4A_FixityTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ConformanceType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'standard config' to simpleType M4A_ConformanceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'not conformant' to simpleType M4A_ConformanceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'via inputs' to simpleType M4A_ConformanceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'via model mods' to simpleType M4A_ConformanceTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'combination' to simpleType M4A_ConformanceTypeType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ExperimentRelationshipType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'continuationOf' to simpleType M4A_ExperimentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'previousRealisation' to simpleType M4A_ExperimentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'controlExperiment' to simpleType M4A_ExperimentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'higherResolutionVersionOf' to simpleType M4A_ExperimentRelationshipTypeType</enc:msg>
+    <enc:msg>Added element for attribute 'lowerResolutionVersionOf' to simpleType M4A_ExperimentRelationshipTypeType</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="9" suiteId="xmi11ea" description="Handles CodeList stereotyped classes."/>
+    <enc:msg>Added global simpleType for class M4C_DataPurposeType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_DataPurposeType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_DataPurposeType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'boundaryCondition' to simpleType M4C_DataPurposeTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ancillaryFile' to simpleType M4C_DataPurposeTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'initialCondition' to simpleType M4C_DataPurposeTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_CompilerType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_CompilerType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_CompilerType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'Intel' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Absoft' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Lahey' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NAG' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Pathscale' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Portland PGI' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Silverfrost' to simpleType M4C_CompilerTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_InterconnectType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_InterconnectType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_InterconnectType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'Quadrics' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Myrinet' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Gigabit Ethernet' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Infiniband' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Mixed' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NUMAlink' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'SP Switch' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Cray Interconnect' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Fat Tree' to simpleType M4C_InterconnectTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_ProcessorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_ProcessorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_ProcessorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'Sparc' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NEC' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Intel' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Intel IA-64' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Intel EM64T' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'AMD X86_64' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Other Intel' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Other AMD' to simpleType M4C_ProcessorTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_OperatingSystemType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_OperatingSystemType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_OperatingSystemType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'AIX' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Linux' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Darwin' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Unicos' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Irix64' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'SunOS' to simpleType M4C_OperatingSystemTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4C_MachineVendorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4C_MachineVendorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4C_MachineVendorType in schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'Bull SA' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Appro International' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ClusterVision/Dell' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ClusterVision/IBM' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Cray Inc' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'DALCO AG Switzerland' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Dawning' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Dell' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'DELL/ACS' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Dell/Sun/IBM' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Fujitsu' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Hewlett-Packard' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Hitachi' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'IBM' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Intel' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Koi Computers' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Lenovo' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Linux Networx' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NEC' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NEC/Sun' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'NUDT' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Pyramid Computer' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Raytheon-Aspen Systems/Appro' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Self-made' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'SGI' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'SKIF/T-Platforms' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Sun Microsystems' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'T-Platforms' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ACTION' to simpleType M4C_MachineVendorTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_NumericalProcessType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4P_NumericalProcessType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4P_NumericalProcessType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'transformer' to simpleType M4P_NumericalProcessTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'post_processor' to simpleType M4P_NumericalProcessTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_ConnectionType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4P_ConnectionType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4P_ConnectionType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'ESMF' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'CCSM Flux Coupler' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'FMS' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Files' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'MCT' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'OASIS3' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'OASIS4' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Shared Memory' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Embedded' to simpleType M4P_ConnectionTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4P_TimeMappingType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4P_TimeMappingType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4P_TimeMappingType in schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'TimeAverage' to simpleType M4P_TimeMappingTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'TimeAccumulation' to simpleType M4P_TimeMappingTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'LastAvailable' to simpleType M4P_TimeMappingTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'TimeInterpolation' to simpleType M4P_TimeMappingTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'Exact' to simpleType M4P_TimeMappingTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4D_DataHierarchyType in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4D_DataHierarchyType in schema cimData.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4D_DataHierarchyType in schema cimData.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'stream' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'run' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'institute' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'product' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'odel' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'experiment' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'frequency' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'realm' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'variable' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensembleMember' to simpleType M4D_DataHierarchyTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ProjectType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4A_ProjectType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4A_ProjectType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'AMIP' to simpleType M4A_ProjectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'CMIP5' to simpleType M4A_ProjectTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'TAMIP' to simpleType M4A_ProjectTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ResolutionType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4A_ResolutionType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4A_ResolutionType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4A_ResolutionType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ContextRoleType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4A_ContextRoleType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4A_ContextRoleType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'spinupSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'followingSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensembleMember' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'simulationCompositeMember' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'extensionSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'responseSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'continuationSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'previousSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'higherResolutionVersionSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'lowerResolutionVersionSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'fixedSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'exploitedDataCollection' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'controlSimulation' to simpleType M4A_ContextRoleTypeEnumerationType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_TemporalAveType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4A_TemporalAveType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4A_TemporalAveType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>No child attributes found for class M4A_TemporalAveType</enc:msg>
+    <enc:msg>Added global simpleType for class M4A_ObservationType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global enumeration type for class M4A_ObservationType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added global other type for class M4A_ObservationType in schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - experiment driven' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - cross model' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - initial condition' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - mixed' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - model modification' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - perturbed boundary' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - perturbed physics' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'ensemble - staggered start' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'simulation' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'assimilation' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+    <enc:msg>Added element for attribute 'simulationComposite' to simpleType M4A_ObservationTypeEnumerationType</enc:msg>
+</enc:result>
+<enc:result xmlns:enc="urn:tbd:xmlns:TBD:FullMoon:encoding-results:1.0">
+    <enc:process number="10" suiteId="xmi11ea" description="Handles package dependencies."/>
+    <enc:msg>Added include statement with schemaLocation cimGrids.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimQuality.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimProcess.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimData.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimActivity.xsd to schema cim.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cimGrids.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimQuality.xsd to schema cimCommon.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cimQuality.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimGrids.xsd to schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimData.xsd to schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimActivity.xsd to schema cimProcess.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimGrids.xsd to schema cimData.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cimData.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimCommon.xsd to schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimProcess.xsd to schema cimActivity.xsd</enc:msg>
+    <enc:msg>Added include statement with schemaLocation cimData.xsd to schema cimActivity.xsd</enc:msg>
+</enc:result>
+</cr:results>
