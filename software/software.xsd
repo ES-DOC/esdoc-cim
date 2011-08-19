@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 6 May 2011, 9:25 -->       
+<!-- generated: 19 August 2011, 14:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.purl.org/org/esmetadata/cim/1.5/schemas"       
-targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">       
+            xmlns="http://www.purl.org/org/esmetadata/cim/1.7/schemas"       
+targetNamespace="http://www.purl.org/org/esmetadata/cim/1.7/schemas">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -1053,7 +1053,7 @@ This includes information about the authoring institution.</xs:documentation>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperty">
    <xs:annotation>
-      <xs:documentation>ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  </xs:documentation>
+      <xs:documentation>ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource. data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataSource">
@@ -1127,6 +1127,19 @@ This includes information about the authoring institution.</xs:documentation>
       </xs:element>
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
                   type="ComponentProperty"><!--I am looking at: UML:AssociationEnd--><!--And the class is: ComponentProperty--><!--Whose id is: EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92--><!--And there were this many specialisations: 0--></xs:element>
+      <xs:element name="extension" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>this element contains any extensions to the CIM; a
+                            container element is required to prevent ambiguity among extensible
+                            content and optional content (please use namespaces for extended
+                            content)</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:sequence>
+               <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>
    <xs:attribute name="intent" use="optional" type="ComponentPropertyIntentType">
       <xs:annotation>
@@ -1137,7 +1150,8 @@ This includes information about the authoring institution.</xs:documentation>
       <xs:annotation>
          <xs:documentation>When set to false, means that this property is not used by the component. Covers the case when, for instance, a modeler chooses not to represent some property in their model.  (But still allows meaningful comparisons between components which _do_ model this property.)</xs:documentation>
       </xs:annotation>
-   </xs:attribute>  
+   </xs:attribute>
+   <xs:anyAttribute namespace="##any" processContents="lax"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
