@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:wcsgml="http://www.opengis.net/om/1.0/gml32"
+	xmlns="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0"
+	xsi:schemaLocation="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0 http://projects.arcs.org.au/svn/fullmoon/trunk/resources/dependency-util/package-class-map.xsd"
+	id="ClassMap_ISO_MOLES34_GML32.xml">
+	<description>Provides a mapping of selected classes in MOLES (those used by the CIM) to their implementation in the GML schema</description>
+	<imports>
+		<schema
+			prefix="mol"
+			namespace="http://proj.badc.rl.ac.uk/moles/3.4/0"
+			schemaLocation="http://proj.badc.rl.ac.uk/moles/3.4/0/moles3_4.xsd"/>
+	</imports>
+	<entry>
+		<umlClass>MO_OnlineResource</umlClass>
+		<gmlObjectElement>mol:MO_OnlineResource</gmlObjectElement>
+		<gmlType>mol:MO_OnlineResourceType</gmlType>
+		<gmlPropertyType>mol:MO_OnlineResourcePropertyType</gmlPropertyType>
+	</entry>
+	<entry>
+		<umlClass>MO_Project</umlClass>
+		<gmlObjectElement>mol:MO_Project</gmlObjectElement>
+		<gmlType>mol:MO_ProjectType</gmlType>
+		<gmlPropertyType>mol:MO_ProjectPropertyType</gmlPropertyType>
+	</entry>
+</mapping>
+

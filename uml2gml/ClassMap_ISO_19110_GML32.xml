@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:wcsgml="http://www.opengis.net/om/1.0/gml32"
+	xmlns="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0"
+	xsi:schemaLocation="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0 http://projects.arcs.org.au/svn/fullmoon/trunk/resources/dependency-util/package-class-map.xsd"
+	id="ClassMap_ISO_19110_GML32.xml">
+	<description>Provides a mapping of selected classes in ISO 19110 to their implementation in the GML schema</description>
+	<imports>
+		<schema
+			prefix="gfc"
+			namespace="http://www.isotc211.org/2005/gfc"
+			schemaLocation="http://www.isotc211.org/2005/gfc/gfc.xsd"/>
+	</imports>
+	<entry>
+		<umlClass>FC_FeatureType</umlClass>
+		<gmlObjectElement>gfc:FC_FeatureType</gmlObjectElement>
+		<gmlType>gfc:FC_FeatureType_Type</gmlType>
+		<gmlPropertyType>gfc:FC_FeatureType_PropertyType</gmlPropertyType>
+	</entry>
+	<entry>
+		<umlClass>FC_Constraint</umlClass>
+		<gmlObjectElement>gfc:FC_Constraint</gmlObjectElement>
+		<gmlType>gfc:FC_Constraint_Type</gmlType>
+		<gmlPropertyType>gfc:FC_Constraint_PropertyType</gmlPropertyType>
+	</entry>
+	<entry>
+		<umlClass>FC_FeatureAttribute</umlClass>
+		<gmlObjectElement>gfc:FC_FeatureAttribute</gmlObjectElement>
+		<gmlType>gfc:FC_FeatureAttribute_Type</gmlType>
+		<gmlPropertyType>gfc:FC_FeatureAttribute_PropertyType</gmlPropertyType>
+	</entry>
+		<entry>
+		<umlClass>FC_ListedValue</umlClass>
+		<gmlObjectElement>gfc:FC_ListedValue</gmlObjectElement>
+		<gmlType>gfc:FC_ListedValue_Type</gmlType>
+		<gmlPropertyType>gfc:FC_ListedValue_PropertyType</gmlPropertyType>
+	</entry>
+</mapping>
+

@@ -1,0 +1,122 @@
+All:
+----
+* TODO: Fix package imports.
+Add:
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+Add:
+    <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/"/>
+    (or iso location?
+    
+NO DOCUMENTATION for many 1.5 attributes.
+    
+
+cimCommon.xsd
+----------------
+add gmd namespace
+
+Still got recursive link with CIM Quality... !! Can't see it used in the model though - Try removing import.
+DONE: UML :Remove package import (common << quality) from CIM model.
+
+
+
+cimData.xsd
+-------------
+add gmd namespace    
+    
+    
+cimGrids.xsd
+--------------
+add gmd namespace    
+WIP: UML: M4G_GridTileType.earthFigureGeometry has no type. Seems it is CS_GeodeticCS - a change from 1.5
+ where it was an enumeration.
+Changed to CharacterString for now.
+
+
+cimQuality.xsd
+---------------
+add gmd namespace
+
+TODO: UML: M4Q_QualityIssueType has a property with no name (of type M4Q_QualityIssuePropertyType)
+WIP: UML: M4Q_QualityDetailType.target has no property type  - was MO_OnlineResource - for now changed to CI_OnlineResource
+WIP: UML: M4Q_Scope.target has no property type - was MO_OnlineResource - for now changed to CI_OnlineResource
+
+cimProcess.xsd
+---------------
+add gmd namespace
+add gmi namespace:
+xmlns:gmi="http://www.isotc211.org/2005/gmi"
+ <import namespace="http://www.isotc211.org/2005/gmi" schemaLocation="http://www.isotc211.org/2005/gmi/gmi.xsd"/>
+    
+
+import O&M namespace
+xmlns:om="http://www.opengis.net/om/2.0"
+<import namespace="http://www.opengis.net/om/2.0" schemaLocation="http://schemas.opengis.net/om/2.0/observation.xsd"/>
+
+UML: M4P_PropertyType.represents has no property type
+UML: M4P_ScienceDescriptionType has attribute with no name - of type M4P_ScienceDescriptionPropertyType (may be an Association?)
+UML: M4P_SoftwareDescriptionType has attribute with no name - of type M4P_SoftwareDescriptionPropertyType (may be an Association?)
+
+Made compositeObservation role between NumericalProcess and compositeObservation (bi-directional association) non-navigable from process to observation
+
+
+
+M4P_NumericalProcess was pointing to GFI_Feature from O&M. Changed to FC_FeatureType
+M4P_Property was pointing to GF_PropertyType  metaclass. Changed to FC_FeatureAttribute 
+
+
+
+cimActivity.xsd
+----------------
+add gmd namespace
+add gfc namespace:
+    xmlns:gfc="http://www.isotc211.org/2005/gfc"
+    <import namespace="http://www.isotc211.org/2005/gfc" schemaLocation="http://www.isotc211.org/2005/gfc/gfc.xsd"/>
+    
+add O&M namespace:
+xmlns:om="http://www.opengis.net/om/2.0"
+
+    <import namespace="http://www.opengis.net/om/2.0" schemaLocation="http://schemas.opengis.net/om/2.0/observation.xsd"/>
+    
+UML: M4A_Project substitution group (MOLES??)
+UML: M4A_CodeModificationType.description has no type
+UML: M4A_RuntimeChangeType.description has no type
+UML: M4A_ConfigurationChangeType.description has no type
+UML: M4A_ConformanceType.source has no type
+UML: M4A_ValueModificationType.description has no type
+    
+    
+    
+    
+-------------------------------------------------
+Use of XMLBlock - changed to Any.
+
+GridSpec:
+EdgeArray - changed (back) from enumeration to datatype.
+changed edge from TS_Edge to TP_Edge - implemented as gml:Edge
+earthfiguregeometry - from CS_GeodeticCS to CharacterString/Array? QUESTION
+    
+    
+    
+recursive import between process and activity. Moved M4A_Mediation to be M4P_Mediation. 
+    
+M4P interaction - what's going on with all the source and target associations?
+
+                    <element maxOccurs="unbounded" minOccurs="0" name="source" type="cim:M4P_SimulatedPropertyPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="isMediatedBy" type="cim:M4A_MediationPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="target" type="cim:M4P_SimulatedPropertyPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="target" type="cim:M4P_NumericalProcessPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="source" type="cim:M4P_NumericalProcessPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="source" type="cim:M4D_DataAtomPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="target" type="cim:M4D_DataCollectionPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="target" type="cim:M4D_DataAtomPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="source" type="cim:M4D_DataCollectionPropertyType"/>
+                    
+                    These roles all need different names? - or we have a union type?
+    
+    
+----------------------------------------
+
+Modelling thoughts:
+do not have 'generatedObservation' and 'compositeObservation' links from M4P_NumericalProcess - it creates a circular import and reference
+remove 'result', 'procedure' associations from M4A_Observation - they should be inherited from O&M. (Done)
+
