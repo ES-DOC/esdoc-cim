@@ -339,7 +339,7 @@
 						</UML:Dependency>
 						<UML:Package name="cim 1.9.2" xmi.id="EAPK_7F78C79F_1EEE_4374_8AF4_803D69D428B8" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_323E5DA4_3516_4383_9700_21B315CEDE5C"/>
+								<UML:Stereotype xmi.idref="EAID_E3BB8A68_2FE5_4ffe_9486_57F18C56B937"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="documentation" value="An application schema containing classes to support  environmental and earth science simulations."/>
@@ -490,7 +490,7 @@
 												<UML:Stereotype name="Leaf"/>
 											</UML:ModelElement.stereotype>
 											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="documentation" value="A package containing details of the process description for a simulation."/>
+												<UML:TaggedValue tag="documentation" value="A package containing classes relating to the simulation activity, compliant with observations and measurements, and project related classes."/>
 												<UML:TaggedValue tag="isAbstract" value="false"/>
 												<UML:TaggedValue tag="isSpecification" value="false"/>
 												<UML:TaggedValue tag="ea_stype" value="Package"/>
@@ -498,7 +498,7 @@
 												<UML:TaggedValue tag="version" value="1.0"/>
 												<UML:TaggedValue tag="package" value="EAPK_7F78C79F_1EEE_4374_8AF4_803D69D428B8"/>
 												<UML:TaggedValue tag="date_created" value="2011-09-09 16:46:39"/>
-												<UML:TaggedValue tag="date_modified" value="2011-09-12 13:06:36"/>
+												<UML:TaggedValue tag="date_modified" value="2011-09-20 15:03:58"/>
 												<UML:TaggedValue tag="gentype" value="Java"/>
 												<UML:TaggedValue tag="tagged" value="0"/>
 												<UML:TaggedValue tag="package2" value="EAID_718C79EF_24FD_49c8_90EB_185EFF350C07"/>
@@ -1471,10 +1471,10 @@
 								</UML:Dependency>
 								<UML:Package name="Activity" xmi.id="EAPK_718C79EF_24FD_49c8_90EB_185EFF350C07" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="A package containing details of the process description for a simulation."/>
+										<UML:TaggedValue tag="documentation" value="A package containing classes relating to the simulation activity, compliant with observations and measurements, and project related classes."/>
 										<UML:TaggedValue tag="parent" value="EAPK_7F78C79F_1EEE_4374_8AF4_803D69D428B8"/>
 										<UML:TaggedValue tag="created" value="2011-09-09 00:00:00"/>
 										<UML:TaggedValue tag="modified" value="2011-09-09 00:00:00"/>
@@ -6318,7 +6318,7 @@
 								</UML:Package>
 								<UML:Package name="Common" xmi.id="EAPK_1EDC178E_0621_47ef_BC1F_68F9A7D6AFF4" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="documentation" value="A package containing common elements that are used across the model."/>
@@ -11148,7 +11148,7 @@
 								</UML:Package>
 								<UML:Package name="Data" xmi.id="EAPK_90577D7F_A404_4787_8231_D048D2B6A2BD" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="documentation" value="A package containing classes relating to the storage of data to support simulations etc."/>
@@ -13140,7 +13140,7 @@
 								</UML:Package>
 								<UML:Package name="Grids" xmi.id="EAPK_0D1DA06D_6835_42de_AF90_4F2C372C84A4" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="documentation" value="A package containing classes relating to grids."/>
@@ -16764,7 +16764,7 @@
 								</UML:Package>
 								<UML:Package name="Process" xmi.id="EAPK_5551739A_7CFE_4cb8_A075_2D24E7F996AF" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="documentation" value="A package containing details of the process description for a simulation."/>
@@ -21217,7 +21217,7 @@
 								</UML:Package>
 								<UML:Package name="Quality" xmi.id="EAPK_3F755821_4F4B_4c8a_859A_0D63429848A7" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E"/>
+										<UML:Stereotype xmi.idref="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="documentation" value="A package containing the quality record classes."/>
@@ -23237,10 +23237,10 @@
 						</UML:Package>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_323E5DA4_3516_4383_9700_21B315CEDE5C" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_E3BB8A68_2FE5_4ffe_9486_57F18C56B937" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
-				<UML:Stereotype xmi.id="EAID_F662D82A_4570_4bf4_8EBF_CA2F502A2A3E" name="Leaf" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_F0A68FAE_2BC5_4c13_873A_5315C465D112" name="Leaf" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid0" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
