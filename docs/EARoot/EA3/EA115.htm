@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::GridNodePositionEnum</title>
+<title>grids::GridCellRef</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">GridNodePositionEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">GridCellRef  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/10/2008 9:52:59 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 5:06:41 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">2/3/2009 10:51:33 AM</td>
+			<td class="ObjectDetailsValue">2/3/2009 10:16:34 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{BA3CA14E-B2DD-4724-9E0A-150119B803DB}</td>
+			<td class="ObjectDetailsValue">{7EB9E07D-0C23-4e0c-B2EF-103C28FF05FC}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA88.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The GridNodePosition enumeration may be used to indicate the horizontal position of a grid node relative to its surrounding or containing grid cell. This enumeration may be extended at some point to include relative vertical position.</div>
+	<div class="ObjectDetailsNotes">This data type is used to encode a reference to a grid cell defined as part of some other grid tile, which itself may be part of the same or an entirely separate grid mosaic.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A GridCellRef object consists of a reference to a cell in a separately-defined grid tile, together with an optional fractional area that indicates the portion of the target cell &#39;occupied&#39; by the referring cell. If this area is not specified, a default value of 1.0 is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell ID elements, or as a text string attribute (idPath) containing colon-separated ID values terminated with a number representing the fractional area (e.g. &quot;m1:m2:m3:t1:c1:0.5&quot;).&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,112 +76,107 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;centre</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;mosaicID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes346" onclick="parent.toggleDiv('detailsDIVAttributes346','DetailsImageAttributes346')" />Details:
-						<div id="detailsDIVAttributes346" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes324" onclick="parent.toggleDiv('detailsDIVAttributes324','DetailsImageAttributes324')" />Details:
+						<div id="detailsDIVAttributes324" class="DetailsDiv" >
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the ID of a remotely-defined grid mosaic object.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;north</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;tileID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes347" onclick="parent.toggleDiv('detailsDIVAttributes347','DetailsImageAttributes347')" />Details:
-						<div id="detailsDIVAttributes347" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes325" onclick="parent.toggleDiv('detailsDIVAttributes325','DetailsImageAttributes325')" />Details:
+						<div id="detailsDIVAttributes325" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the ID of a remotely-defined grid tile object
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;northeast</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;cellID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes348" onclick="parent.toggleDiv('detailsDIVAttributes348','DetailsImageAttributes348')" />Details:
-						<div id="detailsDIVAttributes348" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes326" onclick="parent.toggleDiv('detailsDIVAttributes326','DetailsImageAttributes326')" />Details:
+						<div id="detailsDIVAttributes326" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the ID of a remotely-defined grid cell object
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;east</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private double</i><br /><strong>&nbsp;&nbsp;fractionalArea</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes349" onclick="parent.toggleDiv('detailsDIVAttributes349','DetailsImageAttributes349')" />Details:
-						<div id="detailsDIVAttributes349" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes327" onclick="parent.toggleDiv('detailsDIVAttributes327','DetailsImageAttributes327')" />Details:
+						<div id="detailsDIVAttributes327" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual geometry of the fractional part is not defined. If this property is not specified a default value of 1 is assumed.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;southeast</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;idPath</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes350" onclick="parent.toggleDiv('detailsDIVAttributes350','DetailsImageAttributes350')" />Details:
-						<div id="detailsDIVAttributes350" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;south</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes351" onclick="parent.toggleDiv('detailsDIVAttributes351','DetailsImageAttributes351')" />Details:
-						<div id="detailsDIVAttributes351" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;southwest</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes352" onclick="parent.toggleDiv('detailsDIVAttributes352','DetailsImageAttributes352')" />Details:
-						<div id="detailsDIVAttributes352" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;west</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes353" onclick="parent.toggleDiv('detailsDIVAttributes353','DetailsImageAttributes353')" />Details:
-						<div id="detailsDIVAttributes353" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;northwest</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes354" onclick="parent.toggleDiv('detailsDIVAttributes354','DetailsImageAttributes354')" />Details:
-						<div id="detailsDIVAttributes354" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;undefined</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes355" onclick="parent.toggleDiv('detailsDIVAttributes355','DetailsImageAttributes355')" />Details:
-						<div id="detailsDIVAttributes355" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes328" onclick="parent.toggleDiv('detailsDIVAttributes328','DetailsImageAttributes328')" />Details:
+						<div id="detailsDIVAttributes328" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The idPath property may be used as a more compact alternative to specifying a grid cell reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, a tile ID, a cell ID, and, optionally, a number representing the fractional part.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

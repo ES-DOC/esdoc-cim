@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>quality::CIM_ResultSet</title>
+<title>quality::CIM_QualityDetail</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">CIM_ResultSet  : public   class</span>
+	<span class="ObjectTitle">CIM_QualityDetail  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/19/2008 1:59:12 PM</td>
+			<td width="85%" class="ObjectDetailsValue">9/19/2008 2:13:36 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">9/27/2010 9:26:19 PM</td>
+			<td class="ObjectDetailsValue">4/2/2010 10:10:41 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,20 +57,93 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{96A46971-E571-4503-8343-F28A091EC814}</td>
+			<td class="ObjectDetailsValue">{D518865F-97F7-4b53-AD48-7A2CB5FFCA95}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA133.htm">Quality</a></td>
+			<td class="ObjectDetailsValue"><a href="EA137.htm">Quality</a></td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">Locates the &quot;target&quot; of a CIM QualityIssue. </div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
-		<div class="ItemBody" id="AssociationsFromTable">
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="100%" class="TableHeading">Attribute</td>
+		</tr>
+						<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;detailDescription</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes489" onclick="parent.toggleDiv('detailsDIVAttributes489','DetailsImageAttributes489')" />Details:
+						<div id="detailsDIVAttributes489" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			a description of the quality issue with reference to this specific feature
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA140.htm">CIM_FeatureType</a></i><br /><strong>&nbsp;&nbsp;featureType</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes490" onclick="parent.toggleDiv('detailsDIVAttributes490','DetailsImageAttributes490')" />Details:
+						<div id="detailsDIVAttributes490" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			the type of feature that the quality issue refers too (for METAFOR this could be simulation, file, boundary condition etc.)
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA179.htm">Document</a></i><br /><strong>&nbsp;&nbsp;feature</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes491" onclick="parent.toggleDiv('detailsDIVAttributes491','DetailsImageAttributes491')" />Details:
+						<div id="detailsDIVAttributes491" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			the reference to the specific feature (e.g. a URI to a file)
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>
+		<div class="ItemBody" id="AssociationsToTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -79,11 +152,11 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA142.htm">CIM_Result</a><br />
+						<a href="EA144.htm">CIM_QualityIssue</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> member<br />
+						<strong>Name:</strong> detail<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -93,8 +166,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink514" onclick="parent.toggleDiv('detailsDIVLink514','DetailsImageLink514')" />Details:
-							<div id="detailsDIVLink514" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink492" onclick="parent.toggleDiv('detailsDIVLink492','DetailsImageLink492')" />Details:
+							<div id="detailsDIVLink492" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -112,9 +185,9 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA142.htm">CIM_Result</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA144.htm">CIM_QualityIssue</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="15%" class="TableRow" valign="top">Strong</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>SpatialRegridding</title>
+<title>software::ProcessorComponentType</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">SpatialRegridding  : public   class</span>
+	<span class="ObjectTitle">ProcessorComponentType  : public  &lt;&lt;CodeList&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">12/16/2008 11:19:42 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/9/2008 3:29:35 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">11/18/2010 9:49:36 PM</td>
+			<td class="ObjectDetailsValue">3/9/2009 2:29:34 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,20 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{1AA3C552-4ACC-46f1-B2AB-3371474BF685}</td>
+			<td class="ObjectDetailsValue">{A7018688-1D25-4531-B63E-513015FFA404}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">An enumeration of types of ProcessorComponent.&#160; This includes things like transformers and post-processors.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
-			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
+			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -78,92 +77,51 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public SpatialRegriddingDimensionType</i><br /><strong>&nbsp;&nbsp;spatialRegriddingDimension</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;post_processor</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1002" onclick="parent.toggleDiv('detailsDIVAttributes1002','DetailsImageAttributes1002')" />Details:
-						<div id="detailsDIVAttributes1002" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes978" onclick="parent.toggleDiv('detailsDIVAttributes978','DetailsImageAttributes978')" />Details:
+						<div id="detailsDIVAttributes978" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA248.htm">SpatialRegriddingStandardMethodType</a></i><br /><strong>&nbsp;&nbsp;spatialRegriddingStandardMethod</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;transformer</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1003" onclick="parent.toggleDiv('detailsDIVAttributes1003','DetailsImageAttributes1003')" />Details:
-						<div id="detailsDIVAttributes1003" class="DetailsDiv" >
-						<i>&lt;&lt;element&gt;&gt;Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public SpatialRegriddingUserMethod</i><br /><strong>&nbsp;&nbsp;spatialRegriddingUserMethod</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1004" onclick="parent.toggleDiv('detailsDIVAttributes1004','DetailsImageAttributes1004')" />Details:
-						<div id="detailsDIVAttributes1004" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes979" onclick="parent.toggleDiv('detailsDIVAttributes979','DetailsImageAttributes979')" />Details:
+						<div id="detailsDIVAttributes979" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsFromTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA247.htm">SpatialRegriddingProperty</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">open</td>
+				<td width="50%" class="TableRow" valign="top">true</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario980" onclick="parent.toggleDiv('detailsDIVScenario980','DetailsImageScenario980')" />Details:
+						<div id="detailsDIVScenario980" class="DetailsDiv" >
 						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1006" onclick="parent.toggleDiv('detailsDIVLink1006','DetailsImageLink1006')" />Details:
-							<div id="detailsDIVLink1006" class="DetailsDiv" >
-							&nbsp;
-							</div>
 						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="LinksTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="15%" class="TableHeading">Type</td>
-					<td width="15%" class="TableHeading">Connection</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA247.htm">SpatialRegriddingProperty</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>	</div>
 <div class="pageFooter"></div>
  
 </body>

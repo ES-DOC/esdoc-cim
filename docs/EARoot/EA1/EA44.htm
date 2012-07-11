@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::PhysicalModification</title>
+<title>NumericalRequirement</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">PhysicalModification  : public   class</span>
+	<span class="ObjectTitle">NumericalRequirement  : public  &lt;&lt;abstract&gt;&gt; abstract</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:57:47 AM</td>
+			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:47:45 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">11/3/2008 5:07:41 PM</td>
+			<td class="ObjectDetailsValue">7/13/2010 1:24:25 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,20 +57,63 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{684E9C34-0A67-4d0e-9A94-6ADDA4EB3389}</td>
+			<td class="ObjectDetailsValue">{5170B74B-E598-436d-85F0-98902869D8D3}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA11.htm">Brown: Implementation</a>, <a href="EA9.htm">Activity</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA15.htm">Yellow: Requirements</a>, <a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Physical modification is the implementation of a boundary condition numerical requirement that is achieved within the model code rather than from some external source file. It&#160; might include, for example,&#160; a specific rate constant within a chemical reaction, or coefficient value(s) in a parameterisation. &lt;br /&gt;&lt;/p&gt;&lt;p&gt;For example, one might require a numerical experiment where specific chemical reactions were turned off - e.g. no heterogeneous chemistry.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">A description of the requirements of particular experiments.&#160; Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="100%" class="TableHeading">Attribute</td>
+		</tr>
+						<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA184.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;id</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes96" onclick="parent.toggleDiv('detailsDIVAttributes96','DetailsImageAttributes96')" />Details:
+						<div id="detailsDIVAttributes96" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes97" onclick="parent.toggleDiv('detailsDIVAttributes97','DetailsImageAttributes97')" />Details:
+						<div id="detailsDIVAttributes97" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes98" onclick="parent.toggleDiv('detailsDIVAttributes98','DetailsImageAttributes98')" />Details:
+						<div id="detailsDIVAttributes98" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>
 		<div class="ItemBody" id="AssociationsToTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
@@ -80,7 +123,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA25.htm">BoundaryCondition</a><br />
+						<a href="EA43.htm">«document» NumericalExperiment</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -94,8 +137,41 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink102" onclick="parent.toggleDiv('detailsDIVLink102','DetailsImageLink102')" />Details:
-							<div id="detailsDIVLink102" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink100" onclick="parent.toggleDiv('detailsDIVLink100','DetailsImageLink100')" />Details:
+							<div id="detailsDIVLink100" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA49.htm">RequirementOption</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink101" onclick="parent.toggleDiv('detailsDIVLink101','DetailsImageLink101')" />Details:
+							<div id="detailsDIVLink101" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -113,9 +189,45 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA26.htm">Conformance</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA25.htm">BoundaryCondition</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA57.htm">SpatioTemporalConstraint</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA38.htm">InitialCondition</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA46.htm">OutputRequirement</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA49.htm">RequirementOption</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA39.htm">LateralBoundaryCondition</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA43.htm">«document» NumericalExperiment</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

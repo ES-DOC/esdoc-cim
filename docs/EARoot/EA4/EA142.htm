@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>quality::CIM_Result</title>
+<title>quality::CIM_Quality</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">CIM_Result  : public   class</span>
+	<span class="ObjectTitle">CIM_Quality  : public  &lt;&lt;document&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/19/2008 1:59:12 PM</td>
+			<td width="85%" class="ObjectDetailsValue">9/19/2008 1:58:53 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">9/27/2010 9:26:19 PM</td>
+			<td class="ObjectDetailsValue">9/27/2010 8:39:44 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{60433207-93A8-4912-A708-75AE17F1B75C}</td>
+			<td class="ObjectDetailsValue">{FF17A8DA-64F9-4a3f-B57F-5593F92A9A77}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA133.htm">Quality</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA137.htm">Quality</a></td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">The starting point for a quality record.&#160; It can contain any number of issues and reports.&#160; An issue is an open-ended description of some issue about a CIM instance.&#160; A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.</div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -77,42 +78,30 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public gmd:CI_OnlineResource_PropertyType</i><br /><strong>&nbsp;&nbsp;availableFrom</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CIM_Scope</i><br /><strong>&nbsp;&nbsp;scope</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes508" onclick="parent.toggleDiv('detailsDIVAttributes508','DetailsImageAttributes508')" />Details:
-						<div id="detailsDIVAttributes508" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes509" onclick="parent.toggleDiv('detailsDIVAttributes509','DetailsImageAttributes509')" />Details:
-						<div id="detailsDIVAttributes509" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CIM_ResultType</i><br /><strong>&nbsp;&nbsp;resultType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes510" onclick="parent.toggleDiv('detailsDIVAttributes510','DetailsImageAttributes510')" />Details:
-						<div id="detailsDIVAttributes510" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes484" onclick="parent.toggleDiv('detailsDIVAttributes484','DetailsImageAttributes484')" />Details:
+						<div id="detailsDIVAttributes484" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			the specific data to which the quality information applies
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
+		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -121,11 +110,11 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA143.htm">CIM_ResultSet</a><br />
+						<a href="EA144.htm">CIM_QualityIssue</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> member<br />
+						<strong>Name:</strong> issue<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -135,8 +124,31 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink511" onclick="parent.toggleDiv('detailsDIVLink511','DetailsImageLink511')" />Details:
-							<div id="detailsDIVLink511" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink487" onclick="parent.toggleDiv('detailsDIVLink487','DetailsImageLink487')" />Details:
+							<div id="detailsDIVLink487" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA139.htm">CIM_DomainConsistency</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> report<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink488" onclick="parent.toggleDiv('detailsDIVLink488','DetailsImageLink488')" />Details:
+							<div id="detailsDIVLink488" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -154,7 +166,13 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA143.htm">CIM_ResultSet</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA144.htm">CIM_QualityIssue</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA139.htm">CIM_DomainConsistency</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

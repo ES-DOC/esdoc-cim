@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>software::Coupling</title>
+<title>software::Connection</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Coupling  : public   class</span>
+	<span class="ObjectTitle">Connection  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/17/2008 1:08:27 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 5:20:55 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/26/2009 3:01:03 PM</td>
+			<td class="ObjectDetailsValue">7/8/2010 8:09:20 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8F8A0E0F-1405-406c-B767-8204C217EE0F}</td>
+			<td class="ObjectDetailsValue">{5B0610EB-15AA-43ed-81EC-EF0191C04178}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A coupling represents a set of Connections between a source and target component.&#160; Couplings can be complete or incomplete.&#160; If they are complete then they must include all Connections between model properties.&#160; If they are incomplete then the connections can be underspecified or not listed at all.</div>
+	<div class="ObjectDetailsNotes">A Connection represents a link from a source DataSource to a target DataSource.&#160; These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).&#160;&#160; It can be associated with another software component (a transformer).&#160; If present, the rate, lag, timeTransformation, and spatialRegridding override that of the parent coupling.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Note that there is the potential for multiple connectionSource &amp; connectionTarget and multiple couplingSources &amp; couplingTargets.&#160; This may lead users to wonder how to match up a connection source (a ComponentProperty) with its coupling source (a SoftwareComponent). Clever logic is not required though; because the sources and targets are listed by reference, they can be found in a CIM document and the parent can be navigated to from there - there is no need to consult the source or target of the coupling.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -82,15 +82,26 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes821" onclick="parent.toggleDiv('detailsDIVAttributes821','DetailsImageAttributes821')" />Details:
-						<div id="detailsDIVAttributes821" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes806" onclick="parent.toggleDiv('detailsDIVAttributes806','DetailsImageAttributes806')" />Details:
+						<div id="detailsDIVAttributes806" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA231.htm">ConnectionType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes807" onclick="parent.toggleDiv('detailsDIVAttributes807','DetailsImageAttributes807')" />Details:
+						<div id="detailsDIVAttributes807" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A free-text description of the coupling.
+			The type of Connection
 		</td>
 	</tr>
 </table></div>
@@ -99,72 +110,40 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA227.htm">ConnectionType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA176.htm">DataPurpose</a></i><br /><strong>&nbsp;&nbsp;purpose</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes822" onclick="parent.toggleDiv('detailsDIVAttributes822','DetailsImageAttributes822')" />Details:
-						<div id="detailsDIVAttributes822" class="DetailsDiv" >
-						<i>Range:0 to 1</i>anonymousRole=false<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes the method of coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA172.htm">DataPurpose</a></i><br /><strong>&nbsp;&nbsp;purpose</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes823" onclick="parent.toggleDiv('detailsDIVAttributes823','DetailsImageAttributes823')" />Details:
-						<div id="detailsDIVAttributes823" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;fullySpecified</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes824" onclick="parent.toggleDiv('detailsDIVAttributes824','DetailsImageAttributes824')" />Details:
-						<div id="detailsDIVAttributes824" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			If &quot;true&quot; then the coupling is fully-specified.&nbsp;<WBR> If &quot;false&quot; then not every Connection has been described within the coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA253.htm">Timing</a></i><br /><strong>&nbsp;&nbsp;timeProfile</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes825" onclick="parent.toggleDiv('detailsDIVAttributes825','DetailsImageAttributes825')" />Details:
-						<div id="detailsDIVAttributes825" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes808" onclick="parent.toggleDiv('detailsDIVAttributes808','DetailsImageAttributes808')" />Details:
+						<div id="detailsDIVAttributes808" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes how often the coupling takes place.
+			Describes why this connection is being made.&nbsp;<WBR> Possible values include: boundaryCondition, initialCondition, Forcing.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA259.htm">Timing</a></i><br /><strong>&nbsp;&nbsp;timeProfile</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes809" onclick="parent.toggleDiv('detailsDIVAttributes809','DetailsImageAttributes809')" />Details:
+						<div id="detailsDIVAttributes809" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			All information having to do with the rate of this connection; the times that it is active.&nbsp;<WBR> This overrides any rate of a Coupling.
 		</td>
 	</tr>
 </table></div>
@@ -177,8 +156,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes826" onclick="parent.toggleDiv('detailsDIVAttributes826','DetailsImageAttributes826')" />Details:
-						<div id="detailsDIVAttributes826" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes810" onclick="parent.toggleDiv('detailsDIVAttributes810','DetailsImageAttributes810')" />Details:
+						<div id="detailsDIVAttributes810" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -198,8 +177,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes827" onclick="parent.toggleDiv('detailsDIVAttributes827','DetailsImageAttributes827')" />Details:
-						<div id="detailsDIVAttributes827" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes811" onclick="parent.toggleDiv('detailsDIVAttributes811','DetailsImageAttributes811')" />Details:
+						<div id="detailsDIVAttributes811" class="DetailsDiv" >
 						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -219,8 +198,8 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes828" onclick="parent.toggleDiv('detailsDIVAttributes828','DetailsImageAttributes828')" />Details:
-						<div id="detailsDIVAttributes828" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes812" onclick="parent.toggleDiv('detailsDIVAttributes812','DetailsImageAttributes812')" />Details:
+						<div id="detailsDIVAttributes812" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -236,19 +215,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA229.htm">CouplingEndPoint</a></i><br /><strong>&nbsp;&nbsp;couplingSource</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA229.htm">ConnectionEndPoint</a></i><br /><strong>&nbsp;&nbsp;connectionSource</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes829" onclick="parent.toggleDiv('detailsDIVAttributes829','DetailsImageAttributes829')" />Details:
-						<div id="detailsDIVAttributes829" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes813" onclick="parent.toggleDiv('detailsDIVAttributes813','DetailsImageAttributes813')" />Details:
+						<div id="detailsDIVAttributes813" class="DetailsDiv" >
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The source component of the coupling.&nbsp;<WBR> (note that there can be multiple sources)
+			The source property being connected.&nbsp;<WBR> (note that there can be multiple sources)&nbsp;<WBR> This is optional; the file/component source may have already been specified by the couplingSource.
 		</td>
 	</tr>
 </table></div>
@@ -257,19 +236,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA229.htm">CouplingEndPoint</a></i><br /><strong>&nbsp;&nbsp;couplingTarget</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA229.htm">ConnectionEndPoint</a></i><br /><strong>&nbsp;&nbsp;connectionTarget</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes830" onclick="parent.toggleDiv('detailsDIVAttributes830','DetailsImageAttributes830')" />Details:
-						<div id="detailsDIVAttributes830" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes814" onclick="parent.toggleDiv('detailsDIVAttributes814','DetailsImageAttributes814')" />Details:
+						<div id="detailsDIVAttributes814" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The target component of the coupling
+			The target property being connected.&nbsp;<WBR> This is optional to support the way that input is handled in the CMIP5 questionnaire.
 		</td>
 	</tr>
 </table></div>
@@ -278,12 +257,12 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA240.htm">ProcessorComponent</a></i><br /><strong>&nbsp;&nbsp;transformer</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA244.htm">ProcessorComponent</a></i><br /><strong>&nbsp;&nbsp;transformer</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes831" onclick="parent.toggleDiv('detailsDIVAttributes831','DetailsImageAttributes831')" />Details:
-						<div id="detailsDIVAttributes831" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes815" onclick="parent.toggleDiv('detailsDIVAttributes815','DetailsImageAttributes815')" />Details:
+						<div id="detailsDIVAttributes815" class="DetailsDiv" >
 						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -299,12 +278,12 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA173.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;priming</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA177.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;priming</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes832" onclick="parent.toggleDiv('detailsDIVAttributes832','DetailsImageAttributes832')" />Details:
-						<div id="detailsDIVAttributes832" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes816" onclick="parent.toggleDiv('detailsDIVAttributes816','DetailsImageAttributes816')" />Details:
+						<div id="detailsDIVAttributes816" class="DetailsDiv" >
 						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -320,12 +299,12 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA231.htm">CouplingProperty</a></i><br /><strong>&nbsp;&nbsp;couplingProperty</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA230.htm">ConnectionProperty</a></i><br /><strong>&nbsp;&nbsp;connectionProperty</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes833" onclick="parent.toggleDiv('detailsDIVAttributes833','DetailsImageAttributes833')" />Details:
-						<div id="detailsDIVAttributes833" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes817" onclick="parent.toggleDiv('detailsDIVAttributes817','DetailsImageAttributes817')" />Details:
+						<div id="detailsDIVAttributes817" class="DetailsDiv" >
 						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
@@ -333,7 +312,7 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsFromTable">
+		<div class="ItemBody" id="AssociationsToTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -342,7 +321,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA224.htm">Connection</a><br />
+						<a href="EA232.htm">Coupling</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -356,8 +335,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink835" onclick="parent.toggleDiv('detailsDIVLink835','DetailsImageLink835')" />Details:
-							<div id="detailsDIVLink835" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink818" onclick="parent.toggleDiv('detailsDIVLink818','DetailsImageLink818')" />Details:
+							<div id="detailsDIVLink818" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -375,7 +354,7 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA224.htm">Connection</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA232.htm">Coupling</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

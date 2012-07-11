@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>quality::CIM_ScopeCodeType</title>
+<title>quality::CIM_Result</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">CIM_ScopeCodeType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">CIM_Result  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/8/2008 11:52:01 AM</td>
+			<td width="85%" class="ObjectDetailsValue">9/19/2008 1:59:12 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">10/22/2010 3:15:07 AM</td>
+			<td class="ObjectDetailsValue">9/27/2010 9:26:19 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{2A01B7D3-48D4-41a1-93CB-34736C281E02}</td>
+			<td class="ObjectDetailsValue">{60433207-93A8-4912-A708-75AE17F1B75C}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA133.htm">Quality</a></td>
+			<td class="ObjectDetailsValue"><a href="EA137.htm">Quality</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Relatively few of the scope codes defined in ISO19115 are relevant to CIM.&#160; I have therefore added a number of additional scope types - these are indicated with a trailing asterisk.</div>
-
+	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,139 +77,91 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;metadata</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public gmd:CI_OnlineResource_PropertyType</i><br /><strong>&nbsp;&nbsp;availableFrom</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes520" onclick="parent.toggleDiv('detailsDIVAttributes520','DetailsImageAttributes520')" />Details:
 						<div id="detailsDIVAttributes520" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This would cover quality issues with the CIM itself
-		</td>
-	</tr>
-</table></div>
-
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;dataset</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes521" onclick="parent.toggleDiv('detailsDIVAttributes521','DetailsImageAttributes521')" />Details:
 						<div id="detailsDIVAttributes521" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;software</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CIM_ResultType</i><br /><strong>&nbsp;&nbsp;resultType</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes522" onclick="parent.toggleDiv('detailsDIVAttributes522','DetailsImageAttributes522')" />Details:
 						<div id="detailsDIVAttributes522" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;service</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes523" onclick="parent.toggleDiv('detailsDIVAttributes523','DetailsImageAttributes523')" />Details:
-						<div id="detailsDIVAttributes523" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;model</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes524" onclick="parent.toggleDiv('detailsDIVAttributes524','DetailsImageAttributes524')" />Details:
-						<div id="detailsDIVAttributes524" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;modelComponent</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes525" onclick="parent.toggleDiv('detailsDIVAttributes525','DetailsImageAttributes525')" />Details:
-						<div id="detailsDIVAttributes525" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;simulation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes526" onclick="parent.toggleDiv('detailsDIVAttributes526','DetailsImageAttributes526')" />Details:
-						<div id="detailsDIVAttributes526" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;experiment</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes527" onclick="parent.toggleDiv('detailsDIVAttributes527','DetailsImageAttributes527')" />Details:
-						<div id="detailsDIVAttributes527" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;numericalRequirement</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes528" onclick="parent.toggleDiv('detailsDIVAttributes528','DetailsImageAttributes528')" />Details:
-						<div id="detailsDIVAttributes528" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ensemble</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes529" onclick="parent.toggleDiv('detailsDIVAttributes529','DetailsImageAttributes529')" />Details:
-						<div id="detailsDIVAttributes529" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;file</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes530" onclick="parent.toggleDiv('detailsDIVAttributes530','DetailsImageAttributes530')" />Details:
-						<div id="detailsDIVAttributes530" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA147.htm">CIM_ResultSet</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> member<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink523" onclick="parent.toggleDiv('detailsDIVLink523','DetailsImageLink523')" />Details:
+							<div id="detailsDIVLink523" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA147.htm">CIM_ResultSet</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

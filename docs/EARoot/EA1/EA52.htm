@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::SimulationRun</title>
+<title>SimulationComposite</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">SimulationRun  : public  &lt;&lt;document&gt;&gt; class</span>
+	<span class="ObjectTitle">SimulationComposite  : public  &lt;&lt;document&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/23/2008 12:23:47 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/21/2008 12:32:36 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">8/12/2009 10:20:19 PM</td>
+			<td class="ObjectDetailsValue">12/12/2008 2:49:56 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{2B925BF9-5D6E-4b06-89A6-06544210D848}</td>
+			<td class="ObjectDetailsValue">{71452308-4E12-43db-A8CC-F63BC4A99597}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA11.htm">Brown: Implementation</a>, <a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A SimulationRun is, as the name implies, one single model run.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;A SimulationRun is a Simulation.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;There is a one to one association between SimulationRun and (a top-level) SoftwarePackage::ModelComponent. &lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">A SimulationComposite is an aggregation of Simulaitons.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;With the aggreation connector between Simulation and SimulationComposite(SC) the SC can be made up of both SimulationRuns and SCs.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The SimulationComposite is the new name for the concept of SimulationCollection: A simulation can be made up of &quot;child&quot; simulations aggregated together to form a &quot;simulation composite&quot;.&#160; The &quot;parent&quot; simulation can be made up of whole or partial child simulations and the SimulationComposite attributes need to be able to capture this.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,23 +78,34 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA174.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;dateRange</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public int</i><br /><strong>&nbsp;&nbsp;rank</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes142" onclick="parent.toggleDiv('detailsDIVAttributes142','DetailsImageAttributes142')" />Details:
-						<div id="detailsDIVAttributes142" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes139" onclick="parent.toggleDiv('detailsDIVAttributes139','DetailsImageAttributes139')" />Details:
+						<div id="detailsDIVAttributes139" class="DetailsDiv" >
 						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A DateRange can be used to specify a startPoint, and optionally an endPoint, or an explicit duration.
+			Position of a simulation in the SimulationComposite timeline. eg:&nbsp;<WBR> Is this the first (rank = 1) or second (rank = 2) simulation
 		</td>
 	</tr>
 </table></div>
 
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA178.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;dateRange</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes140" onclick="parent.toggleDiv('detailsDIVAttributes140','DetailsImageAttributes140')" />Details:
+						<div id="detailsDIVAttributes140" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -110,22 +121,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA6/EA236.htm">«document» ModelComponent</a><br />
-						Class &nbsp;
+						<a href="EA51.htm">«abstract» Simulation</a><br />
+						Abstract &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> model<br />
+						<strong>Name:</strong> child<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> activity<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink144" onclick="parent.toggleDiv('detailsDIVLink144','DetailsImageLink144')" />Details:
-							<div id="detailsDIVLink144" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink142" onclick="parent.toggleDiv('detailsDIVLink142','DetailsImageLink142')" />Details:
+							<div id="detailsDIVLink142" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -143,13 +154,13 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA236.htm">«document» ModelComponent</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA51.htm">«abstract» Simulation</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA48.htm">«abstract» Simulation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA51.htm">«abstract» Simulation</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

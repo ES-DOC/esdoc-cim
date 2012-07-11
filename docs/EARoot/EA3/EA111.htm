@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::GridCellRef</title>
+<title>grids::FeatureTypeEnum</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">GridCellRef  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">FeatureTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/7/2008 5:06:41 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/9/2008 11:09:40 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">2/3/2009 10:16:34 AM</td>
+			<td class="ObjectDetailsValue">2/3/2009 11:16:48 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{7EB9E07D-0C23-4e0c-B2EF-103C28FF05FC}</td>
+			<td class="ObjectDetailsValue">{D671C0D0-44D6-4621-A8B9-F972688C9B16}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA88.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">This data type is used to encode a reference to a grid cell defined as part of some other grid tile, which itself may be part of the same or an entirely separate grid mosaic.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A GridCellRef object consists of a reference to a cell in a separately-defined grid tile, together with an optional fractional area that indicates the portion of the target cell &#39;occupied&#39; by the referring cell. If this area is not specified, a default value of 1.0 is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell ID elements, or as a text string attribute (idPath) containing colon-separated ID values terminated with a number representing the fractional area (e.g. &quot;m1:m2:m3:t1:c1:0.5&quot;).&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">Note: this enumeration is not required by the current version of the CIM.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,107 +76,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;mosaicID</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes312" onclick="parent.toggleDiv('detailsDIVAttributes312','DetailsImageAttributes312')" />Details:
-						<div id="detailsDIVAttributes312" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the ID of a remotely-defined grid mosaic object.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;tileID</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes313" onclick="parent.toggleDiv('detailsDIVAttributes313','DetailsImageAttributes313')" />Details:
-						<div id="detailsDIVAttributes313" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the ID of a remotely-defined grid tile object
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;cellID</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;point</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes314" onclick="parent.toggleDiv('detailsDIVAttributes314','DetailsImageAttributes314')" />Details:
 						<div id="detailsDIVAttributes314" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the ID of a remotely-defined grid cell object
-		</td>
-	</tr>
-</table></div>
-
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private double</i><br /><strong>&nbsp;&nbsp;fractionalArea</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;edge</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes315" onclick="parent.toggleDiv('detailsDIVAttributes315','DetailsImageAttributes315')" />Details:
 						<div id="detailsDIVAttributes315" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual geometry of the fractional part is not defined. If this property is not specified a default value of 1 is assumed.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;idPath</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes316" onclick="parent.toggleDiv('detailsDIVAttributes316','DetailsImageAttributes316')" />Details:
-						<div id="detailsDIVAttributes316" class="DetailsDiv" >
-						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The idPath property may be used as a more compact alternative to specifying a grid cell reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, a tile ID, a cell ID, and, optionally, a number representing the fractional part.
-		</td>
-	</tr>
-</table></div>
-
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>

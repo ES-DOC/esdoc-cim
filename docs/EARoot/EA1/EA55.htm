@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::Ensemble</title>
+<title>SimulationRun</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Ensemble  : public  &lt;&lt;document&gt;&gt; class</span>
+	<span class="ObjectTitle">SimulationRun  : public  &lt;&lt;document&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">2/15/2008 2:24:19 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/23/2008 12:23:47 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">6/28/2010 8:43:23 PM</td>
+			<td class="ObjectDetailsValue">8/12/2009 10:20:19 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue">clp73</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{AFBAC29E-9522-4ad6-8700-DBBECF3A3819}</td>
+			<td class="ObjectDetailsValue">{2B925BF9-5D6E-4b06-89A6-06544210D848}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA11.htm">Brown: Implementation</a>, <a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">An ensemble is made up of two or more simulations which are to be compared against each other to create ensemble statistics. Ensemble members can differ in terms of initial conditions, physical parameterisation and the model used.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;An ensemble bundles together sets of ensembleMembers, all of which reference the same Simulation(Run) and include one or more changes.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">A SimulationRun is, as the name implies, one single model run.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;A SimulationRun is a Simulation.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;There is a one to one association between SimulationRun and (a top-level) SoftwarePackage::ModelComponent. &lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,24 +78,23 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA173.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;output</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA178.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;dateRange</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes148" onclick="parent.toggleDiv('detailsDIVAttributes148','DetailsImageAttributes148')" />Details:
-						<div id="detailsDIVAttributes148" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public EnsembleType</i><br /><strong>&nbsp;&nbsp;ensembleType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes149" onclick="parent.toggleDiv('detailsDIVAttributes149','DetailsImageAttributes149')" />Details:
-						<div id="detailsDIVAttributes149" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes153" onclick="parent.toggleDiv('detailsDIVAttributes153','DetailsImageAttributes153')" />Details:
+						<div id="detailsDIVAttributes153" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A DateRange can be used to specify a startPoint, and optionally an endPoint, or an explicit duration.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
@@ -111,22 +110,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA56.htm">EnsembleMember</a><br />
+						<a href="../EA6/EA240.htm">«document» ModelComponent</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> model<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> activity<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink151" onclick="parent.toggleDiv('detailsDIVLink151','DetailsImageLink151')" />Details:
-							<div id="detailsDIVLink151" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink155" onclick="parent.toggleDiv('detailsDIVLink155','DetailsImageLink155')" />Details:
+							<div id="detailsDIVLink155" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -144,13 +143,13 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA56.htm">EnsembleMember</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA240.htm">«document» ModelComponent</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA39.htm">«abstract» NumericalActivity</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA51.htm">«abstract» Simulation</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

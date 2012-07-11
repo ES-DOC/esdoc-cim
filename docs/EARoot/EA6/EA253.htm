@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Timing</title>
+<title>software::SpatialRegriddingUserMethod</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Timing  : public   class</span>
+	<span class="ObjectTitle">SpatialRegriddingUserMethod  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
+			<td width="85%" class="ObjectDetailsValue">12/16/2008 11:19:42 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/2/2010 11:53:16 PM</td>
+			<td class="ObjectDetailsValue">11/18/2010 9:48:57 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{ED8DCF75-18FA-4c02-AB8E-09A2147049A8}</td>
+			<td class="ObjectDetailsValue">{DDD39E37-1CBD-4a26-B7AE-C26676643B68}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).</div>
+	<div class="ObjectDetailsNotes">Allows users to bypass the SpatialRegriddingStandardMethod and instead provide a set of weights and addresses for regridding via a file.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,67 +76,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public DateTime</i><br /><strong>&nbsp;&nbsp;start</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1031" onclick="parent.toggleDiv('detailsDIVAttributes1031','DetailsImageAttributes1031')" />Details:
 						<div id="detailsDIVAttributes1031" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public DateTime</i><br /><strong>&nbsp;&nbsp;end</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1032" onclick="parent.toggleDiv('detailsDIVAttributes1032','DetailsImageAttributes1032')" />Details:
-						<div id="detailsDIVAttributes1032" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Integer</i><br /><strong>&nbsp;&nbsp;rate</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1033" onclick="parent.toggleDiv('detailsDIVAttributes1033','DetailsImageAttributes1033')" />Details:
-						<div id="detailsDIVAttributes1033" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public TimingUnits</i><br /><strong>&nbsp;&nbsp;units</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1034" onclick="parent.toggleDiv('detailsDIVAttributes1034','DetailsImageAttributes1034')" />Details:
-						<div id="detailsDIVAttributes1034" class="DetailsDiv" >
 						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;variableRate</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA2/EA76.htm">DataObject</a></i><br /><strong>&nbsp;&nbsp;file</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1035" onclick="parent.toggleDiv('detailsDIVAttributes1035','DetailsImageAttributes1035')" />Details:
-						<div id="detailsDIVAttributes1035" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes whether or not the model supports a variable timestep.&nbsp;<WBR> If set to true, then rate should not be specified.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes1032" onclick="parent.toggleDiv('detailsDIVAttributes1032','DetailsImageAttributes1032')" />Details:
+						<div id="detailsDIVAttributes1032" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>

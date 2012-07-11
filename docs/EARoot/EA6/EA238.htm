@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>NumericalProperties</title>
+<title>software::EntryPoint</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">NumericalProperties  : public   class</span>
+	<span class="ObjectTitle">EntryPoint  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">3/9/2009 11:52:16 AM</td>
+			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">8/13/2009 2:47:07 AM</td>
+			<td class="ObjectDetailsValue">3/6/2011 10:49:14 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn.treshansky</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,21 +57,115 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{E24E23F1-23AA-41af-AA92-429F02082B38}</td>
+			<td class="ObjectDetailsValue">{91EC96EA-A47A-4c78-912D-4CDB97AA583D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">This is just being used as a container for component properties.</div>
+	<div class="ObjectDetailsNotes">Describes a function or subroutine of a SoftwareComponent.&#160; BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.&#160; Currently, a very basic schedule can be approximated by using the &quot;proceeds&quot; and &quot;follows&quot; attributes, however a more complete system is required for full BFG compatibility.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Every EntryPoint can have a set of arguments associated with it.&#160; These reference (previously defined) ComponentProperties.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
-		<div class="ItemBody" id="AssociationsFromTable">
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="100%" class="TableHeading">Attribute</td>
+		</tr>
+						<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes868" onclick="parent.toggleDiv('detailsDIVAttributes868','DetailsImageAttributes868')" />Details:
+						<div id="detailsDIVAttributes868" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public EntryPointType</i><br /><strong>&nbsp;&nbsp;type</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes869" onclick="parent.toggleDiv('detailsDIVAttributes869','DetailsImageAttributes869')" />Details:
+						<div id="detailsDIVAttributes869" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterStringList</i><br /><strong>&nbsp;&nbsp;proceeds</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes870" onclick="parent.toggleDiv('detailsDIVAttributes870','DetailsImageAttributes870')" />Details:
+						<div id="detailsDIVAttributes870" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A list of the names of entryPoints that this entryPoint must poeceed
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterStringList</i><br /><strong>&nbsp;&nbsp;follows</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes871" onclick="parent.toggleDiv('detailsDIVAttributes871','DetailsImageAttributes871')" />Details:
+						<div id="detailsDIVAttributes871" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A list of the names of entryPoints that this entryPoint must follow
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA225.htm">ComponentProperty</a></i><br /><strong>&nbsp;&nbsp;argument</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes872" onclick="parent.toggleDiv('detailsDIVAttributes872','DetailsImageAttributes872')" />Details:
+						<div id="detailsDIVAttributes872" class="DetailsDiv" >
+						<i>&lt;&lt;reference&gt;&gt;Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A reference to an argument used by this EntryPoint
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>
+		<div class="ItemBody" id="AssociationsToTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -80,7 +174,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA221.htm">ComponentProperty</a><br />
+						<a href="EA236.htm">Dependencies</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -94,8 +188,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink956" onclick="parent.toggleDiv('detailsDIVLink956','DetailsImageLink956')" />Details:
-							<div id="detailsDIVLink956" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink873" onclick="parent.toggleDiv('detailsDIVLink873','DetailsImageLink873')" />Details:
+							<div id="detailsDIVLink873" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -113,7 +207,7 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA221.htm">ComponentProperty</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA236.htm">Dependencies</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

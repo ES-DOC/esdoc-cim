@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>data::DataRestriction</title>
+<title>data::DataFormatType</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">DataRestriction  : public   class</span>
+	<span class="ObjectTitle">DataFormatType  : public  &lt;&lt;codelist&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/9/2008 10:16:43 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/22/2008 11:36:25 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/6/2011 2:23:20 PM</td>
+			<td class="ObjectDetailsValue">3/6/2011 10:59:39 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,21 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{3698B5BB-D04C-4878-B2DA-75AB029B099C}</td>
+			<td class="ObjectDetailsValue">{0B4DB83E-5EFE-47f9-A16E-E8961F437B87}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA58.htm">Data</a></td>
+			<td class="ObjectDetailsValue"><a href="EA62.htm">Data</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">An access or use restriction on some element of the DataObject&#39;s actual data.</div>
+	<div class="ObjectDetailsNotes">Describes the internal format of the dataset.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
-			<li onClick="parent.toggleItem('Scenario');" id="ScenarioTitle">Scenarios</li>
-			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
+			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -79,126 +77,150 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA75.htm">DataRestrictionScopeType</a></i><br /><strong>&nbsp;&nbsp;restrictionScope</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Excel</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes239" onclick="parent.toggleDiv('detailsDIVAttributes239','DetailsImageAttributes239')" />Details:
-						<div id="detailsDIVAttributes239" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The thing (data or metadata, access or use) that this restriction is applied to.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes200" onclick="parent.toggleDiv('detailsDIVAttributes200','DetailsImageAttributes200')" />Details:
+						<div id="detailsDIVAttributes200" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public gmd:MD_RestrictionCode_PropertyType</i><br /><strong>&nbsp;&nbsp;restriction</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;HDF</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes240" onclick="parent.toggleDiv('detailsDIVAttributes240','DetailsImageAttributes240')" />Details:
-						<div id="detailsDIVAttributes240" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes201" onclick="parent.toggleDiv('detailsDIVAttributes201','DetailsImageAttributes201')" />Details:
+						<div id="detailsDIVAttributes201" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA182.htm">License</a></i><br /><strong>&nbsp;&nbsp;license</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NetCDF</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes241" onclick="parent.toggleDiv('detailsDIVAttributes241','DetailsImageAttributes241')" />Details:
-						<div id="detailsDIVAttributes241" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes202" onclick="parent.toggleDiv('detailsDIVAttributes202','DetailsImageAttributes202')" />Details:
+						<div id="detailsDIVAttributes202" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;GRIB 1</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes203" onclick="parent.toggleDiv('detailsDIVAttributes203','DetailsImageAttributes203')" />Details:
+						<div id="detailsDIVAttributes203" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;GRIB 2</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes204" onclick="parent.toggleDiv('detailsDIVAttributes204','DetailsImageAttributes204')" />Details:
+						<div id="detailsDIVAttributes204" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;PP</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes205" onclick="parent.toggleDiv('detailsDIVAttributes205','DetailsImageAttributes205')" />Details:
+						<div id="detailsDIVAttributes205" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ASCII</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes206" onclick="parent.toggleDiv('detailsDIVAttributes206','DetailsImageAttributes206')" />Details:
+						<div id="detailsDIVAttributes206" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;HDF EOS</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes207" onclick="parent.toggleDiv('detailsDIVAttributes207','DetailsImageAttributes207')" />Details:
+						<div id="detailsDIVAttributes207" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NCEP ON29</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes208" onclick="parent.toggleDiv('detailsDIVAttributes208','DetailsImageAttributes208')" />Details:
+						<div id="detailsDIVAttributes208" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NCEP ON129</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes209" onclick="parent.toggleDiv('detailsDIVAttributes209','DetailsImageAttributes209')" />Details:
+						<div id="detailsDIVAttributes209" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Binary</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes210" onclick="parent.toggleDiv('detailsDIVAttributes210','DetailsImageAttributes210')" />Details:
+						<div id="detailsDIVAttributes210" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA72.htm">«document» DataObject</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> restriction<br />
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">open</td>
+				<td width="50%" class="TableRow" valign="top">true</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario211" onclick="parent.toggleDiv('detailsDIVScenario211','DetailsImageScenario211')" />Details:
+						<div id="detailsDIVScenario211" class="DetailsDiv" >
 						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink242" onclick="parent.toggleDiv('detailsDIVLink242','DetailsImageLink242')" />Details:
-							<div id="detailsDIVLink242" class="DetailsDiv" >
-							&nbsp;
-							</div>
 						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="ScenarioTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="90%" class="TableHeading">Scenario</td>
-					<td width="10%" class="TableHeading">Type</td>
-				</tr>
-				<tr>
-					<td width="90%" class="TableRow">A</td>
-					<td width="10%" class="TableRow">Alternate</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="2">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario244" onclick="parent.toggleDiv('detailsDIVScenario244','DetailsImageScenario244')" />Details:
-							<div id="detailsDIVScenario244" class="DetailsDiv" >
-							
-							</div>
-						</div>
-						
-						
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="LinksTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="15%" class="TableHeading">Type</td>
-					<td width="15%" class="TableHeading">Connection</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA72.htm">«document» DataObject</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
-	</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>	</div>
 <div class="pageFooter"></div>
  
 </body>

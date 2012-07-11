@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::VerticalCoordinateTypeEnum</title>
+<title>grids::SimpleGridGeometry</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">VerticalCoordinateTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">SimpleGridGeometry  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/9/2008 11:12:15 AM</td>
+			<td width="85%" class="ObjectDetailsValue">10/9/2008 12:55:00 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/16/2011 11:06:28 AM</td>
+			<td class="ObjectDetailsValue">1/29/2009 12:22:49 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F60C7E0C-D1F9-4ce6-B2C1-99E17E03C15C}</td>
+			<td class="ObjectDetailsValue">{1A7B70F2-54E2-4bb6-93E7-751B7921C6A0}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA88.htm">Grids Package Diagram</a>, <a href="EA86.htm">Grid Cell Classes</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A list of different types of vertical coordinates systems.</div>
+	<div class="ObjectDetailsNotes">This class may be used to encode the parameters needed to define a simple grid, i.e. a grid based on repeating square or rectangular grid cells.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,57 +76,128 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;terrain-following</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Integer</i><br /><strong>&nbsp;&nbsp;numDims</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes445" onclick="parent.toggleDiv('detailsDIVAttributes445','DetailsImageAttributes445')" />Details:
-						<div id="detailsDIVAttributes445" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes430" onclick="parent.toggleDiv('detailsDIVAttributes430','DetailsImageAttributes430')" />Details:
+						<div id="detailsDIVAttributes430" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;space-based</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;dimOrder</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes446" onclick="parent.toggleDiv('detailsDIVAttributes446','DetailsImageAttributes446')" />Details:
-						<div id="detailsDIVAttributes446" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes431" onclick="parent.toggleDiv('detailsDIVAttributes431','DetailsImageAttributes431')" />Details:
+						<div id="detailsDIVAttributes431" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is &quot;yx&quot; (&quot;zyx&quot; for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;mass-based</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Boolean</i><br /><strong>&nbsp;&nbsp;isMesh</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes447" onclick="parent.toggleDiv('detailsDIVAttributes447','DetailsImageAttributes447')" />Details:
-						<div id="detailsDIVAttributes447" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes432" onclick="parent.toggleDiv('detailsDIVAttributes432','DetailsImageAttributes432')" />Details:
+						<div id="detailsDIVAttributes432" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Set to True if the grid geometry defines a grid mesh that fully partitions a 2D or 3D space. Set to false (the default) if the grid geometry simply defines the locations of grid nodes, making no statement about the shape or extent of surrounding grid cells.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;hybrid</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA104.htm">CoordList</a></i><br /><strong>&nbsp;&nbsp;xcoords</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes448" onclick="parent.toggleDiv('detailsDIVAttributes448','DetailsImageAttributes448')" />Details:
-						<div id="detailsDIVAttributes448" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes433" onclick="parent.toggleDiv('detailsDIVAttributes433','DetailsImageAttributes433')" />Details:
+						<div id="detailsDIVAttributes433" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the X (or i) coordinate of each &#39;vertical&#39; grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two X coordinates are required: the X coordinate of the initial grid node, plus the offset or spacing between successive grid nodes.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;not-applicable</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA104.htm">CoordList</a></i><br /><strong>&nbsp;&nbsp;ycoords</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes449" onclick="parent.toggleDiv('detailsDIVAttributes449','DetailsImageAttributes449')" />Details:
-						<div id="detailsDIVAttributes449" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes434" onclick="parent.toggleDiv('detailsDIVAttributes434','DetailsImageAttributes434')" />Details:
+						<div id="detailsDIVAttributes434" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Specifies the Y (or j) coordinate of each &#39;horizontal&#39; grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two Y coordinates are required: the Y coordinate of the initial grid node, plus the offset or spacing between successive grid nodes.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA104.htm">CoordList</a></i><br /><strong>&nbsp;&nbsp;zcoords</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes435" onclick="parent.toggleDiv('detailsDIVAttributes435','DetailsImageAttributes435')" />Details:
+						<div id="detailsDIVAttributes435" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			For 3D grids, specifies the Z coordinates of the grid.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

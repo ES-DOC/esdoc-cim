@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::TemporalAveType</title>
+<title>SimulationRelationshipType</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">TemporalAveType  : public  &lt;&lt;CodeList&gt;&gt; class</span>
+	<span class="ObjectTitle">SimulationRelationshipType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/24/2008 1:32:03 PM</td>
+			<td width="85%" class="ObjectDetailsValue">6/29/2009 6:53:56 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/25/2010 12:12:00 PM</td>
+			<td class="ObjectDetailsValue">4/2/2010 9:32:23 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">lawrence</td>
+			<td class="ObjectDetailsValue">allyn</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,39 +57,116 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{5B1F1E66-03CC-43a4-A6AF-4FB1316BA006}</td>
+			<td class="ObjectDetailsValue">{CDBBB5E1-5359-47a2-8F1C-E2ADAD884687}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">The types of relationships that can be described in a simulation&#39;s genealogy.</div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 		</ul>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
 		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
+			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">open</td>
-				<td width="50%" class="TableRow" valign="top">true</td>
-			</tr>	
+						<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;extensionOf</strong></td>
+			</tr>
 			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario147" onclick="parent.toggleDiv('detailsDIVScenario147','DetailsImageScenario147')" />Details:
-						<div id="detailsDIVScenario147" class="DetailsDiv" >
-						&nbsp;
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes145" onclick="parent.toggleDiv('detailsDIVAttributes145','DetailsImageAttributes145')" />Details:
+						<div id="detailsDIVAttributes145" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;responseTo</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes146" onclick="parent.toggleDiv('detailsDIVAttributes146','DetailsImageAttributes146')" />Details:
+						<div id="detailsDIVAttributes146" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;continuationOf</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes147" onclick="parent.toggleDiv('detailsDIVAttributes147','DetailsImageAttributes147')" />Details:
+						<div id="detailsDIVAttributes147" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;previousSimulation</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes148" onclick="parent.toggleDiv('detailsDIVAttributes148','DetailsImageAttributes148')" />Details:
+						<div id="detailsDIVAttributes148" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;higherResolutionVersionOf</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes149" onclick="parent.toggleDiv('detailsDIVAttributes149','DetailsImageAttributes149')" />Details:
+						<div id="detailsDIVAttributes149" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;lowerResolutionVersionOf</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes150" onclick="parent.toggleDiv('detailsDIVAttributes150','DetailsImageAttributes150')" />Details:
+						<div id="detailsDIVAttributes150" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;fixedVersionOf</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes151" onclick="parent.toggleDiv('detailsDIVAttributes151','DetailsImageAttributes151')" />Details:
+						<div id="detailsDIVAttributes151" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;followingSimulation</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes152" onclick="parent.toggleDiv('detailsDIVAttributes152','DetailsImageAttributes152')" />Details:
+						<div id="detailsDIVAttributes152" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
-</div>	</div>
+</div>
+	</div>
 <div class="pageFooter"></div>
  
 </body>

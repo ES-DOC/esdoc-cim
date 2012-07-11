@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>activity::RequirementOption</title>
+<title>OutputRequirement</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">RequirementOption  : public   class</span>
+	<span class="ObjectTitle">OutputRequirement  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">9/22/2008 11:50:28 AM</td>
+			<td width="85%" class="ObjectDetailsValue">9/24/2008 12:47:02 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">7/13/2010 10:27:56 AM</td>
+			<td class="ObjectDetailsValue">2/11/2011 1:07:13 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,17 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{19189628-F3DC-40af-A550-F6AE1A73084F}</td>
+			<td class="ObjectDetailsValue">{2AB813E2-67D2-4350-AC83-5955A0965B56}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
 			<td class="ObjectDetailsValue"><a href="EA9.htm">Activity</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A NumericalRequirement that is being used as a set of related requirements; For example if a requirement is to use 1 of 3 boundary conditions, then that &quot;parent&quot; requirement would have three &quot;child&quot; RequirmentOptions (each of one with the XOR optionRelationship).</div>
-
+	
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -78,83 +76,41 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA41.htm">NumericalRequirement</a></i><br /><strong>&nbsp;&nbsp;requirement</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA37.htm">FrequencyType</a></i><br /><strong>&nbsp;&nbsp;outputFrequency</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes108" onclick="parent.toggleDiv('detailsDIVAttributes108','DetailsImageAttributes108')" />Details:
 						<div id="detailsDIVAttributes108" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The requirement being specified by this option
-		</td>
-	</tr>
-</table></div>
-
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA183.htm">LogicalRelationshipType</a></i><br /><strong>&nbsp;&nbsp;optionRelationship</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA178.htm">DateRange</a></i><br /><strong>&nbsp;&nbsp;outputPeriod</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes109" onclick="parent.toggleDiv('detailsDIVAttributes109','DetailsImageAttributes109')" />Details:
 						<div id="detailsDIVAttributes109" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes how this optional (child) requirement is related to its sibling requirements.&nbsp;<WBR> For example, a NumericalRequirement could consist of a set of optional requirements each with an &quot;OR&quot; relationship meaning use this boundary condition _or_ that one.
-		</td>
-	</tr>
-</table></div>
-
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public TemporalAveType</i><br /><strong>&nbsp;&nbsp;temporalAveraging</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes110" onclick="parent.toggleDiv('detailsDIVAttributes110','DetailsImageAttributes110')" />Details:
+						<div id="detailsDIVAttributes110" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA41.htm">«abstract» NumericalRequirement</a><br />
-						Abstract &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink110" onclick="parent.toggleDiv('detailsDIVLink110','DetailsImageLink110')" />Details:
-							<div id="detailsDIVLink110" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
 		<div class="ItemBody" id="LinksTable">
 			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
@@ -164,9 +120,9 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA41.htm">«abstract» NumericalRequirement</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA44.htm">«abstract» NumericalRequirement</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

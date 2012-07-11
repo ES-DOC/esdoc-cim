@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Relationship</title>
+<title>shared::PropertyGroup</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Relationship  : public  &lt;&lt;abstract&gt;&gt; abstract</span>
+	<span class="ObjectTitle">PropertyGroup  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">6/29/2009 6:54:04 AM</td>
+			<td width="85%" class="ObjectDetailsValue">11/7/2008 3:29:53 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">8/5/2009 1:58:12 PM</td>
+			<td class="ObjectDetailsValue">2/13/2011 9:43:45 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,19 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{B7077CAD-A00C-4f59-AF1E-7731B72B30E6}</td>
+			<td class="ObjectDetailsValue">{CD2869D3-FB47-4261-8F9A-165BBC4E6BA5}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
+			<td class="ObjectDetailsValue"><a href="EA155.htm">Shared</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A record of a relationship between one document and another.&#160; This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document&#39;s genealogy.</div>
+	<div class="ObjectDetailsNotes">A collection of Properties.&#160; A PropertyGroup can itself contain other PropertyGroups.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
 			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -78,19 +79,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public RelationshipType</i><br /><strong>&nbsp;&nbsp;type</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA184.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes740" onclick="parent.toggleDiv('detailsDIVAttributes740','DetailsImageAttributes740')" />Details:
-						<div id="detailsDIVAttributes740" class="DetailsDiv" >
-						<i>&lt;&lt;unused&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes733" onclick="parent.toggleDiv('detailsDIVAttributes733','DetailsImageAttributes733')" />Details:
+						<div id="detailsDIVAttributes733" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			This attribute is &lt;&lt;unused&gt;&gt;; it is a placeholder for specific relationshipTypes used by specialisations of Relationship.
+			A unique id for this group of properties.
 		</td>
 	</tr>
 </table></div>
@@ -99,35 +100,23 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA175.htm">Document</a></i><br /><strong>&nbsp;&nbsp;target</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes741" onclick="parent.toggleDiv('detailsDIVAttributes741','DetailsImageAttributes741')" />Details:
-						<div id="detailsDIVAttributes741" class="DetailsDiv" >
-						<i>&lt;&lt;unused&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes742" onclick="parent.toggleDiv('detailsDIVAttributes742','DetailsImageAttributes742')" />Details:
-						<div id="detailsDIVAttributes742" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public RelationshipDirectionType</i><br /><strong>&nbsp;&nbsp;direction</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes743" onclick="parent.toggleDiv('detailsDIVAttributes743','DetailsImageAttributes743')" />Details:
-						<div id="detailsDIVAttributes743" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes734" onclick="parent.toggleDiv('detailsDIVAttributes734','DetailsImageAttributes734')" />Details:
+						<div id="detailsDIVAttributes734" class="DetailsDiv" >
+						<i>Range:0 to 1</i>anonymousRole=false<br><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The name of this group of properties.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
@@ -143,22 +132,78 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA179.htm">Genealogy</a><br />
+						<a href="EA198.htm">PropertyGroup</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> relationship<br />
+						<strong>Name:</strong> childGroup<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> parentGroup<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink744" onclick="parent.toggleDiv('detailsDIVLink744','DetailsImageLink744')" />Details:
-							<div id="detailsDIVLink744" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink735" onclick="parent.toggleDiv('detailsDIVLink735','DetailsImageLink735')" />Details:
+							<div id="detailsDIVLink735" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA198.htm">PropertyGroup</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> childGroup<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> parentGroup<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink738" onclick="parent.toggleDiv('detailsDIVLink738','DetailsImageLink738')" />Details:
+							<div id="detailsDIVLink738" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA197.htm">«abstract» Property</a><br />
+						Abstract &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> group<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink739" onclick="parent.toggleDiv('detailsDIVLink739','DetailsImageLink739')" />Details:
+							<div id="detailsDIVLink739" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -176,25 +221,13 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA176.htm">DocumentRelationship</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA198.htm">PropertyGroup</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA50.htm">SimulationRelationship</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA32.htm">ExperimentRelationship</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA179.htm">Genealogy</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA197.htm">«abstract» Property</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

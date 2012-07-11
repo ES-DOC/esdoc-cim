@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::CustomFeatureGeometry</title>
+<title>grids::ArcTypeEnum</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">CustomFeatureGeometry  : public   class</span>
+	<span class="ObjectTitle">ArcTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/7/2008 1:50:04 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/9/2008 11:05:50 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/9/2009 10:16:51 AM</td>
+			<td class="ObjectDetailsValue">2/3/2009 10:56:42 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{37B76C39-92FE-44d1-B17E-55A7B0754C6B}</td>
+			<td class="ObjectDetailsValue">{34B1E228-6362-4b7d-BF85-8A3F64808F2A}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a></td>
+			<td class="ObjectDetailsValue"><a href="EA88.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</div>
+	<div class="ObjectDetailsNotes">The ArcType enumeration may be used to indicate the type of the curves (arcs) that connect the grid nodes in a grid tile. The &#39;complex&#39; enumeration should be used when the arc type is not one of the other well-known types.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,44 +76,46 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;id</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;geodesic</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes283" onclick="parent.toggleDiv('detailsDIVAttributes283','DetailsImageAttributes283')" />Details:
-						<div id="detailsDIVAttributes283" class="DetailsDiv" >
-						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes285" onclick="parent.toggleDiv('detailsDIVAttributes285','DetailsImageAttributes285')" />Details:
+						<div id="detailsDIVAttributes285" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;geometrySpec</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;great_circle</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes284" onclick="parent.toggleDiv('detailsDIVAttributes284','DetailsImageAttributes284')" />Details:
-						<div id="detailsDIVAttributes284" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes286" onclick="parent.toggleDiv('detailsDIVAttributes286','DetailsImageAttributes286')" />Details:
+						<div id="detailsDIVAttributes286" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;small_circle</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes287" onclick="parent.toggleDiv('detailsDIVAttributes287','DetailsImageAttributes287')" />Details:
+						<div id="detailsDIVAttributes287" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;complex</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes288" onclick="parent.toggleDiv('detailsDIVAttributes288','DetailsImageAttributes288')" />Details:
+						<div id="detailsDIVAttributes288" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>

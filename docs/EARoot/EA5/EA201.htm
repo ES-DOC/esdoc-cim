@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Standard</title>
+<title>shared::Reference</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Standard  : public   class</span>
+	<span class="ObjectTitle">Reference  : public  &lt;&lt;abstract&gt;&gt; abstract</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">12/10/2008 5:03:56 PM</td>
+			<td width="85%" class="ObjectDetailsValue">12/12/2008 11:08:08 AM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/22/2011 2:14:19 PM</td>
+			<td class="ObjectDetailsValue">4/2/2010 11:38:16 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,15 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{0A3FD46E-14DD-4824-AA51-E582C57994F0}</td>
+			<td class="ObjectDetailsValue">{CEB3051E-7100-414e-9801-8A598754FFFA}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA151.htm">Shared</a></td>
+			<td class="ObjectDetailsValue"><a href="EA155.htm">Shared</a></td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;With all the different ways of pinpointing an XML item, a reference can either use XPATH to directly locate the item or it can just identifiy the document and then use the other attributes (name,type,etc.) to narrow down the particular element within that document.&#160; &lt;br /&gt;&lt;/p&gt;</div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
@@ -75,19 +76,61 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public guid</i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes749" onclick="parent.toggleDiv('detailsDIVAttributes749','DetailsImageAttributes749')" />Details:
-						<div id="detailsDIVAttributes749" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes745" onclick="parent.toggleDiv('detailsDIVAttributes745','DetailsImageAttributes745')" />Details:
+						<div id="detailsDIVAttributes745" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The name of the standard&lt;br /&gt;
+			the ID of the element being referenced.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes746" onclick="parent.toggleDiv('detailsDIVAttributes746','DetailsImageAttributes746')" />Details:
+						<div id="detailsDIVAttributes746" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The name of the instance being referenced.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;type</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes747" onclick="parent.toggleDiv('detailsDIVAttributes747','DetailsImageAttributes747')" />Details:
+						<div id="detailsDIVAttributes747" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The type of item being referenced (should correspond to the name of the referenced XML element).
 		</td>
 	</tr>
 </table></div>
@@ -100,15 +143,36 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes750" onclick="parent.toggleDiv('detailsDIVAttributes750','DetailsImageAttributes750')" />Details:
-						<div id="detailsDIVAttributes750" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes748" onclick="parent.toggleDiv('detailsDIVAttributes748','DetailsImageAttributes748')" />Details:
+						<div id="detailsDIVAttributes748" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The version of the standard&lt;br /&gt;
+			The version of the element being referenced.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA206.htm">StandardName</a></i><br /><strong>&nbsp;&nbsp;externalID</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes749" onclick="parent.toggleDiv('detailsDIVAttributes749','DetailsImageAttributes749')" />Details:
+						<div id="detailsDIVAttributes749" class="DetailsDiv" >
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A non-CIM (non-GUID) id used to reference the element in question.
 		</td>
 	</tr>
 </table></div>
@@ -121,9 +185,40 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes750" onclick="parent.toggleDiv('detailsDIVAttributes750','DetailsImageAttributes750')" />Details:
+						<div id="detailsDIVAttributes750" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A description of the element being referenced, in the context of the current class.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA167.htm">Change</a></i><br /><strong>&nbsp;&nbsp;change</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes751" onclick="parent.toggleDiv('detailsDIVAttributes751','DetailsImageAttributes751')" />Details:
 						<div id="detailsDIVAttributes751" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			An optional description of how the item being referenced has been modified.&nbsp;<WBR> This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>

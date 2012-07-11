@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ProcessorComponent</title>
+<title>software::ModelComponent</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ProcessorComponent  : public  &lt;&lt;document&gt;&gt; class</span>
+	<span class="ObjectTitle">ModelComponent  : public  &lt;&lt;document&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11/17/2008 4:04:11 PM</td>
+			<td width="85%" class="ObjectDetailsValue">11/17/2008 3:54:52 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/26/2009 2:14:05 PM</td>
+			<td class="ObjectDetailsValue">1/26/2009 2:15:13 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8F759CBE-164C-4bfd-9B6E-BA96B48FDC61}</td>
+			<td class="ObjectDetailsValue">{99FF320B-452C-434c-B587-F102C5B05339}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA1.htm">CIM</a>, <a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A ProcessorComponent is a component which does not model some physical phenomena.&#160; It still processes data, but it is not a &quot;scientific model&quot; in the strict sense.&#160; Examples of ProcessorComponents include transformers and post-processors.&#160; ProcessorComponents may be assocaited with a DataProcessing activity as opposed to a Simulation activity.</div>
+	<div class="ObjectDetailsNotes">A ModelCompnent is a scientific model; it represents code which models some physical phenomena for a particular length of time.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,12 +78,12 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA241.htm">ProcessorComponentType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA241.htm">ModelComponentType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes960" onclick="parent.toggleDiv('detailsDIVAttributes960','DetailsImageAttributes960')" />Details:
-						<div id="detailsDIVAttributes960" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes878" onclick="parent.toggleDiv('detailsDIVAttributes878','DetailsImageAttributes878')" />Details:
+						<div id="detailsDIVAttributes878" class="DetailsDiv" >
 						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
@@ -99,61 +99,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;conservative</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA259.htm">Timing</a></i><br /><strong>&nbsp;&nbsp;timing</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes961" onclick="parent.toggleDiv('detailsDIVAttributes961','DetailsImageAttributes961')" />Details:
-						<div id="detailsDIVAttributes961" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A conservative component conserves fluxes across corresponding times and areas for different grids.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA245.htm">SpatialRegridding</a></i><br /><strong>&nbsp;&nbsp;spatialRegridding</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes962" onclick="parent.toggleDiv('detailsDIVAttributes962','DetailsImageAttributes962')" />Details:
-						<div id="detailsDIVAttributes962" class="DetailsDiv" >
-						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA252.htm">TimeTransformation</a></i><br /><strong>&nbsp;&nbsp;timeTransformation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes963" onclick="parent.toggleDiv('detailsDIVAttributes963','DetailsImageAttributes963')" />Details:
-						<div id="detailsDIVAttributes963" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes879" onclick="parent.toggleDiv('detailsDIVAttributes879','DetailsImageAttributes879')" />Details:
+						<div id="detailsDIVAttributes879" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			 Temporal transformation performed on the coupling field before or after regridding onto the target grid. 
+			Describes information about how this component simulates time.
 		</td>
 	</tr>
 </table></div>
@@ -173,11 +131,11 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA1/EA29.htm">«document» DataProcessing</a><br />
+						<a href="../EA1/EA55.htm">«document» SimulationRun</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> processor<br />
+						<strong>Name:</strong> model<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -187,8 +145,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink964" onclick="parent.toggleDiv('detailsDIVLink964','DetailsImageLink964')" />Details:
-							<div id="detailsDIVLink964" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink880" onclick="parent.toggleDiv('detailsDIVLink880','DetailsImageLink880')" />Details:
+							<div id="detailsDIVLink880" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -206,13 +164,13 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA244.htm">«abstract» SoftwareComponent</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA248.htm">«abstract» SoftwareComponent</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA29.htm">«document» DataProcessing</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA55.htm">«document» SimulationRun</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

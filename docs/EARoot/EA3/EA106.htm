@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>grids::ExchangeGridCell</title>
+<title>grids::CustomGridGeometry</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">ExchangeGridCell  : public   class</span>
+	<span class="ObjectTitle">CustomGridGeometry  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/7/2008 3:01:01 PM</td>
+			<td width="85%" class="ObjectDetailsValue">10/7/2008 1:42:01 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">1/27/2009 3:34:50 PM</td>
+			<td class="ObjectDetailsValue">3/9/2009 10:16:40 AM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,18 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{390B71FB-8106-4630-AC8F-BBEB265BFBBE}</td>
+			<td class="ObjectDetailsValue">{0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA84.htm">Grids Package Diagram</a>, <a href="EA82.htm">Grid Cell Classes</a></td>
+			<td class="ObjectDetailsValue"><a href="EA88.htm">Grids Package Diagram</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Intended usage is for defining cells in exchange grids. Such cells reference &#39;parent&#39; grid cells in the two grids partaking in an exchange. The association isn&#39;t really a parent-child one, but the name seems to have stuck.</div>
+	<div class="ObjectDetailsNotes">This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -77,36 +76,50 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA111.htm">GridCellRef</a></i><br /><strong>&nbsp;&nbsp;parentCell</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Identifier</i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes301" onclick="parent.toggleDiv('detailsDIVAttributes301','DetailsImageAttributes301')" />Details:
-						<div id="detailsDIVAttributes301" class="DetailsDiv" >
-						<i>Range:2 to 2</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes297" onclick="parent.toggleDiv('detailsDIVAttributes297','DetailsImageAttributes297')" />Details:
+						<div id="detailsDIVAttributes297" class="DetailsDiv" >
+						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;geometrySpec</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes298" onclick="parent.toggleDiv('detailsDIVAttributes298','DetailsImageAttributes298')" />Details:
+						<div id="detailsDIVAttributes298" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="LinksTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="15%" class="TableHeading">Type</td>
-					<td width="15%" class="TableHeading">Connection</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA109.htm">GridCell</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
 	</div>
 <div class="pageFooter"></div>
  

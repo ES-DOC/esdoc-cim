@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Deployment</title>
+<title>software::CouplingEndPoint</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">Deployment  : public   class</span>
+	<span class="ObjectTitle">CouplingEndPoint  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">10/10/2008 2:45:26 PM</td>
+			<td width="85%" class="ObjectDetailsValue">11/20/2008 1:46:42 PM</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">3/1/2010 4:58:00 PM</td>
+			<td class="ObjectDetailsValue">11/19/2010 8:51:32 PM</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,21 +57,18 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{E26C5CC0-EC73-4dfc-B206-99751DDA51BD}</td>
+			<td class="ObjectDetailsValue">{B1CC549E-2556-455e-98D9-9A8DA2551597}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA9.htm">Activity</a>, <a href="EA204.htm">Software</a></td>
+			<td class="ObjectDetailsValue"><a href="EA208.htm">Software</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A deployment basically associates a deploymentDate with a Platform.&#160; A deployment only exists if something has been deployed.&#160; A platform, in contrast, can exist independently, waiting to be used in deployments.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">The source/target of a coupling.&#160; This is a DataSource (a SoftwareComponent or DataObject).&#160; This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
-			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
-			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -79,52 +76,30 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public DateTime</i><br /><strong>&nbsp;&nbsp;deploymentDate</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes846" onclick="parent.toggleDiv('detailsDIVAttributes846','DetailsImageAttributes846')" />Details:
-						<div id="detailsDIVAttributes846" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes847" onclick="parent.toggleDiv('detailsDIVAttributes847','DetailsImageAttributes847')" />Details:
-						<div id="detailsDIVAttributes847" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA239.htm">Parallelisation</a></i><br /><strong>&nbsp;&nbsp;parallelisation</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA177.htm">DataSource</a></i><br /><strong>&nbsp;&nbsp;dataSource</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes848" onclick="parent.toggleDiv('detailsDIVAttributes848','DetailsImageAttributes848')" />Details:
 						<div id="detailsDIVAttributes848" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
+						<i>&lt;&lt;reference&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA191.htm">Platform</a></i><br /><strong>&nbsp;&nbsp;platform</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA5/EA184.htm">Identifier</a></i><br /><strong>&nbsp;&nbsp;instanceID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes849" onclick="parent.toggleDiv('detailsDIVAttributes849','DetailsImageAttributes849')" />Details:
 						<div id="detailsDIVAttributes849" class="DetailsDiv" >
-						<i>&lt;&lt;reference&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The platform that this deployment has been run on.&nbsp;<WBR> It is optional to allow for &quot;unconfigured&quot; models, that nonetheless specify their parallelisation constraints (a feature needed by OASIS).
+			If the same datasource is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).
 		</td>
 	</tr>
 </table></div>
@@ -133,119 +108,29 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;executableName</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA235.htm">CouplingProperty</a></i><br /><strong>&nbsp;&nbsp;couplingProperty</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
 					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes850" onclick="parent.toggleDiv('detailsDIVAttributes850','DetailsImageAttributes850')" />Details:
 						<div id="detailsDIVAttributes850" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;executableArgument</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes851" onclick="parent.toggleDiv('detailsDIVAttributes851','DetailsImageAttributes851')" />Details:
-						<div id="detailsDIVAttributes851" class="DetailsDiv" >
-						<i>Range:0 to *</i>&nbsp;
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			A place to describe features specific to the source/target of a coupling
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA244.htm">«abstract» SoftwareComponent</a><br />
-						Abstract &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink853" onclick="parent.toggleDiv('detailsDIVLink853','DetailsImageLink853')" />Details:
-							<div id="detailsDIVLink853" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="AssociationsFromTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA1/EA48.htm">«abstract» Simulation</a><br />
-						Abstract &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> deployment<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink854" onclick="parent.toggleDiv('detailsDIVLink854','DetailsImageLink854')" />Details:
-							<div id="detailsDIVLink854" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
-		<div class="ItemBody" id="LinksTable">
-			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="30%" class="TableHeading">Object</td>
-					<td width="15%" class="TableHeading">Type</td>
-					<td width="15%" class="TableHeading">Connection</td>
-					<td width="40%" class="TableHeading">Notes</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA48.htm">«abstract» Simulation</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA244.htm">«abstract» SoftwareComponent</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Weak</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-
-			</table>
-		</div>
 	</div>
 <div class="pageFooter"></div>
  
