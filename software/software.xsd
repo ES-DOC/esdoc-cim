@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 14 April 2011, 5:31 -->       
+<!-- generated: 12 November 2012, 20:58 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.purl.org/org/esmetadata/cim/1.5/schemas"       
-targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5/schemas">       
-<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
+            xmlns="http://www.purl.org/org/esmetadata/cim/1.5.1/schemas"       
+targetNamespace="http://www.purl.org/org/esmetadata/cim/1.5.1/schemas">       
+<!-- previously, these were relative pathnames; as of v1.5.1 they are external URLs -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
-           schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
+           schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.opengis.net/gml/3.2"
-           schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
+           schemaLocation="http://www.opengis.net/gml/3.2.1/gml.xsd"/>
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.isotc211.org/2005/gmd"
-           schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
+           schemaLocation="http://www.isotc211.org/2005/gmd/gmd.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="activity.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="data.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>

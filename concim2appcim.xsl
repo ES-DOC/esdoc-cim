@@ -159,10 +159,10 @@
             -->
             <xs:import namespace="http://www.w3.org/1999/xlink"
                 schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
-            <xs:import namespace="http://schemas.opengis.net/gml/3.2.1"
-                schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-            <xs:import namespace="http://schemas.opengis.net/iso/19139/20070417/gmd"
-                schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+            <xs:import namespace="http://www.opengis.net/gml/3.2"
+                schemaLocation="http://www.opengis.net/gml/3.2.1/gml.xsd"/>
+            <xs:import namespace="http://www.isotc211.org/2005/gmd"
+                schemaLocation="http://www.isotc211.org/2005/gmd/gmd.xsd"/>
             
             <!-- HERE ENDETH THE HACK -->
 
