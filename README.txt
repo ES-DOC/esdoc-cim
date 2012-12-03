@@ -12,7 +12,7 @@ All of the packages are developed together as a single Enterprise Architect (EA)
 
 The concim2appcim.xsl file can be used to transform that cim.xmi file to a series of XSD files defining the APPCIM.  The CIM makes use of some external schemas (xlink, gmd, gml, etc.).  These can be found in the "external_schemas" project stored above the CIM SVN Repository.
 
-Be sure to specify the "namespace" and "version" paramters for that transformation (you can also use set debug to "true" to print out what the code is doing).
+Be sure to specify the "namespace" and "version" paramters for that transformation. You can also use set "debug" to "true" to print out what the code is doing.  And the "sort-attributes" parameter sorts UML attributes alphabetically instead of in the order they appear in the XMI file (do not do this unless you have a very good reason).
 
 Manipulating the CIM APPCIM, including using it to validate CIM instances, can be a slow process.  To expedite this process, ensure that all the xsd files (including the external schemas) are at a location known to your validator - either on the local filesystem or online someplace.  A sample "oasis_catalog.xml" file has been provided for this; most modern XML tools are oasis_catalog-aware.
 
