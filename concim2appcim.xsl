@@ -160,7 +160,7 @@
             <xs:import namespace="http://www.w3.org/1999/xlink"
                 schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
             <xs:import namespace="http://www.opengis.net/gml/3.2"
-                schemaLocation="http://www.opengis.net/gml/3.2.1/gml.xsd"/>
+                schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
             <xs:import namespace="http://www.isotc211.org/2005/gmd"
                 schemaLocation="http://www.isotc211.org/2005/gmd/gmd.xsd"/>
             
