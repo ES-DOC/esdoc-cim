@@ -146,15 +146,24 @@
             -->
             <xsl:value-of select="$newline"/>
             <xsl:comment>
-                <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
+                <xsl:text> previously, these were relative pathnames; as of v1.5.1 they are external URLs </xsl:text>
             </xsl:comment>
             <xsl:value-of select="$newline"/>
+            <!--
             <xs:import namespace="http://www.w3.org/1999/xlink"
                 schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
             <xs:import namespace="http://www.opengis.net/gml/3.2"
                 schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
             <xs:import namespace="http://www.isotc211.org/2005/gmd"
                 schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
+            -->
+            <xs:import namespace="http://www.w3.org/1999/xlink"
+                schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+            <xs:import namespace="http://www.opengis.net/gml/3.2"
+                schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+            <xs:import namespace="http://www.isotc211.org/2005/gmd"
+                schemaLocation="http://www.isotc211.org/2005/gmd/gmd.xsd"/>
+       
             <!-- HERE ENDETH THE HACK -->
 
             <xsl:for-each select="//UML:Package[@name!=$packageName]">
