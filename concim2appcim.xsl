@@ -497,7 +497,8 @@ This has been commented out b/c a documentset is just a transfer convention
         <xsl:choose>
             <xsl:when test="$element">
                 <!-- add the extensible element part -->
-                <xs:element name="extension">
+                <!-- as of CIM v1.7, this element is optional -->
+                <xs:element name="extension" minOccurs="0" maxOccurs="1">
                     <xs:annotation>
                         <xs:documentation>this element contains any extensions to the CIM; a
                             container element is required to prevent ambiguity among extensible

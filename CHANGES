@@ -1,14 +1,20 @@
-Common Information Model (CIM) v1.5.1
+Common Information Model (CIM) v1.7.1
 
 *****
 
-Changes made to v1.5.1 
+Changes made to v1.7.1 
 
 * added this CHANGES file
 * updated README.txt
 * provided a sample oasis_catalog.xml file to expedite validating external schemas (by redirecting to local copies)
 * provided fully-qualified URLs for external schemas instead of relative local paths
 * explicitly specified that Coords and VerticalCoords in the Grids Package are mixed content 
+
+Changes made to v1.7
+(v1.7 was intended to be used by ESGF)
+* added extensible stereotpye to componentproperties so that ESGF can specify custom (ie: not belonging to a CV) properties
+* added SimulationType to Simulation class
+* added Simulation URL to Simulation class
 
 *****
 
