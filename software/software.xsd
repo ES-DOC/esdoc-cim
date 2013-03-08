@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 4 December 2012, 16:34 -->       
+<!-- generated: 8 March 2013, 11:10 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -932,7 +932,7 @@ Every EntryPoint can have a set of arguments associated with it.  These referenc
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StatisticalModelComponentType"
                 mixed="true">
    <xs:annotation>
-      <xs:documentation>An enumeration of types of ProcessorComponent.  This includes things like transformers and post-processors.</xs:documentation>
+      <xs:documentation>An enumeration of types of StatisticalModelComponent.  This includes more than just statistical downscaling techniques; it can be used for forecast or impact models too.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="controlledVocabulary" minOccurs="0" maxOccurs="unbounded"

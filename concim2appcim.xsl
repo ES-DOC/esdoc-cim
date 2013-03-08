@@ -20,6 +20,7 @@
     <xsl:param name="namespace">http://www.purl.org/org/esmetadata/cim</xsl:param>
     <xsl:param name="sort-attributes">false</xsl:param>
     <xsl:param name="debug">false</xsl:param>
+    <xsl:param name="output-enumerations">true</xsl:param>
 
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
@@ -528,6 +529,20 @@ This has been commented out b/c a documentset is just a transfer convention
         <!-- if so, is it "open" or "closed?" -->
         <xsl:param name="open" select="false()"/>
 
+        <xsl:if test="$output-enumerations='true'">
+            <xsl:message>
+                <xsl:value-of select="$newline"/>
+                <xsl:choose>
+                    <xsl:when test="$open">
+                        <xsl:value-of select="concat(@name,'*:')"/>        
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat(@name,':')"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:message>
+        </xsl:if>
+        
         <xsl:variable name="name">
             <xsl:choose>
                 <!-- this might be part of a codelist -->
@@ -551,6 +566,13 @@ This has been commented out b/c a documentset is just a transfer convention
                     <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
 
                     <xs:enumeration value="{@name}">
+                        
+                        <xsl:if test="$output-enumerations='true'">
+                            <xsl:message>
+                                <xsl:value-of select="@name"/>                
+                            </xsl:message>
+                        </xsl:if>
+                        
                         <xsl:apply-templates mode="UMLattribute"/>
                     </xs:enumeration>
                 </xsl:for-each>
