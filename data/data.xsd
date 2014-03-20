@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 8 March 2013, 11:10 -->       
+<!-- generated: 20 March 2014, 8:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas"       
-targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">       
+            xmlns="http://www.purl.org/org/esmetadata/cim/1.8.2/schemas"       
+targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.2/schemas">       
 <!-- previously, these were relative pathnames; as of v1.5.1 they are external URLs -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -31,9 +31,9 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
+      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileSystem" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -59,9 +59,9 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
       <xs:documentation>Describes the content  of a data object; the variable's name, units, etc.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="standardName" minOccurs="0" maxOccurs="unbounded" type="StandardName"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="unit" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
 </xs:complexType>
@@ -70,9 +70,9 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
       <xs:documentation>An access or use restriction on some element of the DataObject's actual data.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="license" minOccurs="0" maxOccurs="1" type="License"/>
       <xs:element name="restriction" minOccurs="0" maxOccurs="1"
                   type="gmd:MD_RestrictionCode_PropertyType"/>
-      <xs:element name="license" minOccurs="0" maxOccurs="1" type="License"/>
    </xs:sequence>
    <xs:attribute name="restrictionScope" use="optional" type="DataRestrictionScopeType">
       <xs:annotation>
@@ -85,8 +85,8 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
       <xs:documentation>Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="dataFormat" minOccurs="0" maxOccurs="1" type="DataFormatType"/>
+      <xs:element name="dataSize" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="modificationDate" minOccurs="0" maxOccurs="1" type="dateTime">
          <xs:annotation>
             <xs:documentation>The date that the file (or other storage medium) has been updated</xs:documentation>
@@ -108,8 +108,8 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                     <xs:sequence>
       <xs:element name="dbAccessString" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="dbName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="dbTable" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -168,7 +168,61 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:extension base="DataSource">
                     <xs:sequence>
       <xs:element name="acronym" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dataProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">
+         <xs:annotation>
+            <xs:documentation>May not be used</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="geometryModel" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
          <xs:annotation>
             <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
@@ -184,60 +238,6 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
             <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="geometryModel" minOccurs="0" maxOccurs="1">
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
-      <xs:element name="dataProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">
-         <xs:annotation>
-            <xs:documentation>May not be used</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="sourceSimulation" minOccurs="0" maxOccurs="1">
          <xs:annotation>
             <xs:documentation>Points to the simulation that generated this dataset.</xs:documentation>
@@ -247,6 +247,21 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
@@ -265,21 +280,6 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -292,6 +292,7 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:element ref="simulationRun"/>
                         <xs:element ref="assimilation"/>
                         <xs:element ref="simulationComposite"/>
+                        <xs:element ref="downscalingSimulation"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -317,6 +318,21 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
@@ -335,21 +351,6 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -366,6 +367,21 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
+                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                           <xs:annotation>
+                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                         <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
@@ -384,21 +400,6 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                           <xs:annotation>
-                              <xs:documentation>A non-CIM (non-GUID) id used to reference the element in question.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -427,19 +428,6 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.8.1/schemas">
       <xs:complexContent>
          <xs:extension base="DataObject">
             <xs:sequence>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
-                  <xs:annotation>
-                     <xs:documentation>a unique indentifier for this document</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
-               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
-               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
-                  <xs:annotation>
-                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).
@@ -457,6 +445,19 @@ This includes information about the authoring institution.</xs:documentation>
                      <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="externalID" minOccurs="0" maxOccurs="unbounded" type="StandardName">
+                  <xs:annotation>
+                     <xs:documentation>The id of this document as referenced by an external body (ie: DOI, or even IPSL)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="CIM_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
@@ -484,7 +485,6 @@ This includes information about the authoring institution.</xs:documentation>
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>
       <xs:element name="aggregation" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Describes how the content has been aggregated together: sum, min, mean, max, ...</xs:documentation>
@@ -495,6 +495,7 @@ This includes information about the authoring institution.</xs:documentation>
             <xs:documentation>Describes the frequency of the data content: daily, hourly, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"><!--I am looking at: UML:AssociationEnd--><!--And the class is: DataCitation--><!--Whose id is: EAID_AD573D72_4F78_4ca9_AC47_D7E4FCAE4987--><!--And there were this many specialisations: 0--></xs:element>
    </xs:sequence>  
                             </xs:extension>
@@ -544,10 +545,10 @@ This includes information about the authoring institution.</xs:documentation>
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="protocol" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="host" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="protocol" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
