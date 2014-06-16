@@ -24,7 +24,7 @@ What is esdoc-cim ?
 esdoc-cim contains information artefacts defining the CIM on the conceptual level (known as ConCIM).  It stores UML models of the CIM in XMI format along with an HTML graphical representations of the model.
 
 
-What are the contents of esdoc-questionnaire ?
+What are the contents of esdoc-cim ?
 --------------------------------------
 
 The CIM is broken up into several UML packages for ease of development.  Each of these has its own subdirectory where related files are stored.  Currently, this includes UML diagrams in PNG format.
