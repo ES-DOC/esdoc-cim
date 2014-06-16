@@ -1,7 +1,7 @@
 esdoc-cim
 =========
 
-Repository defining the ES-DOC Common Information Model.
+Repository defining the Metafor Common Information Model.
 
 
 ==================================================
