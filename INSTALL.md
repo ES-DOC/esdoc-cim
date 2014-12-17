@@ -25,7 +25,7 @@ upon checking out a new branch...
 02. select no models by default
 03. create a new top-level view called "Domain Model"
 04. import cim.xmi into that view
-05. create a new top-level view called "Externally Goverend Packages"
+05. create a new top-level view called "Externally Governed Packages"
 06. create a (sub)package for that view called "Hollow World"
 07. import ../external_schemas/ISO19100.xmi into that view
 08. import ../external_schemas/CommonUsagePackages.xmi into that view
