@@ -27,13 +27,7 @@ esdoc-cim contains information artefacts defining the CIM on the conceptual leve
 What are the contents of esdoc-cim ?
 --------------------------------------
 
-The CIM is broken up into several UML packages for ease of development.  Each of these has its own subdirectory where related files are stored.  Currently, this includes UML diagrams in PNG format.
-
-All of the packages are developed together as a single Enterprise Architect (EA) project.  This project is stored in the top-level cim.xmi file.  As changes to the UML ocurr, this file gets overwritten.
-
-The concim2appcim.xsl file can be used to transform that cim.xmi file to a series of XSD files defining the APPCIM.  The CIM makes use of some external schemas (xlink, gmd, gml, etc.).  These can be found in the "external_schemas" project w/in this repository.
-Be sure to specify the "namespace" and "version" paramters for that transformation (you can also use set debug to "true" to print out what the code is doing).
-
+The CIM is broken up into several UML packages for ease of development.  Each of these has its own subdirectory where related files are stored.
 
     \activity	CIM Activity package
     \data	CIM Data package
@@ -41,8 +35,11 @@ Be sure to specify the "namespace" and "version" paramters for that transformati
     \quality	CIM Quality package
     \shared	CIM Shared package
     \software	CIM Software package
-    \docs	HTML representation
+    \docs	HTML documentation
 
+ConCIM files are stored as UML.  AppCIM files are stored as XSD.  Additionally, there are structure diagrams of relevant bits of the CIM stored as PNG.  
+
+There are also XSL files used to, among other things, convert from the ConCIM to AppCIM.
 
 <!-- TODO: Add further information
 
