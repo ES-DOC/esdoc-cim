@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 17 December 2014, 14:27 -->       
+<!-- generated: 17 December 2014, 15:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -229,7 +229,7 @@ targetNamespace="http://www.purl.org/org/esmetadata/cim/1.10.0/schemas">
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
+               <xs:element ref="gridSpec"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>

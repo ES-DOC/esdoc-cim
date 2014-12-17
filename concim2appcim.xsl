@@ -960,7 +960,6 @@ This has been commented out b/c a documentset is just a transfer convention
                                 </xsl:call-template>
                             </xsl:when>
                                 
-                            <!-- I AM HERE -->
                             <!-- it could be a generalised (but not abstract) class itself -->
                             <xsl:when test="count($furtherSpecialisedIDs)&gt;0">
                                 <xs:choice minOccurs="1" maxOccurs="1">
@@ -990,10 +989,7 @@ This has been commented out b/c a documentset is just a transfer convention
                                                                                                             
                                 </xs:choice>
                             </xsl:when>
-                            <!-- I AM HERE -->
-                            
-                            
-                            
+                                                        
                             <!-- otherwise, its just a normal class... -->
                             <xsl:otherwise>
                                 <xsl:element name="xs:element">
@@ -1420,7 +1416,6 @@ This has been commented out b/c a documentset is just a transfer convention
             <!-- note that simpleTypes cannot have elements -->
             <xsl:if test="not($simpleGeneralisation)">
                 <xs:sequence>
-
                     <!-- first check if any of the (UML) attributes should be (XML) elements -->
                     <xsl:for-each select="descendant::UML:Attribute">
                         <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
@@ -1719,14 +1714,14 @@ This has been commented out b/c a documentset is just a transfer convention
                                             <xs:complexContent>
                                                 <xs:extension base="{$endClass/@name}">
                                                   <xs:sequence>
-                                                  <xsl:call-template name="extensibleTemplate">
-                                                  <xsl:with-param name="attribute" select="false()"/>
-                                                  <xsl:with-param name="element" select="true()"/>
-                                                  </xsl:call-template>
+                                                      <xsl:call-template name="extensibleTemplate">
+                                                          <xsl:with-param name="attribute" select="false()"/>
+                                                          <xsl:with-param name="element" select="true()"/>
+                                                      </xsl:call-template>
                                                   </xs:sequence>
                                                   <xsl:call-template name="extensibleTemplate">
-                                                  <xsl:with-param name="attribute" select="true()"/>
-                                                  <xsl:with-param name="element" select="false()"/>
+                                                      <xsl:with-param name="attribute" select="true()"/>
+                                                      <xsl:with-param name="element" select="false()"/>
                                                   </xsl:call-template>
                                                 </xs:extension>                                                
                                                 
