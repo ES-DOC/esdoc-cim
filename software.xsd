@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 17 December 2014, 12:06 -->       
+<!-- generated: 17 December 2014, 14:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -358,7 +358,7 @@ Note that there is the potential for multiple connectionSource &amp; connectionT
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="grid" type="gml:AbstractGeometryType"/>
+               <xs:element ref="gridSpec"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
