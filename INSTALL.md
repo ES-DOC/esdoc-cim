@@ -13,9 +13,8 @@ Additionally, the CIM makes use of several external schemas (xlink, gmd, gml, et
 ## PRE-REQUISITES
 
 * Enterprise Architect
-* an XML editor (Oxygen is recommended)
+* an XML editor (Oxygen is recommended because it can peform the XSL transformation automatically)
 * libXML
-* Python
 
 ## USE
 
