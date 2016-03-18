@@ -15,7 +15,7 @@ def component_performance():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('speed %s s/day', ('speed',)),
+        'pstr': ('speed {} s/day', ('speed',)),
         'properties': [
             ('component', 'software.software_component', '0.1',
                 "Link to a CIM software component description."),
@@ -126,7 +126,7 @@ def performance():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s (sypd:%s)', ('name', 'sypd')),
+        'pstr': ('{} (sypd:{})', ('name', 'sypd')),
         'properties': [
             ('asypd', 'float', '0.1',
                 "Actual simulated years per wall-clock day, all-in."),
@@ -214,7 +214,7 @@ def storage_volume():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s %s', ('volume', 'units')),
+        'pstr': ('{} {}', ('volume', 'units')),
         'properties': [
             ('units', 'platform.volume_units', '1.1',
                 "Volume units."),

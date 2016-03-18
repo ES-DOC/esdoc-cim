@@ -13,10 +13,10 @@ def drs_atomic_dataset():
     """
     return {
         'type': 'class',
-        'base': 'drs.drs_publication_dataset',
+        'base': None,
         'is_abstract': False,
         'properties': [
-            ('frequency', 'drs.frequency_types', '1.1',
+            ('frequency', 'drs.drs_frequency_types', '1.1',
                 "Frequency at which data is stored."),
             ('geographical_constraint', 'drs.drs_geographical_indicator', '0.1',
                 "Identifies geographical subsets and spatial means."),
@@ -128,6 +128,19 @@ def drs_geographical_operators():
             ("areaavg", "Data is averaged over the area of the region"),
             ("lnd-areaavg", "Data is averaged over the land area of the region"),
             ("ocn-areaavg", "Data is averaged over the ocean area of the region")
+        ]
+    }
+
+
+def drs_publication_dataset():
+    """PLACEHOLDER for the real drs_publication_dataset.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
         ]
     }
 

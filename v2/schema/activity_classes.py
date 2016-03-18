@@ -128,7 +128,7 @@ def ensemble_axis():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s', ('axis',)),
+        'pstr': ('{}', ('axis',)),
         'properties': [
             ('extra_detail', 'str', '1.1',
                 "Any extra detail required to describe how this ensemble axis was delivered."),

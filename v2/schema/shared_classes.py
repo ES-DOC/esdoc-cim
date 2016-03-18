@@ -16,12 +16,39 @@ def cimtext():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s', ('content',)),
+        'pstr': ('{}', ('content',)),
         'properties': [
             ('content', 'str', '1.1',
                 "Raw content (including markup)."),
             ('content_type', 'shared.text_code', '1.1',
                 "Type of content.")
+        ]
+    }
+
+
+def citation_target():
+    """A real world document, could be a book, a journal article, a manual, a web page ... it might or might
+    not be online, although preferably it would be.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'pstr': ('{}', ('name',)),
+        'properties': [
+            ('citation_detail', 'str', '0.1',
+                "Complete citation string as would appear in a bibliography."),
+            ('doi', 'str', '0.1',
+                "Digital Object Identifier, if it exists."),
+            ('meta', 'shared.doc_meta_info', '1.1',
+                "Metadata about the creation of this document description."),
+            ('name', 'str', '1.1',
+                "A name for the citation: short hand description, e.g. Meehl et al (2014)."),
+            ('online_at', 'shared.online_resource', '0.1',
+                "Location of electronic version."),
+            ('title', 'str', '1.1',
+                "Title or name of the document.")
         ]
     }
 
@@ -138,38 +165,6 @@ def document_types():
     }
 
 
-def external_document():
-    """A real world document, could be a book, a journal article, a manual, a web page ... it might or might
-    not be online, although preferably it would be. We expect a typical citation to be built up
-    as in the following 'authorship, date: title, publication_detail (doi if present)'.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'pstr': ('%s', ('name',)),
-        'properties': [
-            ('authorship', 'str', '0.1',
-                "List of authors expressed using an appropriate syntax."),
-            ('date', 'str', '0.1',
-                "Date of publication, or of access in the case of a URL."),
-            ('doi', 'str', '0.1',
-                "Digital Object Identifier, if it exists."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about the creation of this document description."),
-            ('name', 'str', '1.1',
-                "A name for the citation: short hand description, e.g. Meehl et al (2014)."),
-            ('online_at', 'shared.online_resource', '0.1',
-                "Location of electronic version."),
-            ('publication_detail', 'str', '0.1',
-                "Journal/publisher, page and volume information as appropriate."),
-            ('title', 'str', '1.1',
-                "Title or name of the document.")
-        ]
-    }
-
-
 def key_float():
     """Holds a key and a float value.
 
@@ -178,7 +173,7 @@ def key_float():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s: %s', ('key', 'value')),
+        'pstr': ('{}: {}', ('key', 'value')),
         'properties': [
             ('key', 'str', '1.1',
                 "User defined key."),
@@ -214,7 +209,7 @@ def number_array():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s', ('values',)),
+        'pstr': ('{}', ('values',)),
         'properties': [
             ('values', 'str', '1.1',
                 "A space separated list of numbers.")
@@ -310,7 +305,7 @@ def quality_review():
                 "Assessment of quality of target document."),
             ('quality_status', 'shared.quality_status', '0.1',
                 "Status from a controlled vocabulary."),
-            ('target_document', 'linked_to(shared.)', '1.1',
+            ('target_document', 'shared.doc_reference', '1.1',
                 "This is the document about which quality is asserted.")
         ]
     }
@@ -333,7 +328,7 @@ def quality_status():
 
 
 def reference():
-    """An external document which can have a context associated with it.
+    """An external citation target which can have a context associated with it.
 
     """
     return {
@@ -343,7 +338,7 @@ def reference():
         'properties': [
             ('context', 'str', '0.1',
                 "Brief text description of why this resource is being cited."),
-            ('document', 'shared.external_document', '1.1',
+            ('document', 'shared.citation_target', '1.1',
                 "Reference Target.")
         ]
     }
@@ -358,7 +353,7 @@ def responsibility():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s:%s', ('role', 'party')),
+        'pstr': ('{}:{}', ('role', 'party')),
         'properties': [
             ('party', 'linked_to(shared.party)', '1.N',
                 "Parties delivering responsibility."),

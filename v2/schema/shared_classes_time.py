@@ -17,7 +17,7 @@ def calendar():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s', ('standard_name',)),
+        'pstr': ('{}', ('standard_name',)),
         'properties': [
             ('description', 'str', '0.1',
                 "Extra information about the calendar."),
@@ -63,7 +63,7 @@ def date_time():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s(offset %s)', ('value', 'offset')),
+        'pstr': ('{}(offset {})', ('value', 'offset')),
         'properties': [
             ('offset', 'bool', '0.1',
                 "Date is offset from start of an integration."),
@@ -128,7 +128,7 @@ def regular_timeset():
         'type': 'class',
         'base': 'shared.datetime_set',
         'is_abstract': False,
-        'pstr': ('%s times from %s at %s intervals', ('length', 'start_date', 'increment')),
+        'pstr': ('{} times from {} at {} intervals', ('length', 'start_date', 'increment')),
         'properties': [
             ('increment', 'shared.time_period', '1.1',
                 "Interval between members of set."),
@@ -162,7 +162,7 @@ def time_period():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('%s %s', ('length', 'units')),
+        'pstr': ('{} {}', ('length', 'units')),
         'properties': [
             ('calendar', 'shared.calendar', '0.1',
                 "Calendar, default is standard aka gregorian."),

@@ -71,7 +71,7 @@ def extent():
         'type': 'class',
         'base': 'science.sub_process',
         'is_abstract': False,
-        'pstr': ('%s', ('region_known_as',)),
+        'pstr': ('{}', ('region_known_as',)),
         'properties': [
             ('is_global', 'bool', '1.1',
                 "True if horizontal coverage is global."),
