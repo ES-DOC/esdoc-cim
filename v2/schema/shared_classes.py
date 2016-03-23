@@ -287,7 +287,7 @@ def pid():
 
 
 def quality_review():
-    """Assertations as to the completeness and quality of a document.
+    """Assertions as to the completeness and quality of a document.
 
     """
     return {
@@ -305,7 +305,7 @@ def quality_review():
                 "Assessment of quality of target document."),
             ('quality_status', 'shared.quality_status', '0.1',
                 "Status from a controlled vocabulary."),
-            ('target_document', 'shared.doc_reference', '1.1',
+            ('target_document', 'linked_to(shared.doc_reference)', '1.1',
                 "This is the document about which quality is asserted.")
         ]
     }

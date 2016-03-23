@@ -95,15 +95,36 @@ def grid():
             ('description', 'str', '1.1',
                 "Abstract description of grid."),
             ('discretisation', 'science.discretisation', '0.1',
-                "DESCRIPTION."),
+                "Description of the numerics of the discretisation."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata about how the model description was constructed."),
             ('name', 'str', '1.1',
                 "This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts."),
-            ('properites', 'science.detail', '0.1',
+            ('properties', 'science.detail', '0.1',
                 "Specific grid properties."),
             ('references', 'shared.reference', '0.N',
-                "Any relevant references describing this process and/or it's implementation.")
+                "Any relevant references describing this grid and/or it's implementation.")
+        ]
+    }
+
+
+def iso_extent():
+    """Extent on a latitude-longitudinal grid - to aid traditional cartesian discovery.
+
+    """
+    return {
+        'type': 'class',
+        'base': 'science.extent',
+        'is_abstract': False,
+        'properties': [
+            ('eastern_boundary', 'float', '0.1',
+                "Eastern boundary in degrees of longitude."),
+            ('northern_boundary', 'float', '0.1',
+                "Northern boundary in degrees of latitude."),
+            ('southern_boundary', 'float', '0.1',
+                "Southern boundary in degrees of latitude."),
+            ('western_boundary', 'float', '0.1',
+                "Western boundary in degrees of longitude.")
         ]
     }
 
@@ -158,7 +179,7 @@ def model():
                 "Metadata about how the model description was constructed."),
             ('model_key_properties', 'science.key_properties', '0.1',
                 "Model default key properties (may be over-ridden in domain properties)."),
-            ('simulates', 'linked_to(science.scientific_domain)', '0.N',
+            ('simulates', 'linked_to(science.scientific_realm)', '0.N',
                 "The scientific domains which this model simulates.")
         ]
     }
@@ -209,10 +230,16 @@ def resolution():
         'base': 'science.sub_process',
         'is_abstract': False,
         'properties': [
+            ('equivalent_horizontal_resolution', 'float', '0.1',
+                "Resolution in metres of 'typical grid cell' (for gross comparisons of resolution), eg. 50000 (50km)."),
             ('is_adaptive_grid', 'bool', '0.1',
                 "Default is False. Set true if grid resolution changes during execution."),
             ('name', 'str', '1.1',
-                "This is a string usually used by the modelling group to describe the resolution of this grid,  e.g. N512L180 or T512L70 etc.")
+                "This is a string usually used by the modelling group to describe the resolution of this grid,  e.g. N512L180 or T512L70 etc."),
+            ('number_of_levels', 'int', '0.1',
+                "Number of vertical levels resolved on computational grid."),
+            ('number_of_xy_gridpoints', 'int', '0.1',
+                "Total number of horizontal points on computational grid.")
         ]
     }
 
@@ -239,7 +266,7 @@ def science_context():
     }
 
 
-def scientific_domain():
+def scientific_realm():
     """Scientific area of a numerical model - usually a sub-model or
     component.  Can also be known as a realm.
 

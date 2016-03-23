@@ -16,9 +16,9 @@ from esdoc_mp.ontologies.schemas.cim.v2 import platform_classes
 from esdoc_mp.ontologies.schemas.cim.v2 import science_classes
 from esdoc_mp.ontologies.schemas.cim.v2 import science_enums
 from esdoc_mp.ontologies.schemas.cim.v2 import shared_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import shared_classes_time
 from esdoc_mp.ontologies.schemas.cim.v2 import software_classes
 from esdoc_mp.ontologies.schemas.cim.v2 import software_enums
+from esdoc_mp.ontologies.schemas.cim.v2 import time as time_classes
 
 
 
@@ -92,8 +92,7 @@ def shared():
 
     """
     return {
-        shared_classes,
-        shared_classes_time
+        shared_classes
     }
 
 
@@ -104,4 +103,12 @@ def software():
     return {
         software_classes,
         software_enums
+    }
+
+def time():
+    """Types that describe the software that constiutes a climate model.
+
+    """
+    return {
+        time_classes
     }

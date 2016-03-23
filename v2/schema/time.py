@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-.. module:: shared_classes_time.py
+.. module:: time.py
    :synopsis: Set of CIM v2 ontology type definitions.
 
 """
@@ -148,8 +148,8 @@ def slicetime_units():
         'type': 'enum',
         'is_open': False,
         'members': [
-            ("yearly", None),
-            ("monthly", None)
+            ("yearly", "Every year"),
+            ("monthly", "Every month")
         ]
     }
 
@@ -186,16 +186,16 @@ def time_units():
         'type': 'enum',
         'is_open': False,
         'members': [
-            ("years", None),
-            ("months", None),
-            ("days", None),
-            ("seconds", None)
+            ("years", "Years in current calendar"),
+            ("months", "Months in the current calendar"),
+            ("days", "86400 seconds"),
+            ("seconds", "Standard metric seconds")
         ]
     }
 
 
 def timeslice_list():
-    """A list of referential dates, 
+    """A list of referential dates,
         e.g. yearlist, 1,4,5 would refer to jan,april,may,
              monthlist, 1,5,6 would refer to the 1st, 5th and 6th of the month.
 

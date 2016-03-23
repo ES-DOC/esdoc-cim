@@ -22,14 +22,16 @@ def activity():
                 "Description of what is to be done (or was done)."),
             ('duration', 'shared.time_period', '0.1',
                 "Time the activity was (or will be) active."),
-            ('keywords', 'str', '0.N',
-                "User defined keywords."),
+            ('keywords', 'str', '0.1',
+                "Comma separated user defined keywords."),
             ('long_name', 'str', '0.1',
                 "Longer version of activity name."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata describing how this document was created."),
             ('name', 'str', '1.1',
                 "Short name or abbreviation."),
+            ('previously_known_as', 'str', '0.N',
+                "List of names by which the activity was formerly known."),
             ('rationale', 'str', '0.1',
                 "Explanation of why this activity was carried out and/or what it was intended to achieve."),
             ('references', 'shared.reference', '0.N',
@@ -73,6 +75,8 @@ def conformance():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
+            ('conformance_achieved', 'activity.conformance_type', '1.1',
+                "Summary of conformance status."),
             ('target_requirement', 'linked_to(designing.numerical_requirement)', '1.1',
                 "URI of the target numerical requirement.")
         ],
@@ -82,6 +86,22 @@ def conformance():
             ('duration', 'cardinality', '0.0'),
             ('keywords', 'cardinality', '0.0'),
             ('rationale', 'cardinality', '0.0')
+        ]
+    }
+
+
+def conformance_type():
+    """Standardised set of conformance responses.
+
+    """
+    return {
+        'type': 'enum',
+        'is_open': True,
+        'members': [
+            ("Conformed", "Simulation (or ensemble) conformed to requirement"),
+            ("Partially Conformed", "Simulation (or ensemble) partially conformed to requirement - details in description"),
+            ("Not Conformed", "Simulation (or ensemble) was unable to conform to requirement"),
+            ("Not Applicable", "Requirement is not relevant")
         ]
     }
 

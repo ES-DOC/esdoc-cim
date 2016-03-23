@@ -191,17 +191,17 @@ def storage_systems():
         'type': 'enum',
         'is_open': False,
         'members': [
-            ("Lustre", None),
-            ("GPFS", None),
-            ("isilon", None),
-            ("NFS", None),
-            ("Panasas", None),
-            ("Other Disk", None),
-            ("Tape - MARS", None),
-            ("Tape - MASS", None),
-            ("Tape - Castor", None),
-            ("Tape - Other", None),
-            ("Unknown", None)
+            ("Lustre", "Lustre parallel file system"),
+            ("GPFS", "IBM GPFS (also known as IBM Spectral Scale"),
+            ("isilon", "The EMC scaleout NAS solution"),
+            ("NFS", "Generic Network File System"),
+            ("S3", "Object file system exposing the AWS S3 interface"),
+            ("PanFS", "Panasas Parallel File system"),
+            ("Other Disk", "Other disk based file system"),
+            ("Tape - MARS", "Tape storage system using ECMWF MARS"),
+            ("Tape - MASS", "Tape storage system using Met Office MASS"),
+            ("Tape - Castor", "Tape storage sytsem using CERN Castor"),
+            ("Tape - Other", "Other tape based system")
         ]
     }
 

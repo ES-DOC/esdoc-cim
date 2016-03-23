@@ -20,7 +20,7 @@ def axis_member():
     }
 
 
-def domain_properties():
+def domain_requirements():
     """Properties of the domain which needs to be simulated, extent and/or resolution.
 
     """
@@ -173,10 +173,14 @@ def numerical_experiment():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
+            ('other_requirements', 'linked_to(designing.numerical_requirement)', '0.N',
+                "Requirements that conformant simulations need to satisfy."),
             ('related_experiments', 'linked_to(designing.numerical_experiment)', '0.N',
                 "A related experiment."),
-            ('requirements', 'linked_to(designing.numerical_requirement, designing.experimental_relationships)', '0.N',
-                "Requirements that conformant simulations need to satisfy.")
+            ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationship)', '0.N',
+                "Other experiments which have defined relationships to this one."),
+            ('required_period', 'linked_to(designing.temporal_constraint)', '1.1',
+                "Constraint on start date and duration.")
         ],
         'constraints': [
             ('duration', 'cardinality', '0.0'),
@@ -205,12 +209,8 @@ def numerical_requirement():
     }
 
 
-def output_temporal_requirement():
-    """Provides details of when output is required from an experiment.
-    Typically output will be required in one of three modes:
-    (1) continuous,
-    (2) continuous for a set of subset periods, or
-    (3) sliced for a set of months in a year or days in a month.
+def output_requirement():
+    """Provides details of what output is required and when from an experiment.
 
     """
     return {
@@ -218,12 +218,8 @@ def output_temporal_requirement():
         'base': 'designing.numerical_requirement',
         'is_abstract': False,
         'properties': [
-            ('continuous_subset', 'shared.time_period', '0.N',
-                "Set of periods for which continuous output is required."),
-            ('sliced_subset', 'shared.timeslice_list', '0.1',
-                "Description of how slices are laid out."),
-            ('throughout', 'bool', '1.1',
-                "Whether or not output is required throughout simulation.")
+            ('formal_data_request', 'shared.online_resource', '0.1',
+                "If available, link to a 'cmip' style online request.")
         ],
         'constraints': [
             ('additional_requirements', 'cardinality', '0.0')

@@ -16,9 +16,9 @@ def data_association_types():
         'type': 'enum',
         'is_open': False,
         'members': [
-            ("revisonOf", None),
-            ("partOf", None),
-            ("isComposedOf", None)
+            ("revisonOf", "This dataset was revised from the target"),
+            ("partOf", "This dataset forms part of the target"),
+            ("isComposedOf", "This dataset is composed from the target")
         ]
     }
 
@@ -85,7 +85,7 @@ def simulation():
             ('calendar', 'shared.calendar', '0.1',
                 "The calendar used in the simulation."),
             ('ensemble_identifier', 'str', '1.1',
-                "String that can be used to extract ensemble axis membership from the primary ensemble(e.g. cmip6 rip string as in the DRS)."),
+                "String that can be used to extract ensemble axis membership from the primary ensemble(e.g. cmip6 run_variant_id as in the DRS)."),
             ('parent_simulation', 'activity.parent_simulation', '0.1',
                 "If appropriate, detailed information about how this simulation branched from a previous one."),
             ('part_of_project', 'linked_to(designing.project)', '1.N',
