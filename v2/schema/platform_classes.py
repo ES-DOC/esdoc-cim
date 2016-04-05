@@ -112,7 +112,7 @@ def partition():
                 "Storage resource available."),
             ('vendor', 'linked_to(shared.party)', '0.1',
                 "The system integrator or vendor."),
-            ('when_used', 'shared.time_period', '0.1',
+            ('when_used', 'time.time_period', '0.1',
                 "If no longer in use, the time period it was in use.")
         ]
     }

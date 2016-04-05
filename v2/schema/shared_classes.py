@@ -165,24 +165,6 @@ def document_types():
     }
 
 
-def key_float():
-    """Holds a key and a float value.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'pstr': ('{}: {}', ('key', 'value')),
-        'properties': [
-            ('key', 'str', '1.1',
-                "User defined key."),
-            ('value', 'float', '1.1',
-                "Value associated with a key (real number).")
-        ]
-    }
-
-
 def nil_reason():
     """Provides an enumeration of possible reasons why a property has not been defined
     Based on GML nilReason as discussed here: https://www.seegrid.csiro.au/wiki/AppSchemas/NilValues.
@@ -197,22 +179,6 @@ def nil_reason():
             ("nil:template", "The value will be available later"),
             ("nil:unknown", "The correct value is not known at this time. However, a correct value probably exists"),
             ("nil:withheld", "The value is not divulged")
-        ]
-    }
-
-
-def number_array():
-    """Provides a class for entering an array of numbers.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'pstr': ('{}', ('values',)),
-        'properties': [
-            ('values', 'str', '1.1',
-                "A space separated list of numbers.")
         ]
     }
 
@@ -265,23 +231,6 @@ def party():
                 "True if an organisation not a person."),
             ('url', 'shared.online_resource', '0.1',
                 "URL of person or institution.")
-        ]
-    }
-
-
-def pid():
-    """A permanent identifier (with a resolution service).
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'properties': [
-            ('id', 'str', '1.1',
-                "The identifier."),
-            ('resolution_service', 'shared.online_resource', '1.1',
-                "The resolution service.")
         ]
     }
 
@@ -359,7 +308,7 @@ def responsibility():
                 "Parties delivering responsibility."),
             ('role', 'shared.role_code', '1.1',
                 "Role that the party plays or played."),
-            ('when', 'shared.time_period', '0.1',
+            ('when', 'time.time_period', '0.1',
                 "Period when role was active, if no longer.")
         ]
     }

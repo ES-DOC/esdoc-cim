@@ -20,7 +20,7 @@ def activity():
                 "Community defined identifier or name."),
             ('description', 'str', '0.1',
                 "Description of what is to be done (or was done)."),
-            ('duration', 'shared.time_period', '0.1',
+            ('duration', 'time.time_period', '0.1',
                 "Time the activity was (or will be) active."),
             ('keywords', 'str', '0.1',
                 "Comma separated user defined keywords."),
@@ -196,9 +196,9 @@ def parent_simulation():
         'base': None,
         'is_abstract': False,
         'properties': [
-            ('branch_time_in_child', 'shared.date_time', '0.1',
+            ('branch_time_in_child', 'time.date_time', '0.1',
                 "The time at which the present simulation started in the child calendar."),
-            ('branch_time_in_parent', 'shared.date_time', '0.1',
+            ('branch_time_in_parent', 'time.date_time', '0.1',
                 "The time in parent simulation calendar at which this simulation was branched."),
             ('parent', 'linked_to(data.simulation)', '1.1',
                 "The parent simulation of this child.")

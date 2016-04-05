@@ -25,7 +25,7 @@ def calendar():
                 "Used for special calendars to provide month lengths."),
             ('name', 'str', '0.1',
                 "Can be used to name a special calendar type."),
-            ('standard_name', 'shared.calendar_types', '1.1',
+            ('standard_name', 'time.calendar_types', '1.1',
                 "Type of calendar used.")
         ]
     }
@@ -74,9 +74,10 @@ def date_time():
 
 
 def datetime_set():
-    """Base class for a set of dates or times.
-    Note that we assume either a periodic set of dates which can
-    be date and/or time, or an irregular set which can only be dates.
+    """A set of times. This is an abstract class which is specialised into
+    a periodic or aperiodic (irregular) list.  Note that we assume either a
+    periodic set of dates which can be date and/or time, or an irregular set
+    which can only be dates.
 
     """
     return {
@@ -91,12 +92,13 @@ def datetime_set():
 
 
 def irregular_dateset():
-    """A set of irregularly spaced times.
+    """A set of irregularly spaced times, provided as a comma separated string of yyyy-mm-dd in
+     the appropriate calendar.
 
     """
     return {
         'type': 'class',
-        'base': 'shared.datetime_set',
+        'base': 'time.datetime_set',
         'is_abstract': False,
         'properties': [
             ('date_set', 'str', '1.1',
@@ -106,7 +108,7 @@ def irregular_dateset():
 
 
 def period_date_types():
-    """A period date type enum (used by time_period).
+    """A period date type vocabulary (used by time_period).
 
     """
     return {
@@ -126,36 +128,22 @@ def regular_timeset():
     """
     return {
         'type': 'class',
-        'base': 'shared.datetime_set',
+        'base': 'time.datetime_set',
         'is_abstract': False,
         'pstr': ('{} times from {} at {} intervals', ('length', 'start_date', 'increment')),
         'properties': [
-            ('increment', 'shared.time_period', '1.1',
+            ('increment', 'time.time_period', '1.1',
                 "Interval between members of set."),
             ('length', 'int', '1.1',
                 "Number of times in set."),
-            ('start_date', 'shared.date_time', '1.1',
+            ('start_date', 'time.date_time', '1.1',
                 "Beginning of time set.")
         ]
     }
 
 
-def slicetime_units():
-    """Units for integers in a timeslice.
-
-    """
-    return {
-        'type': 'enum',
-        'is_open': False,
-        'members': [
-            ("yearly", "Every year"),
-            ("monthly", "Every month")
-        ]
-    }
-
-
 def time_period():
-    """A time period class aka a temporal extent.
+    """A time period/interval (aka temporal extent).
 
     """
     return {
@@ -164,15 +152,15 @@ def time_period():
         'is_abstract': False,
         'pstr': ('{} {}', ('length', 'units')),
         'properties': [
-            ('calendar', 'shared.calendar', '0.1',
+            ('calendar', 'time.calendar', '0.1',
                 "Calendar, default is standard aka gregorian."),
-            ('date', 'shared.date_time', '0.1',
+            ('date', 'time.date_time', '0.1',
                 "Optional start/end date of time period."),
-            ('date_type', 'shared.period_date_types', '1.1',
+            ('date_type', 'time.period_date_types', '1.1',
                 "Describes how the date is used to define the period."),
             ('length', 'int', '1.1',
                 "Duration of the time period."),
-            ('units', 'shared.time_units', '1.1',
+            ('units', 'time.time_units', '1.1',
                 "Appropriate time units.")
         ]
     }
@@ -190,24 +178,5 @@ def time_units():
             ("months", "Months in the current calendar"),
             ("days", "86400 seconds"),
             ("seconds", "Standard metric seconds")
-        ]
-    }
-
-
-def timeslice_list():
-    """A list of referential dates,
-        e.g. yearlist, 1,4,5 would refer to jan,april,may,
-             monthlist, 1,5,6 would refer to the 1st, 5th and 6th of the month.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'properties': [
-            ('members', 'shared.number_array', '1.1',
-                "Values as integers."),
-            ('units', 'shared.slicetime_units', '1.1',
-                "Interval against which members refer.")
         ]
     }

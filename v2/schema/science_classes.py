@@ -230,16 +230,16 @@ def resolution():
         'base': 'science.sub_process',
         'is_abstract': False,
         'properties': [
-            ('equivalent_horizontal_resolution', 'float', '0.1',
-                "Resolution in metres of 'typical grid cell' (for gross comparisons of resolution), eg. 50000 (50km)."),
+            ('canonical_horizontal_resolution', 'str', '0.1',
+                "Expression quoted for gross comparisons of resolution, eg. 50km or 0.1 degrees etc."),
             ('is_adaptive_grid', 'bool', '0.1',
                 "Default is False. Set true if grid resolution changes during execution."),
             ('name', 'str', '1.1',
                 "This is a string usually used by the modelling group to describe the resolution of this grid,  e.g. N512L180 or T512L70 etc."),
-            ('number_of_levels', 'int', '0.1',
-                "Number of vertical levels resolved on computational grid."),
-            ('number_of_xy_gridpoints', 'int', '0.1',
-                "Total number of horizontal points on computational grid.")
+            ('number_of_horizontal_gridpoints', 'int', '0.1',
+                "Total number of horizontal points (or degrees of freedom) on computational grid."),
+            ('number_of_vertical_levels', 'int', '0.1',
+                "Number of vertical levels resolved on computational grid.")
         ]
     }
 

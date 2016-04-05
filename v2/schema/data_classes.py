@@ -82,7 +82,7 @@ def simulation():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
-            ('calendar', 'shared.calendar', '0.1',
+            ('calendar', 'time.calendar', '0.1',
                 "The calendar used in the simulation."),
             ('ensemble_identifier', 'str', '1.1',
                 "String that can be used to extract ensemble axis membership from the primary ensemble(e.g. cmip6 run_variant_id as in the DRS)."),

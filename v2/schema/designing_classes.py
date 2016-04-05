@@ -177,7 +177,7 @@ def numerical_experiment():
                 "Requirements that conformant simulations need to satisfy."),
             ('related_experiments', 'linked_to(designing.numerical_experiment)', '0.N',
                 "A related experiment."),
-            ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationship)', '0.N',
+            ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationships)', '0.N',
                 "Other experiments which have defined relationships to this one."),
             ('required_period', 'linked_to(designing.temporal_constraint)', '1.1',
                 "Constraint on start date and duration.")
@@ -282,7 +282,7 @@ def start_date_ensemble():
         'base': 'designing.numerical_requirement',
         'is_abstract': False,
         'properties': [
-            ('ensemble_members', 'shared.datetime_set', '1.1',
+            ('ensemble_members', 'time.datetime_set', '1.1',
                 "Description of date or time set of start dates.")
         ],
         'constraints': [
@@ -300,13 +300,13 @@ def temporal_constraint():
         'base': 'designing.numerical_requirement',
         'is_abstract': False,
         'properties': [
-            ('required_calendar', 'shared.calendar', '0.1',
+            ('required_calendar', 'time.calendar', '0.1',
                 "Required calendar (e.g. for paleo simulations)."),
-            ('required_duration', 'shared.time_period', '0.1',
+            ('required_duration', 'time.time_period', '0.1',
                 "Constraint on time or length of simulation."),
-            ('start_date', 'shared.date_time', '0.1',
+            ('start_date', 'time.date_time', '0.1',
                 "Required start date."),
-            ('start_flexibility', 'shared.time_period', '0.1',
+            ('start_flexibility', 'time.time_period', '0.1',
                 "Amount of time before required start date that it is permissible to begin integration.")
         ],
         'constraints': [
