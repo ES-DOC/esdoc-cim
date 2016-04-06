@@ -87,6 +87,8 @@ def doc_meta_info():
                 "Name of application that created the instance."),
             ('source_key', 'str', '0.1',
                 "Key of application that created the instance."),
+            ('sub_project', 'str', '1.1',
+                "Name of sub-project with which instance is associated with."),
             ('type', 'str', '1.1',
                 "Document ontology type."),
             ('type_display_name', 'str', '0.1',

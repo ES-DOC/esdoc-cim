@@ -70,6 +70,7 @@ def doc_meta_info():
             ('institute', 'str', '0.1'),
             ('language', 'str', '1.1'),
             ('project', 'str', '1.1'),
+            ('sub_project', 'str', '1.1'),
             ('sort_key', 'str', '0.1'),
             ('source', 'str', '1.1'),
             ('source_key', 'str', '0.1'),

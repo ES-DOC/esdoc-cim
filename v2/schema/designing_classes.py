@@ -200,7 +200,7 @@ def numerical_requirement():
         'properties': [
             ('additional_requirements', 'linked_to(designing.numerical_requirement)', '0.N',
                 "Additional detail for this requirement."),
-            ('conformance_is_requested', 'bool', '1.1',
+            ('is_conformance_requested', 'bool', '1.1',
                 "Indicator as to whether ensemble documentation should include conformance information for this requirement.")
         ],
         'constraints': [
