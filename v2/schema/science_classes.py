@@ -47,7 +47,7 @@ def detail():
 
 
 def discretisation():
-    """None
+    """Collection of properties related to method of process discretisation.
 
     """
     return {

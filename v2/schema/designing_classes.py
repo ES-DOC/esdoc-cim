@@ -145,6 +145,28 @@ def forcing_types():
     }
 
 
+def initialisation_requirement():
+    """A requirement on how a particular simulation should be initialised.
+
+    """
+    return {
+        'type': 'class',
+        'base': 'designing.numerical_requirement',
+        'is_abstract': False,
+        'properties': [
+            ('branch_time_in_initialisation_source', 'time.date_time', '0.1',
+                "If appropriate,  the time in the initialisation_source (whether observed or simulated)."),
+            ('initialise_from_data', 'data.dataset', '0.1',
+                "Initialisation should use this primary dataset."),
+            ('initialise_from_experiment', 'designing.numerical_experiment', '0.1',
+                "This experiment should be initialised from the output of this experiment.")
+        ],
+        'constraints': [
+
+        ]
+    }
+
+
 def multi_ensemble():
     """In the case of multiple ensemble axes, defines how they
     are set up and ordered.
@@ -173,14 +195,12 @@ def numerical_experiment():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
-            ('other_requirements', 'linked_to(designing.numerical_requirement)', '0.N',
-                "Requirements that conformant simulations need to satisfy."),
-            ('related_experiments', 'linked_to(designing.numerical_experiment)', '0.N',
-                "A related experiment."),
             ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationships)', '0.N',
                 "Other experiments which have defined relationships to this one."),
             ('required_period', 'linked_to(designing.temporal_constraint)', '1.1',
-                "Constraint on start date and duration.")
+                "Constraint on start date and duration."),
+            ('requirements', 'linked_to(designing.numerical_requirement)', '0.N',
+                "Additional requirements that conformant simulations need to satisfy.")
         ],
         'constraints': [
             ('duration', 'cardinality', '0.0'),

@@ -65,7 +65,7 @@ def drs_experiment():
         'is_abstract': False,
         'properties': [
             ('axis_identifer', 'designing.axis_member', '0.1',
-                "None"),
+                "FIXME."),
             ('axis_type', 'designing.ensemble_types', '0.1',
                 "Type of experimental family ensemble required."),
             ('family', 'str', '1.1',
