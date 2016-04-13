@@ -6,41 +6,38 @@ CONTACT = None
 
 AUTHORS = None
 
-TYPE = 'cim.2.science.key_properties'
+TYPE = 'cim.2.science.grid'
 
 QC_STATUS = 'draft'
 
 # ====================================================================
-# KEY PROPERTIES: PROPERTIES
+# GRID: PROPERTIES
 # ====================================================================
 DESCRIPTION = None
 
 # ====================================================================
-# KEY PROPERTIES: DETAILS
+# GRID: DETAILS
+#
+# URL of #details
 # ====================================================================
 DETAILS = {}
 
 # ====================================================================
-# KEY PROPERTIES: EXTENT
+# GRID: DISCRETISATION
 # ====================================================================
-EXTENT = {}
+DISCRETISATION = {}
 
 # ====================================================================
-# KEY PROPERTIES: RESOLUTION
+# GRID: DISCRETISATION: DETAILS
+#
+# URL of #details
 # ====================================================================
-RESOLUTION = {}
+DISCRETISATION_DETAILS = {}
 
 # ====================================================================
-# KEY PROPERTIES: TUNING APPLIED
-# ====================================================================
-TUNING_APPLIED = {}
-
-# ====================================================================
-# KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES
-# ====================================================================
-EXTRA_CONSERVATION_PROPERTIES = {}
-
-# ====================================================================
-# KEY PROPERTIES: ENUMERATIONS
+# GRID: ENUMERATIONS
+#
+# URL of process.html#enuemrations
+# Convention: Do not include the process name in the enumeration 
 # ====================================================================
 ENUMERATIONS = {}

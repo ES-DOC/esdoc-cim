@@ -1,75 +1,57 @@
-ID = 'cmip6.grid'
+AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
 
-TYPE = 'science.grid'
+ID = 'cmip6.atmosphere.grid'
 
-CIM = '2.0'
+CONTACT = 'Charlotte Pascoe'
 
-CONTACT = 'David Hassell (e-mail)'
+AUTHORS = ''
 
-AUTHORS = 'David Hassell'
+TYPE = 'cim.2.science.grid'
 
-DATE = '2016-03-11'
-
-VERSION = ''
+QC_STATUS = 'draft'
 
 # ====================================================================
-# PROPERTIES
+# GRID: PROPERTIES
 # ====================================================================
-PROPERTIES = {
+DESCRIPTION = ''
 
-    # ----------------------------------------------------------------
-    # MANIFEST
-    # ----------------------------------------------------------------
-    'name': '',
+# ====================================================================
+# GRID: DISCRETISATION
+# ====================================================================
+DISCRETISATION = {
     'description': '',
+    'details': ['horizontal_discretisation',]
+},
 
-    'discretisation': ['discretisation',
-                   ],
-
-    # ----------------------------------------------------------------
-    # DETAILS
-    # ----------------------------------------------------------------
-    
-    # ----------------------------------------------------------------
-    # DISCRETISATION
-    # ----------------------------------------------------------------
-    'discretisation': {
-        'short_name': '',
-        'description': '',
-        'details': [('horizontal_discretisation',
-                     'scheme_type', 'scheme_method', 'scheme_order', 'horizontal_pole'),
-                ],
-    },
-    
-    # ----------------------------------------------------------------
-    # DISCRETISATION DETAILS
-    # ----------------------------------------------------------------
+# ====================================================================
+# GRID: DISCRETISATION: DETAILS
+#
+# URL of #details
+# ====================================================================
+DISCRETISATION_DETAILS = {    
     'horizontal_discretisation': {
-        'short_name': 'Horizontal discretisation scheme',
         'description': 'Horizontal discretisation scheme',
-        'scheme_type': (
-            'ENUM:dynamical_core_discretisation_horizontal_type', '1.1',
-            'Horizontal discretisation type'),
-        'scheme_method': (
-            'ENUM:dynamical_core_discretisation_horizontal_method', '1.1',
-            'Horizontal discretisation method'),
-        'scheme_order': (
-            'ENUM:dynamical_core_discretisation_horizontal_order', '1.1',
-            'Horizontal discretisation function order'),
-        'horizontal_pole': (
-            'ENUM:dynamical_core_discretisation_horizontal_pole', '1.1',
-            'Horizontal discretisation pole singularity treatment'),
+        'properties': [
+            ('scheme_type', 'ENUM:dynamical_core_discretisation_horizontal_type', '1.1',
+             'Horizontal discretisation type'),
+            ('scheme_method', 'ENUM:dynamical_core_discretisation_horizontal_method', '1.1',
+             'Horizontal discretisation method'),
+            ('scheme_order', 'ENUM:dynamical_core_discretisation_horizontal_order', '1.1',
+             'Horizontal discretisation function order'),
+            ('horizontal_pole', 'ENUM:dynamical_core_discretisation_horizontal_pole', '1.1',
+             'Horizontal discretisation pole singularity treatment'),
+        ]
     },
-    
 }
 
 # ====================================================================
-# ENUMERATIONS
+# GRID: ENUMERATIONS
+#
+# URL of process.html#enuemrations
+# Convention: Do not include the process name in the enumeration 
 # ====================================================================
-ENUMS = {
-
+ENUMERATIONS = {
     'dynamical_core_discretisation_horizontal_type': {
-        'short_name': 'Dynamical core discretisation horizontal type',
         'description': 'Type of horizontal discretisation scheme',
         'members': [
             ('spectral', None),
@@ -79,7 +61,6 @@ ENUMS = {
     },
 
     'dynamical_core_discretisation_horizontal_method': {
-        'short_name': 'Dynamical core discretisation horizontal method',
         'description': 'If the scheme type is fixed grid, describe the scheme method for the horizontal discretisation scheme',
         'members': [
             ('finite elements', None),
@@ -90,7 +71,6 @@ ENUMS = {
     },
 
     'dynamical_core_discretisation_horizontal_order': {
-        'short_name': 'Dynamical core discretisation horizontal order',
         'description': 'If the scheme method is finite difference or centered finite difference describe the scheme ' +
                        'order of the finite difference method used by the horizontal discretisation scheme',
         'members': [
@@ -98,7 +78,6 @@ ENUMS = {
     },
 
     'dynamical_core_discretisation_horizontal_pole': {
-        'short_name': 'Dynamical core discretisation horizontal pole',
         'description': 'Method used to handle the pole singularities',
         'members': [
             ('filter', None),

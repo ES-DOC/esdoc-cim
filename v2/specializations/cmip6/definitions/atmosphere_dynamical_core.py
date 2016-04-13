@@ -1,185 +1,153 @@
-ID = ''
+AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
 
-TYPE = 'science.process'
+ID = 'cmip6.atmosphere.dynamical_core'
 
-CIM = ''
-
-CONTACT = ''
+CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
-DATE = ''
+TYPE = 'cim.2.science.process'
 
-VERSION = ''
+QC_STATUS = 'draft'
 
 # ====================================================================
-# PROPERTIES
+# PROCESS: PROPERTIES
 # ====================================================================
-PROPERTIES = {
+DESCRIPTION = ''
 
-    # ----------------------------------------------------------------
-    # MANIFEST
-    # ----------------------------------------------------------------
-    'short_name': 'atmosphere dynamical core',
-    'description': '',
-
-    'details': [('timestepping_framework',
-                 'timestepping_type'),
-                ('prognostic_variables',
-                 'prognostic_variables'),
-            ],               
-    
-    'sub_process': ['top_boundary', 
-                    'lateral_boundary',
-                    'diffusion_horizontal',
-                    'advection_tracers',
-                    'advection_momentum',
-                ],
-
-    # ----------------------------------------------------------------
-    # DETAILS
-    # ----------------------------------------------------------------
+# ====================================================================
+# PROCESS: DETAILS
+#
+# URL of #details
+# ====================================================================
+DETAILS = {
     'timestepping_framework': {
-        'short_name': 'Timestepping framework',
         'description': 'Timestepping framework',
-        'timestepping_type': (
-            'ENUM:dynamical_core_timestepping_type', '1.1',
-            'Timestepping framework type'),
+        'properties': [
+            ('timestepping_type', 'ENUM:timestepping_type', '1.1',
+             'Timestepping framework type'),
+        ]
     },
 
     'prognostic_variables': {
-        'short_name': 'Dynamical core prognostic variables',
         'description': 'List of the model prognostic variables',
-        'prognostic_variables': (
-            'ENUM:dynamical_core_prognostic_variables', '1.N',
-            'prognostic variables'),
+        'properties': [
+            ('prognostic_variables', 'ENUM:_prognostic_variables', '1.N',
+             'prognostic variables'),
+        ]
     },
-
-    # ----------------------------------------------------------------
-    # SUB-PROCESSES
-    # ----------------------------------------------------------------
-    'dynamical_core_top_boundary': {
-        'short_name': 'Type of boundary layer at the top of the model',
-        'description': 'Type of boundary layer at the top of the model',
-        'details': [('dynamical_core_top_boundary_details',
-                     'top_boundary_condition', 'top_heat', 'top_wind')
-                ],
-    },
-
-    'lateral_boundary': {
-        'short_name': 'Type of lateral boundary condition (if the model is a regional model)',
-        'description': 'Type of lateral boundary condition (if the model is a regional model)',
-        'details': [('lateral_boundary_details',
-                     'lateral_boundary_condition'),
-                ],
-    },
-
-    'diffusion_horizontal': {
-        'short_name': 'Horizontal diffusion scheme',
-        'description': 'Horizontal diffusion scheme',
-        'details': [('diffusion_horizontal_details',
-                     'scheme_name', 'scheme_method'),
-                ],
-    },
-
-    'advection_tracers': {
-        'short_name': 'Tracer advection scheme',
-        'description': 'Tracer advection scheme',
-        'details': [('advection_tracers_details',
-                     'scheme_name', 'scheme_characteristics', 'conserved_quantities', 'conservation_method'),
-                ],
-    },
-    
-    'dynamical_core_advection_momentum': {
-        'short_name': 'Momentum advection scheme',
-        'description': 'Momentum advection scheme',
-        'details': [('dynamical_core_advection_momentum_details',
-                     'scheme_name', 'scheme_characteristics', 'scheme_staggering_type', 'conserved_quantities', 'conservation_method'),
-                ],
-    },
-    
-    # ----------------------------------------------------------------
-    # SUB-PROCESS DETAILS
-    # ----------------------------------------------------------------
-    'dynamical_core_top_boundary_details': {
-        'short_name': 'Properties of boundary layer at the top of the model',
-        'description': 'Properties of boundary layer at the top of the model',
-        'top_boundary_condition': (
-            'ENUM:top_boundary_condition', '1.1',
-            'Top boundary condition'),
-        'top_heat': (
-            'str', '1.1',
-            'Top boundary heat treatment'),
-        'top_wind': (
-            'str', '1.1',
-            'Top boundary wind treatment'),
-    },
-
-    'lateral_boundary_details': {
-        'short_name': 'Type of lateral boundary condition',
-        'description': 'Type of lateral boundary condition',
-        'lateral_boundary_condition': (
-            'ENUM:dynamical_core_lateral_boundary', '0.1',
-            'Lateral boundary condition'),
-    },
-
-    'diffusion_horizontal_details': {
-        'short_name': 'Horizontal diffusion scheme details',
-        'description': 'Horizontal diffusion scheme details',
-        'scheme_name': (
-            'ENUM:dynamical_core_diffusion_horizontal_scheme_name ', '1.1',
-            'Horizontal diffusion scheme name'),
-        'scheme_method': (
-            'ENUM:dynamical_core_diffusion_horizontal_scheme_method', '1.1',
-            'Horizontal diffusion scheme method'),
-    },
-
-    'advection_tracers_details': {
-        'short_name': 'Tracer advection scheme',
-        'description': 'Tracer advection scheme',
-        'scheme_name': (
-            'ENUM:dynamical_core_advection_tracers_scheme_name ', '1.1',
-            'Tracer advection scheme name'),
-        'scheme_characteristics': (
-            'ENUM:dynamical_core_advection_tracers_scheme_characteristics', '1.N',
-            'Tracer advection scheme characteristics'),
-        'conserved_quantities': (
-            'ENUM:dynamical_core_advection_tracers_conserved_quantities', '1.N',
-            'Tracer advection scheme conserved quantities'),
-        'conservation_method': (
-            'ENUM:dynamical_core_advection_tracers_conservation_method', '1.1',
-            'Tracer advection scheme conservation method'),
-    },
-    
-    'dynamical_core_advection_momentum_details': {
-        'short_name': 'Momentum advection scheme',
-        'description': 'Momentum advection scheme',
-        'scheme_name': (
-            'ENUM:dynamical_core_advection_momentum_scheme_name ', '1.1',
-            'Momentum advection schemes name'),
-        'scheme_characteristics': (
-            'ENUM:dynamical_core_advection_momentum_scheme_characteristics', '1.N',
-            'Momentum advection scheme characteristics'),
-        'scheme_staggering_type': (
-            'ENUM:dynamical_core_advection_momentum_scheme_staggering_type', '1.1',
-            'Momentum advection scheme staggering type'),
-        'conserved_quantities': (
-            'ENUM:dynamical_core_advection_momentum_conserved_quantities', '1.N',
-            'Momentum advection scheme conserved quantities'),
-        'conservation_method': (
-            'ENUM:dynamical_core_advection_momentum_conservation_method', '1.1',
-            'Momentum advection scheme conservation method'),
-    },
-
 }
 
 # ====================================================================
-# ENUMERATIONS
+# PROCESS: SUB-PROCESSES
+#
+# URL of #sub_process
+# ====================================================================
+SUB_PROCESSES = {    
+    'top_boundary': {
+        'description': 'Type of boundary layer at the top of the model',
+        'details': ['top_boundary_details']
+    },
+
+    'lateral_boundary': {
+        'description': 'Type of lateral boundary condition (if the model is a regional model)',
+        'details': ['lateral_boundary_details']
+    },
+
+    'diffusion_horizontal': {
+        'description': 'Horizontal diffusion scheme',
+        'details': ['diffusion_horizontal_details'],
+    },
+
+    'advection_tracers': {
+        'description': 'Tracer advection scheme',
+        'details': ['advection_tracers_details']
+    },
+    
+    'advection_momentum': {
+        'description': 'Momentum advection scheme',
+        'details': ['advection_momentum_details'],
+    },
+    
+}
+
+# ====================================================================
+# PROCESS: SUB-PROCESSES: DETAILS
+#   
+# URL of #details
+# Convention: sub-process details start with sub-process name
+# ====================================================================
+SUB_PROCESS_DETAILS = {   
+    'top_boundary_details': {
+        'description': 'Properties of boundary layer at the top of the model',
+        'properties': [
+            ('top_boundary_condition', 'ENUM:top_boundary_condition', '1.1',
+             'Top boundary condition'),
+            ('top_heat', 'str', '1.1',
+             'Top boundary heat treatment'),
+            ('top_wind', 'str', '1.1',
+             'Top boundary wind treatment'),
+        ]
+    },
+
+    'lateral_boundary_details': {
+        'description': 'Type of lateral boundary condition',
+        'properties': [
+            ('lateral_boundary_condition', 'ENUM:lateral_boundary', '0.1',
+             'Lateral boundary condition'),
+        ]
+    },
+
+    'diffusion_horizontal_details': {
+        'description': 'Horizontal diffusion scheme details',
+        'properties': [
+            ('scheme_name', 'ENUM:diffusion_horizontal_scheme_name ', '1.1',
+             'Horizontal diffusion scheme name'),
+            ('scheme_method', 'ENUM:diffusion_horizontal_scheme_method', '1.1',
+             'Horizontal diffusion scheme method'),
+        ]
+    },
+
+    'advection_tracers_details': {
+        'description': 'Tracer advection scheme',
+        'properties': [
+            ('scheme_name', 'ENUM:advection_tracers_scheme_name ', '1.1',
+             'Tracer advection scheme name'),
+            ('scheme_characteristics', 'ENUM:advection_tracers_scheme_characteristics', '1.N',
+             'Tracer advection scheme characteristics'),
+            ('conserved_quantities', 'ENUM:advection_tracers_conserved_quantities', '1.N',
+             'Tracer advection scheme conserved quantities'),
+            ('conservation_method', 'ENUM:advection_tracers_conservation_method', '1.1',
+             'Tracer advection scheme conservation method'),
+        ]
+    },
+    
+    'advection_momentum_details': {
+        'description': 'Momentum advection scheme',
+        'properties': [
+            ('scheme_name', 'ENUM:advection_momentum_scheme_name ', '1.1',
+             'Momentum advection schemes name'),
+            ('scheme_characteristics', 'ENUM:advection_momentum_scheme_characteristics', '1.N',
+             'Momentum advection scheme characteristics'),
+            ('scheme_staggering_type', 'ENUM:advection_momentum_scheme_staggering_type', '1.1',
+             'Momentum advection scheme staggering type'),
+            ('conserved_quantities', 'ENUM:advection_momentum_conserved_quantities', '1.N',
+            'Momentum advection scheme conserved quantities'),
+            ('conservation_method', 'ENUM:advection_momentum_conservation_method', '1.1',
+             'Momentum advection scheme conservation method'),
+        ]
+    },
+}
+
+# ====================================================================
+# PROCESS: ENUMERATIONS
+#
+# URL of process.html#enuemrations
+# Convention: Do not include the process name in the enumeration 
 # ====================================================================
 ENUMERATIONS = {
 
-    'dynamical_core_timestepping_type': {
-        'short_name': 'Type of time stepping scheme',
+    'timestepping_type': {
         'description': 'Type of time stepping scheme',
         'members': [
             ('Adam Bashford', None),
@@ -195,8 +163,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_top_boundary_condition': {
-        'short_name': 'Type of boundary layer at the top of the model',
+    'top_boundary_condition': {
         'description': 'Type of boundary layer at the top of the model',
         'members': [
             ('sponge layer', None),
@@ -205,8 +172,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_lateral_boundary_attribute': {
-        'shoirt_name': 'Type of lateral boundary condition (if the model is a regional model)',
+    'lateral_boundary_attribute': {
         'description': 'Type of lateral boundary condition (if the model is a regional model)',
         'members': [
             ('sponge layer', None),
@@ -216,8 +182,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_prognostic_variables_attributes': {
-        'short_name': 'Dynamical core prognostic variables attributes',
+    'prognostic_variables_attributes': {
         'description': 'List of the model prognostic variables',
         'members': [
             ('surface pressure', None),
@@ -236,8 +201,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_diffusion_horizontal_scheme_name': {
-        'short_name': 'Dynamical core diffusion horizontal scheme name',
+    'diffusion_horizontal_scheme_name': {
         'description': 'Commonly used name for the horizontal diffusion scheme',
         'members': [
             ('???', None),
@@ -245,8 +209,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_diffusion_horizontal_scheme_method': {
-        'short_name': 'Dynamical core diffusion horizontal scheme method',
+    'diffusion_horizontal_scheme_method': {
         'description': 'Numerical method used by the horizontal diffusion scheme',
         'members': [
             ('iterated Laplacian', None),
@@ -254,8 +217,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_tracers_scheme_name': {
-        'short_name': 'Dynamical core advection tracers scheme name',
+    'advection_tracers_scheme_name': {
         'description': 'Commonly used name for the tracer advection scheme',
         'members': [
             ('Heun', None),
@@ -267,8 +229,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_tracers_scheme_characteistics': {
-        'short_name': 'Dynamical core advection tracers scheme characteistics',
+    'advection_tracers_scheme_characteistics': {
         'description': 'Characteristics of the numerical scheme used for the advection of tracers',
         'members': [
             ('Eulerian', None),
@@ -287,8 +248,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_tracers_conserved_quantities': {
-        'short_name': 'Dynamical core advection tracers conserved quantities',
+    'advection_tracers_conserved_quantities': {
         'description': 'Quantities conserved through the tracers advection scheme',
         'members': [
             ('???', None),
@@ -296,8 +256,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_tracers_conservation_method': {
-        'short_name': 'Dynamical core advection tracers conservation method',
+    'advection_tracers_conservation_method': {
         'description': 'Method used to ensure conservation in the tracers advection scheme',
         'members': [
             ('conservation fixer', None),
@@ -305,8 +264,7 @@ ENUMERATIONS = {
         ]
     },
    
-    'dynamical_core_advection_momentum_scheme_name': {
-        'short_name': 'Dynamical core advection momentum scheme name',
+    'advection_momentum_scheme_name': {
         'description': 'Commonly used name for the momentum advection scheme',
         'members': [
             ('VanLeer', None),
@@ -316,8 +274,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_momentum_scheme_characteristics': {
-        'short_name': 'Dynamical core advection momentum scheme characteistics',
+    'advection_momentum_scheme_characteristics': {
         'description': 'Characteristics of the numerical scheme used for the advection of momentum',
         'members': [
             ('2nd order', None),
@@ -329,8 +286,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_momentum_scheme_staggering_type': {
-        'short_name': 'dynamical_core_advection_momentum_scheme_staggering_type',
+    'advection_momentum_scheme_staggering_type': {
         'description': 'If scheme characteristics specify staggered grid, describe the type of staggering',
         'members': [
             ('Arakawa B-grid', None),
@@ -341,8 +297,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_momentum_conserved_quantities': {
-        'short_name': 'Dynamical core advection momentum conserved quantities',
+    'advection_momentum_conserved_quantities': {
         'description': 'Quantities conserved through the tracers advection scheme',
         'members': [
             ("Angular momentum", None),
@@ -355,8 +310,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'dynamical_core_advection_momentum_conservation_method': {    
-        'short_name': 'Dynamical core advection momentum conservation method',
+    'advection_momentum_conservation_method': {    
         'description': 'Method used to ensure conservation in the tracers advection scheme',
         'members': [
             ('conservation fixer', None),

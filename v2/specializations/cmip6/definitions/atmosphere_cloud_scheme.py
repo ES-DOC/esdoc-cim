@@ -2,11 +2,13 @@ AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilai
 
 ID = 'cmip6.atmosphere.cloud_scheme'
 
-CONTACT = ''
+CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
 TYPE = 'cim.2.science.process'
+
+QC_STATUS = 'draft'
 
 # ====================================================================
 # PROCESS PROPERTIES
@@ -30,15 +32,15 @@ DETAILS = {
     'cloud_overlap': {
         'description': 'Method for taking into account overlapping of cloud layers.',
         'properties': [
-            ('method', 'ENUM:cloud_scheme_cloud_overlap_method', '1.1',
+            ('method', 'ENUM:cloud_overlap_method', '1.1',
              'Cloud scheme cloud overlap method'),
         ]
     },
     
-    'cloud_scheme_processes': {
-        'description': 'Cloud processes included in the cloud scheme.',
+    'processes': {
+        'description': 'Processes included in the cloud scheme.',
         'properties': [
-            ('processes_attributes', 'ENUM:cloud_scheme_processes_attributes', '1.N', 
+            ('processes_attributes', 'ENUM:processes_attributes', '1.N', 
              'Cloud scheme processes'),
         ]
     },
@@ -65,13 +67,13 @@ SUB_PROCESSES = {
 SUB_PROCESS_DETAILS = {
     'sub_grid_scale_water_distribution_properties': {
         'properties': [
-            ('type', 'ENUM:cloud_scheme_sub_grid_scale_water_distribution_type', '1.1',
+            ('type', 'ENUM:sub_grid_scale_water_distribution_type', '1.1',
              'Sub-grid scale water distribution type'),
             ('function_name', 'str', '1.1',
              'Sub-grid scale water distribution function name'),
             ('function_order', 'int', '1.1',
              'Sub-grid scale water distribution function type'),
-            ('convection_coupling','ENUM:cloud_scheme_sub_grid_scale_water_distribution_convection', '1.N',
+            ('convection_coupling','ENUM:sub_grid_scale_water_distribution_convection', '1.N',
              'Sub-grid scale water distribution coupling with convection'),
         ]
     },
@@ -101,7 +103,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'cloud_scheme_cloud_overlap_method': {
+    'cloud_overlap_method': {
         'description': 'Cloud scheme cloud overlap method',
         'members': [
             ('random', None),

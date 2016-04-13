@@ -2,11 +2,13 @@ AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilai
 
 ID = 'cmip6.atmosphere.key_properties'
 
-CONTACT = None
+CONTACT = 'Charlotte Pascoe'
 
-AUTHORS = None
+AUTHORS = ''
 
 TYPE = 'cim.2.science.key_properties'
+
+QC_STATUS = 'draft'
 
 # ====================================================================
 # KEY PROPERTIES: PROPERTIES
@@ -83,14 +85,14 @@ EXTENT = {}
 RESOLUTION = {}
 
 # ====================================================================
-# KEY PROPERTIES: TUNING
+# KEY PROPERTIES: TUNING APPLIED
 # ====================================================================
-TUNING = {}
+TUNING_APPLIED = {}
 
 # ====================================================================
-# KEY PROPERTIES: CONSERVATION
+# KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES
 # ====================================================================
-CONSERVATION = {}
+EXTRA_CONSERVATION_PROPERTIES = {}
 
 # ====================================================================
 # KEY PROPERTIES: ENUMERATIONS

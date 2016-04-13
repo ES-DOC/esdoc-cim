@@ -1,93 +1,81 @@
+AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
+
 ID = 'cmip6.atmosphere.microphysics_precipitation'
 
-TYPE = 'science.process'
-
-CIM = ''
-
-CONTACT = ''
+CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
-DATE = ''
+TYPE = 'cim.2.science.process'
 
-VERSION = ''
+QC_STATUS = 'draft'
 
 # ====================================================================
-# PROPERTIES
+# PROCESS: PROPERTIES
 # ====================================================================
-PROPERTIES = {
+DESCRIPTION = 'Cloud Microphysics and Precipitation'
 
-    # ----------------------------------------------------------------
-    # MANIFEST
-    # ----------------------------------------------------------------
-    'short_name': 'Cloud Microphysics and Precipitation',              
-    'description': 'Cloud Microphysics and Precipitation',
+# ====================================================================
+# PROCESS: DETAILS
+#
+# URL of #details
+# ====================================================================
+DETAILS = {}
 
-    'details': [],               
-    
-    'sub_process': ['large_scale_precipitation',
-                    'cloud_microphysics',
-                ],
-
-    # ----------------------------------------------------------------
-    # DETAILS
-    # ----------------------------------------------------------------
-
-    # ----------------------------------------------------------------
-    # SUB-PROCESSES
-    # ----------------------------------------------------------------
+# ====================================================================
+# PROCESS: SUB-PROCESSES
+#
+# URL of #sub_process
+# ====================================================================
+SUB_PROCESSES = {    
     'large_scale_precipitation': {
-        'short_name': 'Large scale precipitation scheme',
         'description': 'Large scale precipitation scheme',
-        'details': [('large_scale_precipitation_details',
-                     'scheme', 'hydrometeors'),
-                ],
+        'details': ['large_scale_precipitation_details'],
     },
     
-
     'cloud_microphysics': { 
-        'short_name': 'Cloud microphysics',
         'description': 'Cloud microphysics',
-        'details': [('cloud_microphysics_details',
-                    'scheme', 'processes'),
-                ],               
-    },
-
-    # ----------------------------------------------------------------
-    # SUB-PROCESS DETAILS
-    # ----------------------------------------------------------------
-    'large_scale_precipitation_details': {
-        'short_name': 'Large scale precipitation scheme properties',
-        'description': 'Large scale precipitation scheme properties',
-        'scheme': (
-            'str', '1.1',
-            'Commonly used name of the large scale precipitation parameterisation scheme'),
-        'hydrometeors': (
-            'ENUM:large_scale_precipitation_hydrometeor_types', '1.N',
-            'Precipitating hydrometeors taken into account in the large scale precipitation scheme'),
-    },
-    
-
-    'cloud_microphysics_details': { 
-        'short_name': 'Cloud microphysics properties',
-        'description': 'Cloud microphysics properties',
-        'scheme': (
-            'str', '1.1',
-            'Commonly used name of the microphysics parameterisation scheme.'),
-        'processes': (
-            'ENUM:cloud_microphysics_processes_attributes', '1.N',
-            'Cloud microphysics processes'),
+        'details': ['cloud_microphysics_details']
     },
 }
 
+# ====================================================================
+# PROCESS: SUB-PROCESSES: DETAILS
+#   
+# URL of #details
+# Convention: sub-process details start with sub-process name
+# ====================================================================
+SUB_PROCESS_DETAILS = {
+    'large_scale_precipitation_details': {
+        'description': 'Large scale precipitation scheme properties',
+        'properties': [
+            ('scheme', 'str', '1.1',
+             'Commonly used name of the large scale precipitation parameterisation scheme'),
+            ('hydrometeors', 'ENUM:hydrometeor_types', '1.N',
+             'Precipitating hydrometeors taken into account in the large scale precipitation scheme'),
+        ]
+    },
+
+    'cloud_microphysics_details': { 
+        'description': 'Cloud microphysics properties',
+        'properties': [
+            ('scheme', 'str', '1.1',
+             'Commonly used name of the microphysics parameterisation scheme.'),
+            ('processes', 'ENUM:processes_attributes', '1.N',
+             'Cloud microphysics processes'),
+        ]
+    },
+}
 
 # ====================================================================
-# ENUMERATIONS
+# PROCESS: ENUMERATIONS
+#
+# URL of process.html#enuemrations
+# Convention: Do not include the process name in the enumeration 
 # ====================================================================
 ENUMERATIONS = {
 
-    'large_scale_precipitation_hydrometeor_types': {
-        'short_name': 'Large scale precipitation hydrometeor types',
+    'hydrometeor_types': {
         'description': 'Precipitating hydrometeors taken into account in the large scale precipitation scheme',
         'members': [
             ('liquid rain', None),
@@ -98,8 +86,7 @@ ENUMERATIONS = {
         ]
     },
 
-    'cloud_microphysics_processes_attributes': {
-        'short_name': 'Cloud microphysics processes',
+    'processes_attributes': {
         'description': 'Cloud microphysics processes',
         'members': [
             ('mixed phase', None),
@@ -113,6 +100,5 @@ ENUMERATIONS = {
             ('other', None),
         ]
     },
-
 }
 

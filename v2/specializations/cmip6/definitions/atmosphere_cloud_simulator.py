@@ -4,9 +4,11 @@ ID = 'cmip6.atmosphere.cloud_simulator'
 
 CONTACT = 'Charlotte Pascoe'
 
-AUTHORS = 'him (ISPL), her (her@ipsl.fr), them'
+AUTHORS = ''
 
 TYPE = 'cim.2.science.process'
+
+QC_STATUS = 'draft'
 
 # ====================================================================
 # PROCESS: PROPERTIES

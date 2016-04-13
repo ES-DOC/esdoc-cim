@@ -1,133 +1,115 @@
+AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
+
 ID = 'cmip6.atmosphere.radiation'
 
-TYPE = 'science.process'
-
-CIM = ''
-
-CONTACT = ''
+CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
-DATE = ''
+TYPE = 'cim.2.science.process'
 
-VERSION = ''
+QC_STATUS = 'draft'
 
 # ====================================================================
-# PROPERTIES
+# PROCESS: PROPERTIES
 # ====================================================================
-PROPERTIES = {
+DESCRIPTION = 'Characteristics of the atmosphere radiation process'
 
-    # ----------------------------------------------------------------
-    # MANIFEST
-    # ----------------------------------------------------------------
-    'short_name': 'Atmosphere Radiation',
-    'description': 'Characteristics of the atmosphere radiation process',
-
-    'details': [('aerosol_types',
-                 'properties'),
-                ('ghg_types',
-                 'ghg_types'),
-                ('cloud_ice',
-                 'properties'),
-                ('cloud_liquid',
-                 'properties'),
-            ],               
-    
-    'sub_process': ['longwave_scheme',
-                    'shortwave_scheme',
-                ],
-
-    # ----------------------------------------------------------------
-    # DETAILS
-    # ----------------------------------------------------------------
+# ====================================================================
+# PROCESS: DETAILS
+#
+# URL of #details
+# ====================================================================
+DETAILS = {
     'aerosol_types': {
-        'short_name': '',
-        'description': '',
-        'properties': (
-            'ENUM:aerosol_types_attributes', '1.N',
-            'Types of aerosols whose radiative effect is taken into account in the atmospheric model'),
+        'properties': [
+            ('properties', 'ENUM:aerosol_types_attributes', '1.N',
+             'Types of aerosols whose radiative effect is taken into account in the atmospheric model'),
+        ]
     },
 
     'ghg_types': {
-        'short_name': 'GHG types',
         'description': 'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model',
-        'ghg_types': (
-            'ENUM:ghg_types_attributes', '1.N', 
-            'Radiative greenhouse gases'),
+        'properties': [
+            ('ghg_types', 'ENUM:ghg_types_attributes', '1.N', 
+             'Radiative greenhouse gases'),
+        ]
     },
 
     'cloud_ice': {
-        'short_name': 'Radiative properties of ice crystals in clouds',
         'description': 'Radiative properties of ice crystals in clouds',
-        'properties': (
-            'ENUM:cloud_ice_properties', '1.N',
-            'Radiative properties of cloud ice'),
+        'properties': [
+            ('properties', 'ENUM:cloud_ice_properties', '1.N',
+             'Radiative properties of cloud ice'),
+        ]
     },
 
     'cloud_liquid': {
         'description': 'Radiative properties of liquid droplets in clouds',
-        'properties': (
-            'ENUM:cloud_liquid_properties', '1.N',
-            'Radiative properties of cloud droplets'),
+        'properties': [
+            ('properties', 'ENUM:cloud_liquid_properties', '1.N',
+             'Radiative properties of cloud droplets'),
+        ]
     },
+}
 
-    # ----------------------------------------------------------------
-    # SUB-PROCESSES
-    # ----------------------------------------------------------------
+# ====================================================================
+# PROCESS: SUB-PROCESSES
+#
+# URL of #sub_process
+# ====================================================================
+SUB_PROCESSES = {
     'longwave_scheme': {
-        'short_name': 'Longwave radiation scheme',
         'description': 'Longwave radiation scheme',
-        'details': [('longwave_scheme_details',
-                     'scheme_type', 'scheme_method', 'spectral_intervals'),
-                ],
+        'details': ['longwave_scheme_details']
     },
 
     'shortwave_scheme': {
-        'short_name': 'Shortwave radiation scheme',
         'description': 'Shortwave radiation scheme',
-        'details': [('shortwave_scheme_details',                    
-                     'scheme_type', 'spectral_intervals'),
-                ],
+        'details': ['shortwave_scheme_details']
     },
+}
 
-    # ----------------------------------------------------------------
-    # SUB-PROCESS DETAILS
-    # ----------------------------------------------------------------
+# ====================================================================
+# PROCESS: SUB-PROCESSES: DETAILS
+#   
+# URL of #details
+# Convention: sub-process details start with sub-process name
+# ====================================================================
+SUB_PROCESS_DETAILS = {
     'longwave_scheme_details': {
-        'short_name': 'Longwave radiation scheme',
         'description': 'Longwave radiation scheme',
-        'scheme_type': (
-            'ENUM:longwave_scheme_type', '1.1',
-            'Longwave radiation scheme type'),
-        'scheme_method': (
-            'ENUM:longwave_scheme_method', '1.1', 
-            'Longwave radiation scheme method'),
-        'spectral_intervals': (
-            'int', '1.1',
-            'Longwave radiation scheme spectral intervals'),
+        'properties': [
+            ('scheme_type', 'ENUM:longwave_scheme_type', '1.1',
+             'Longwave radiation scheme type'),
+            ('scheme_method', 'ENUM:longwave_scheme_method', '1.1', 
+             'Longwave radiation scheme method'),
+            ('spectral_intervals', 'int', '1.1',
+             'Longwave radiation scheme spectral intervals'),
+        ]
     },
 
     'shortwave_scheme_details': {
-        'short_name': 'Shortwave radiation scheme',
         'description': 'Shortwave radiation scheme',
-        'scheme_type': (
-            'ENUM:shortwave_scheme_type', '1.1',
-            'Shortwave radiation scheme type'),           
-        'spectral_intervals': (
-            'int', '1.1',
-            'Shortwave radiation scheme spectral intervals'),
+        'properties': [
+            ('scheme_type', 'ENUM:shortwave_scheme_type', '1.1',
+             'Shortwave radiation scheme type'),           
+            ('spectral_intervals', 'int', '1.1',
+             'Shortwave radiation scheme spectral intervals'),
+        ]
     },
 
 }
 
 # ====================================================================
-# ENUMERATIONS
+# PROCESS: ENUMERATIONS
+#
+# URL of process.html#enuemrations
+# Convention: Do not include the process name in the enumeration 
 # ====================================================================
 ENUMERATIONS = {
 
     'aerosol_types_attributes': {
-
-        'short_name': 'Aerosol types attributes',
         'description': 'Types of aerosols whose radiative effect is taken into account in the atmospheric model.',
         'members': [
             ('sulphate', None),
@@ -148,7 +130,6 @@ ENUMERATIONS = {
     },
 
     'ghg_types_attributes': {
-        'short_name': 'GHG types',
         'description': 'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model',
         'members': [
             ('CO2', None),
@@ -162,7 +143,6 @@ ENUMERATIONS = {
     },
 
     'cloud_ice_properties': {
-        'short_name': 'Cloud ice properties',
         'description': 'Radiative properties of ice crystals in clouds',
         'members': [
             ('???', None),
@@ -171,7 +151,6 @@ ENUMERATIONS = {
     },
 
     'cloud_liquid_properties': {
-        'short_name': 'Cloud liquid properties',
         'description': 'Radiative properties of liquid droplets in clouds',
         'members': [
             ('???', None),
@@ -180,7 +159,6 @@ ENUMERATIONS = {
     },
 
     'longwave_scheme_type': {
-        'short_name': 'Longwave scheme type',
         'description': 'Type of scheme used for longwave radiation parameterisation',
         'members': [
             ('wide-band model', None),
@@ -192,7 +170,6 @@ ENUMERATIONS = {
     },
 
     'longwave_scheme_method': {
-        'short_name': 'Longwave scheme method',
         'description': 'Method for the radiative transfer calculations used in the longwave scheme',
         'members': [
             ('two-stream', None),
@@ -202,7 +179,6 @@ ENUMERATIONS = {
     },
 
     'shortwave_scheme_type': {
-        'short_name': 'Shortwave scheme type',
         'description': 'Type of scheme used for shortwave radiation parameterisation',   
         'members': [
             ('wide-band model', None),

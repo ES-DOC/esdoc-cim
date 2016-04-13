@@ -2,22 +2,24 @@ AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilai
 
 ID = 'cmip6.atmosphere'
 
-CONTACT = None
+CONTACT = 'Charlotte Pascoe'
 
-AUTHORS = None
+AUTHORS = ''
 
 TYPE = 'cim.2.science.scientific_realm'
+
+QC_STATUS = 'draft'
 
 # ====================================================================
 # REALM: PROPERTIES
 # ====================================================================
-DESCRIPTION = None
+DESCRIPTION = ''
 
 NAME = 'atmosphere'
 
 REALM = 'atmosphere'
 
-OVERVIEW = None
+OVERVIEW = ''
 
 GRID = ['atmosphere_grid']
 
