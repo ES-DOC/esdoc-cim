@@ -9,7 +9,7 @@ AUTHORS = None
 TYPE = 'cim.2.science.scientific_realm'
 
 # ====================================================================
-# REAL: PROPERTIES
+# REALM: PROPERTIES
 # ====================================================================
 DESCRIPTION = None
 
