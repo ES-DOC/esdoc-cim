@@ -3,18 +3,18 @@
 # CMIP6 specialisations
 # --------------------------------------------------------------------
 
-_CONTACT = 'Charlotte Pascoe'
+CONTACT = 'Charlotte Pascoe'
 
-_AUTHORS = ''
+AUTHORS = ''
 
-_QC_STATUS = 'draft'
+QC_STATUS = 'draft'
 
 # --------------------------------------------------------------------
 # PROCESS IDENTIFIER
 #
 # Set to 'cmip6.<REALM>.<PROCESS>', e.g. 'cmip6.atmosphere.radiation'
 # --------------------------------------------------------------------
-_ID = 'cmip6.atmosphere.radiation'
+ID = 'cmip6.atmosphere.radiation'
 
 # --------------------------------------------------------------------
 # INTERNAL VARIABLES (do not change)
@@ -26,7 +26,7 @@ from collections import OrderedDict()
 # --------------------------------------------------------------------
 # PROCESS: PROPERTIES
 # --------------------------------------------------------------------
-DESCRIPTION = 'Characteristics of the atmosphere radiation process'
+description = 'Characteristics of the atmosphere radiation process'
 
 # --------------------------------------------------------------------
 # PROCESS: DETAILS
