@@ -1,26 +1,39 @@
-_AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
-
-_ID = 'cmip6.atmosphere.radiation'
+# --------------------------------------------------------------------
+# See http://wordpress.es-doc.org for documentation on how to create
+# CMIP6 specialisations
+# --------------------------------------------------------------------
 
 _CONTACT = 'Charlotte Pascoe'
 
 _AUTHORS = ''
 
-_TYPE = 'cim.2.science.process'
-
 _QC_STATUS = 'draft'
 
-# ====================================================================
+# --------------------------------------------------------------------
+# PROCESS IDENTIFIER
+#
+# Set to 'cmip6.<REALM>.<PROCESS>', e.g. 'cmip6.atmosphere.radiation'
+# --------------------------------------------------------------------
+_ID = 'cmip6.atmosphere.radiation'
+
+# --------------------------------------------------------------------
+# INTERNAL VARIABLES (do not change)
+# --------------------------------------------------------------------
+_TYPE = 'cim.2.science.process'
+
+from collections import OrderedDict()
+
+# --------------------------------------------------------------------
 # PROCESS: PROPERTIES
-# ====================================================================
+# --------------------------------------------------------------------
 DESCRIPTION = 'Characteristics of the atmosphere radiation process'
 
-# ====================================================================
+# --------------------------------------------------------------------
 # PROCESS: DETAILS
 #
 # URL of #details
-# ====================================================================
-DETAILS_ORDER = OrderedDict()
+# --------------------------------------------------------------------
+DETAILS = OrderedDict()
 
 DETAILS['aerosol_types'] = (
     'ENUM:aerosol_types_attributes', '1.N',
@@ -38,11 +51,11 @@ DETAILS['cloud_liquid'] = (
     'ENUM:cloud_liquid_properties', '1.N',
     'Radiative properties of liquid droplets in clouds')
 
-# ====================================================================
+# --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES
 #
 # URL of #sub_process
-# ====================================================================
+# --------------------------------------------------------------------
 SUB_PROCESSES = OrderedDict()
 
 SUB_PROCESSES['longwave_scheme'] = {
@@ -55,12 +68,12 @@ SUB_PROCESSES['shortwave_scheme'] = {
     'details': ['shortwave_scheme_details']
 }
 
-# ====================================================================
+# --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES: DETAILS
 #   
 # URL of #details
 # Convention: sub-process details start with sub-process name
-# ====================================================================
+# --------------------------------------------------------------------
 SUB_PROCESS_DETAILS = OrderedDict() # Not necesssary, but consistent
 
 SUB_PROCESS_DETAILS['longwave_scheme_details'] = {
@@ -85,12 +98,12 @@ SUB_PROCESS_DETAILS['shortwave_scheme_details'] = {
     ]
 }
 
-# ====================================================================
+# --------------------------------------------------------------------
 # PROCESS: ENUMERATIONS
 #
 # URL of process.html#enuemrations
 # Convention: Do not include the process name in the enumeration 
-# ====================================================================
+# --------------------------------------------------------------------
 ENUMERATIONS = OrdererDict()
 
 ENUMERATIONS['aerosol_types_attributes'] = {
