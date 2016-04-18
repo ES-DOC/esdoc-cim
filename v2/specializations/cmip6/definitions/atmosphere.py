@@ -1,14 +1,22 @@
-AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
-
-ID = 'cmip6.atmosphere'
-
 CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
-TYPE = 'cim.2.science.scientific_realm'
-
 QC_STATUS = 'draft'
+
+# --------------------------------------------------------------------
+# REALM IDENTIFIER
+#
+# Set to 'cmip6.<REALM>', e.g. 'cmip6.atmosphere'
+# --------------------------------------------------------------------
+ID = 'cmip6.atmosphere'
+
+# --------------------------------------------------------------------
+# INTERNAL VARIABLES (do not change)
+# --------------------------------------------------------------------
+_TYPE = 'cim.2.science.scientific_realm'
+
+from collections import OrderedDict
 
 # ====================================================================
 # REALM: PROPERTIES

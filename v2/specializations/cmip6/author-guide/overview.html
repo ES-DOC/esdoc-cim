@@ -1,1 +1,92 @@
-for david to fill in
+<!-- SECTION :: About header -->
+<section>
+    <header>
+        <h1>Overview - DRAFT</h1>
+    </header>
+    <p>This document describes the file format of CIM2 specialisations
+for describing CMIP6 models.</p>
+</section>
+
+<!-- SECTION :: Services -->
+<section>
+    <header>
+        <h3>Files</h3>
+    </header>
+    A seperate file is created for each <strong>realm</strong>, and,
+    for each realm, its <strong>key properties</strong>,
+    its <strong>grid</strong>, each of its <strong>processes</strong>.
+
+    All files contain three different type of variables:
+    <ol>
+      <li>Metadata variables which state which model component is
+          being described, who contributed to creating the file
+          contents and the quality control status of the file contents
+      <li>Internal variables required by the ES-DOC tools which use 
+          the files
+      <li>The variables which describe a model conponent
+    </ol>
+</section>
+
+<!-- SECTION :: Services -->
+<section>
+    <header>
+        <h3>Metadata variables</h3>
+    </header>
+    A file must contain the following metadata variables:
+    <dl>
+      <dt>CONTACT
+	<dd>The point of contact for any questions about the
+	file. There are no restrictions on the value
+	(e.g. <code>CONTACT ='David Hassell, NCAS,
+	email@address'</code>).
+
+      <dt>AUTHORS
+	<dd>The names of all those contributed to the file contents.
+    	    There are no restrictions on the value (e.g. <code>AUTHORS
+    	    = 'David Hassell, NCAS, email@address; Charlotte Pascoe,
+    	    NCAS, email@address'</code>).
+	  
+      <dt>QC_STATUS
+	<dd>The quality control status of the file ccontent. Allowed
+    	    values are <code>'draft'</code> (content still being
+    	    developed), <code>'complete'</code> (content complete and
+    	    ready to be ingested into ES-DOC),
+	    <code>'accepted'</code> (accepted and ingested by ES-DOC -
+	    this value should only be set by ES-DOC
+	    developers). Examples: <code>QC_STATUS =
+	    'complete'</code>.
+
+      <dt>ID
+	<dd>A unique identifier for the file of the
+	form <code>'cmip6.<REALM>'</code>,
+	or <code>'cmip6.<REALM>.<COMPONENT>'</code>
+	where <code><REALM></code> represents the model realm being
+	described (e.g. <code>atmosphere</code>)
+	and <code><COMPONENT></code> represents the realm component
+	being described, one
+	of <code>key_properties</code>, <code>grid</code>, or a model
+	process (e.g. <code>cloud_scheme</code>).
+    </dl>
+
+    These variables are preset in model component file templates and
+    it is expected that they will be changed during the creation of a
+    new file.
+</section>
+
+<!-- SECTION :: Services -->
+<section>
+    <header>
+        <h3>Internal variables</h3>
+    </header>
+    A file must contain the following internal variables, which are
+    preset in the model component file templates and <strong>should be
+    not changed during the creation of a new file</strong>:
+    <dl>
+      <dt></code>_TYPE</code>
+	<dd>The CIM construct type of the model component
+     	    (e.g. <code>_TYPE = 'cim.2.science.process'</code>
+      <dt><code>from collections import OrderedDict()</code>
+	<dd>Not actually a variable, but a python instruction required
+    	    by the ES-DOC tools which will use the file.
+    </dl>
+</section>

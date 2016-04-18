@@ -21,12 +21,12 @@ ID = 'cmip6.atmosphere.radiation'
 # --------------------------------------------------------------------
 _TYPE = 'cim.2.science.process'
 
-from collections import OrderedDict()
+from collections import OrderedDict
 
 # --------------------------------------------------------------------
 # PROCESS: PROPERTIES
 # --------------------------------------------------------------------
-description = 'Characteristics of the atmosphere radiation process'
+DESCRIPTION = 'Characteristics of the atmosphere radiation process'
 
 # --------------------------------------------------------------------
 # PROCESS: DETAILS
@@ -35,21 +35,18 @@ description = 'Characteristics of the atmosphere radiation process'
 # --------------------------------------------------------------------
 DETAILS = OrderedDict()
 
-DETAILS['aerosol_types'] = (
-    'ENUM:aerosol_types_attributes', '1.N',
-    'Types of aerosols whose radiative effect is taken into account in the atmospheric model')
-
-DETAILS['ghg_types'] = (
-    'ENUM:ghg_types_attributes', '1.N', 
-    'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model')
-
-DETAILS['cloud_ice'] = (
-    'properties', 'ENUM:cloud_ice_properties', '1.N',
-    'Radiative properties of ice crystals in clouds')
-
-DETAILS['cloud_liquid'] = (
-    'ENUM:cloud_liquid_properties', '1.N',
-    'Radiative properties of liquid droplets in clouds')
+DETAILS['attributes'] = {
+    'properties' = [
+        ('aerosol_types', 'ENUM:aerosol_types_attributes', '1.N',
+         'Types of aerosols whose radiative effect is taken into account in the atmospheric model'),
+        ('ghg_types', 'ENUM:ghg_types_attributes', '1.N', 
+         'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model'),
+        ('cloud_ice', 'ENUM:cloud_ice_properties', '1.N',         
+         'Radiative properties of ice crystals in clouds'),
+        ('cloud_liquid', 'ENUM:cloud_liquid_properties', '1.N',
+         'Radiative properties of liquid droplets in clouds'),
+    ]
+}
 
 # --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES
@@ -71,8 +68,6 @@ SUB_PROCESSES['shortwave_scheme'] = {
 # --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES: DETAILS
 #   
-# URL of #details
-# Convention: sub-process details start with sub-process name
 # --------------------------------------------------------------------
 SUB_PROCESS_DETAILS = OrderedDict() # Not necesssary, but consistent
 
@@ -104,7 +99,7 @@ SUB_PROCESS_DETAILS['shortwave_scheme_details'] = {
 # URL of process.html#enuemrations
 # Convention: Do not include the process name in the enumeration 
 # --------------------------------------------------------------------
-ENUMERATIONS = OrdererDict()
+ENUMERATIONS = OrderedDict()
 
 ENUMERATIONS['aerosol_types_attributes'] = {
     'description': 'Types of aerosols whose radiative effect is taken into account in the atmospheric model.',
@@ -123,6 +118,7 @@ ENUMERATIONS['aerosol_types_attributes'] = {
         ('NAD (nitric acid dihydrate)', None),
         ('STS (supercooled ternary solution aerosol particle)', None),
         ('other', None),
+
     ]
 }
 

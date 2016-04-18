@@ -1,150 +1,147 @@
-AUTHOR_GUIDE = 'URL on wordpress site of useful info for authors "CMIP6 specilaisations author guide". This page will be a generic guide on how to fill in a REALM, PROCESS, SUB_PROCESS, SUB_PROCESS_DETAILS, etc. http://cmip6.specialisation.guide/process.html'
-
-ID = 'cmip6.atmosphere.dynamical_core'
-
 CONTACT = 'Charlotte Pascoe'
 
 AUTHORS = ''
 
-TYPE = 'cim.2.science.process'
-
 QC_STATUS = 'draft'
 
-# ====================================================================
+# --------------------------------------------------------------------
+# PROCESS IDENTIFIER
+#
+# Set to 'cmip6.<REALM>.<PROCESS>', e.g. 'cmip6.atmosphere.radiation'
+# --------------------------------------------------------------------
+ID = 'cmip6.atmosphere.dynamical_core'
+
+# --------------------------------------------------------------------
+# INTERNAL VARIABLES (do not change)
+# --------------------------------------------------------------------
+_TYPE = 'cim.2.science.process'
+
+from collections import OrderedDict
+
+# --------------------------------------------------------------------
 # PROCESS: PROPERTIES
-# ====================================================================
+# --------------------------------------------------------------------
 DESCRIPTION = ''
 
-# ====================================================================
+# --------------------------------------------------------------------
 # PROCESS: DETAILS
 #
 # URL of #details
-# ====================================================================
-DETAILS = {
-    'timestepping_framework': {
-        'description': 'Timestepping framework',
-        'properties': [
-            ('timestepping_type', 'ENUM:timestepping_type', '1.1',
-             'Timestepping framework type'),
-        ]
-    },
+# --------------------------------------------------------------------
+DETAILS = OrderedDict()
 
-    'prognostic_variables': {
-        'description': 'List of the model prognostic variables',
-        'properties': [
-            ('prognostic_variables', 'ENUM:_prognostic_variables', '1.N',
-             'prognostic variables'),
-        ]
-    },
-}
+DETAILS['timestepping_type'] = (
+    'ENUM:timestepping_type', '1.1',
+    'Timestepping framework type')
 
-# ====================================================================
+DETAILS['prognostic_variables'] = (
+    'ENUM:_prognostic_variables', '1.N',
+    'List of the model prognostic variables')
+
+# --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES
 #
 # URL of #sub_process
-# ====================================================================
-SUB_PROCESSES = {    
-    'top_boundary': {
-        'description': 'Type of boundary layer at the top of the model',
-        'details': ['top_boundary_details']
-    },
+# --------------------------------------------------------------------
+SUB_PROCESSES = OrderedDict()
 
-    'lateral_boundary': {
-        'description': 'Type of lateral boundary condition (if the model is a regional model)',
-        'details': ['lateral_boundary_details']
-    },
-
-    'diffusion_horizontal': {
-        'description': 'Horizontal diffusion scheme',
-        'details': ['diffusion_horizontal_details'],
-    },
-
-    'advection_tracers': {
-        'description': 'Tracer advection scheme',
-        'details': ['advection_tracers_details']
-    },
-    
-    'advection_momentum': {
-        'description': 'Momentum advection scheme',
-        'details': ['advection_momentum_details'],
-    },
-    
+SUB_PROCESSES['top_boundary'] = {
+    'description': 'Type of boundary layer at the top of the model',
+    'details': ['top_boundary_details']
 }
 
-# ====================================================================
+SUB_PROCESSES['lateral_boundary'] = {
+    'description': 'Type of lateral boundary condition (if the model is a regional model)',
+    'details': ['lateral_boundary_condition']
+}
+
+SUB_PROCESSES['diffusion_horizontal'] = {
+    'description': 'Horizontal diffusion scheme',
+    'details': ['diffusion_horizontal_details'],
+}
+
+SUB_PROCESSES['advection_tracers'] = {
+    'description': 'Tracer advection scheme',
+    'details': ['advection_tracers_details']
+}
+                  
+SUB_PROCESSES['advection_momentum'] = {
+    'description': 'Momentum advection scheme',
+    'details': ['advection_momentum_details'],
+}
+
+# --------------------------------------------------------------------
 # PROCESS: SUB-PROCESSES: DETAILS
 #   
 # URL of #details
 # Convention: sub-process details start with sub-process name
-# ====================================================================
-SUB_PROCESS_DETAILS = {   
-    'top_boundary_details': {
-        'description': 'Properties of boundary layer at the top of the model',
-        'properties': [
-            ('top_boundary_condition', 'ENUM:top_boundary_condition', '1.1',
-             'Top boundary condition'),
-            ('top_heat', 'str', '1.1',
-             'Top boundary heat treatment'),
-            ('top_wind', 'str', '1.1',
-             'Top boundary wind treatment'),
-        ]
-    },
+# --------------------------------------------------------------------
+SUB_PROCESS_DETAILS = OrderedDict()
 
-    'lateral_boundary_details': {
-        'description': 'Type of lateral boundary condition',
-        'properties': [
-            ('lateral_boundary_condition', 'ENUM:lateral_boundary', '0.1',
-             'Lateral boundary condition'),
-        ]
-    },
-
-    'diffusion_horizontal_details': {
-        'description': 'Horizontal diffusion scheme details',
-        'properties': [
-            ('scheme_name', 'ENUM:diffusion_horizontal_scheme_name ', '1.1',
-             'Horizontal diffusion scheme name'),
-            ('scheme_method', 'ENUM:diffusion_horizontal_scheme_method', '1.1',
-             'Horizontal diffusion scheme method'),
-        ]
-    },
-
-    'advection_tracers_details': {
-        'description': 'Tracer advection scheme',
-        'properties': [
-            ('scheme_name', 'ENUM:advection_tracers_scheme_name ', '1.1',
-             'Tracer advection scheme name'),
-            ('scheme_characteristics', 'ENUM:advection_tracers_scheme_characteristics', '1.N',
-             'Tracer advection scheme characteristics'),
-            ('conserved_quantities', 'ENUM:advection_tracers_conserved_quantities', '1.N',
-             'Tracer advection scheme conserved quantities'),
-            ('conservation_method', 'ENUM:advection_tracers_conservation_method', '1.1',
-             'Tracer advection scheme conservation method'),
-        ]
-    },
-    
-    'advection_momentum_details': {
-        'description': 'Momentum advection scheme',
-        'properties': [
-            ('scheme_name', 'ENUM:advection_momentum_scheme_name ', '1.1',
-             'Momentum advection schemes name'),
-            ('scheme_characteristics', 'ENUM:advection_momentum_scheme_characteristics', '1.N',
-             'Momentum advection scheme characteristics'),
-            ('scheme_staggering_type', 'ENUM:advection_momentum_scheme_staggering_type', '1.1',
-             'Momentum advection scheme staggering type'),
-            ('conserved_quantities', 'ENUM:advection_momentum_conserved_quantities', '1.N',
-            'Momentum advection scheme conserved quantities'),
-            ('conservation_method', 'ENUM:advection_momentum_conservation_method', '1.1',
-             'Momentum advection scheme conservation method'),
-        ]
-    },
+SUB_PROCESS_DETAILS['top_boundary_details'] = {
+    'description': 'Properties of boundary layer at the top of the model',
+    'properties': [
+        ('top_boundary_condition', 'ENUM:top_boundary_condition', '1.1',
+         'Top boundary condition'),
+        ('top_heat', 'str', '1.1',
+         'Top boundary heat treatment'),
+        ('top_wind', 'str', '1.1',
+         'Top boundary wind treatment'),
+    ]
 }
 
-# ====================================================================
+SUB_PROCESS_DETAILS['lateral_boundary_condition'] = (
+    'ENUM:lateral_boundary', '0.1',
+    'Type of lateral boundary condition')
+
+SUB_PROCESS_DETAILS['diffusion_horizontal_details'] = {
+    'description': 'Horizontal diffusion scheme details',
+    'properties': [
+        ('scheme_name', 'ENUM:diffusion_horizontal_scheme_name ', '1.1',
+         'Horizontal diffusion scheme name'),
+        ('scheme_method', 'ENUM:diffusion_horizontal_scheme_method', '1.1',
+         'Horizontal diffusion scheme method'),
+    ]
+}
+
+SUB_PROCESS_DETAILS['advection_tracers_details'] = {
+    'description': 'Tracer advection scheme details',
+    'properties': [
+        ('scheme_name', 'ENUM:advection_tracers_scheme_name ', '1.1',
+         'Tracer advection scheme name'),
+        ('scheme_characteristics', 'ENUM:advection_tracers_scheme_characteristics', '1.N',
+         'Tracer advection scheme characteristics'),
+        ('conserved_quantities', 'ENUM:advection_tracers_conserved_quantities', '1.N',
+         'Tracer advection scheme conserved quantities'),
+        ('conservation_method', 'ENUM:advection_tracers_conservation_method', '1.1',
+         'Tracer advection scheme conservation method'),
+    ]
+}
+    
+SUB_PROCESS_DETAILS['advection_momentum_details'] = {
+    'description': 'Momentum advection scheme details',
+    'properties': [
+        ('scheme_name', 'ENUM:advection_momentum_scheme_name ', '1.1',
+         'Momentum advection schemes name'),
+        ('scheme_characteristics', 'ENUM:advection_momentum_scheme_characteristics', '1.N',
+         'Momentum advection scheme characteristics'),
+        ('scheme_staggering_type', 'ENUM:advection_momentum_scheme_staggering_type', '1.1',
+         'Momentum advection scheme staggering type'),
+        ('conserved_quantities', 'ENUM:advection_momentum_conserved_quantities', '1.N',
+         'Momentum advection scheme conserved quantities'),
+        ('conservation_method', 'ENUM:advection_momentum_conservation_method', '1.1',
+         'Momentum advection scheme conservation method'),
+    ]
+}
+
+# --------------------------------------------------------------------
 # PROCESS: ENUMERATIONS
 #
 # URL of process.html#enuemrations
 # Convention: Do not include the process name in the enumeration 
-# ====================================================================
+# --------------------------------------------------------------------
+ENUMERATIONS = OrderedDict()
+
 ENUMERATIONS = {
 
     'timestepping_type': {
