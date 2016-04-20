@@ -24,18 +24,26 @@ _TYPE = 'cim.2.science.scientific_realm'
 from collections import OrderedDict
 
 # --------------------------------------------------------------------
-# REAL: PROPERTIES
+# REALM: PROPERTIES
 # --------------------------------------------------------------------
+
+# Scientific context of the realm
 DESCRIPTION = None
 
+# Name of the scientific realm
 NAME = None
 
+# Canonical name for the domain of this scientific area.
 REALM = None
 
+# Free text overview of the realm 
 OVERVIEW = None
 
+# The grid used to layout the variables
 GRID = []
 
+# Key properties for the domain which differ from model defaults
 KEY_PROPERTIES = []
 
+# Processes simulated within the realm
 PROCESSES = []

@@ -7,7 +7,7 @@ QC_STATUS = 'draft'
 # --------------------------------------------------------------------
 # PROCESS IDENTIFIER
 #
-# Set to 'cmip6.<REALM>.<PROCESS>', e.g. 'cmip6.atmosphere.radiation'
+# Set to 'cmip6.<REALM>.key_properties'
 # --------------------------------------------------------------------
 ID = 'cmip6.atmosphere.key_properties'
 
