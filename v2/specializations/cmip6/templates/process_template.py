@@ -1,59 +1,68 @@
 # --------------------------------------------------------------------
 # See http://wordpress.es-doc.org for documentation on how to create
-# CMIP6 specialisations
+# CMIP6 process specialisations
 # --------------------------------------------------------------------
 
-CONTACT = None
+# ====================================================================
+# FILE VARIABLES
+# ====================================================================
+CONTACT = ''
 
-AUTHORS = None
+AUTHORS = ''
 
+# --------------------------------------------------------------------
+# QUALITY CONTROL STATUS
+#
+# Set to 'draft' or 'complete'
+# --------------------------------------------------------------------
 QC_STATUS = 'draft'
 
 # --------------------------------------------------------------------
-# PROCESS IDENTIFIER
+# GRID IDENTIFIER
 #
-# Set to 'cmip6.<REALM>.<PROCESS>', e.g. 'cmip6.atmosphere.radiation'
+# Set to 'cmip6.<REALM>.<PROCESS>'
 # --------------------------------------------------------------------
-ID = None
+ID = ''
 
-# --------------------------------------------------------------------
+# ====================================================================
 # INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.process'
-
+# ====================================================================
+_TYPE = 'cim.2.science.grid'
 from collections import OrderedDict
 
+# ====================================================================
+# MODEL DESCRIPTION VARIABLES
+# ====================================================================
+
 # --------------------------------------------------------------------
-# PROCESS: PROPERTIES
+# PROCESS: DESCRIPTION
+#
+# Scientific context of the process
 # --------------------------------------------------------------------
-DESCRIPTION = None
+DESCRIPTION = ''
 
 # --------------------------------------------------------------------
 # PROCESS: DETAILS
 #
-# URL of #details
+# Sets of details for the process
 # --------------------------------------------------------------------
 DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
-# PROCESS: SUB-PROCESSES
+# PROCESS: SUB PROCESSES
 #
-# URL of #sub_process
+# Sets of discrete portions of the process
 # --------------------------------------------------------------------
 SUB_PROCESSES = OrderedDict()
 
 # --------------------------------------------------------------------
-# PROCESS: SUB-PROCESSES: DETAILS
-#   
-# URL of #details
-# Convention: sub-process details start with sub-process name
+# PROCESS: SUB PROCESSES: DETAILS
+#
+# Sets of details for the sub processes
 # --------------------------------------------------------------------
-SUB_PROCESS_DETAILS = OrderedDict()
+SUB_PROCESSES_DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
-# PROCESS: ENUMERATIONS
-#
-# URL of process.html#enuemrations
-# Convention: Do not include the process name in the enumeration 
+# ENUMERATIONS
 # --------------------------------------------------------------------
 ENUMERATIONS = OrderedDict()

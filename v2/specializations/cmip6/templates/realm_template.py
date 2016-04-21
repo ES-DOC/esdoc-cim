@@ -1,49 +1,64 @@
 # --------------------------------------------------------------------
 # See http://wordpress.es-doc.org for documentation on how to create
-# CMIP6 specialisations
+# CMIP6 realm specialisations
 # --------------------------------------------------------------------
 
-CONTACT = None
+# ====================================================================
+# FILE VARIABLES
+# ====================================================================
+CONTACT = ''
 
-AUTHORS = None
+AUTHORS = ''
 
+# --------------------------------------------------------------------
+# QUALITY CONTROL STATUS
+#
+# Set to 'draft' or 'complete'
+# --------------------------------------------------------------------
 QC_STATUS = 'draft'
 
 # --------------------------------------------------------------------
 # REALM IDENTIFIER
 #
-# Set to 'cmip6.<REALM>', e.g. 'cmip6.atmosphere'
+# Set to 'cmip6.<REALM>'
 # --------------------------------------------------------------------
-ID = None
+ID = ''
 
-# --------------------------------------------------------------------
+# ====================================================================
 # INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.scientific_realm'
-
+# ====================================================================
+_TYPE = 'cim.2.science.grid'
 from collections import OrderedDict
 
+# ====================================================================
+# MODEL DESCRIPTION VARIABLES
+# ====================================================================
+
 # --------------------------------------------------------------------
-# REALM: PROPERTIES
+# REALM: REALM
+#
+# Canonical name for the domain of this scientific realm
 # --------------------------------------------------------------------
+REALM = ''
 
-# Scientific context of the realm
-DESCRIPTION = None
-
-# Name of the scientific realm
-NAME = None
-
-# Canonical name for the domain of this scientific area.
-REALM = None
-
-# Free text overview of the realm 
-OVERVIEW = None
-
+# --------------------------------------------------------------------
+# REALM: GRID
+#
 # The grid used to layout the variables
+# --------------------------------------------------------------------
 GRID = []
 
+# --------------------------------------------------------------------
+# REALM: KEY PROPERTIES
+#
 # Key properties for the domain which differ from model defaults
+# (grid, timestep etc)
+# --------------------------------------------------------------------
 KEY_PROPERTIES = []
 
+# --------------------------------------------------------------------
+# REALM: PROCESSES
+#
 # Processes simulated within the realm
+# --------------------------------------------------------------------
 PROCESSES = []
