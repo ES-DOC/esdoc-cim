@@ -13,14 +13,12 @@ def conservation_properties():
     """
     return {
         'type': 'class',
-        'base': None,
+        'base': 'science.sub_process',
         'is_abstract': False,
         'properties': [
             ('corrected_conserved_prognostic_variables', 'data.variable_collection', '0.1',
                 "Set of variables which are conserved by *more* than the numerical scheme alone."),
-            ('correction_methodology', 'str', '0.1',
-                "Description of method by which correction was achieved."),
-            ('flux_correction_was_used', 'bool', '1.1',
+            ('flux_correction_was_used', 'bool', '0.1',
                 "Flag to indicate if correction involved flux correction.")
         ]
     }
@@ -94,14 +92,14 @@ def grid():
         'properties': [
             ('description', 'str', '1.1',
                 "Abstract description of grid."),
+            ('details', 'science.detail', '0.N',
+                "Specific grid properties."),
             ('discretisation', 'science.discretisation', '0.1',
                 "Description of the numerics of the discretisation."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata about how the model description was constructed."),
             ('name', 'str', '1.1',
                 "This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts."),
-            ('properties', 'science.detail', '0.1',
-                "Specific grid properties."),
             ('references', 'shared.reference', '0.N',
                 "Any relevant references describing this grid and/or it's implementation.")
         ]
@@ -276,12 +274,12 @@ def scientific_realm():
         'base': None,
         'is_abstract': False,
         'properties': [
-            ('differing_key_properties', 'science.key_properties', '0.1',
-                "Key properties for the domain which differ from model defaults (grid, timestep etc)."),
             ('grid', 'linked_to(science.grid)', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
             ('id', 'str', '0.1',
                 "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
+            ('key_properties', 'science.key_properties', '0.1',
+                "Key properties for the domain which differ from model defaults (grid, timestep etc)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata describing the construction of this domain description."),
             ('name', 'str', '1.1',

@@ -132,10 +132,10 @@ def ensemble():
                 "Experiments with which the ensemble is associated (may differ from constituent simulations).")
         ],
         'constraints': [
-            ('canonical_name', 'cardinality', '0.0'),
-            ('duration', 'cardinality', '0.0'),
-            ('keywords', 'cardinality', '0.0'),
-            ('rationale', 'cardinality', '0.0')
+            ('cardinality', 'rationale', '0.0'),
+            ('cardinality', 'canonical_name', '0.0'),
+            ('cardinality', 'keywords', '0.0'),
+            ('cardinality', 'duration', '0.0')
         ]
     }
 
@@ -221,8 +221,8 @@ def uber_ensemble():
                 "Ensemble which are aggregated into this one.")
         ],
         'constraints': [
-            ('common_conformances', 'cardinality', '0.0'),
-            ('has_ensemble_axes', 'cardinality', '1.N'),
-            ('members', 'cardinality', '0.0')
+            ('cardinality', 'has_ensemble_axes', '1.N'),
+            ('cardinality', 'common_conformances', '0.0'),
+            ('cardinality', 'members', '0.0')
         ]
     }

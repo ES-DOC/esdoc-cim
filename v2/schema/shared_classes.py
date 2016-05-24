@@ -87,8 +87,6 @@ def doc_meta_info():
                 "Name of application that created the instance."),
             ('source_key', 'str', '0.1',
                 "Key of application that created the instance."),
-            ('sub_projects', 'str', '0.N',
-                "Set of sub-projects with which instance is associated with."),
             ('type', 'str', '1.1',
                 "Document ontology type."),
             ('type_display_name', 'str', '0.1',
@@ -163,6 +161,30 @@ def document_types():
             ("SimulationPlan", "A plan to carry out a simulations for a numerical experiment."),
             ("TemporalConstraint", "A constraint on the real time simulations need to represent for a numerical experiment."),
             ("UberEnsemble", "An ensemble description that crosses multiple modelling groups.")
+        ]
+    }
+
+
+def extra_attribute():
+    """An extra attribute with key and value needed to encode further information
+    not in the CIM2 domain model or specialisation. Typical use case: in parsing
+    data and encoding attributes found in data.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'pstr': ('{}:{}', ('key', 'value')),
+        'properties': [
+            ('doc', 'str', '0.1',
+                "Documentation associated with this key."),
+            ('key', 'str', '1.1',
+                "Name of attribute."),
+            ('type', 'str', '0.1',
+                "If a non-string type, provide type."),
+            ('value', 'str', '1.1',
+                "Value associated with key.")
         ]
     }
 
@@ -256,7 +278,7 @@ def quality_review():
                 "Assessment of quality of target document."),
             ('quality_status', 'shared.quality_status', '0.1',
                 "Status from a controlled vocabulary."),
-            ('target_document', 'linked_to(shared.doc_reference)', '1.1',
+            ('target_document', 'shared.doc_reference', '1.1',
                 "This is the document about which quality is asserted.")
         ]
     }

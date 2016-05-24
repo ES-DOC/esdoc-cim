@@ -35,7 +35,7 @@ def domain_requirements():
                 "Constraint on resolution required in simulated domain.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -57,7 +57,7 @@ def ensemble_requirement():
                 "Minimum number of members.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -124,7 +124,7 @@ def forcing_constraint():
                 "Pointer to origin, e.g. CMIP6 RCP database.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -181,7 +181,7 @@ def multi_ensemble():
                 "List of orthogonal ensembles.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -203,8 +203,8 @@ def numerical_experiment():
                 "Additional requirements that conformant simulations need to satisfy.")
         ],
         'constraints': [
-            ('duration', 'cardinality', '0.0'),
-            ('rationale', 'cardinality', '1.1')
+            ('cardinality', 'duration', '0.0'),
+            ('cardinality', 'rationale', '1.1')
         ]
     }
 
@@ -224,7 +224,7 @@ def numerical_requirement():
                 "Indicator as to whether ensemble documentation should include conformance information for this requirement.")
         ],
         'constraints': [
-            ('duration', 'cardinality', '0.0')
+            ('cardinality', 'duration', '0.0')
         ]
     }
 
@@ -242,7 +242,7 @@ def output_requirement():
                 "If available, link to a 'cmip' style online request.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -264,7 +264,7 @@ def project():
                 "Activities within the project with their own name and aim(s).")
         ],
         'constraints': [
-            ('description', 'cardinality', '1.1')
+            ('cardinality', 'description', '1.1')
         ]
     }
 
@@ -288,7 +288,7 @@ def simulation_plan():
                 "An experiment with which the planned simulation will be associated.")
         ],
         'constraints': [
-            ('duration', 'cardinality', '1.1')
+            ('cardinality', 'duration', '1.1')
         ]
     }
 
@@ -306,7 +306,7 @@ def start_date_ensemble():
                 "Description of date or time set of start dates.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
 
@@ -330,6 +330,6 @@ def temporal_constraint():
                 "Amount of time before required start date that it is permissible to begin integration.")
         ],
         'constraints': [
-            ('additional_requirements', 'cardinality', '0.0')
+            ('cardinality', 'additional_requirements', '0.0')
         ]
     }
