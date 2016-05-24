@@ -19,7 +19,7 @@ ID = 'cmip6.ocean.timestepping_framework'
 # --------------------------------------------------------------------
 # INTERNAL VARIABLES (do not change)
 # --------------------------------------------------------------------
-_TYPE = 'cim.2.science.key_properties'
+_TYPE = 'cim.2.science.process'
 
 from collections import OrderedDict
 
@@ -41,24 +41,24 @@ DETAILS['timestepping_attributes'] = {
     'description': 'Properties of time stepping in ocean',
     'properties': [
         ('time_step', 'int', '1.1',
-         'Ocean time step in seconds'),
+            'Ocean time step in seconds'),
         ('diurnal_cycle', 'ENUM:diurnal_cycle_types', '1.1',
-         'Diurnal cycle type'),
+            'Diurnal cycle type'),
     ]
 }
 
+# This is the compact notation used of only one property
 DETAILS['timestepping_tracers_scheme'] = (
     'ENUM:ocean_timestepping_types','1.1',
     'Time stepping tracer scheme')
 
-DETAILS['barotropic_solver_schem'] = (
+DETAILS['barotropic_solver_scheme'] = (
     'ENUM:ocean_timestepping_types','1.1',
     'Barotropic solver scheme')
 
 DETAILS['barotropic_momentum_scheme'] = (
     'ENUM:ocean_timestepping_types','1.1',
     'Barotropic momentum scheme')
-
 
 # --------------------------------------------------------------------
 # PROCESS: SUB PROCESSES

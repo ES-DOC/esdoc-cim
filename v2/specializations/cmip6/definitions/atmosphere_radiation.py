@@ -24,7 +24,7 @@ _TYPE = 'cim.2.science.process'
 from collections import OrderedDict
 
 # --------------------------------------------------------------------
-# PROCESS: PROPERTIES
+# PROCESS: DESCRIPTION
 # --------------------------------------------------------------------
 DESCRIPTION = 'Characteristics of the atmosphere radiation process'
 
@@ -66,7 +66,7 @@ SUB_PROCESSES['shortwave_scheme'] = {
 }
 
 # --------------------------------------------------------------------
-# PROCESS: SUB-PROCESSES: DETAILS
+# PROCESS: SUB-PROCESSES DETAILS
 #   
 # --------------------------------------------------------------------
 SUB_PROCESS_DETAILS = OrderedDict() # Not necesssary, but consistent

@@ -19,7 +19,7 @@ _TYPE = 'cim.2.science.grid'
 from collections import OrderedDict
 
 # ====================================================================
-# GRID: PROPERTIES
+# GRID: DESCRIPTION
 # ====================================================================
 DESCRIPTION = ''
 
@@ -34,7 +34,7 @@ DISCRETISATION['grid_discretisation'] = {
 },
 
 # ====================================================================
-# GRID: DISCRETISATION: DETAILS
+# GRID: DISCRETISATION DETAILS
 #
 # URL of #details
 # ====================================================================

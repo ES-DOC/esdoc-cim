@@ -38,7 +38,7 @@ DESCRIPTION = 'Key properties of the ocean'
 DETAILS = OrderedDict()
 
 DETAILS['general'] = {
-    'properties' = [
+    'properties': [
         ('model_family', 'ENUM:model_family_type', '1.1',
          'Type of ocean model.'),
         ('basic_approximations', 'ENUM:basic_approximations_attributes', '1.N',
@@ -50,7 +50,7 @@ DETAILS['general'] = {
 
 DETAILS['seawater_properties'] = {
     'description': 'Physical properties of seawater in ocean',
-    'properties' = [
+    'properties' : [
         ('seawater_eos_type', 'ENUM:seawater_eos_types', '1.1',
          'Type of EOS for sea water'),
         ('ocean_freezing_point', 'str', '1.1',
@@ -62,7 +62,7 @@ DETAILS['seawater_properties'] = {
 
 DETAILS['bathymetry'] = {
     'description':'Properties of bathymetry in ocean',
-    'properties' = [
+    'properties' : [
         ('bathymetry_reference_dates', 'ENUM:ocean_bathymetry_ref_dates', '1.1'
          'Reference date of bathymetry'),
         ('ocean_bathymetry_type', 'bool', '1.1',
@@ -86,7 +86,7 @@ DETAILS['nonoceanic_waters'] = (
 EXTENT = OrderedDict()
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: EXTENT: DETAILS
+# KEY PROPERTIES: EXTENT DETAILS
 #
 # Sets of details for the extent.
 # --------------------------------------------------------------------
@@ -105,7 +105,7 @@ RESOLUTION['resolution'] = {
 }
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: RESOLUTION: DETAILS
+# KEY PROPERTIES: RESOLUTION DETAILS
 #
 # Sets of details for the resolution
 # --------------------------------------------------------------------
@@ -116,43 +116,43 @@ RESOLUTION_DETAILS['thickness_of_surface_level'] = (
     'Thickness in metres of surface ocean level (e.g. 1)')
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: TUNING
+# KEY PROPERTIES: TUNING APPLIED
 #
 # Any tuning used to optimise the parameters in this realm
 # --------------------------------------------------------------------
-TUNING = OrderedDict()
+TUNING_APPLIED = OrderedDict()
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: TUNING: DETAILS
+# KEY PROPERTIES: TUNING APPLIED DETAILS
 #
 # Sets of details for the tuning
 # --------------------------------------------------------------------
-TUNING_DETAILS  = OrderedDict()
+TUNING_APPLIED_DETAILS  = OrderedDict()
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: CONSERVATION
+# KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES
 #
 # Details of methodology needed to conserve variables between
 # processes
 # --------------------------------------------------------------------
-CONSERVATION = OrderedDict()
+EXTRA_CONSERVATION_PROPERTIES = OrderedDict()
 
-CONSERVATION['conservation'] = {
+EXTRA_CONSERVATION_PROPERTIES['conservation'] = {
     'description': 'Conservation in the ocean component',
     'details': ['conservation_details'],
 }
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: CONSERVATION: DETAILS
+# KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES DETAILS
 #
 # Sets of details for the conservation
 # --------------------------------------------------------------------
-CONSERVATION_DETAILS = OrderedDict()
+EXTRA_CONSERVATION_PROPERTIES_DETAILS = OrderedDict()
 
-CONSERVATION_DETAILS['conservation_details'] = {
+EXTRA_CONSERVATION_PROPERTIES_DETAILS['conservation_details'] = {
     'description': 'Properties conserved in the ocean component',
     'properties': [
-        ('conservation_scheme', 'ENUM:conservation_props_types', '1.N'
+        ('conservation_scheme', 'ENUM:conservation_props_types', '1.N',
          'Conservation scheme in ocean'),
         ('ocean_conservation_method', 'str', '1.1',
          'Describe how conservation properties are ensured in ocean'),
@@ -160,7 +160,7 @@ CONSERVATION_DETAILS['conservation_details'] = {
 }
 
 # --------------------------------------------------------------------
-# ENUMERATIONS
+# KEY PROPERTIES: ENUMERATIONS
 # --------------------------------------------------------------------
 ENUMERATIONS = OrderedDict()
 

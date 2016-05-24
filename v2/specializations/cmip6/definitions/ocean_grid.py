@@ -19,7 +19,7 @@ ID = 'cmip6.ocean.grid'
 # --------------------------------------------------------------------
 # INTERNAL VARIABLES (do not change)
 # --------------------------------------------------------------------
-_TYPE = 'cim.2.science.key_properties'
+_TYPE = 'cim.2.science.grid'
 
 from collections import OrderedDict
 
@@ -79,9 +79,9 @@ DISCRETISATION_DETAILS['vertical_discretisation'] = {
     'description': 'Properties of vertical coordinate in ocean',
     'properties': [
         ('vertical_coord_type', 'ENUM:vertical_coord_types', '1.1',
-         'Type of vertical coordinates in ocean'),
+            'Type of vertical coordinates in ocean'),
         ('partial_steps', 'bool', '1.1',
-         'Using partial steps with Z or Z* vertical coordinate in ocean ?'),
+            'Using partial steps with Z or Z* vertical coordinate in ocean ?'),
     ]
 }
 
@@ -89,9 +89,9 @@ DISCRETISATION_DETAILS['horizontal_discretisation'] = {
     'description': 'Type of horizontal discretisation scheme in ocean',
     'properties': [
         ('horiz_discret_scheme', 'ENUM:horiz_scheme_types', '1.1',
-         'Horizontal discretisation scheme in ocean'),
+            'Horizontal discretisation scheme in ocean'),
         ('ocean_pole_singularity_treatment', 'str', '1.1',
-         'Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)'),
+            'Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)'),
     ]
 }
 

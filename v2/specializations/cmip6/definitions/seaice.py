@@ -1,4 +1,12 @@
-CONTACT = 'Charlotte Pascoe'
+# --------------------------------------------------------------------
+# See http://wordpress.es-doc.org for documentation on how to create
+# CMIP6 realm specialisations
+# --------------------------------------------------------------------
+
+# ====================================================================
+# FILE VARIABLES
+# ====================================================================
+CONTACT = ''
 
 AUTHORS = ''
 
@@ -12,30 +20,33 @@ QC_STATUS = 'draft'
 # --------------------------------------------------------------------
 # REALM IDENTIFIER
 #
-# Set to 'cmip6.<REALM>', e.g. 'cmip6.atmosphere'
+# Set to 'cmip6.<REALM>'
 # --------------------------------------------------------------------
-ID = 'cmip6.atmosphere'
+ID = 'cmip6.seaice'
 
-# --------------------------------------------------------------------
+# ====================================================================
 # INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.scientific_realm'
-
+# ====================================================================
+_TYPE = 'cim.2.science.grid'
 from collections import OrderedDict
+
+# ====================================================================
+# MODEL DESCRIPTION VARIABLES
+# ====================================================================
 
 # --------------------------------------------------------------------
 # REALM: REALM
 #
 # Canonical name for the domain of this scientific realm
 # --------------------------------------------------------------------
-REALM = 'atmosphere'
+REALM = 'seaice'
 
 # --------------------------------------------------------------------
 # REALM: GRID
 #
 # The grid used to layout the variables
 # --------------------------------------------------------------------
-GRID = ['atmosphere_grid']
+GRID = ['grid']
 
 # --------------------------------------------------------------------
 # REALM: KEY PROPERTIES
@@ -43,18 +54,13 @@ GRID = ['atmosphere_grid']
 # Key properties for the domain which differ from model defaults
 # (grid, timestep etc)
 # --------------------------------------------------------------------
-KEY_PROPERTIES = ['atmosphere_key_properties']
+KEY_PROPERTIES = []
 
 # --------------------------------------------------------------------
 # REALM: PROCESSES
 #
 # Processes simulated within the realm
 # --------------------------------------------------------------------
-PROCESSES = ['atmosphere_cloud_scheme',
-             'atmosphere_cloud_simulator',
-             'atmosphere_dynamical_core',
-             'atmosphere_gravity_waves',
-             'atmosphere_microphysics_precipitation',
-             'atmosphere_radiation',
-             'atmosphere_turbulence_convection',
-         ]
+PROCESSES = ['thermodynamics',
+             'dynamics',
+             'radiative_processes']

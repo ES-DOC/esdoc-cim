@@ -19,7 +19,7 @@ _TYPE = 'cim.2.science.key_properties'
 from collections import OrderedDict
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES: PROPERTIES
+# KEY PROPERTIES: DESCRIPTION
 # --------------------------------------------------------------------
 DESCRIPTION = 'Key properties of the atmosphere'
 
@@ -84,9 +84,19 @@ DETAILS['orography'] = {
 EXTENT = OrderedDict()
 
 # --------------------------------------------------------------------
+# KEY PROPERTIES: EXTENT DETAILS
+# --------------------------------------------------------------------
+EXTENT_DETAILS = OrderedDict()
+
+# --------------------------------------------------------------------
 # KEY PROPERTIES: RESOLUTION
 # --------------------------------------------------------------------
 RESOLUTION = OrderedDict()
+
+# --------------------------------------------------------------------
+# KEY PROPERTIES: RESOLUTION DETAILS
+# --------------------------------------------------------------------
+RESOLUTION_DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: TUNING APPLIED
@@ -94,9 +104,19 @@ RESOLUTION = OrderedDict()
 TUNING_APPLIED = OrderedDict()
 
 # --------------------------------------------------------------------
+# KEY PROPERTIES: TUNING APPLIED DETAILS
+# --------------------------------------------------------------------
+TUNING_APPLIED_DETAILS = OrderedDict()
+
+# --------------------------------------------------------------------
 # KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES
 # --------------------------------------------------------------------
 EXTRA_CONSERVATION_PROPERTIES = OrderedDict()
+
+# --------------------------------------------------------------------
+# KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES DETAILS
+# --------------------------------------------------------------------
+EXTRA_CONSERVATION_PROPERTIES_DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: ENUMERATIONS

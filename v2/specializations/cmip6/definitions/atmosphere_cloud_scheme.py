@@ -19,7 +19,7 @@ _TYPE = 'cim.2.science.process'
 from collections import OrderedDict
 
 # --------------------------------------------------------------------
-# PROCESS PROPERTIES
+# PROCESS: DESCRIPTION
 # --------------------------------------------------------------------
 DESCRIPTION = 'Characteristics of the cloud scheme'
 
@@ -54,7 +54,7 @@ SUB_PROCESSES['sub_grid_scale_water_distribution'] = {
 }
 
 # --------------------------------------------------------------------
-# PROCESS: SUB-PROCESSES: DETAILS
+# PROCESS: SUB-PROCESSES DETAILS
 #   
 # URL of #details
 # Convention: sub-process details start with sub-process name
