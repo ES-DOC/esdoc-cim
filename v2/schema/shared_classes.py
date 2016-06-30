@@ -49,6 +49,8 @@ def citation():
                 "Metadata about the creation of this document description."),
             ('title', 'str', '0.1'),
             ('type', 'str', '0.1'),
+            ('url', 'shared.online_resource', '0.1',
+                "Location of electronic version."),
         ]
     }
 
