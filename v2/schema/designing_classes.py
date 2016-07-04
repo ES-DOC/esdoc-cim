@@ -197,6 +197,8 @@ def numerical_experiment():
         'properties': [
             ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationships)', '0.N',
                 "Other experiments which have defined relationships to this one."),
+            ('related_mips', 'linked_to(designing.project)', '0.N',
+                "MIP's that require this experiment."),
             ('required_period', 'linked_to(designing.temporal_constraint)', '1.1',
                 "Constraint on start date and duration."),
             ('requirements', 'linked_to(designing.numerical_requirement)', '0.N',
