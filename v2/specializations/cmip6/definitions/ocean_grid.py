@@ -41,17 +41,17 @@ DETAILS['vertical_grid'] = {
     'description': 'Properties of vertical coordinate in ocean',
     'properties': [
         ('number_of_levels','int', '1.1',
-         'Number of vertical levels'),
+            'Number of vertical levels'),
     ]
 }
 
 DETAILS['horizontal_grid'] = {
     'description': 'Properties of H coordinate in ocean',
     'properties': [
-        ('horizontal_grid_type', 'ENUM:horiz_grid_types', '1,1',
-         'Horizontal grid type'),
+        ('horizontal_grid_type', 'ENUM:horiz_grid_types', '1.1',
+            'Horizontal grid type'),
         ('number_of_xy_gridpoints', 'int', '0.1',
-         'Total number of horizontal points on computational grid'),
+            'Total number of horizontal points on computational grid'),
     ]
 }
 
@@ -64,8 +64,10 @@ DISCRETISATION = OrderedDict()
 
 DISCRETISATION['discretisation'] = {
     'description': 'Type of discretisation scheme in ocean',
-    'details': ['horizontal_discretisation',
-                'vertical_discretisation']
+    'details': [
+        'horizontal_discretisation',
+        'vertical_discretisation'
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -113,7 +115,7 @@ ENUMERATIONS['horiz_grid_types'] = {
 ENUMERATIONS['horiz_scheme_types'] = {
     'description': 'Types of horizonal scheme in ocean',
     'members': [
-            ('Finite difference / Arakawa B-grid','tbd'),
+        ('Finite difference / Arakawa B-grid','tbd'),
         ('Finite difference / Arakawa C-grid','tbd'),
         ('Finite difference / Arakawa E-grid','tbd'),
         ('Finite volumes', 'tbd'),

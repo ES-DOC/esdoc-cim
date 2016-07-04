@@ -52,19 +52,14 @@ DETAILS['ocean_transient_eddy_representation'] = {
 # --------------------------------------------------------------------
 SUB_PROCESSES = OrderedDict()
 
-SUB_PROCESSES['lateral_physics_momentum'] = {
+SUB_PROCESSES['momentum'] = {
     'description': 'Properties of lateral physics for momentum in ocean',
-    'details': ['lateral_physics_momentum_operator',
-                'lateral_physics_mom_eddy_viscosity_coeff'],
+    'details': ['operator', 'eddy_viscosity_coeff']
  }
 
-SUB_PROCESSES['lateral_physics_tracers'] = {
+SUB_PROCESSES['tracers'] = {
     'description': 'Properties of lateral physics for tracers in ocean',
-    'details': ['lateral_physics_tracers_details',
-                'lateral_physics_tracers_operator',
-                'lateral_physics_tra_eddy_viscosity_coeff',
-                'lateral_physics_eddy_induced_velocity'
-                ],
+    'details': ['details', 'operator', 'eddy_viscosity_coeff', 'eddy_induced_velocity']
 }
 
 # --------------------------------------------------------------------
@@ -74,7 +69,7 @@ SUB_PROCESSES['lateral_physics_tracers'] = {
 # --------------------------------------------------------------------
 SUB_PROCESS_DETAILS = OrderedDict()
 
-SUB_PROCESS_DETAILS['lateral_physics_momentum_operator'] = {
+SUB_PROCESS_DETAILS['momentum:operator'] = {
     'description': 'Properties of lateral physics operator for momentum in ocean',
     'properties': [
         ('direction', 'ENUM:latphys_operator_direc_types', '1.1',
@@ -86,7 +81,7 @@ SUB_PROCESS_DETAILS['lateral_physics_momentum_operator'] = {
         ]
 }
 
-SUB_PROCESS_DETAILS['lateral_physics_mom_eddy_viscosity_coeff'] = {
+SUB_PROCESS_DETAILS['momentum:eddy_viscosity_coeff'] = {
     'description': 'Properties of eddy viscosity coeff in lateral physics momemtum scheme in the ocean',
     'properties': [
         ('type', 'ENUM:latphys_eddy_visc_coeff_types', '1.1',
@@ -102,7 +97,7 @@ SUB_PROCESS_DETAILS['lateral_physics_mom_eddy_viscosity_coeff'] = {
         ]
 }
 
-SUB_PROCESS_DETAILS['lateral_physics_tracers_operator'] = {
+SUB_PROCESS_DETAILS['tracers:details'] = {
     'description': 'Properties of lateral physics for tracers in ocean',
     'properties': [
         ('mesoscale_closure','bool','1.1',
@@ -110,7 +105,7 @@ SUB_PROCESS_DETAILS['lateral_physics_tracers_operator'] = {
         ]
 }
 
-SUB_PROCESS_DETAILS['lateral_physics_tracers_operator'] = {
+SUB_PROCESS_DETAILS['tracers:operator'] = {
     'description': 'Properties of lateral physics operator for tracers in ocean',
     'properties': [
         ('direction', 'ENUM:latphys_operator_direc_types', '1.1',
@@ -122,7 +117,7 @@ SUB_PROCESS_DETAILS['lateral_physics_tracers_operator'] = {
         ]
 }
 
-SUB_PROCESS_DETAILS['lateral_physics_tra_eddy_viscosity_coeff'] = {
+SUB_PROCESS_DETAILS['tracers:eddy_viscosity_coeff'] = {
     'description': 'Properties of eddy viscosity coeff in lateral physics tracers scheme in the ocean',
     'properties': [
         ('type', 'ENUM:latphys_eddy_visc_coeff_types', '1.1',
@@ -138,7 +133,7 @@ SUB_PROCESS_DETAILS['lateral_physics_tra_eddy_viscosity_coeff'] = {
         ]
 }
 
-SUB_PROCESS_DETAILS['lateral_physics_eddy_induced_velocity'] = {
+SUB_PROCESS_DETAILS['tracers:eddy_induced_velocity'] = {
     'description': 'Properties of eddy induced velocity (EIV) in lateral physics tracers scheme in the ocean',
     'properties': [
         ('type', 'ENUM:latphys_eiv_types', '1.1',

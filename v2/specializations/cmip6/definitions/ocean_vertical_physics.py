@@ -56,18 +56,15 @@ DETAILS['vertical_physics_details'] = {
 # --------------------------------------------------------------------
 SUB_PROCESSES = OrderedDict()
 
-SUB_PROCESSES['ocean_bndlayer_mixing'] = {
+SUB_PROCESSES['boundary_layer_mixing'] = {
     'description': 'Properties of boundary layer mixing in the ocean (aka mixed layer)',
-    'details': ['bndlayer_mixing_tracers',
-                'bndlayer_mixing_momentum'],
+    'details': ['tracers', 'momentum']
 }
 
-SUB_PROCESSES['ocean_interior_mixing'] = {
+SUB_PROCESSES['interior_mixing'] = {
     'description': 'Properties of interior vertical mixing in the ocean',
-    'details': ['interior_mixing_tracers',
-                'interior_mixing_momentum'],
+    'details': ['tracers', 'momentum']
 }
-
 
 # --------------------------------------------------------------------
 # PROCESS: SUB PROCESSES: DETAILS
@@ -76,7 +73,7 @@ SUB_PROCESSES['ocean_interior_mixing'] = {
 # --------------------------------------------------------------------
 SUB_PROCESS_DETAILS = OrderedDict()
 
-SUB_PROCESS_DETAILS['bndlayer_mixing_tracers'] = {
+SUB_PROCESS_DETAILS['boundary_layer_mixing:tracers'] = {
     'description': 'Properties of boundary layer (BL) mixing on tracers in the ocean ',
     'properties': [
         ('type', 'ENUM:bndlayer_mixing_types', '1.1',
@@ -90,7 +87,7 @@ SUB_PROCESS_DETAILS['bndlayer_mixing_tracers'] = {
     ]
 }
 
-SUB_PROCESS_DETAILS['bndlayer_momentum_tracers'] = {
+SUB_PROCESS_DETAILS['boundary_layer_mixing:momentum'] = {
     'description': 'Properties of boundary layer (BL) mixing on momentum in the ocean ',
     'properties': [
         ('type', 'ENUM:bndlayer_mixing_types', '1.1',
@@ -104,7 +101,7 @@ SUB_PROCESS_DETAILS['bndlayer_momentum_tracers'] = {
     ]
 }
 
-SUB_PROCESS_DETAILS['interior_mixing_tracers'] = {
+SUB_PROCESS_DETAILS['interior_mixing:tracers'] = {
     'description': 'Properties of interior mixing on tracers in the ocean ',
     'properties': [
         ('type', 'ENUM:interior_mixing_types', '1.1',
@@ -118,7 +115,7 @@ SUB_PROCESS_DETAILS['interior_mixing_tracers'] = {
     ]
 }
 
-SUB_PROCESS_DETAILS['interior_mixing_momentum'] = {
+SUB_PROCESS_DETAILS['interior_mixing:momentum'] = {
     'description': 'Properties of interior mixing on momentum in the ocean ',
     'properties': [
         ('type', 'ENUM:interior_mixing_types', '1.1',
@@ -166,7 +163,7 @@ ENUMERATIONS['interior_mixing_types'] = {
     'description': 'Types of interior mixing in ocean',
     'members': [
         ('Constant value', 'tbd'),
-        ('Turbulent closure - TKE', 'tbd'),
+        ('Turbulent closure / TKE', 'tbd'),
         ('Turbulent closure - Mellor-Yamada', 'tbd'),
         ('Richardson number dependent - PP', 'tbd'),
         ('Richardson number dependent - KT', 'tbd'),
