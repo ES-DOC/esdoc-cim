@@ -1,0 +1,2096 @@
+{
+    "label": "Ocean", 
+    "description": "Ocean realm specialization", 
+    "id": "cmip6.ocean", 
+    "contact": "Eric Guilyardi", 
+    "processes": [
+        {
+            "label": "Advection", 
+            "description": "Properties of ocean advection", 
+            "id": "cmip6.ocean.advection", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [
+                {
+                    "label": "Lat Tra Adv Scheme", 
+                    "description": "Properties of lateral tracer advection scheme in ocean", 
+                    "id": "cmip6.ocean.advection.lat_tra_adv_scheme", 
+                    "details": [
+                        {
+                            "label": "Details", 
+                            "description": "Properties of lateral tracer advection scheme in ocean", 
+                            "id": "cmip6.ocean.advection.lat_tra_adv_scheme.details", 
+                            "properties": [
+                                {
+                                    "label": "Flux Limiter", 
+                                    "description": "Monotonic flux limiter for vertical tracer advection scheme in ocean ?", 
+                                    "id": "cmip6.ocean.advection.lat_tra_adv_scheme.details.flux_limiter", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of lateral tracer advection scheme in ocean", 
+                                    "id": "cmip6.ocean.advection.lat_tra_adv_scheme.details.type", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of tracer advection scheme in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Centred 2nd order", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Centred 4th order", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "MUSCL", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Piecewise Parabolic method", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Prather 2nd moment (PSOM)", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "QUICKEST", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Sweby", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Total Variance Dissipation (TVD)", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "adv_tra_scheme_types", 
+                                        "isOpen": true, 
+                                        "label": "adv_tra_scheme_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Momemtum Adv Scheme", 
+                    "description": "Properties of lateral momemtum advection scheme in ocean", 
+                    "id": "cmip6.ocean.advection.momemtum_adv_scheme", 
+                    "details": [
+                        {
+                            "label": "Details", 
+                            "description": "Properties of lateral momemtum advection scheme in ocean", 
+                            "id": "cmip6.ocean.advection.momemtum_adv_scheme.details", 
+                            "properties": [
+                                {
+                                    "label": "Mom Adv ALE", 
+                                    "description": "Using ALE for vertical advection ? (if vertical coordinates are sigma)", 
+                                    "id": "cmip6.ocean.advection.momemtum_adv_scheme.details.mom_adv_ALE", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "0.1", 
+                                    "type": "bool"
+                                }, 
+                                {
+                                    "label": "Mom Adv Scheme Name", 
+                                    "description": "Name of ocean momemtum advection scheme", 
+                                    "id": "cmip6.ocean.advection.momemtum_adv_scheme.details.mom_adv_scheme_name", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of lateral momemtum advection scheme in ocean", 
+                                    "id": "cmip6.ocean.advection.momemtum_adv_scheme.details.type", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral momemtum advection scheme in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Flux form", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Vector form", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "adv_mom_scheme_types", 
+                                        "isOpen": true, 
+                                        "label": "adv_mom_scheme_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Vert Tra Adv Scheme", 
+                    "description": "Properties of vertical momemtum advection scheme in ocean", 
+                    "id": "cmip6.ocean.advection.vert_tra_adv_scheme", 
+                    "details": [
+                        {
+                            "label": "Details", 
+                            "description": "Properties of vertical tracer advection scheme in ocean", 
+                            "id": "cmip6.ocean.advection.vert_tra_adv_scheme.details", 
+                            "properties": [
+                                {
+                                    "label": "Flux Limiter", 
+                                    "description": "Monotonic flux limiter for vertical tracer advection scheme in ocean ?", 
+                                    "id": "cmip6.ocean.advection.vert_tra_adv_scheme.details.flux_limiter", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of vertical tracer advection scheme in ocean", 
+                                    "id": "cmip6.ocean.advection.vert_tra_adv_scheme.details.type", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of tracer advection scheme in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Centred 2nd order", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Centred 4th order", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "MUSCL", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Piecewise Parabolic method", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Prather 2nd moment (PSOM)", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "QUICKEST", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Sweby", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Total Variance Dissipation (TVD)", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "adv_tra_scheme_types", 
+                                        "isOpen": true, 
+                                        "label": "adv_tra_scheme_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "label": "Boundary Forcing", 
+            "description": "Properties of boundary forcing within the ocean component", 
+            "id": "cmip6.ocean.boundary_forcing", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [
+                {
+                    "label": "Momentum", 
+                    "description": "Key properties of momentum boundary forcing in the ocean", 
+                    "id": "cmip6.ocean.boundary_forcing.momentum", 
+                    "details": [
+                        {
+                            "label": "Bottom Friction", 
+                            "description": "Properties of momentum bottom friction in ocean", 
+                            "id": "cmip6.ocean.boundary_forcing.momentum.bottom_friction", 
+                            "properties": [
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of momentum bottom friction in ocean", 
+                                    "id": "cmip6.ocean.boundary_forcing.momentum.bottom_friction.type", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of momentum bottom friction in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant drag coefficient", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Linear", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Non-linear", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Non-linear (drag function of speed of tides)", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "None", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "mom_bottom_friction_types", 
+                                        "isOpen": true, 
+                                        "label": "mom_bottom_friction_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Lateral Friction", 
+                            "description": "Properties of momentum lateral friction in ocean", 
+                            "id": "cmip6.ocean.boundary_forcing.momentum.lateral_friction", 
+                            "properties": [
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of momentum lateral friction in ocean", 
+                                    "id": "cmip6.ocean.boundary_forcing.momentum.lateral_friction.type", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of momentum lateral friction in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Free-slip", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "No-slip", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "None", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "mom_lateral_friction_types", 
+                                        "isOpen": true, 
+                                        "label": "mom_lateral_friction_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Tracers", 
+                    "description": "Key properties of tracer boundary forcing in the ocean", 
+                    "id": "cmip6.ocean.boundary_forcing.tracers", 
+                    "details": [
+                        {
+                            "label": "Sunlight Penetration", 
+                            "description": "Properties of sunlight penetration scheme in ocean", 
+                            "id": "cmip6.ocean.boundary_forcing.tracers.sunlight_penetration", 
+                            "properties": [
+                                {
+                                    "label": "Scheme", 
+                                    "description": "Type of sunlight penetration scheme in ocean", 
+                                    "id": "cmip6.ocean.boundary_forcing.tracers.sunlight_penetration.scheme", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of sunlight penetration scheme in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "1 extinction depth", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "2 extinction depth", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "3 extinction depth", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "sunlight_penetration_scheme_types", 
+                                        "isOpen": true, 
+                                        "label": "sunlight_penetration_scheme_types"
+                                    }
+                                }, 
+                                {
+                                    "label": "Tracers Sun Extinct Depth", 
+                                    "description": "Describe and list extinctions depths for sunlight penetration scheme (if applicable).", 
+                                    "id": "cmip6.ocean.boundary_forcing.tracers.sunlight_penetration.tracers_sun_extinct_depth", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Tracers Sun Ocean Colour", 
+                                    "description": "Is the ocean sunlight penetration scheme ocean colour dependent ?", 
+                                    "id": "cmip6.ocean.boundary_forcing.tracers.sunlight_penetration.tracers_sun_ocean_colour", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Surface Salinity Atmos", 
+                            "description": "Properties of surface salinity forcing from atmos in ocean", 
+                            "id": "cmip6.ocean.boundary_forcing.tracers.surface_salinity_atmos", 
+                            "properties": [
+                                {
+                                    "label": "Scheme", 
+                                    "description": "Type of surface salinity forcing from atmos in ocean", 
+                                    "id": "cmip6.ocean.boundary_forcing.tracers.surface_salinity_atmos.scheme", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "ype of surface salinity forcing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Freshwater flux", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Virtual salt flux", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "surface_salinity_forcing_types", 
+                                        "isOpen": true, 
+                                        "label": "surface_salinity_forcing_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Surface Salinity Seaice", 
+                            "description": "Properties of surface salinity forcing from sea ice in ocean", 
+                            "id": "cmip6.ocean.boundary_forcing.tracers.surface_salinity_seaice", 
+                            "properties": [
+                                {
+                                    "label": "Scheme", 
+                                    "description": "Type of surface salinity forcing from sea ice in ocean", 
+                                    "id": "cmip6.ocean.boundary_forcing.tracers.surface_salinity_seaice.scheme", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "ype of surface salinity forcing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Freshwater flux", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Virtual salt flux", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "surface_salinity_forcing_types", 
+                                        "isOpen": true, 
+                                        "label": "surface_salinity_forcing_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ], 
+            "details": [
+                {
+                    "label": "Boundary Forcing Details", 
+                    "description": "Properties of boundary forcing", 
+                    "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details", 
+                    "properties": [
+                        {
+                            "label": "Geothermal Heating", 
+                            "description": "Describe if/how geothermal heating is present at ocean bottom.", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.geothermal_heating", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Momentum Flux Correction", 
+                            "description": "Describe any type of ocean surface momentum flux correction and, if applicable, how it is applied and where.", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.momentum_flux_correction", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "0.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "River Runoff Budget", 
+                            "description": "Describe how river runoff from land surface is routed to ocean and any global adjustment done.", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.river_runoff_budget", 
+                            "uiOrdinal": 3, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Surface Pressure", 
+                            "description": "Describe how surface pressure is transmitted to ocean (via sea-ice, nothing specific,...)", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.surface_pressure", 
+                            "uiOrdinal": 4, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Tracers Flux Correction", 
+                            "description": "Describe any type of ocean surface tracers flux correction and, if applicable, how it is applied and where.", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.tracers_flux_correction", 
+                            "uiOrdinal": 5, 
+                            "cardinality": "0.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Wave Effects", 
+                            "description": "Describe if/how wave effects are modelled at ocean surface.", 
+                            "id": "cmip6.ocean.boundary_forcing.boundary_forcing_details.wave_effects", 
+                            "uiOrdinal": 6, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "label": "Lateral Physics", 
+            "description": "Characteristics of ocean lateral physics", 
+            "id": "cmip6.ocean.lateral_physics", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [
+                {
+                    "label": "Momentum", 
+                    "description": "Properties of lateral physics for momentum in ocean", 
+                    "id": "cmip6.ocean.lateral_physics.momentum", 
+                    "details": [
+                        {
+                            "label": "Eddy Viscosity Coeff", 
+                            "description": "Properties of eddy viscosity coeff in lateral physics momemtum scheme in the ocean", 
+                            "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff", 
+                            "properties": [
+                                {
+                                    "label": "Eddy Visc Coeff Background", 
+                                    "description": "Background value of eddy viscosity coeff in lateral physics momemtum scheme (in m2/s)", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff.eddy_visc_coeff_background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Backscatter", 
+                                    "description": "Is there backscatter in eddy viscosity coeff in lateral physics momemtum scheme ?", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff.eddy_visc_coeff_backscatter", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Cst", 
+                                    "description": "If constant, value of eddy viscosity coeff in lateral physics momemtum scheme (in m2/s)", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff.eddy_visc_coeff_cst", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Var", 
+                                    "description": "If space-varying, describe variations of eddy viscosity coeff in lateral physics momemtum scheme", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff.eddy_visc_coeff_var", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "0.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Lateral physics momemtum eddy viscosity coeff type in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.eddy_viscosity_coeff.type", 
+                                    "uiOrdinal": 5, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics eddy viscosity coeff in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Space varying", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Time + space varying (Smagorinsky)", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_eddy_visc_coeff_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_eddy_visc_coeff_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Operator", 
+                            "description": "Properties of lateral physics operator for momentum in ocean", 
+                            "id": "cmip6.ocean.lateral_physics.momentum.operator", 
+                            "properties": [
+                                {
+                                    "label": "Direction", 
+                                    "description": "Direction of lateral physics momemtum scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.operator.direction", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics direction in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Geopotential", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Horizontal", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Iso-level", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Isoneutral", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Isopycnal", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_direc_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_direc_types"
+                                    }
+                                }, 
+                                {
+                                    "label": "Discretisation", 
+                                    "description": "Discretisation of lateral physics momemtum scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.operator.discretisation", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics discretisation in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Flux limiter", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Fourth order", 
+                                                "description": "Fourth order"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Second order", 
+                                                "description": "Second order"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_discret_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_discret_types"
+                                    }
+                                }, 
+                                {
+                                    "label": "Order", 
+                                    "description": "Order of lateral physics momemtum scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.momentum.operator.order", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics order in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Bi-harmonic", 
+                                                "description": "Fourth order"
+                                            }, 
+                                            {
+                                                "label": "Harmonic", 
+                                                "description": "Second order"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_order_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_order_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Tracers", 
+                    "description": "Properties of lateral physics for tracers in ocean", 
+                    "id": "cmip6.ocean.lateral_physics.tracers", 
+                    "details": [
+                        {
+                            "label": "Details", 
+                            "description": "Properties of lateral physics for tracers in ocean", 
+                            "id": "cmip6.ocean.lateral_physics.tracers.details", 
+                            "properties": [
+                                {
+                                    "label": "Mesoscale Closure", 
+                                    "description": "Is there a mesoscale closure in the lateral physics tracers scheme ?", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.details.mesoscale_closure", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Eddy Induced Velocity", 
+                            "description": "Properties of eddy induced velocity (EIV) in lateral physics tracers scheme in the ocean", 
+                            "id": "cmip6.ocean.lateral_physics.tracers.eddy_induced_velocity", 
+                            "properties": [
+                                {
+                                    "label": "Eiv Added Diff", 
+                                    "description": "Type of EIV added diffusivity (constant, flow dependent or none)", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_induced_velocity.eiv_added_diff", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Eiv Constant Val", 
+                                    "description": "If EIV scheme for tracers is constant, specify coefficient value (M2/s)", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_induced_velocity.eiv_constant_val", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Eiv Flux Type", 
+                                    "description": "Type of EIV flux (advective or skew)", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_induced_velocity.eiv_flux_type", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of EIV in lateral physics tracers in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_induced_velocity.type", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics eddy induced velocity in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "GM", 
+                                                "description": "Gent & McWilliams"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_eiv_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_eiv_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Eddy Viscosity Coeff", 
+                            "description": "Properties of eddy viscosity coeff in lateral physics tracers scheme in the ocean", 
+                            "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff", 
+                            "properties": [
+                                {
+                                    "label": "Eddy Visc Coeff Background", 
+                                    "description": "Background value of eddy viscosity coeff in lateral physics tracers scheme (in m2/s)", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff.eddy_visc_coeff_background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Backscatter", 
+                                    "description": "Is there backscatter in eddy viscosity coeff in lateral physics tracers scheme ?", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff.eddy_visc_coeff_backscatter", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "bool"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Cst", 
+                                    "description": "If constant, value of eddy viscosity coeff in lateral physics tracers scheme (in m2/s)", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff.eddy_visc_coeff_cst", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Eddy Visc Coeff Var", 
+                                    "description": "If space-varying, describe variations of eddy viscosity coeff in lateral physics tracers scheme", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff.eddy_visc_coeff_var", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "0.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Lateral physics tracers eddy viscosity coeff type in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.eddy_viscosity_coeff.type", 
+                                    "uiOrdinal": 5, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics eddy viscosity coeff in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Space varying", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Time + space varying (Smagorinsky)", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_eddy_visc_coeff_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_eddy_visc_coeff_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Operator", 
+                            "description": "Properties of lateral physics operator for tracers in ocean", 
+                            "id": "cmip6.ocean.lateral_physics.tracers.operator", 
+                            "properties": [
+                                {
+                                    "label": "Direction", 
+                                    "description": "Direction of lateral physics tracers scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.operator.direction", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics direction in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Geopotential", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Horizontal", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Iso-level", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Isoneutral", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Isopycnal", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_direc_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_direc_types"
+                                    }
+                                }, 
+                                {
+                                    "label": "Discretisation", 
+                                    "description": "Discretisation of lateral physics tracers scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.operator.discretisation", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics discretisation in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Flux limiter", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Fourth order", 
+                                                "description": "Fourth order"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Second order", 
+                                                "description": "Second order"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_discret_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_discret_types"
+                                    }
+                                }, 
+                                {
+                                    "label": "Order", 
+                                    "description": "Order of lateral physics tracers scheme in the ocean", 
+                                    "id": "cmip6.ocean.lateral_physics.tracers.operator.order", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Type of lateral physics order in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Bi-harmonic", 
+                                                "description": "Fourth order"
+                                            }, 
+                                            {
+                                                "label": "Harmonic", 
+                                                "description": "Second order"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "latphys_operator_order_types", 
+                                        "isOpen": true, 
+                                        "label": "latphys_operator_order_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ], 
+            "details": [
+                {
+                    "label": "Ocean Transient Eddy Representation", 
+                    "description": "Type of transient eddy representation in ocean", 
+                    "id": "cmip6.ocean.lateral_physics.ocean_transient_eddy_representation", 
+                    "properties": [
+                        {
+                            "label": "Scheme", 
+                            "description": "Type of transient eddy representation in ocean", 
+                            "id": "cmip6.ocean.lateral_physics.ocean_transient_eddy_representation.scheme", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Type of transient eddy representation in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Eddy active", 
+                                        "description": "Full resolution of eddies"
+                                    }, 
+                                    {
+                                        "label": "Eddy admitting", 
+                                        "description": "Some eddy activity permitted by resolution"
+                                    }, 
+                                    {
+                                        "label": "None", 
+                                        "description": "No transient eddies in ocean"
+                                    }
+                                ], 
+                                "id": "latphys_transient_eddy_types", 
+                                "isOpen": true, 
+                                "label": "latphys_transient_eddy_types"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "label": "Timestepping Framework", 
+            "description": "Characteristics of ocean time stepping framework", 
+            "id": "cmip6.ocean.timestepping_framework", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [], 
+            "details": [
+                {
+                    "label": "Timestepping Attributes", 
+                    "description": "Properties of time stepping in ocean", 
+                    "id": "cmip6.ocean.timestepping_framework.timestepping_attributes", 
+                    "properties": [
+                        {
+                            "label": "Diurnal Cycle", 
+                            "description": "Diurnal cycle type", 
+                            "id": "cmip6.ocean.timestepping_framework.timestepping_attributes.diurnal_cycle", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of diurnal cycle resolution in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "None", 
+                                        "description": "No diurnal cycle in ocean"
+                                    }, 
+                                    {
+                                        "label": "Specific treatment", 
+                                        "description": "Specific treament"
+                                    }, 
+                                    {
+                                        "label": "Via coupling", 
+                                        "description": "Diurnal cycle via coupling frequency"
+                                    }
+                                ], 
+                                "id": "diurnal_cycle_types", 
+                                "isOpen": true, 
+                                "label": "diurnal_cycle_types"
+                            }
+                        }, 
+                        {
+                            "label": "Time Step", 
+                            "description": "Ocean time step in seconds", 
+                            "id": "cmip6.ocean.timestepping_framework.timestepping_attributes.time_step", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "int"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "label": "Uplow Boundaries", 
+            "description": "Properties of ocean upper and lower boundaries", 
+            "id": "cmip6.ocean.uplow_boundaries", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [], 
+            "details": [
+                {
+                    "label": "Bottom Boundary Layer", 
+                    "description": "Properties of bottom boundary layer in ocean", 
+                    "id": "cmip6.ocean.uplow_boundaries.bottom_boundary_layer", 
+                    "properties": [
+                        {
+                            "label": "Ocean Bbl Lateral Mixing Coef", 
+                            "description": "If bottom BL is diffusive, specify value of lateral mixing coefficient (in m2/s)", 
+                            "id": "cmip6.ocean.uplow_boundaries.bottom_boundary_layer.ocean_bbl_lateral_mixing_coef", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "0.1", 
+                            "type": "int"
+                        }, 
+                        {
+                            "label": "Ocean Sill Overflow", 
+                            "description": "Describe any specific treatment of sill overflows", 
+                            "id": "cmip6.ocean.uplow_boundaries.bottom_boundary_layer.ocean_sill_overflow", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Type", 
+                            "description": "Type of bottom boundary layer in ocean", 
+                            "id": "cmip6.ocean.uplow_boundaries.bottom_boundary_layer.type", 
+                            "uiOrdinal": 3, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Type of bottom boundary layer in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Acvective", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Diffusive", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "bottom_bl_types", 
+                                "isOpen": true, 
+                                "label": "bottom_bl_types"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Free Surface", 
+                    "description": "Properties of free surface in ocean", 
+                    "id": "cmip6.ocean.uplow_boundaries.free_surface", 
+                    "properties": [
+                        {
+                            "label": "Ocean Embeded Seaice", 
+                            "description": "Is the sea-ice embeded in the ocean model (instead of levitating) ?", 
+                            "id": "cmip6.ocean.uplow_boundaries.free_surface.ocean_embeded_seaice", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "bool"
+                        }, 
+                        {
+                            "label": "Scheme", 
+                            "description": "Free surface scheme in ocean", 
+                            "id": "cmip6.ocean.uplow_boundaries.free_surface.scheme", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Type of free surface in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Linear filtered", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Linear implicit", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Linear semi-explicit", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Non-linear filtered", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Non-linear implicit", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Non-linear semi-explicit", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "free_surface_types", 
+                                "isOpen": true, 
+                                "label": "free_surface_types"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "label": "Vertical Physics", 
+            "description": "Characteristics of ocean vertical physics", 
+            "id": "cmip6.ocean.vertical_physics", 
+            "contact": "Eric Guilyardi", 
+            "subProcesses": [
+                {
+                    "label": "Boundary Layer Mixing", 
+                    "description": "Properties of boundary layer mixing in the ocean (aka mixed layer)", 
+                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing", 
+                    "details": [
+                        {
+                            "label": "Momentum", 
+                            "description": "Properties of boundary layer (BL) mixing on momentum in the ocean ", 
+                            "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.momentum", 
+                            "properties": [
+                                {
+                                    "label": "Background", 
+                                    "description": "Background BL mixing of momentum coefficient, (schema and value in m2/s - may by none)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.momentum.background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Closure Order", 
+                                    "description": "If turbulent BL mixing of momentum, specific order of closure (0, 1, 2.5, 3)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.momentum.closure_order", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "float"
+                                }, 
+                                {
+                                    "label": "Constant", 
+                                    "description": "If constant BL mixing of momentum, specific coefficient (m2/s)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.momentum.constant", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of boundary layer mixing for momentum in ocean", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.momentum.type", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Types of boundary layer mixing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant value", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Imbeded as isopycnic vertical coordinate", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - KT", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - PP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Bulk Mixed Layer", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - KPP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Mellor-Yamada", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - TKE", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "bndlayer_mixing_types", 
+                                        "isOpen": true, 
+                                        "label": "bndlayer_mixing_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Tracers", 
+                            "description": "Properties of boundary layer (BL) mixing on tracers in the ocean ", 
+                            "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.tracers", 
+                            "properties": [
+                                {
+                                    "label": "Background", 
+                                    "description": "Background BL mixing of tracers coefficient, (schema and value in m2/s - may by none)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.tracers.background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Closure Order", 
+                                    "description": "If turbulent BL mixing of tracers, specific order of closure (0, 1, 2.5, 3)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.tracers.closure_order", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "float"
+                                }, 
+                                {
+                                    "label": "Constant", 
+                                    "description": "If constant BL mixing of tracers, specific coefficient (m2/s)", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.tracers.constant", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of boundary layer mixing for tracers in ocean", 
+                                    "id": "cmip6.ocean.vertical_physics.boundary_layer_mixing.tracers.type", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Types of boundary layer mixing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant value", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Imbeded as isopycnic vertical coordinate", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - KT", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - PP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Bulk Mixed Layer", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - KPP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Mellor-Yamada", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - TKE", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "bndlayer_mixing_types", 
+                                        "isOpen": true, 
+                                        "label": "bndlayer_mixing_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Interior Mixing", 
+                    "description": "Properties of interior vertical mixing in the ocean", 
+                    "id": "cmip6.ocean.vertical_physics.interior_mixing", 
+                    "details": [
+                        {
+                            "label": "Momentum", 
+                            "description": "Properties of interior mixing on momentum in the ocean ", 
+                            "id": "cmip6.ocean.vertical_physics.interior_mixing.momentum", 
+                            "properties": [
+                                {
+                                    "label": "Background", 
+                                    "description": "Background interior mixing of momentum coefficient, (schema and value in m2/s - may by none)", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.momentum.background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Constant", 
+                                    "description": "If constant interior mixing of momentum, specific coefficient (m2/s)", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.momentum.constant", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Profile", 
+                                    "description": "Is the background interior mixing using a vertical profile for momentum (i.e is NOT constant) ?", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.momentum.profile", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of interior mixing for momentum in ocean", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.momentum.type", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Types of interior mixing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant value", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Imbeded as isopycnic vertical coordinate", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - KT", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - PP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Mellor-Yamada", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure / TKE", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "interior_mixing_types", 
+                                        "isOpen": true, 
+                                        "label": "interior_mixing_types"
+                                    }
+                                }
+                            ]
+                        }, 
+                        {
+                            "label": "Tracers", 
+                            "description": "Properties of interior mixing on tracers in the ocean ", 
+                            "id": "cmip6.ocean.vertical_physics.interior_mixing.tracers", 
+                            "properties": [
+                                {
+                                    "label": "Background", 
+                                    "description": "Background interior mixing of tracers coefficient, (schema and value in m2/s - may by none)", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.tracers.background", 
+                                    "uiOrdinal": 1, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Constant", 
+                                    "description": "If constant interior mixing of tracers, specific coefficient (m2/s)", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.tracers.constant", 
+                                    "uiOrdinal": 2, 
+                                    "cardinality": "0.1", 
+                                    "type": "int"
+                                }, 
+                                {
+                                    "label": "Profile", 
+                                    "description": "Is the background interior mixing using a vertical profile for tracers (i.e is NOT constant) ?", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.tracers.profile", 
+                                    "uiOrdinal": 3, 
+                                    "cardinality": "1.1", 
+                                    "type": "str"
+                                }, 
+                                {
+                                    "label": "Type", 
+                                    "description": "Type of interior mixing for tracers in ocean", 
+                                    "id": "cmip6.ocean.vertical_physics.interior_mixing.tracers.type", 
+                                    "uiOrdinal": 4, 
+                                    "cardinality": "1.1", 
+                                    "type": "enum", 
+                                    "enum": {
+                                        "description": "Types of interior mixing in ocean", 
+                                        "choices": [
+                                            {
+                                                "label": "Constant value", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Imbeded as isopycnic vertical coordinate", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Other", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - KT", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Richardson number dependent - PP", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure - Mellor-Yamada", 
+                                                "description": "tbd"
+                                            }, 
+                                            {
+                                                "label": "Turbulent closure / TKE", 
+                                                "description": "tbd"
+                                            }
+                                        ], 
+                                        "id": "interior_mixing_types", 
+                                        "isOpen": true, 
+                                        "label": "interior_mixing_types"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ], 
+            "details": [
+                {
+                    "label": "Vertical Physics Details", 
+                    "description": "Properties of vertical physics in ocean", 
+                    "id": "cmip6.ocean.vertical_physics.vertical_physics_details", 
+                    "properties": [
+                        {
+                            "label": "Convection Type", 
+                            "description": "Type of vertical convection in ocean", 
+                            "id": "cmip6.ocean.vertical_physics.vertical_physics_details.convection_type", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of convection scheme in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Enhanced vertical diffusion", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Included in turbulence closure", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Non-penetrative convective adjustment", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "vertphys_convection_types", 
+                                "isOpen": true, 
+                                "label": "vertphys_convection_types"
+                            }
+                        }, 
+                        {
+                            "label": "Langmuir Cells Mixing", 
+                            "description": "Is there Langmuir cells mixing in upper ocean ?", 
+                            "id": "cmip6.ocean.vertical_physics.vertical_physics_details.langmuir_cells_mixing", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "bool"
+                        }, 
+                        {
+                            "label": "Tide Induced Mixing", 
+                            "description": "Describe how tide induced mixing is modelled (barotropic, baroclinic, none)", 
+                            "id": "cmip6.ocean.vertical_physics.vertical_physics_details.tide_induced_mixing", 
+                            "uiOrdinal": 3, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }
+                    ]
+                }
+            ]
+        }
+    ], 
+    "grid": {
+        "label": "Grid", 
+        "description": "Ocean grid and discretisation", 
+        "id": "cmip6.ocean.grid", 
+        "contact": "Eric Guilyardi", 
+        "details": [
+            {
+                "label": "Horizontal Grid", 
+                "description": "Properties of H coordinate in ocean", 
+                "id": "cmip6.ocean.grid.horizontal_grid", 
+                "properties": [
+                    {
+                        "label": "Horizontal Grid Type", 
+                        "description": "Horizontal grid type", 
+                        "id": "cmip6.ocean.grid.horizontal_grid.horizontal_grid_type", 
+                        "uiOrdinal": 1, 
+                        "cardinality": "1.1", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "Types of horizonal grid in ocean", 
+                            "choices": [
+                                {
+                                    "label": "Latlon", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Rotated north pole", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Two north poles (ORCA-style)", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "horiz_grid_types", 
+                            "isOpen": true, 
+                            "label": "horiz_grid_types"
+                        }
+                    }, 
+                    {
+                        "label": "Number Of Xy Gridpoints", 
+                        "description": "Total number of horizontal points on computational grid", 
+                        "id": "cmip6.ocean.grid.horizontal_grid.number_of_xy_gridpoints", 
+                        "uiOrdinal": 2, 
+                        "cardinality": "0.1", 
+                        "type": "int"
+                    }
+                ]
+            }, 
+            {
+                "label": "Vertical Grid", 
+                "description": "Properties of vertical coordinate in ocean", 
+                "id": "cmip6.ocean.grid.vertical_grid", 
+                "properties": [
+                    {
+                        "label": "Number Of Levels", 
+                        "description": "Number of vertical levels", 
+                        "id": "cmip6.ocean.grid.vertical_grid.number_of_levels", 
+                        "uiOrdinal": 1, 
+                        "cardinality": "1.1", 
+                        "type": "int"
+                    }
+                ]
+            }
+        ], 
+        "discretisation": {
+            "label": "Discretisation", 
+            "description": "Type of discretisation scheme in ocean", 
+            "id": "cmip6.ocean.grid.discretisation", 
+            "details": [
+                {
+                    "label": "Vertical Discretisation", 
+                    "description": "Properties of vertical coordinate in ocean", 
+                    "id": "cmip6.ocean.grid.discretisation.vertical_discretisation", 
+                    "properties": [
+                        {
+                            "label": "Partial Steps", 
+                            "description": "Using partial steps with Z or Z* vertical coordinate in ocean ?", 
+                            "id": "cmip6.ocean.grid.discretisation.vertical_discretisation.partial_steps", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "bool"
+                        }, 
+                        {
+                            "label": "Vertical Coord Type", 
+                            "description": "Type of vertical coordinates in ocean", 
+                            "id": "cmip6.ocean.grid.discretisation.vertical_discretisation.vertical_coord_type", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of vertical coordinates in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Hybrid / ALE", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Hybrid / Z+S", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Hybrid / Z+isopycnic", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Hybrid / other", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Isopycnic - other", 
+                                        "description": "Other density-based coordinate"
+                                    }, 
+                                    {
+                                        "label": "Isopycnic - sigma 0", 
+                                        "description": "Density referenced to the surface"
+                                    }, 
+                                    {
+                                        "label": "Isopycnic - sigma 2", 
+                                        "description": "Density referenced to 2000 m"
+                                    }, 
+                                    {
+                                        "label": "Isopycnic - sigma 4", 
+                                        "description": "Density referenced to 4000 m"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "P*", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Pressure referenced (P)", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "S-coordinate", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Z**", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Z*-coordinate", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Z-coordinate", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "vertical_coord_types", 
+                                "isOpen": true, 
+                                "label": "vertical_coord_types"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Horizontal Discretisation", 
+                    "description": "Type of horizontal discretisation scheme in ocean", 
+                    "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation", 
+                    "properties": [
+                        {
+                            "label": "Horiz Discret Scheme", 
+                            "description": "Horizontal discretisation scheme in ocean", 
+                            "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation.horiz_discret_scheme", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of horizonal scheme in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Finite difference / Arakawa B-grid", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Finite difference / Arakawa C-grid", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Finite difference / Arakawa E-grid", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Finite elements", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Finite volumes", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "horiz_scheme_types", 
+                                "isOpen": true, 
+                                "label": "horiz_scheme_types"
+                            }
+                        }, 
+                        {
+                            "label": "Ocean Pole Singularity Treatment", 
+                            "description": "Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)", 
+                            "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation.ocean_pole_singularity_treatment", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }
+                    ]
+                }
+            ]
+        }
+    }, 
+    "keyProperties": {
+        "label": "Key Properties", 
+        "description": "Key properties of the ocean", 
+        "id": "cmip6.ocean.key_properties", 
+        "contact": "Eric Guilyardi", 
+        "details": [
+            {
+                "label": "Bathymetry", 
+                "description": "Properties of bathymetry in ocean", 
+                "id": "cmip6.ocean.key_properties.bathymetry", 
+                "properties": [
+                    {
+                        "label": "Bathymetry Reference Dates", 
+                        "description": "Reference date of bathymetry", 
+                        "id": "cmip6.ocean.key_properties.bathymetry.bathymetry_reference_dates", 
+                        "uiOrdinal": 1, 
+                        "cardinality": "1.1", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "List of reference dates for bathymetry in ocean", 
+                            "choices": [
+                                {
+                                    "label": "21000 years BP", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "6000 years BP", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "LGM", 
+                                    "description": "Last Glacial Maximum"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Pliocene", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Present day", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "bathymetry_ref_dates", 
+                            "isOpen": true, 
+                            "label": "bathymetry_ref_dates"
+                        }
+                    }, 
+                    {
+                        "label": "Ocean Bathymetry Source", 
+                        "description": "Describe source of bathymetry in ocean", 
+                        "id": "cmip6.ocean.key_properties.bathymetry.ocean_bathymetry_source", 
+                        "uiOrdinal": 2, 
+                        "cardinality": "1.1", 
+                        "type": "str"
+                    }, 
+                    {
+                        "label": "Ocean Bathymetry Type", 
+                        "description": "Is the bathymetry fixed in time in the ocean ?", 
+                        "id": "cmip6.ocean.key_properties.bathymetry.ocean_bathymetry_type", 
+                        "uiOrdinal": 3, 
+                        "cardinality": "1.1", 
+                        "type": "bool"
+                    }, 
+                    {
+                        "label": "Ocean Smoothing", 
+                        "description": "Describe any smoothing or hand editing of bathymetry in ocean", 
+                        "id": "cmip6.ocean.key_properties.bathymetry.ocean_smoothing", 
+                        "uiOrdinal": 4, 
+                        "cardinality": "1.1", 
+                        "type": "str"
+                    }
+                ]
+            }, 
+            {
+                "label": "General", 
+                "description": "General key properties in ocean", 
+                "id": "cmip6.ocean.key_properties.general", 
+                "properties": [
+                    {
+                        "label": "Basic Approximations", 
+                        "description": "Basic approximations made in the ocean.", 
+                        "id": "cmip6.ocean.key_properties.general.basic_approximations", 
+                        "uiOrdinal": 1, 
+                        "cardinality": "1.N", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "Types of basic approximation in ocean", 
+                            "choices": [
+                                {
+                                    "label": "Boussinesq", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Non-hydrostatic", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Primitive equations", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "ocean_basic_approx_types", 
+                            "isOpen": true, 
+                            "label": "ocean_basic_approx_types"
+                        }
+                    }, 
+                    {
+                        "label": "Model Family", 
+                        "description": "Type of ocean model.", 
+                        "id": "cmip6.ocean.key_properties.general.model_family", 
+                        "uiOrdinal": 2, 
+                        "cardinality": "1.1", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "Types of ocean models", 
+                            "choices": [
+                                {
+                                    "label": "OGCM", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "mixed layer ocean", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "slab ocean", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "model_family_types", 
+                            "isOpen": true, 
+                            "label": "model_family_types"
+                        }
+                    }, 
+                    {
+                        "label": "Prognostic Variables", 
+                        "description": "List of prognostic variables in the ocean component.", 
+                        "id": "cmip6.ocean.key_properties.general.prognostic_variables", 
+                        "uiOrdinal": 3, 
+                        "cardinality": "1.N", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "Types of basic approximation in ocean", 
+                            "choices": [
+                                {
+                                    "label": "Conservative temperature", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "Other prognostic variables"
+                                }, 
+                                {
+                                    "label": "Potential temperature", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "SSH", 
+                                    "description": "Sea Surface Height"
+                                }, 
+                                {
+                                    "label": "Salinity", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "U-velocity", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "V-velocity", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "W-velocity", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "prognostic_vars_types", 
+                            "isOpen": true, 
+                            "label": "prognostic_vars_types"
+                        }
+                    }
+                ]
+            }, 
+            {
+                "label": "Seawater Properties", 
+                "description": "Physical properties of seawater in ocean", 
+                "id": "cmip6.ocean.key_properties.seawater_properties", 
+                "properties": [
+                    {
+                        "label": "Ocean Freezing Point", 
+                        "description": "Describe freezing point in ocean (fixed or varying)", 
+                        "id": "cmip6.ocean.key_properties.seawater_properties.ocean_freezing_point", 
+                        "uiOrdinal": 1, 
+                        "cardinality": "1.1", 
+                        "type": "str"
+                    }, 
+                    {
+                        "label": "Ocean Specific Heat", 
+                        "description": "Describe specific heat in ocean (fixed or varying)", 
+                        "id": "cmip6.ocean.key_properties.seawater_properties.ocean_specific_heat", 
+                        "uiOrdinal": 2, 
+                        "cardinality": "1.1", 
+                        "type": "str"
+                    }, 
+                    {
+                        "label": "Seawater Eos Type", 
+                        "description": "Type of EOS for sea water", 
+                        "id": "cmip6.ocean.key_properties.seawater_properties.seawater_eos_type", 
+                        "uiOrdinal": 3, 
+                        "cardinality": "1.1", 
+                        "type": "enum", 
+                        "enum": {
+                            "description": "Types of seawater Equation of State in ocean", 
+                            "choices": [
+                                {
+                                    "label": "Jackett et al. 2006", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Linear", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Mc Dougall et al.", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "Other", 
+                                    "description": "tbd"
+                                }, 
+                                {
+                                    "label": "TEOS 2010", 
+                                    "description": "tbd"
+                                }
+                            ], 
+                            "id": "seawater_eos_types", 
+                            "isOpen": true, 
+                            "label": "seawater_eos_types"
+                        }
+                    }
+                ]
+            }
+        ], 
+        "conservation": {
+            "label": "Conservation", 
+            "description": "Conservation in the ocean component", 
+            "details": [
+                {
+                    "label": "Conservation Details", 
+                    "description": "Properties conserved in the ocean component", 
+                    "id": "cmip6.ocean.key_properties.conservation.conservation_details", 
+                    "properties": [
+                        {
+                            "label": "Conservation Scheme", 
+                            "description": "Conservation scheme in ocean", 
+                            "id": "cmip6.ocean.key_properties.conservation.conservation_details.conservation_scheme", 
+                            "uiOrdinal": 1, 
+                            "cardinality": "1.N", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of conservation properties in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Energy", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Enstrophy", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Other", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Salt", 
+                                        "description": "tbd"
+                                    }, 
+                                    {
+                                        "label": "Volume of ocean", 
+                                        "description": "tbd"
+                                    }
+                                ], 
+                                "id": "conservation_props_types", 
+                                "isOpen": true, 
+                                "label": "conservation_props_types"
+                            }
+                        }, 
+                        {
+                            "label": "Ocean Conservation Method", 
+                            "description": "Describe how conservation properties are ensured in ocean", 
+                            "id": "cmip6.ocean.key_properties.conservation.conservation_details.ocean_conservation_method", 
+                            "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
