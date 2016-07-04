@@ -24,7 +24,7 @@ def activity():
                 "Description of what is to be done (or was done)."),
             ('duration', 'time.time_period', '0.1',
                 "Time the activity was (or will be) active."),
-            ('internal_name', 'str', '1.1',
+            ('internal_name', 'str', '0.1',
                 "A name used for internal purposes."),
             ('keywords', 'str', '0.1',
                 "Comma separated user defined keywords."),
