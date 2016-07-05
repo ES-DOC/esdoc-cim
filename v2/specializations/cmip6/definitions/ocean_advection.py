@@ -1,5 +1,21 @@
+# --------------------------------------------------------------------
+# INTERNAL (do not change)
+# --------------------------------------------------------------------
+from collections import OrderedDict
+_TYPE = 'cim.2.science.process'
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = 'Eric Guilyardi'
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors.
+# --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
 # --------------------------------------------------------------------
@@ -15,13 +31,6 @@ QC_STATUS = 'draft'
 # Set to 'cmip6.<REALM>.<PROCESS>
 # --------------------------------------------------------------------
 ID = 'cmip6.ocean.advection'
-
-# --------------------------------------------------------------------
-# INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.process'
-
-from collections import OrderedDict
 
 # --------------------------------------------------------------------
 # PROCESS: DESCRIPTION
@@ -59,7 +68,6 @@ SUB_PROCESSES['vert_tra_adv_scheme'] = {
     'details': ['details']
 }
 
-
 # --------------------------------------------------------------------
 # PROCESS: SUB PROCESSES: DETAILS
 #
@@ -84,7 +92,7 @@ SUB_PROCESS_DETAILS['lat_tra_adv_scheme:details'] = {
     'properties': [
         ('type', 'ENUM:adv_tra_scheme_types', '1.1',
             'Type of lateral tracer advection scheme in ocean'),
-        ('flux_limiter','bool', '1.1',
+        ('flux_limiter', 'bool', '1.1',
             'Monotonic flux limiter for vertical tracer advection scheme in ocean ?'),
    ]
 }
@@ -94,7 +102,7 @@ SUB_PROCESS_DETAILS['vert_tra_adv_scheme:details'] = {
     'properties': [
         ('type', 'ENUM:adv_tra_scheme_types', '1.1',
             'Type of vertical tracer advection scheme in ocean'),
-        ('flux_limiter','bool', '1.1',
+        ('flux_limiter', 'bool', '1.1',
             'Monotonic flux limiter for vertical tracer advection scheme in ocean ?'),
    ]
 }
@@ -106,24 +114,24 @@ ENUMERATIONS = OrderedDict()
 
 ENUMERATIONS['adv_mom_scheme_types'] = {
     'description': 'Type of lateral momemtum advection scheme in ocean',
+    'is_open': False,
     'members': [
-            ('Flux form', 'tbd'),
-            ('Vector form', 'tbd'),
-     ]
+        ('Flux form', None),
+        ('Vector form', None)
+        ]
 }
 
 ENUMERATIONS['adv_tra_scheme_types'] = {
     'description': 'Type of tracer advection scheme in ocean',
+    'is_open': True,
     'members':[
-            ('Centred 2nd order', 'tbd'),
-            ('Centred 4th order', 'tbd'),
-            ('Total Variance Dissipation (TVD)', 'tbd'),
-            ('MUSCL', 'tbd'),
-            ('QUICKEST', 'tbd'),
-            ('Piecewise Parabolic method', 'tbd'),
-            ('Sweby', 'tbd'),
-            ('Prather 2nd moment (PSOM)', 'tbd'),
-            ('Other', 'tbd'),
+        ('Centred 2nd order', None),
+        ('Centred 4th order', None),
+        ('Total Variance Dissipation (TVD)', None),
+        ('MUSCL', None),
+        ('QUICKEST', None),
+        ('Piecewise Parabolic method', None),
+        ('Sweby', None),
+        ('Prather 2nd moment (PSOM)', None)
         ]
 }
-

@@ -1,5 +1,21 @@
+# --------------------------------------------------------------------
+# INTERNAL (do not change)
+# --------------------------------------------------------------------
+from collections import OrderedDict
+_TYPE = 'cim.2.science.process'
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = 'Eric Guilyardi'
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors.
+# --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
 # --------------------------------------------------------------------
@@ -15,13 +31,6 @@ QC_STATUS = 'draft'
 # Set to 'cmip6.<REALM>.<PROCESS>
 # --------------------------------------------------------------------
 ID = 'cmip6.ocean.uplow_boundaries'
-
-# --------------------------------------------------------------------
-# INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.process'
-
-from collections import OrderedDict
 
 # --------------------------------------------------------------------
 # PROCESS: DESCRIPTION
@@ -42,7 +51,7 @@ DETAILS['free_surface'] = {
     'properties': [
         ('scheme', 'ENUM:free_surface_types', '1.1',
             'Free surface scheme in ocean'),
-        ('ocean_embeded_seaice','bool','1.1',
+        ('ocean_embeded_seaice', 'bool', '1.1',
             'Is the sea-ice embeded in the ocean model (instead of levitating) ?'),
      ]
 }
@@ -52,9 +61,9 @@ DETAILS['bottom_boundary_layer'] = {
     'properties': [
         ('type', 'ENUM:bottom_bl_types', '1.1',
             'Type of bottom boundary layer in ocean'),
-        ('ocean_bbl_lateral_mixing_coef','int','0.1',
+        ('ocean_bbl_lateral_mixing_coef', 'int', '0.1',
             'If bottom BL is diffusive, specify value of lateral mixing coefficient (in m2/s)'),
-        ('ocean_sill_overflow','str','1.1',
+        ('ocean_sill_overflow', 'str', '1.1',
             'Describe any specific treatment of sill overflows')
      ]
 }
@@ -66,23 +75,22 @@ ENUMERATIONS = OrderedDict()
 
 ENUMERATIONS['free_surface_types'] = {
     'description': 'Type of free surface in ocean',
+    'is_open': True,
     'members': [
-        ('Linear implicit', 'tbd'),
-        ('Linear filtered', 'tbd'),
-        ('Linear semi-explicit', 'tbd'),
-        ('Non-linear implicit', 'tbd'),
-        ('Non-linear filtered', 'tbd'),
-        ('Non-linear semi-explicit', 'tbd'),
-        ('Other', 'tbd'),
+        ('Linear implicit', None),
+        ('Linear filtered', None),
+        ('Linear semi-explicit', None),
+        ('Non-linear implicit', None),
+        ('Non-linear filtered', None),
+        ('Non-linear semi-explicit', None)
         ]
 }
 
 ENUMERATIONS['bottom_bl_types'] = {
     'description': 'Type of bottom boundary layer in ocean',
+    'is_open': True,
     'members': [
-        ('Diffusive', 'tbd'),
-        ('Acvective', 'tbd'),
-        ('Other', 'tbd'),
+        ('Diffusive', None),
+        ('Acvective', None)
         ]
 }
-

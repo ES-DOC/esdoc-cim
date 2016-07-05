@@ -1,5 +1,21 @@
+# --------------------------------------------------------------------
+# INTERNAL (do not change)
+# --------------------------------------------------------------------
+from collections import OrderedDict
+_TYPE = 'cim.2.science.grid'
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = 'Eric Guilyardi'
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors.
+# --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
 # --------------------------------------------------------------------
@@ -15,13 +31,6 @@ QC_STATUS = 'draft'
 # Set to 'cmip6.<REALM>.grid
 # --------------------------------------------------------------------
 ID = 'cmip6.ocean.grid'
-
-# --------------------------------------------------------------------
-# INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.grid'
-
-from collections import OrderedDict
 
 # --------------------------------------------------------------------
 # GRID: DESCRIPTION
@@ -40,7 +49,7 @@ DETAILS = OrderedDict()
 DETAILS['vertical_grid'] = {
     'description': 'Properties of vertical coordinate in ocean',
     'properties': [
-        ('number_of_levels','int', '1.1',
+        ('number_of_levels', 'int', '1.1',
             'Number of vertical levels'),
     ]
 }
@@ -104,43 +113,43 @@ ENUMERATIONS = OrderedDict()
 
 ENUMERATIONS['horiz_grid_types'] = {
     'description': 'Types of horizonal grid in ocean',
+    'is_open': True,
     'members': [
-        ('Latlon','tbd'),
-        ('Rotated north pole','tbd'),
-        ('Two north poles (ORCA-style)','tbd'),
-        ('Other','tbd'),
-    ]
+        ('Latlon', None),
+        ('Rotated north pole', None),
+        ('Two north poles (ORCA-style)', None)
+        ]
 }
 
 ENUMERATIONS['horiz_scheme_types'] = {
     'description': 'Types of horizonal scheme in ocean',
+    'is_open': True,
     'members': [
-        ('Finite difference / Arakawa B-grid','tbd'),
-        ('Finite difference / Arakawa C-grid','tbd'),
-        ('Finite difference / Arakawa E-grid','tbd'),
-        ('Finite volumes', 'tbd'),
-        ('Finite elements', 'tbd'),
-        ('Other', 'tbd')
-    ]
+        ('Finite difference / Arakawa B-grid', None),
+        ('Finite difference / Arakawa C-grid', None),
+        ('Finite difference / Arakawa E-grid', None),
+        ('Finite volumes', None),
+        ('Finite elements', None)
+        ]
 }
 
 ENUMERATIONS['vertical_coord_types'] = {
     'description': 'Types of vertical coordinates in ocean',
+    'is_open': True,
     'members': [
-        ('Z-coordinate','tbd'),
-        ('Z*-coordinate', 'tbd'),
-        ('S-coordinate', 'tbd'),
-        ('Isopycnic - sigma 0','Density referenced to the surface'),
-        ('Isopycnic - sigma 2','Density referenced to 2000 m'),
-        ('Isopycnic - sigma 4','Density referenced to 4000 m'),
-        ('Isopycnic - other','Other density-based coordinate'),
-        ('Hybrid / Z+S', 'tbd'),
-        ('Hybrid / Z+isopycnic', 'tbd'),
-        ('Hybrid / ALE', 'tbd'),
-        ('Hybrid / other', 'tbd'),
-        ('Pressure referenced (P)', 'tbd'),
-        ('P*','tbd'),
-        ('Z**', 'tbd'),
-        ('Other', 'tbd')
-    ]
+        ('Z-coordinate', None),
+        ('Z*-coordinate', None),
+        ('S-coordinate', None),
+        ('Isopycnic - sigma 0', 'Density referenced to the surface'),
+        ('Isopycnic - sigma 2', 'Density referenced to 2000 m'),
+        ('Isopycnic - sigma 4', 'Density referenced to 4000 m'),
+        ('Isopycnic - other', 'Other density-based coordinate'),
+        ('Hybrid / Z+S', None),
+        ('Hybrid / Z+isopycnic', None),
+        ('Hybrid / ALE', None),
+        ('Hybrid / other', None),
+        ('Pressure referenced (P)', None),
+        ('P*', None),
+        ('Z**', None)
+        ]
 }

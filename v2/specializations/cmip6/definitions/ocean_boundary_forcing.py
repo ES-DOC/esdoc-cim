@@ -1,5 +1,21 @@
+# --------------------------------------------------------------------
+# INTERNAL (do not change)
+# --------------------------------------------------------------------
+from collections import OrderedDict
+_TYPE = 'cim.2.science.process'
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = 'Eric Guilyardi'
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors.
+# --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
 # --------------------------------------------------------------------
@@ -17,13 +33,6 @@ QC_STATUS = 'draft'
 ID = 'cmip6.ocean.boundary_forcing'
 
 # --------------------------------------------------------------------
-# INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.process'
-
-from collections import OrderedDict
-
-# --------------------------------------------------------------------
 # PROCESS: DESCRIPTION
 #
 # Scientific context of the process
@@ -36,7 +45,6 @@ DESCRIPTION = 'Properties of boundary forcing within the ocean component'
 # Sets of details for the process
 # --------------------------------------------------------------------
 DETAILS = OrderedDict()
-
 
 DETAILS['boundary_forcing_details'] = {
     'description': 'Properties of boundary forcing',
@@ -65,12 +73,19 @@ SUB_PROCESSES = OrderedDict()
 
 SUB_PROCESSES['momentum'] = {
     'description': 'Key properties of momentum boundary forcing in the ocean',
-    'details': ['bottom_friction', 'lateral_friction']
+    'details': [
+        'bottom_friction',
+        'lateral_friction'
+        ]
 }
 
 SUB_PROCESSES['tracers'] = {
     'description': 'Key properties of tracer boundary forcing in the ocean',
-    'details': ['sunlight_penetration', 'surface_salinity_atmos', 'surface_salinity_seaice']
+    'details': [
+        'sunlight_penetration',
+        'surface_salinity_atmos',
+        'surface_salinity_seaice'
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -101,9 +116,9 @@ SUB_PROCESS_DETAILS['tracers:sunlight_penetration'] = {
     'properties': [
          ('scheme', 'ENUM:sunlight_penetration_scheme_types', '1.1',
           'Type of sunlight penetration scheme in ocean'),
-         ('tracers_sun_ocean_colour', 'bool','1.1',
+         ('tracers_sun_ocean_colour', 'bool', '1.1',
           'Is the ocean sunlight penetration scheme ocean colour dependent ?'),
-         ('tracers_sun_extinct_depth', 'str','0.1',
+         ('tracers_sun_extinct_depth', 'str', '0.1',
           'Describe and list extinctions depths for sunlight penetration scheme (if applicable).'),
         ]
 }
@@ -131,41 +146,41 @@ ENUMERATIONS = OrderedDict()
 
 ENUMERATIONS['mom_bottom_friction_types'] = {
     'description': 'Type of momentum bottom friction in ocean',
+    'is_open': True,
     'members': [
-        ('Linear', 'tbd'),
-        ('Non-linear', 'tbd'),
-        ('Non-linear (drag function of speed of tides)', 'tbd'),
-        ('Constant drag coefficient', 'tbd'),
-        ('None', 'tbd'),
-        ('Other', 'tbd'),
+        ('Linear', None),
+        ('Non-linear', None),
+        ('Non-linear (drag function of speed of tides)', None),
+        ('Constant drag coefficient', None),
+        ('None', None),
         ]
 }
 
 ENUMERATIONS['mom_lateral_friction_types'] = {
     'description': 'Type of momentum lateral friction in ocean',
+    'is_open': True,
     'members': [
-        ('None', 'tbd'),
-        ('Free-slip', 'tbd'),
-        ('No-slip', 'tbd'),
-        ('Other', 'tbd'),
+        ('None', None),
+        ('Free-slip', None),
+        ('No-slip', None),
         ]
 }
 
 ENUMERATIONS['sunlight_penetration_scheme_types'] = {
     'description': 'Type of sunlight penetration scheme in ocean',
+    'is_open': True,
     'members': [
-        ('1 extinction depth', 'tbd'),
-        ('2 extinction depth', 'tbd'),
-        ('3 extinction depth', 'tbd'),
-        ('Other', 'tbd'),
+        ('1 extinction depth', None),
+        ('2 extinction depth', None),
+        ('3 extinction depth', None),
         ]
 }
 
 ENUMERATIONS['surface_salinity_forcing_types'] = {
     'description': 'ype of surface salinity forcing in ocean',
+    'is_open': True,
     'members': [
-        ('Freshwater flux', 'tbd'),
-        ('Virtual salt flux', 'tbd'),
-        ('Other', 'tbd'),
+        ('Freshwater flux', None),
+        ('Virtual salt flux', None),
         ]
 }
