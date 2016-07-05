@@ -1498,9 +1498,9 @@
                                     "description": null
                                 }
                             ], 
-                            "id": "horiz_grid_types", 
+                            "id": "horizontal_grid_types", 
                             "isOpen": true, 
-                            "label": "horiz_grid_types"
+                            "label": "horizontal_grid_types"
                         }
                     }, 
                     {
@@ -1535,23 +1535,66 @@
             "id": "cmip6.ocean.grid.discretisation", 
             "details": [
                 {
-                    "label": "Vertical Discretisation", 
-                    "description": "Properties of vertical coordinate in ocean", 
-                    "id": "cmip6.ocean.grid.discretisation.vertical_discretisation", 
+                    "label": "Horizontal", 
+                    "description": "Type of horizontal discretisation scheme in ocean", 
+                    "id": "cmip6.ocean.grid.discretisation.horizontal", 
                     "properties": [
                         {
-                            "label": "Partial Steps", 
-                            "description": "Using partial steps with Z or Z* vertical coordinate in ocean ?", 
-                            "id": "cmip6.ocean.grid.discretisation.vertical_discretisation.partial_steps", 
+                            "label": "Pole Singularity Treatment", 
+                            "description": "Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)", 
+                            "id": "cmip6.ocean.grid.discretisation.horizontal.pole_singularity_treatment", 
                             "uiOrdinal": 1, 
                             "cardinality": "1.1", 
-                            "type": "bool"
+                            "type": "str"
                         }, 
                         {
-                            "label": "Vertical Coord Type", 
-                            "description": "Type of vertical coordinates in ocean", 
-                            "id": "cmip6.ocean.grid.discretisation.vertical_discretisation.vertical_coord_type", 
+                            "label": "Scheme", 
+                            "description": "Horizontal discretisation scheme in ocean", 
+                            "id": "cmip6.ocean.grid.discretisation.horizontal.scheme", 
                             "uiOrdinal": 2, 
+                            "cardinality": "1.1", 
+                            "type": "enum", 
+                            "enum": {
+                                "description": "Types of horizonal scheme in ocean", 
+                                "choices": [
+                                    {
+                                        "label": "Finite difference / Arakawa B-grid", 
+                                        "description": null
+                                    }, 
+                                    {
+                                        "label": "Finite difference / Arakawa C-grid", 
+                                        "description": null
+                                    }, 
+                                    {
+                                        "label": "Finite difference / Arakawa E-grid", 
+                                        "description": null
+                                    }, 
+                                    {
+                                        "label": "Finite elements", 
+                                        "description": null
+                                    }, 
+                                    {
+                                        "label": "Finite volumes", 
+                                        "description": null
+                                    }
+                                ], 
+                                "id": "horizontal_scheme_types", 
+                                "isOpen": true, 
+                                "label": "horizontal_scheme_types"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "label": "Vertical", 
+                    "description": "Properties of vertical coordinate in ocean", 
+                    "id": "cmip6.ocean.grid.discretisation.vertical", 
+                    "properties": [
+                        {
+                            "label": "Coordinates", 
+                            "description": "Type of vertical coordinates in ocean", 
+                            "id": "cmip6.ocean.grid.discretisation.vertical.coordinates", 
+                            "uiOrdinal": 1, 
                             "cardinality": "1.1", 
                             "type": "enum", 
                             "enum": {
@@ -1614,61 +1657,18 @@
                                         "description": null
                                     }
                                 ], 
-                                "id": "vertical_coord_types", 
+                                "id": "vertical_coordinate_types", 
                                 "isOpen": true, 
-                                "label": "vertical_coord_types"
-                            }
-                        }
-                    ]
-                }, 
-                {
-                    "label": "Horizontal Discretisation", 
-                    "description": "Type of horizontal discretisation scheme in ocean", 
-                    "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation", 
-                    "properties": [
-                        {
-                            "label": "Horiz Discret Scheme", 
-                            "description": "Horizontal discretisation scheme in ocean", 
-                            "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation.horiz_discret_scheme", 
-                            "uiOrdinal": 1, 
-                            "cardinality": "1.1", 
-                            "type": "enum", 
-                            "enum": {
-                                "description": "Types of horizonal scheme in ocean", 
-                                "choices": [
-                                    {
-                                        "label": "Finite difference / Arakawa B-grid", 
-                                        "description": null
-                                    }, 
-                                    {
-                                        "label": "Finite difference / Arakawa C-grid", 
-                                        "description": null
-                                    }, 
-                                    {
-                                        "label": "Finite difference / Arakawa E-grid", 
-                                        "description": null
-                                    }, 
-                                    {
-                                        "label": "Finite elements", 
-                                        "description": null
-                                    }, 
-                                    {
-                                        "label": "Finite volumes", 
-                                        "description": null
-                                    }
-                                ], 
-                                "id": "horiz_scheme_types", 
-                                "isOpen": true, 
-                                "label": "horiz_scheme_types"
+                                "label": "vertical_coordinate_types"
                             }
                         }, 
                         {
-                            "label": "Ocean Pole Singularity Treatment", 
-                            "description": "Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)", 
-                            "id": "cmip6.ocean.grid.discretisation.horizontal_discretisation.ocean_pole_singularity_treatment", 
+                            "label": "Partial Steps", 
+                            "description": "Using partial steps with Z or Z* vertical coordinate in ocean ?", 
+                            "id": "cmip6.ocean.grid.discretisation.vertical.partial_steps", 
                             "uiOrdinal": 2, 
                             "cardinality": "1.1", 
-                            "type": "str"
+                            "type": "bool"
                         }
                     ]
                 }
@@ -1916,15 +1916,23 @@
             "description": "Conservation in the ocean component", 
             "details": [
                 {
-                    "label": "Conservation Details", 
+                    "label": "Details", 
                     "description": "Properties conserved in the ocean component", 
-                    "id": "cmip6.ocean.key_properties.conservation.conservation_details", 
+                    "id": "cmip6.ocean.key_properties.conservation.details", 
                     "properties": [
                         {
-                            "label": "Conservation Scheme", 
-                            "description": "Conservation scheme in ocean", 
-                            "id": "cmip6.ocean.key_properties.conservation.conservation_details.conservation_scheme", 
+                            "label": "Method", 
+                            "description": "Describe how conservation properties are ensured in ocean", 
+                            "id": "cmip6.ocean.key_properties.conservation.details.method", 
                             "uiOrdinal": 1, 
+                            "cardinality": "1.1", 
+                            "type": "str"
+                        }, 
+                        {
+                            "label": "Scheme", 
+                            "description": "Conservation scheme in ocean", 
+                            "id": "cmip6.ocean.key_properties.conservation.details.scheme", 
+                            "uiOrdinal": 2, 
                             "cardinality": "1.N", 
                             "type": "enum", 
                             "enum": {
@@ -1951,14 +1959,6 @@
                                 "isOpen": true, 
                                 "label": "conservation_props_types"
                             }
-                        }, 
-                        {
-                            "label": "Ocean Conservation Method", 
-                            "description": "Describe how conservation properties are ensured in ocean", 
-                            "id": "cmip6.ocean.key_properties.conservation.conservation_details.ocean_conservation_method", 
-                            "uiOrdinal": 2, 
-                            "cardinality": "1.1", 
-                            "type": "str"
                         }
                     ]
                 }

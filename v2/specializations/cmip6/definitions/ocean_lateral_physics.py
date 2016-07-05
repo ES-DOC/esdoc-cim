@@ -1,8 +1,13 @@
+"""A realm process sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
 # --------------------------------------------------------------------
 # INTERNAL (do not change)
 # --------------------------------------------------------------------
 from collections import OrderedDict
-_TYPE = 'cim.2.science.process'
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -14,7 +19,7 @@ CONTACT = 'Eric Guilyardi'
 # --------------------------------------------------------------------
 # AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
@@ -24,13 +29,6 @@ AUTHORS = 'Eric Guilyardi'
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# PROCESS IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.<PROCESS>
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean.lateral_physics'
 
 # --------------------------------------------------------------------
 # PROCESS: DESCRIPTION
@@ -50,8 +48,8 @@ DETAILS['ocean_transient_eddy_representation'] = {
     'description': 'Type of transient eddy representation in ocean',
     'properties': [
         ('scheme', 'ENUM:latphys_transient_eddy_types', '1.1',
-         'Type of transient eddy representation in ocean'),
-    ]
+            'Type of transient eddy representation in ocean'),
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -63,12 +61,20 @@ SUB_PROCESSES = OrderedDict()
 
 SUB_PROCESSES['momentum'] = {
     'description': 'Properties of lateral physics for momentum in ocean',
-    'details': ['operator', 'eddy_viscosity_coeff']
+    'details': [
+        'operator',
+        'eddy_viscosity_coeff'
+        ]
  }
 
 SUB_PROCESSES['tracers'] = {
     'description': 'Properties of lateral physics for tracers in ocean',
-    'details': ['details', 'operator', 'eddy_viscosity_coeff', 'eddy_induced_velocity']
+    'details': [
+        'details',
+        'operator',
+        'eddy_viscosity_coeff',
+        'eddy_induced_velocity'
+        ]
 }
 
 # --------------------------------------------------------------------

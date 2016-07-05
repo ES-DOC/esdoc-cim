@@ -1,8 +1,13 @@
+"""A realm grid sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
 # --------------------------------------------------------------------
 # INTERNAL (do not change)
 # --------------------------------------------------------------------
 from collections import OrderedDict
-_TYPE = 'cim.2.science.grid'
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -14,7 +19,7 @@ CONTACT = 'Eric Guilyardi'
 # --------------------------------------------------------------------
 # AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
@@ -24,13 +29,6 @@ AUTHORS = 'Eric Guilyardi'
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# PROCESS IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.grid
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean.grid'
 
 # --------------------------------------------------------------------
 # GRID: DESCRIPTION
@@ -51,17 +49,17 @@ DETAILS['vertical_grid'] = {
     'properties': [
         ('number_of_levels', 'int', '1.1',
             'Number of vertical levels'),
-    ]
+        ]
 }
 
 DETAILS['horizontal_grid'] = {
     'description': 'Properties of H coordinate in ocean',
     'properties': [
-        ('horizontal_grid_type', 'ENUM:horiz_grid_types', '1.1',
+        ('horizontal_grid_type', 'ENUM:horizontal_grid_types', '1.1',
             'Horizontal grid type'),
         ('number_of_xy_gridpoints', 'int', '0.1',
             'Total number of horizontal points on computational grid'),
-    ]
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -74,8 +72,8 @@ DISCRETISATION = OrderedDict()
 DISCRETISATION['discretisation'] = {
     'description': 'Type of discretisation scheme in ocean',
     'details': [
-        'horizontal_discretisation',
-        'vertical_discretisation'
+        'horizontal',
+        'vertical'
         ]
 }
 
@@ -86,24 +84,24 @@ DISCRETISATION['discretisation'] = {
 # --------------------------------------------------------------------
 DISCRETISATION_DETAILS = OrderedDict()
 
-DISCRETISATION_DETAILS['vertical_discretisation'] = {
+DISCRETISATION_DETAILS['vertical'] = {
     'description': 'Properties of vertical coordinate in ocean',
     'properties': [
-        ('vertical_coord_type', 'ENUM:vertical_coord_types', '1.1',
+        ('coordinates', 'ENUM:vertical_coordinate_types', '1.1',
             'Type of vertical coordinates in ocean'),
         ('partial_steps', 'bool', '1.1',
             'Using partial steps with Z or Z* vertical coordinate in ocean ?'),
-    ]
+        ]
 }
 
-DISCRETISATION_DETAILS['horizontal_discretisation'] = {
+DISCRETISATION_DETAILS['horizontal'] = {
     'description': 'Type of horizontal discretisation scheme in ocean',
     'properties': [
-        ('horiz_discret_scheme', 'ENUM:horiz_scheme_types', '1.1',
+        ('scheme', 'ENUM:horizontal_scheme_types', '1.1',
             'Horizontal discretisation scheme in ocean'),
-        ('ocean_pole_singularity_treatment', 'str', '1.1',
+        ('pole_singularity_treatment', 'str', '1.1',
             'Describe how the North Pole singularity is treated (filter, pole rotation/displacement, artificial island, ...)'),
-    ]
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -111,7 +109,7 @@ DISCRETISATION_DETAILS['horizontal_discretisation'] = {
 # --------------------------------------------------------------------
 ENUMERATIONS = OrderedDict()
 
-ENUMERATIONS['horiz_grid_types'] = {
+ENUMERATIONS['horizontal_grid_types'] = {
     'description': 'Types of horizonal grid in ocean',
     'is_open': True,
     'members': [
@@ -121,7 +119,7 @@ ENUMERATIONS['horiz_grid_types'] = {
         ]
 }
 
-ENUMERATIONS['horiz_scheme_types'] = {
+ENUMERATIONS['horizontal_scheme_types'] = {
     'description': 'Types of horizonal scheme in ocean',
     'is_open': True,
     'members': [
@@ -133,7 +131,7 @@ ENUMERATIONS['horiz_scheme_types'] = {
         ]
 }
 
-ENUMERATIONS['vertical_coord_types'] = {
+ENUMERATIONS['vertical_coordinate_types'] = {
     'description': 'Types of vertical coordinates in ocean',
     'is_open': True,
     'members': [

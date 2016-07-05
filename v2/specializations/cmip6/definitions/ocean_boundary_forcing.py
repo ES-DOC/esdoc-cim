@@ -1,8 +1,13 @@
+"""A realm process sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
 # --------------------------------------------------------------------
 # INTERNAL (do not change)
 # --------------------------------------------------------------------
 from collections import OrderedDict
-_TYPE = 'cim.2.science.process'
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -14,7 +19,7 @@ CONTACT = 'Eric Guilyardi'
 # --------------------------------------------------------------------
 # AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
@@ -24,13 +29,6 @@ AUTHORS = 'Eric Guilyardi'
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# PROCESS IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.<PROCESS>
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean.boundary_forcing'
 
 # --------------------------------------------------------------------
 # PROCESS: DESCRIPTION
@@ -61,7 +59,7 @@ DETAILS['boundary_forcing_details'] = {
             'Describe how river runoff from land surface is routed to ocean and any global adjustment done.'),
         ('geothermal_heating', 'str', '1.1',
             'Describe if/how geothermal heating is present at ocean bottom.'),
-    ]
+        ]
 }
 
 # --------------------------------------------------------------------
@@ -99,7 +97,7 @@ SUB_PROCESS_DETAILS['momentum:bottom_friction'] = {
     'description': 'Properties of momentum bottom friction in ocean',
     'properties': [
         ('type', 'ENUM:mom_bottom_friction_types', '1.1',
-         'Type of momentum bottom friction in ocean'),
+            'Type of momentum bottom friction in ocean'),
         ]
 }
 
@@ -107,7 +105,7 @@ SUB_PROCESS_DETAILS['momentum:lateral_friction'] = {
    'description': 'Properties of momentum lateral friction in ocean',
     'properties': [
         ('type', 'ENUM:mom_lateral_friction_types', '1.1',
-         'Type of momentum lateral friction in ocean'),
+            'Type of momentum lateral friction in ocean'),
         ]
 }
 
@@ -115,11 +113,11 @@ SUB_PROCESS_DETAILS['tracers:sunlight_penetration'] = {
     'description': 'Properties of sunlight penetration scheme in ocean',
     'properties': [
          ('scheme', 'ENUM:sunlight_penetration_scheme_types', '1.1',
-          'Type of sunlight penetration scheme in ocean'),
+            'Type of sunlight penetration scheme in ocean'),
          ('tracers_sun_ocean_colour', 'bool', '1.1',
-          'Is the ocean sunlight penetration scheme ocean colour dependent ?'),
+            'Is the ocean sunlight penetration scheme ocean colour dependent ?'),
          ('tracers_sun_extinct_depth', 'str', '0.1',
-          'Describe and list extinctions depths for sunlight penetration scheme (if applicable).'),
+            'Describe and list extinctions depths for sunlight penetration scheme (if applicable).'),
         ]
 }
 
@@ -127,7 +125,7 @@ SUB_PROCESS_DETAILS['tracers:surface_salinity_atmos'] = {
     'description': 'Properties of surface salinity forcing from atmos in ocean',
     'properties': [
         ('scheme', 'ENUM:surface_salinity_forcing_types', '1.1',
-         'Type of surface salinity forcing from atmos in ocean'),
+            'Type of surface salinity forcing from atmos in ocean'),
         ]
 }
 
@@ -135,7 +133,7 @@ SUB_PROCESS_DETAILS['tracers:surface_salinity_seaice'] = {
     'description': 'Properties of surface salinity forcing from sea ice in ocean',
     'properties': [
         ('scheme', 'ENUM:surface_salinity_forcing_types', '1.1',
-         'Type of surface salinity forcing from sea ice in ocean'),
+            'Type of surface salinity forcing from sea ice in ocean'),
         ]
 }
 

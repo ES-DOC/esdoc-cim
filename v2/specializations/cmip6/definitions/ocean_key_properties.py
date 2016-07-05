@@ -1,8 +1,13 @@
+"""A realm key-properties sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
 # --------------------------------------------------------------------
 # INTERNAL (do not change)
 # --------------------------------------------------------------------
 from collections import OrderedDict
-_TYPE = 'cim.2.science.key_properties'
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -14,7 +19,7 @@ CONTACT = 'Eric Guilyardi'
 # --------------------------------------------------------------------
 # AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
@@ -24,13 +29,6 @@ AUTHORS = 'Eric Guilyardi'
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# PROCESS IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.key_properties'
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean.key_properties'
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: DESCRIPTION
@@ -55,7 +53,7 @@ DETAILS['general'] = {
             'Basic approximations made in the ocean.',),
         ('prognostic_variables', 'ENUM:prognostic_vars_types', '1.N',
             'List of prognostic variables in the ocean component.'),
-    ]
+        ]
 }
 
 DETAILS['seawater_properties'] = {
@@ -67,7 +65,7 @@ DETAILS['seawater_properties'] = {
             'Describe freezing point in ocean (fixed or varying)'),
         ('ocean_specific_heat', 'str', '1.1',
             'Describe specific heat in ocean (fixed or varying)'),
-    ]
+        ]
 }
 
 DETAILS['bathymetry'] = {
@@ -81,12 +79,11 @@ DETAILS['bathymetry'] = {
             'Describe any smoothing or hand editing of bathymetry in ocean'),
         ('ocean_bathymetry_source', 'str', '1.1',
             'Describe source of bathymetry in ocean'),
-    ]
+        ]
 }
 
-DETAILS['nonoceanic_waters'] = (
-    'str', '0.1', 'Describe if/how isolated seas and river mouth mixing or other specific treatment is performed'
-    )
+DETAILS['nonoceanic_waters'] = \
+    ('str', '0.1', 'Describe if/how isolated seas and river mouth mixing or other specific treatment is performed')
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: EXTENT
@@ -138,7 +135,7 @@ TUNING_APPLIED = OrderedDict()
 #
 # Sets of details for the tuning
 # --------------------------------------------------------------------
-TUNING_APPLIED_DETAILS  = OrderedDict()
+TUNING_APPLIED_DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: EXTRA CONSERVATION PROPERTIES
@@ -150,7 +147,7 @@ EXTRA_CONSERVATION_PROPERTIES = OrderedDict()
 
 EXTRA_CONSERVATION_PROPERTIES['conservation'] = {
     'description': 'Conservation in the ocean component',
-    'details': ['conservation_details'],
+    'details': ['details'],
 }
 
 # --------------------------------------------------------------------
@@ -160,14 +157,14 @@ EXTRA_CONSERVATION_PROPERTIES['conservation'] = {
 # --------------------------------------------------------------------
 EXTRA_CONSERVATION_PROPERTIES_DETAILS = OrderedDict()
 
-EXTRA_CONSERVATION_PROPERTIES_DETAILS['conservation_details'] = {
+EXTRA_CONSERVATION_PROPERTIES_DETAILS['details'] = {
     'description': 'Properties conserved in the ocean component',
     'properties': [
-        ('conservation_scheme', 'ENUM:conservation_props_types', '1.N',
-         'Conservation scheme in ocean'),
-        ('ocean_conservation_method', 'str', '1.1',
-         'Describe how conservation properties are ensured in ocean'),
-    ]
+        ('scheme', 'ENUM:conservation_props_types', '1.N',
+            'Conservation scheme in ocean'),
+        ('method', 'str', '1.1',
+            'Describe how conservation properties are ensured in ocean'),
+        ]
 }
 
 # --------------------------------------------------------------------

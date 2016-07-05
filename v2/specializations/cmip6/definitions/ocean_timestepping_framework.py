@@ -1,8 +1,13 @@
+"""A realm process sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
 # --------------------------------------------------------------------
 # INTERNAL (do not change)
 # --------------------------------------------------------------------
 from collections import OrderedDict
-_TYPE = 'cim.2.science.process'
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -14,7 +19,7 @@ CONTACT = 'Eric Guilyardi'
 # --------------------------------------------------------------------
 # AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
 
@@ -24,13 +29,6 @@ AUTHORS = 'Eric Guilyardi'
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# PROCESS IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.<PROCESS>
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean.timestepping_framework'
 
 # --------------------------------------------------------------------
 # PROCESS: DESCRIPTION

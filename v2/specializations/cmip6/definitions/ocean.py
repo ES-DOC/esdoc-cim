@@ -1,7 +1,8 @@
-# --------------------------------------------------------------------
-# INTERNAL VARIABLES (do not change)
-# --------------------------------------------------------------------
-_TYPE = 'cim.2.science.scientific_realm'
+"""A realm sepecialization.
+
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
 
 # --------------------------------------------------------------------
 # CONTACT
@@ -11,15 +12,26 @@ _TYPE = 'cim.2.science.scientific_realm'
 CONTACT = 'Eric Guilyardi'
 
 # --------------------------------------------------------------------
-# CONTACT
+# AUTHORS
 #
-# Set to realm specialization authors.
+# Set to realm specialization authors (comma delimited).
 # --------------------------------------------------------------------
 AUTHORS = 'Eric Guilyardi'
-CONTRIBUTORS = 'David Hassle'
+
+# --------------------------------------------------------------------
+# CONTRIBUTORS
+#
+# Set to realm specialization contributors (comma delimited).
+# --------------------------------------------------------------------
+CONTRIBUTORS = 'David Hassle, Mark Greenslade'
+
+# --------------------------------------------------------------------
+# CHANGE HISTORY
+#
+# Set to list: (version, date, comment, who).
+# --------------------------------------------------------------------
 CHANGE_HISTORY = [
-{'date':'now', 'what':'ewirfuhgweuyfgewy', 'who':'me'},
-{'date':'now', 'what':'ewirfuhgweuyfgewy', 'who':'me'}
+	("0.1.0", "2016-07-01", "Initialised", "Eric Guilyardi"),
     ]
 
 # --------------------------------------------------------------------
@@ -28,13 +40,6 @@ CHANGE_HISTORY = [
 # Set to 'draft' or 'complete'
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
-
-# --------------------------------------------------------------------
-# REALM IDENTIFIER
-#
-# Set to 'cmip6.<REALM>'
-# --------------------------------------------------------------------
-ID = 'cmip6.ocean'
 
 # --------------------------------------------------------------------
 # REALM: DESCRIPTION
