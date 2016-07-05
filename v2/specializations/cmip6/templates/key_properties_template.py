@@ -1,13 +1,26 @@
-# --------------------------------------------------------------------
-# See http://wordpress.es-doc.org for documentation on how to create
-# CMIP6 key properties specialisations
-# --------------------------------------------------------------------
+"""A realm key-properties sepecialization.
 
-# ====================================================================
-# FILE VARIABLES
-# ====================================================================
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
+# --------------------------------------------------------------------
+# INTERNAL (do not change)
+# --------------------------------------------------------------------
+from collections import OrderedDict
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = ''
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors (comma delimited).
+# --------------------------------------------------------------------
 AUTHORS = ''
 
 # --------------------------------------------------------------------
@@ -18,24 +31,7 @@ AUTHORS = ''
 QC_STATUS = 'draft'
 
 # --------------------------------------------------------------------
-# KEY PROPERTIES IDENTIFIER
-#
-# Set to 'cmip6.<REALM>.key_properties'
-# --------------------------------------------------------------------
-ID = ''
-
-# ====================================================================
-# INTERNAL VARIABLES (do not change)
-# ====================================================================
-_TYPE = 'cim.2.science.key_properties'
-from collections import OrderedDict
-
-# ====================================================================
-# MODEL DESCRIPTION VARIABLES
-# ====================================================================
-
-# --------------------------------------------------------------------
-# KEY PROPERTIES: PROPERTIES
+# KEY PROPERTIES: DESCRIPTION
 #
 # Scientific context of the key properties
 # --------------------------------------------------------------------
@@ -88,7 +84,7 @@ TUNING = OrderedDict()
 #
 # Sets of details for the tuning
 # --------------------------------------------------------------------
-TUNING_DETAILS  = OrderedDict()
+TUNING_DETAILS = OrderedDict()
 
 # --------------------------------------------------------------------
 # KEY PROPERTIES: CONSERVATION

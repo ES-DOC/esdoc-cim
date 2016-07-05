@@ -1,14 +1,38 @@
-# --------------------------------------------------------------------
-# See http://wordpress.es-doc.org for documentation on how to create
-# CMIP6 realm specialisations
-# --------------------------------------------------------------------
+"""A realm sepecialization.
 
-# ====================================================================
-# FILE VARIABLES
-# ====================================================================
+For further information goto http://wordpress.es-doc.org/cmip6-model-specializations.
+
+"""
+
+# --------------------------------------------------------------------
+# CONTACT
+#
+# Set to realm specialization co-ordinator.
+# --------------------------------------------------------------------
 CONTACT = ''
 
+# --------------------------------------------------------------------
+# AUTHORS
+#
+# Set to realm specialization authors (comma delimited).
+# --------------------------------------------------------------------
 AUTHORS = ''
+
+# --------------------------------------------------------------------
+# CONTRIBUTORS
+#
+# Set to realm specialization contributors (comma delimited).
+# --------------------------------------------------------------------
+CONTRIBUTORS = ''
+
+# --------------------------------------------------------------------
+# CHANGE HISTORY
+#
+# Set to list: (version, date, comment, who).
+# --------------------------------------------------------------------
+CHANGE_HISTORY = [
+	("0.1.0", "XXXXXXXX", "Initialised", "XXXXXXXX"),
+    ]
 
 # --------------------------------------------------------------------
 # QUALITY CONTROL STATUS
@@ -18,21 +42,11 @@ AUTHORS = ''
 QC_STATUS = 'draft'
 
 # --------------------------------------------------------------------
-# REALM IDENTIFIER
+# REALM: DESCRIPTION
 #
-# Set to 'cmip6.<REALM>'
+# Scientific context of this scientific realm
 # --------------------------------------------------------------------
-ID = ''
-
-# ====================================================================
-# INTERNAL VARIABLES (do not change)
-# ====================================================================
-_TYPE = 'cim.2.science.grid'
-from collections import OrderedDict
-
-# ====================================================================
-# MODEL DESCRIPTION VARIABLES
-# ====================================================================
+DESCRIPTION = ''
 
 # --------------------------------------------------------------------
 # REALM: REALM
@@ -46,7 +60,7 @@ REALM = ''
 #
 # The grid used to layout the variables
 # --------------------------------------------------------------------
-GRID = []
+GRID = ''
 
 # --------------------------------------------------------------------
 # REALM: KEY PROPERTIES
@@ -54,7 +68,7 @@ GRID = []
 # Key properties for the domain which differ from model defaults
 # (grid, timestep etc)
 # --------------------------------------------------------------------
-KEY_PROPERTIES = []
+KEY_PROPERTIES = ''
 
 # --------------------------------------------------------------------
 # REALM: PROCESSES
