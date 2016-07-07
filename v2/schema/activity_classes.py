@@ -85,11 +85,11 @@ def conformance():
                 "URI of the target numerical requirement.")
         ],
         'constraints': [
-            ('canonical_name', 'cardinality', '0.0'),
-            ('description', 'cardinality', '1.1'),
-            ('duration', 'cardinality', '0.0'),
-            ('keywords', 'cardinality', '0.0'),
-            ('rationale', 'cardinality', '0.0')
+            ('cardinality', 'rationale', '0.0'),
+            ('cardinality', 'duration', '0.0'),
+            ('cardinality', 'canonical_name', '0.0'),
+            ('cardinality', 'keywords', '0.0'),
+            ('cardinality', 'description', '1.1')
         ]
     }
 
@@ -184,9 +184,7 @@ def ensemble_member():
             ('ran_on', 'linked_to(platform.machine)', '0.1',
                 "The machine on which the simulation was run."),
             ('simulation', 'linked_to(data.simulation)', '1.1',
-                "Actual simulation description for an ensemble member."),
-            ('variant_id', 'str', '1.1',
-                "A string which concatenates axis member short identiers (e.g r1i1p1f1).")
+                "Actual simulation description for an ensemble member. The variant id is in the simuluation document.")
         ]
     }
 
@@ -200,6 +198,8 @@ def parent_simulation():
         'base': None,
         'is_abstract': False,
         'properties': [
+            ('branch_method', 'str', '0.1',
+                "Description of how the simulation was branched from a parent simualtion, e.g. 'standard', 'none provided'."),
             ('branch_time_in_child', 'time.date_time', '0.1',
                 "The time at which the present simulation started in the child calendar."),
             ('branch_time_in_parent', 'time.date_time', '0.1',

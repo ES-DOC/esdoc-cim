@@ -39,18 +39,20 @@ def citation():
                 "Abstract providing high level reference overview."),
             ('citation_detail', 'str', '0.1',
                 "Complete citation string as would appear in a bibliography."),
+            ('collective_title', 'str', '0.1',
+                "Citation collective title, i.e. with all authors declared."),
             ('context', 'str', '0.1',
                 "Brief text description of why this resource is being cited."),
-            ('collective_title', 'str', '0.1',
-                'Citation collective title, i.e. with all authors declared'),
             ('doi', 'str', '0.1',
                 "Digital Object Identifier, if it exists."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata about the creation of this document description."),
-            ('title', 'str', '0.1'),
-            ('type', 'str', '0.1'),
+            ('title', 'str', '0.1',
+                "Citation short title."),
+            ('type', 'str', '0.1',
+                "Citation type."),
             ('url', 'shared.online_resource', '0.1',
-                "Location of electronic version."),
+                "Location of electronic version.")
         ]
     }
 

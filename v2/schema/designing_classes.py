@@ -162,7 +162,7 @@ def initialisation_requirement():
                 "This experiment should be initialised from the output of this experiment.")
         ],
         'constraints': [
-
+            ('mutually_exclusive', ('initialise_from_experiment', 'initialise_from_data'), '1.1')
         ]
     }
 
@@ -258,6 +258,10 @@ def project():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
+            ('homepage', 'str', '0.1',
+                "Project homepage."),
+            ('objectives', 'str', '0.N',
+                "Project objectives."),
             ('previous_projects', 'linked_to(designing.project)', '0.N',
                 "Previous projects with similar aims."),
             ('requires_experiments', 'linked_to(designing.numerical_experiment)', '0.N',
