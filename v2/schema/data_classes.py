@@ -114,7 +114,7 @@ def simulation():
                 "Published or web-based references that describe the data or methods used to produce it."),
             ('start_time', 'time.date_time', '0.1',
                 "The start date-time of the simulation. e.g. 2012-04-01 00:00:00."),
-            ('sub_experiment', 'designing.numerical_experiment', '0.1',
+            ('sub_experiment', 'str', '0.1',
                 "For start-date ensembles, this will indicate the beginning year; for offline models driven by output from another model, this will provide the source_id and variant_label for the 'driving' model."),
             ('used', 'linked_to(science.model)', '1.1',
                 "The model used to run the simulation."),

@@ -23,7 +23,7 @@ AUTHORS = 'Eric Guilyardi'
 #
 # Set to realm specialization contributors (comma delimited).
 # --------------------------------------------------------------------
-CONTRIBUTORS = 'David Hassle, Mark Greenslade'
+CONTRIBUTORS = 'David Hassell, Mark Greenslade'
 
 # --------------------------------------------------------------------
 # CHANGE HISTORY

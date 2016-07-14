@@ -207,7 +207,7 @@ def storage_systems():
 
 
 def storage_volume():
-    """Volume and units.
+    """Platform storage volume and units.
 
     """
     return {

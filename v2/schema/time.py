@@ -84,6 +84,10 @@ def datetime_set():
         'type': 'class',
         'base': None,
         'is_abstract': True,
+        'alternatives': [
+            'time.irregular_dateset',
+            'time.regular_timeset'
+        ],
         'properties': [
             ('length', 'int', '1.1',
                 "Number of times in set.")
