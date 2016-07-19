@@ -20,6 +20,8 @@ def activity():
                 "List of names by which the activity is also known."),
             ('canonical_name', 'str', '0.1',
                 "Community defined identifier or name."),
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
             ('description', 'str', '0.1',
                 "Description of what is to be done (or was done)."),
             ('duration', 'time.time_period', '0.1',
@@ -38,8 +40,6 @@ def activity():
                 "List of names by which the activity was formerly known."),
             ('rationale', 'str', '0.1',
                 "Explanation of why this activity was carried out and/or what it was intended to achieve."),
-            ('references', 'shared.reference', '0.N',
-                "Relevant documentation."),
             ('responsible_parties', 'shared.responsibility', '0.N',
                 "People or organisations responsible for activity.")
         ]

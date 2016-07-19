@@ -120,7 +120,7 @@ def forcing_constraint():
                 "Type of integration."),
             ('group', 'str', '0.1',
                 "Sub-Category (e.g. GHG)."),
-            ('origin', 'shared.reference', '0.1',
+            ('origin', 'shared.citation', '0.1',
                 "Pointer to origin, e.g. CMIP6 RCP database.")
         ],
         'constraints': [

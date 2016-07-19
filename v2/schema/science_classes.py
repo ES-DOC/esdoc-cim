@@ -90,6 +90,8 @@ def grid():
         'base': None,
         'is_abstract': False,
         'properties': [
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
             ('description', 'str', '1.1',
                 "Abstract description of grid."),
             ('details', 'science.detail', '0.N',
@@ -99,9 +101,7 @@ def grid():
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata about how the model description was constructed."),
             ('name', 'str', '1.1',
-                "This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts."),
-            ('references', 'shared.reference', '0.N',
-                "Any relevant references describing this grid and/or it's implementation.")
+                "This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts.")
         ]
     }
 
@@ -197,14 +197,14 @@ def process():
         'base': 'science.science_context',
         'is_abstract': False,
         'properties': [
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
             ('details', 'science.detail', '0.N',
                 "Sets of properties for this process."),
             ('implementation_overview', 'str', '1.1',
                 "General overview description of the implementation of this process."),
             ('keywords', 'str', '0.1',
                 "keywords to help re-use and discovery of this information."),
-            ('references', 'shared.reference', '0.N',
-                "Any relevant references describing this process and/or it's implementation."),
             ('sub_processes', 'science.sub_process', '0.N',
                 "Discrete portion of a process with common process details.")
         ]
@@ -274,6 +274,8 @@ def scientific_realm():
         'base': None,
         'is_abstract': False,
         'properties': [
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
             ('grid', 'linked_to(science.grid)', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
             ('id', 'str', '0.1',
@@ -288,8 +290,6 @@ def scientific_realm():
                 "Free text overview description of key properties of domain."),
             ('realm', 'str', '0.1',
                 "Canonical name for the domain of this scientific area."),
-            ('references', 'shared.reference', '0.N',
-                "Any relevant references describing the implementation of this domain in a relevant model."),
             ('simulates', 'science.process', '1.N',
                 "Processes simulated within the domain.")
         ]
@@ -328,12 +328,12 @@ def sub_process():
         'base': 'science.science_context',
         'is_abstract': False,
         'properties': [
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
             ('details', 'science.detail', '0.N',
                 "Sets of properties for this process."),
             ('implementation_overview', 'str', '1.1',
-                "General overview description of the implementation of this part of the process."),
-            ('references', 'shared.reference', '0.N',
-                "Any relevant references describing this part of the process and/or it's implementation.")
+                "General overview description of the implementation of this part of the process.")
         ]
     }
 

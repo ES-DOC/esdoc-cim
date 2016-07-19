@@ -57,33 +57,6 @@ def citation():
     }
 
 
-def citation_target():
-    """A real world document, could be a book, a journal article, a manual, a web page ... it might or might
-    not be online, although preferably it would be.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'pstr': ('{}', ('name',)),
-        'properties': [
-            ('citation_detail', 'str', '0.1',
-                "Complete citation string as would appear in a bibliography."),
-            ('doi', 'str', '0.1',
-                "Digital Object Identifier, if it exists."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about the creation of this document description."),
-            ('name', 'str', '1.1',
-                "A name for the citation: short hand description, e.g. Meehl et al (2014)."),
-            ('online_at', 'shared.online_resource', '0.1',
-                "Location of electronic version."),
-            ('title', 'str', '1.1',
-                "Title or name of the document.")
-        ]
-    }
-
-
 def doc_meta_info():
     """Encapsulates document meta information used by es-doc machinery. Will not normally be
     populated by humans. May duplicate information held in 'visible' metadata.
@@ -329,23 +302,6 @@ def quality_status():
             ("finalised", "Author has completed document, prior to review"),
             ("under_review", "Document is being reviewed"),
             ("reviewed", "Document has been formally reviewed and assessed as complete and accurate")
-        ]
-    }
-
-
-def reference():
-    """An external citation target which can have a context associated with it.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'properties': [
-            ('context', 'str', '0.1',
-                "Brief text description of why this resource is being cited."),
-            ('document', 'shared.citation_target', '1.1',
-                "Reference Target.")
         ]
     }
 
