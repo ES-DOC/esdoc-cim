@@ -36,12 +36,12 @@ def activity():
                 "Metadata describing how this document was created."),
             ('name', 'str', '1.1',
                 "Short name or abbreviation."),
+            ('parties', 'shared.responsibility', '0.N',
+                "People or organisations responsible for activity."),
             ('previously_known_as', 'str', '0.N',
                 "List of names by which the activity was formerly known."),
             ('rationale', 'str', '0.1',
-                "Explanation of why this activity was carried out and/or what it was intended to achieve."),
-            ('responsible_parties', 'shared.responsibility', '0.N',
-                "People or organisations responsible for activity.")
+                "Explanation of why this activity was carried out and/or what it was intended to achieve.")
         ]
     }
 

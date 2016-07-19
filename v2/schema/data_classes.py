@@ -9,6 +9,7 @@
 
 def data_association_types():
     """Set of possible dataset associations.
+
     Selected from, and extended from,  ISO19115 (2014) DS_AssociationTypeCode.
 
     """
@@ -35,7 +36,7 @@ def dataset():
             ('availability', 'shared.online_resource', '0.N',
                 "Where the data is located, and how it is accessed."),
             ('citations', 'shared.citation', '0.N',
-                "Relevant reference document."),
+                "Set of pertinent citations."),
             ('description', 'str', '0.1',
                 "Textural description of dataset."),
             ('drs_datasets', 'drs.drs_publication_dataset', '0.N',
@@ -44,12 +45,12 @@ def dataset():
                 "Metadata describing the creation of this dataset description document."),
             ('name', 'str', '1.1',
                 "Name of dataset."),
+            ('parties', 'linked_to(shared.responsibility)', '0.N',
+                "Individuals and organisations reponsible for the data."),
             ('produced_by', 'linked_to(data.simulation)', '0.1',
                 "Makes a link back to originating activity."),
             ('related_to_dataset', 'shared.online_resource', '0.N',
-                "Related dataset."),
-            ('responsible_parties', 'linked_to(shared.responsibility)', '0.N',
-                "Individuals and organisations reponsible for the data.")
+                "Related dataset.")
         ]
     }
 
@@ -92,40 +93,34 @@ def simulation():
                 'The model used to run the simulation'),
             ('primary_ensemble', 'linked_to(activity.ensemble)', '0.1',
                 'Primary Ensemble (ensemble for which this simulation was first run).'),
-            ('insitution', 'str', 'shared_classes.party', '0.1',
-             'institution which carried out the simulation'),
+            ('insitution', 'shared.party', '0.1',
+                'institution which carried out the simulation'),
             ('parent_simulation', 'activity.parent_simulation', '0.1',
                 'If appropriate, detailed information about how this simulation branched from a previous one'),
 
             # Time
             ('start_time', 'time.date_time', '0.1',
-             'The start date-time of the simulation. e.g. 2012-04-01 00:00:00'),
+                'The start date-time of the simulation. e.g. 2012-04-01 00:00:00'),
             ('end_time', 'time.date_time', '0.1',
-             'The start date-time of the simulation. e.g. 2087-11-30 12:00:00'),
+                'The start date-time of the simulation. e.g. 2087-11-30 12:00:00'),
             ('calendar', 'time.calendar', '0.1',
-             'The calendar used in the simulation'),
+                'The calendar used in the simulation'),
 
             # Ensemble member attributes
             ('realization_index', 'int', '0.1',
-             'realization number, e.g. 5'),
+                'realization number, e.g. 5'),
             ('initialization_index', 'int', '0.1',
-             'Index variant of initialization method, e.g. 1'),
+                'Index variant of initialization method, e.g. 1'),
             ('physics_index', 'int', '0.1',
-             'index for model physics, e.g. 3'),
+                'index for model physics, e.g. 3'),
             ('forcing_index', 'int', '0.1',
-             'index for variant of forcing, e.g. 2'),
+                'index for variant of forcing, e.g. 2'),
             ('variant_info', 'str', '0.1',
-             'description of run variant differences, e.g. "forcing: black carbon aerosol only"'),
-
-            # Contacts and references
-            ('contact', 'str', '0.1',
-             ''),
-            ('references', 'str', '0.1',
-             'Published or web-based references that describe the data or methods used to produce it'),
+                'description of run variant differences, e.g. forcing: black carbon aerosol only'),
 
             # Further Info URL
             ('further_info_url', 'str', '0.1',
-             'On-line location of documentation'),
+                'On-line location of documentation'),
 
             # Extra attributes
             ('extra_attributes','shared.extra_attribute', '0.N',
