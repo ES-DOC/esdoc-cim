@@ -44,6 +44,10 @@ def compute_pool():
                 "Type of accelerator."),
             ('accelerators_per_node', 'int', '0.1',
                 "Number of accelerator units on a node."),
+            ('clock_cycle_concurrency', 'int', '0.1',
+                 'The number of operations which can be carried out concurrently in a single clock cycle of a single core. E.g. 4.'),
+            ('clock_speed', 'float', '0.1',
+                 'The clock speed of a single core, in units of GHz. E.g. 3.6.'),
             ('compute_cores_per_node', 'int', '0.1',
                 "Number of CPU cores per node."),
             ('cpu_type', 'str', '0.1',
@@ -118,7 +122,7 @@ def partition():
     }
 
 
-def performance():
+def performance_org():
     """Describes the properties of a performance of a configured model on a particular system/machine.
 
     """
@@ -159,6 +163,73 @@ def performance():
         ]
     }
 
+def performance():
+    """Describes the properties of a performance of a configured model on a particular system/machine.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'pstr': ('{} (sypd:{})', ('name', 'sypd')),
+        'properties': [
+            # CPMIP model and platform
+            ('resolution', 'int', '0.1', 
+                 'Resolution measured as the number of gridpoints (or more generally, spatial degrees of freedom) NX x NY x NZ per component with an independent discretization'),
+            ('complexity', 'int', '0.1', 
+                 'Complexity measured as the number of prognostic variables per component with an independent discretization'),
+            ('platform', 'platform.machine', '1.1',
+                 'Platform on which performance was tested.'),
+
+            # CPMIP computational cost
+            ('simulated_years_per_day', 'float', '0.1',
+                 'Simulated years per day (SYPD) in a 24h period on the given platform'),
+            ('actual_simulated_years_per_day', 'float', '0.1',
+                 'Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the model. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc.')
+            ('core_hours_per_simulated_year', 'float', '0.1',
+                 'Core-hours per simulated year (CHSY). This is measured as the product of the model runtime for 1 SY, and the numbers of cores allocated. Note that if allocations are done on a node basis then all cores on a node are charged against the allocation, regardless of whether or not they are used.'),
+            ('parallelization', 'float', '0.1',
+                 'Parallelization measured as the total number of cores (NP) allocated for the run, regardless of whether or or all cores were used. Note that NP=CHSY*SYPD/24.'),
+            ('joules_per_simulated_year', 'float', '0.1',
+                 'The energy cost of a simulation, measured in joules per simulated year (JPSY). Given the energy E in joules consumed over a budgeting interval T (generally 1 month or 1 year, in units of hours), JPSY=CHSY*E*T/NP'),
+
+            # CPMIP coupling, memory, I/O
+            ('coupling_cost', 'float', '0.1',
+                 'Coupling cost measures the overhead caused by coupling. This can include the cost of the coupling algorithm itself (which
+may involve grid interpolation and computation of transfer coefficients for conservative coupling) as well as load imbalance. It is the normalized difference between the time-processor integral for the whole model versus the sum of individual concurrent components'),
+            ('memory_bloat', 'float', '0.1',
+                 'Memory bloat is the ratio of the actual memory size to the ideal memory size (the size of the complete model state, which in theory is all you need to hold in memory)Mi, defined below.'),
+            ('data_output_cost', 'float', '0.1',
+                 'Data output cost is the cost of performing I/O, and is the ratio of CHSY with and without I/O.'),
+            ('data_intensity', 'float', '0.1',
+                 'Data intensity the amount of data produced per compute-hour, in units GB per compute-hour.'),
+
+            ('asypd', 'float', '0.1',
+                "Actual simulated years per wall-clock day, all-in."),
+            ('chsy', 'float', '0.1',
+                "Core-Hours per simulated year."),
+            ('compiler', 'str', '0.1',
+                "Compiler used."),
+            ('coupler_load', 'float', '0.1',
+                "Percentage of time spent in coupler."),
+            ('io_load', 'float', '0.1',
+                "Percentage of time spent in I/O."),
+            ('load_imbalance', 'float', '0.1',
+                "Load imbalance."),
+            ('memory_bloat', 'float', '0.1',
+                "Percentage of extra memory needed."),
+            ('model', 'linked_to(science.model)', '1.1',
+                "Model for which performance was tested."),
+            ('name', 'str', '0.1',
+                "Short name for performance (experiment/test/whatever)."),
+            ('subcomponent_performance', 'platform.component_performance', '0.1',
+                "Describes the performance of each subcomponent."),
+
+            ('meta', 'shared.doc_meta_info', '1.1',
+                "Document metadata."),
+        ]
+    }
+
 
 def storage_pool():
     """Homogeneous storage pool on a computing machine.
@@ -176,9 +247,6 @@ def storage_pool():
             ('type', 'platform.storage_systems', '0.1',
                 "Type of storage."),
             ('vendor', 'linked_to(shared.party)', '0.1',
-                "Vendor of the storage unit."),
-            ('volume_available', 'platform.storage_volume', '1.1',
-                "Storage capacity.")
         ]
     }
 
