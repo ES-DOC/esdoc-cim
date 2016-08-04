@@ -142,7 +142,10 @@ def software_component():
             ('license', 'str', '0.1',
                 "The license held by this piece of software."),
             ('sub_components', 'software.software_component', '0.N',
-                "Internal software sub-components of this component.")
+                "Internal software sub-components of this component."),
+            ('depends_on', 'software.software_component', '0.N',        # added dch/ssw 1016-0804
+                "The software components whose outputs are inputs to this software component."),
+            # Would like to think about making this a stand-alone document
         ]
     }
 
