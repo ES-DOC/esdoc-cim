@@ -185,7 +185,7 @@ def performance():
             ('simulated_years_per_day', 'float', '0.1',
                  'Simulated years per day (SYPD) in a 24h period on the given platform'),
             ('actual_simulated_years_per_day', 'float', '0.1',
-                 'Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the model. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc.')
+                 'Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the model. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc.'),
             ('core_hours_per_simulated_year', 'float', '0.1',
                  'Core-hours per simulated year (CHSY). This is measured as the product of the model runtime for 1 SY, and the numbers of cores allocated. Note that if allocations are done on a node basis then all cores on a node are charged against the allocation, regardless of whether or not they are used.'),
             ('parallelization', 'float', '0.1',
@@ -195,8 +195,7 @@ def performance():
 
             # CPMIP coupling, memory, I/O
             ('coupling_cost', 'float', '0.1',
-                 'Coupling cost measures the overhead caused by coupling. This can include the cost of the coupling algorithm itself (which
-may involve grid interpolation and computation of transfer coefficients for conservative coupling) as well as load imbalance. It is the normalized difference between the time-processor integral for the whole model versus the sum of individual concurrent components'),
+                 'Coupling cost measures the overhead caused by coupling. This can include the cost of the coupling algorithm itself (which may involve grid interpolation and computation of transfer coefficients for conservative coupling) as well as load imbalance. It is the normalized difference between the time-processor integral for the whole model versus the sum of individual concurrent components'),
             ('memory_bloat', 'float', '0.1',
                  'Memory bloat is the ratio of the actual memory size to the ideal memory size (the size of the complete model state, which in theory is all you need to hold in memory)Mi, defined below.'),
             ('data_output_cost', 'float', '0.1',
@@ -247,6 +246,7 @@ def storage_pool():
             ('type', 'platform.storage_systems', '0.1',
                 "Type of storage."),
             ('vendor', 'linked_to(shared.party)', '0.1',
+                "Vendor of storage hardware.")
         ]
     }
 

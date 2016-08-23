@@ -162,7 +162,7 @@ def time_period():
                 "Optional start/end date of time period."),
             ('date_type', 'time.period_date_types', '1.1',
                 "Describes how the date is used to define the period."),
-            ('length', 'int', '1.1',
+            ('length', 'str', '1.1',
                 "Duration of the time period."),
             ('units', 'time.time_units', '1.1',
                 "Appropriate time units.")
