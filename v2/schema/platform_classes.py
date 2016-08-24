@@ -8,7 +8,11 @@
 
 
 def component_performance():
-    """Describes the simulation rate of a component in seconds per model day.
+    """Describes the simulation rate of a component in seconds per model
+day.
+
+Based on "CPMIP: Measurements of Real Computational Performance of
+Earth System Models" (Balaji et. al.)
 
     """
     return {
@@ -21,12 +25,21 @@ def component_performance():
                 "Link to a CIM software component description."),
             ('component_name', 'str', '1.1',
                 "Short name of component."),
-            ('cores_used', 'int', '0.1',
-                "Number of cores used for this component."),
-            ('nodes_used', 'int', '0.1',
-                "Number of nodes used for this component."),
-            ('speed', 'float', '1.1',
-                "Time taken to simulate one real day (s).")
+
+            # CPMIP computational cost
+            ('simulated_years_per_day', 'float', '0.1',
+                 'Simulated years per day (SYPD) in a 24h period on the given platform'),
+            ('actual_simulated_years_per_day', 'float', '0.1',
+                 'Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the component. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc.'),
+            ('core_hours_per_simulated_year', 'float', '0.1',
+                 'Core-hours per simulated year (CHSY). This is measured as the product of the component runtime for 1 SY, and the numbers of cores allocated. Note that if allocations are done on a node basis then all cores on a node are charged against the allocation, regardless of whether or not they are used.'),
+            ('parallelization', 'float', '0.1',
+                 'Parallelization measured as the total number of cores (NP) allocated for the component, regardless of whether or or all cores were used. Note that NP=CHSY*SYPD/24.'),
+
+#            ('nodes_used', 'int', '0.1',
+#                "Number of nodes used for this component."),
+#            ('speed', 'float', '1.1',
+#                "Time taken to simulate one real day (s).")
         ]
     }
 
@@ -121,50 +134,12 @@ def partition():
         ]
     }
 
-
-def performance_org():
-    """Describes the properties of a performance of a configured model on a particular system/machine.
-
-    """
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'pstr': ('{} (sypd:{})', ('name', 'sypd')),
-        'properties': [
-            ('asypd', 'float', '0.1',
-                "Actual simulated years per wall-clock day, all-in."),
-            ('chsy', 'float', '0.1',
-                "Core-Hours per simulated year."),
-            ('compiler', 'str', '0.1',
-                "Compiler used."),
-            ('coupler_load', 'float', '0.1',
-                "Percentage of time spent in coupler."),
-            ('io_load', 'float', '0.1',
-                "Percentage of time spent in I/O."),
-            ('load_imbalance', 'float', '0.1',
-                "Load imbalance."),
-            ('memory_bloat', 'float', '0.1',
-                "Percentage of extra memory needed."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Document metadata."),
-            ('model', 'linked_to(science.model)', '1.1',
-                "Model for which performance was tested."),
-            ('name', 'str', '0.1',
-                "Short name for performance (experiment/test/whatever)."),
-            ('platform', 'linked_to(platform.machine)', '1.1',
-                "Platform on which performance was tested."),
-            ('subcomponent_performance', 'platform.component_performance', '0.1',
-                "Describes the performance of each subcomponent."),
-            ('sypd', 'float', '0.1',
-                "Simulated years per wall-clock day."),
-            ('total_nodes_used', 'int', '0.1',
-                "Number of nodes used.")
-        ]
-    }
-
 def performance():
-    """Describes the properties of a performance of a configured model on a particular system/machine.
+    """Describes the properties of a performance of a configured model on
+a particular system/machine.
+
+Based on "CPMIP: Measurements of Real Computational Performance of
+Earth System Models" (Balaji et. al.)
 
     """
     return {
@@ -173,13 +148,20 @@ def performance():
         'is_abstract': False,
         'pstr': ('{} (sypd:{})', ('name', 'sypd')),
         'properties': [
+            ('name', 'str', '0.1',
+                "Name for performance (experiment/test/whatever)."),
+            
             # CPMIP model and platform
+            ('model', 'science.model', '1.1',
+                "Model for which performance was tested."),
             ('resolution', 'int', '0.1', 
                  'Resolution measured as the number of gridpoints (or more generally, spatial degrees of freedom) NX x NY x NZ per component with an independent discretization'),
             ('complexity', 'int', '0.1', 
                  'Complexity measured as the number of prognostic variables per component with an independent discretization'),
             ('platform', 'platform.machine', '1.1',
                  'Platform on which performance was tested.'),
+            ('compiler', 'str', '0.1',
+                "Compiler used for performance test."),
 
             # CPMIP computational cost
             ('simulated_years_per_day', 'float', '0.1',
@@ -203,25 +185,8 @@ def performance():
             ('data_intensity', 'float', '0.1',
                  'Data intensity the amount of data produced per compute-hour, in units GB per compute-hour.'),
 
-            ('asypd', 'float', '0.1',
-                "Actual simulated years per wall-clock day, all-in."),
-            ('chsy', 'float', '0.1',
-                "Core-Hours per simulated year."),
-            ('compiler', 'str', '0.1',
-                "Compiler used."),
-            ('coupler_load', 'float', '0.1',
-                "Percentage of time spent in coupler."),
-            ('io_load', 'float', '0.1',
-                "Percentage of time spent in I/O."),
-            ('load_imbalance', 'float', '0.1',
-                "Load imbalance."),
-            ('memory_bloat', 'float', '0.1',
-                "Percentage of extra memory needed."),
-            ('model', 'linked_to(science.model)', '1.1',
-                "Model for which performance was tested."),
-            ('name', 'str', '0.1',
-                "Short name for performance (experiment/test/whatever)."),
-            ('subcomponent_performance', 'platform.component_performance', '0.1',
+            # Subcomponent performance
+            ('subcomponent_performance', 'platform.component_performance', '0.N',
                 "Describes the performance of each subcomponent."),
 
             ('meta', 'shared.doc_meta_info', '1.1',
