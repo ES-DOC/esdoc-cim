@@ -366,3 +366,35 @@ def text_code():
             ("plaintext", "Normal plain text")
         ]
     }
+
+
+# def reference():
+#     """ An external citation target which can have a context associated with it. """
+#     return {
+#         'type': 'class',
+#         'base': None,
+#         'is_abstract': False,
+#         'properties': [
+#             ('document', 'shared.citation_target', '1.1', 'Reference Target'),
+#             ('context', 'shared.cimtext', '0.1', 'Brief text description of why this resource is being cited'),
+#         ],
+#     }
+
+
+# def citation_target():
+#     """ A real world document, could be a book, a journal article, a manual, a web page ... it might or might
+#     not be online, although preferably it would be."""
+#     return {
+#         'type': 'class',
+#         'base': None,
+#         'is_abstract': False,
+#         'pstr': ('%s', ('name', )),
+#         'properties': [
+#             ('title', 'str', '1.1', 'Title or name of the document'),
+#             ('name', 'str', '1.1', 'A name for the citation: short hand description, e.g. Meehl et al (2014)'),
+#             ('citation_detail', 'str', '0.1', 'Complete citation string as would appear in a bibliography.'),
+#             ('online_at', 'shared.online_resource', '0.1', 'Location of electronic version'),
+#             ('doi', 'str', '0.1', 'Digital Object Identifier, if it exists.'),
+#             ('meta', 'shared.meta', '1.1', 'Metadata about the creation of this document description')
+#         ]
+#     }
