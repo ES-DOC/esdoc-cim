@@ -123,6 +123,8 @@ def doc_reference():
                 "Information about remote record in context of reference."),
             ('id', 'str', '0.1',
                 "Identifier of remote resource, if known."),
+            ('institute', 'str', '0.1',
+                "Canonical institute name of referenced document."),
             ('relationship', 'str', '0.1',
                 "Predicate - relationship of the object target as seen from the subject resource."),
             ('type', 'str', '1.1',

@@ -189,6 +189,7 @@ Earth System Models" (Balaji et. al.)
             ('subcomponent_performance', 'platform.component_performance', '0.N',
                 "Describes the performance of each subcomponent."),
 
+            # Mark as a document.
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Document metadata."),
         ]
