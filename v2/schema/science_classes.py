@@ -238,9 +238,9 @@ def resolution():
                 "Total number of horizontal points (or degrees of freedom) on computational grid."),
             ('number_of_vertical_levels', 'int', '0.1',
                 "Number of vertical levels resolved on computational grid.")
-        ]
+        ],
         'constraints': [
-            ('cardinality', 'implementation_overview', '0.0')
+            ('cardinality', 'implementation_overview', '0.0'),
     }
 
 
