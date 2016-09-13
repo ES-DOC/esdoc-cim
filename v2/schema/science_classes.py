@@ -16,10 +16,15 @@ def conservation_properties():
         'base': 'science.sub_process',
         'is_abstract': False,
         'properties': [
+            ('description', 'str', '1.1',
+                "Brief description of conservation methodology"),
             ('corrected_conserved_prognostic_variables', 'data.variable_collection', '0.1',
                 "Set of variables which are conserved by *more* than the numerical scheme alone."),
             ('flux_correction_was_used', 'bool', '0.1',
                 "Flag to indicate if correction involved flux correction.")
+        ],
+        'constraints': [
+            ('cardinality', 'implementation_overview', '0.0'),
         ]
     }
 
@@ -75,6 +80,9 @@ def extent():
                 "True if horizontal coverage is global."),
             ('region_known_as', 'str', '0.N',
                 "Identifier(s) for the region covered by the extent.")
+        ],
+        'constraints': [
+            ('cardinality', 'implementation_overview', '0.0'),
         ]
     }
 
@@ -359,5 +367,8 @@ def tuning():
                 "Which regional metrics of mean state (e.g Monsoons, tropical means etc) have been used in tuning."),
             ('trend_metrics_used', 'data.variable_collection', '0.1',
                 "Which observed trend metrics have been used in tuning model parameters.")
+        ],
+        'constraints': [
+            ('cardinality', 'implementation_overview', '0.0'),
         ]
     }
