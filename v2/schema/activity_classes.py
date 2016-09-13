@@ -81,8 +81,10 @@ def conformance():
         'properties': [
             ('conformance_achieved', 'activity.conformance_type', '1.1',
                 "Summary of conformance status."),
-            ('target_requirement', 'linked_to(designing.numerical_requirement)', '1.1',
-                "URI of the target numerical requirement.")
+            ('target_requirement', 'designing.numerical_requirement', '1.1',
+                "URI of the target numerical requirement."),
+            ('models', 'science.model', '1.N',
+                 'The models to which this conformance applies.'),
         ],
         'constraints': [
             ('cardinality', 'rationale', '0.0'),
