@@ -50,7 +50,9 @@ def dataset():
             ('produced_by', 'linked_to(data.simulation)', '0.1',
                 "Makes a link back to originating activity."),
             ('related_to_dataset', 'shared.online_resource', '0.N',
-                "Related dataset.")
+                "Related dataset."),
+            ('modifications_applied', 'str', '0.1',
+                "Describe any modifications applied to the dataset prior to use. E.g. spatial interpolation, temporal averageing, etc."),
         ]
     }
 
