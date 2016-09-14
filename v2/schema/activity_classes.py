@@ -81,6 +81,8 @@ def conformance():
         'properties': [
             ('conformance_achieved', 'activity.conformance_type', '1.1',
                 "Summary of conformance status."),
+            ('datasets', 'data.dataset', '0.N',
+                "The datasets (including any modifications made to them) used for conforming to the target requirement."),
             ('target_requirement', 'designing.numerical_requirement', '1.1',
                 "URI of the target numerical requirement."),
             ('models', 'science.model', '1.N',
