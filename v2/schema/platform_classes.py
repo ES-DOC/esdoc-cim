@@ -139,7 +139,8 @@ def performance():
 a particular system/machine.
 
 Based on "CPMIP: Measurements of Real Computational Performance of
-Earth System Models" (Balaji et. al.)
+Earth System Models" (Balaji et. al. 2016, doi:10.5194/gmd-2016-197,
+http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
 
     """
     return {

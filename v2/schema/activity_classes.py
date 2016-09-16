@@ -81,8 +81,12 @@ def conformance():
         'properties': [
             ('conformance_achieved', 'activity.conformance_type', '1.1',
                 "Summary of conformance status."),
-            ('target_requirement', 'linked_to(designing.numerical_requirement)', '1.1',
-                "URI of the target numerical requirement.")
+            ('datasets', 'data.input_dataset', '0.N',
+                "The datasets (including any modifications made to them) used for conforming to the target requirement."),
+            ('target_requirement', 'designing.numerical_requirement', '1.1',
+                "URI of the target numerical requirement."),
+            ('models', 'science.model', '1.N',
+                 'The models to which this conformance applies.'),
         ],
         'constraints': [
             ('cardinality', 'rationale', '0.0'),
@@ -122,8 +126,10 @@ def ensemble():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
-            ('common_conformances', 'linked_to(activity.conformance)', '0.N',
+            ('common_conformances', 'activity.conformance', '0.N',
                 "Conformance documents for requirements common across ensemble."),
+            ('common_performance', 'platform.performance', '0.1',
+                "Representative model performance across ensemble."),
             ('documentation', 'linked_to(shared.online_resource)', '0.N',
                 "Links to web-pages and other ensemble specific documentation (including workflow descriptions)."),
             ('has_ensemble_axes', 'activity.ensemble_axis', '0.N',
@@ -132,7 +138,7 @@ def ensemble():
                 "The set of ensemble members."),
             ('part_of', 'activity.uber_ensemble', '0.N',
                 "Link to one or more over-arching ensembles that might includes this one."),
-            ('supported', 'linked_to(designing.numerical_experiment)', '1.N',
+            ('supported', 'designing.numerical_experiment', '1.N',
                 "Experiments with which the ensemble is associated (may differ from constituent simulations).")
         ],
         'constraints': [

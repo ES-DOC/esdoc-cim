@@ -50,7 +50,25 @@ def dataset():
             ('produced_by', 'linked_to(data.simulation)', '0.1',
                 "Makes a link back to originating activity."),
             ('related_to_dataset', 'shared.online_resource', '0.N',
-                "Related dataset.")
+                "Related dataset."),
+        ]
+    }
+
+def input_dataset():
+    """An input dataset is used as within another component (such as a
+model). It comprises an original, source dataset plus any
+modifications requirted to use it in the relevant component.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
+            ('original_data', 'data.dataset', '1.1',
+                'The source dataset, prior to any modifications'),
+            ('modifications_applied', 'str', '1.1',
+                'Describe modifications (if any) applied to the dataset prior to use. E.g. spatial interpolation, temporal averaging, etc.'),
         ]
     }
 
