@@ -278,6 +278,20 @@ def property():
     }
 
 
+def relationship():
+    """A record of a relationship between one document and another. This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document\'s genealogy.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': True,
+        'properties': [
+            ('description', 'str', '0.1')
+        ]
+    }
+
+
 def responsible_party():
     """A person/organsiation responsible for some aspect of a climate science artefact.
 
