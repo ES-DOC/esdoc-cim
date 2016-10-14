@@ -45,7 +45,7 @@ def dataset():
                 "Metadata describing the creation of this dataset description document."),
             ('name', 'str', '1.1',
                 "Name of dataset."),
-            ('parties', 'linked_to(shared.responsibility)', '0.N',
+            ('responsible_parties', 'linked_to(shared.responsibility)', '0.N',
                 "Individuals and organisations reponsible for the data."),
             ('produced_by', 'linked_to(data.simulation)', '0.1',
                 "Makes a link back to originating activity."),
