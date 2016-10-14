@@ -184,9 +184,9 @@ def model():
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Metadata about how the model description was constructed."),
             ('model_key_properties', 'science.key_properties', '0.1',
-                "Model default key properties (may be over-ridden in domain properties)."),
+                "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
             ('simulates', 'linked_to(science.scientific_realm)', '0.N',
-                "The scientific domains which this model simulates.")
+                "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler.")
         ]
     }
 
