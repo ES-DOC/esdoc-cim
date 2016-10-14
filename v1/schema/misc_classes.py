@@ -21,8 +21,8 @@ def document_set():
         'type' : 'class',
         'base' : None,
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('data', 'data.data_object', '0.N'),
             ('ensembles', 'activity.ensemble', '0.N'),
             ('experiment', 'activity.numerical_experiment', '0.1'),

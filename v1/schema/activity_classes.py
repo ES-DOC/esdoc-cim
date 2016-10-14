@@ -93,8 +93,8 @@ def downscaling_simulation():
         'type': 'class',
         'base': 'activity.numerical_activity',
         'is_abstract': True,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('calendar', 'shared.calendar', '1.1'),
             ('inputs', 'software.coupling', '0.N'),
             ('outputs', 'data.data_object', '0.N'),
@@ -134,8 +134,8 @@ def ensemble():
         'type': 'class',
         'base': 'activity.numerical_activity',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('members', 'activity.ensemble_member', '1.N'),
             ('types', 'activity.ensemble_type', '1.N'),
             ('outputs', 'shared.data_source', '0.N')
@@ -292,8 +292,8 @@ def numerical_experiment():
         'type': 'class',
         'base': 'activity.experiment',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('description', 'str', '0.1'),
             ('experiment_id', 'str', '0.1'),
             ('long_name', 'str', '0.1'),
@@ -538,8 +538,8 @@ def simulation_composite():
         'type': 'class',
         'base': 'activity.simulation',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('child', 'activity.simulation', '0.N'),
             ('date_range', 'shared.date_range', '1.1'),
             ('rank', 'int', '1.1'),
@@ -596,8 +596,8 @@ def simulation_run():
         'type': 'class',
         'base': 'activity.simulation',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('date_range', 'shared.date_range', '1.1'),
             ('model', 'software.model_component', '0.1')
         ],

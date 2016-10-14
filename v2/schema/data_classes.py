@@ -32,6 +32,7 @@ def dataset():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('availability', 'shared.online_resource', '0.N',
                 "Where the data is located, and how it is accessed."),
@@ -41,8 +42,6 @@ def dataset():
                 "Textural description of dataset."),
             ('drs_datasets', 'drs.drs_publication_dataset', '0.N',
                 "Data available in the DRS."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata describing the creation of this dataset description document."),
             ('name', 'str', '1.1',
                 "Name of dataset."),
             ('responsible_parties', 'linked_to(shared.responsibility)', '0.N',

@@ -15,6 +15,7 @@ def activity():
         'type': 'class',
         'base': None,
         'is_abstract': True,
+        'is_document': True,
         'properties': [
             ('alternative_names', 'str', '0.N',
                 "List of names by which the activity is also known."),
@@ -32,8 +33,6 @@ def activity():
                 "Comma separated user defined keywords."),
             ('long_name', 'str', '0.1',
                 "Longer version of activity name."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata describing how this document was created."),
             ('name', 'str', '1.1',
                 "Short name or abbreviation."),
             ('responsible_parties', 'linked_to(shared.responsibility)', '0.N',

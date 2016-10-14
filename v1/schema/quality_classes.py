@@ -79,8 +79,8 @@ def cim_quality():
         'type' : 'class',
         'base' : None,
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('reports', 'quality.report', '0.N'),
         ],
         'decodings' : [

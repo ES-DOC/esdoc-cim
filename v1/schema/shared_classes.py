@@ -240,8 +240,8 @@ def platform():
         'name': 'platform',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('contacts', 'shared.responsible_party', '0.N'),
             ('description', 'str', '0.1'),
             ('long_name', 'str', '0.1'),

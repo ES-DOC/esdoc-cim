@@ -97,6 +97,7 @@ def grid():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
@@ -106,8 +107,6 @@ def grid():
                 "Specific grid properties."),
             ('discretisation', 'science.discretisation', '0.1',
                 "Description of the numerics of the discretisation."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about how the model description was constructed."),
             ('name', 'str', '1.1',
                 "This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts.")
         ]
@@ -170,6 +169,7 @@ def model():
         'type': 'class',
         'base': 'software.component_base',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('category', 'science.model_types', '1.1',
                 "Generic type for this model."),
@@ -181,8 +181,6 @@ def model():
                 "Vocabulary identifier, where this model description was constructed via a controlled vocabulary."),
             ('internal_software_components', 'software.software_component', '0.N',
                 "Software modules which together provide the functionality for this model."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about how the model description was constructed."),
             ('model_key_properties', 'science.key_properties', '0.1',
                 "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
             ('simulates', 'linked_to(science.scientific_realm)', '0.N',
@@ -284,6 +282,7 @@ def scientific_realm():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
@@ -293,8 +292,6 @@ def scientific_realm():
                 "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
             ('key_properties', 'science.key_properties', '0.1',
                 "Key properties for the domain which differ from model defaults (grid, timestep etc)."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata describing the construction of this domain description."),
             ('name', 'str', '1.1',
                 "Name of the scientific domain (e.g. ocean)."),
             ('overview', 'str', '0.1',

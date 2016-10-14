@@ -95,9 +95,9 @@ def machine():
         'type': 'class',
         'base': 'platform.partition',
         'is_abstract': False,
+        'is_document': True,
         'properties': [
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Document description.")
+
         ]
     }
 
@@ -148,6 +148,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
         'base': None,
         'is_abstract': False,
         'pstr': ('{} (sypd:{})', ('name', 'sypd')),
+        'is_document': True,
         'properties': [
             ('name', 'str', '0.1',
                 "Name for performance (experiment/test/whatever)."),
@@ -188,11 +189,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
 
             # Subcomponent performance
             ('subcomponent_performance', 'platform.component_performance', '0.N',
-                "Describes the performance of each subcomponent."),
-
-            # Mark as a document.
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Document metadata."),
+                "Describes the performance of each subcomponent.")
         ]
     }
 

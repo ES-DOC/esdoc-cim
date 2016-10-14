@@ -178,8 +178,8 @@ def data_object():
         'type' : 'class',
         'base' : 'shared.data_source',
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('acronym', 'str', '0.1'),
             ('child_object', 'data.data_object', '0.N'),
             ('citations', 'shared.citation', '0.N'),

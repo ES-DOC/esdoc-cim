@@ -358,8 +358,8 @@ def model_component():
         'type' : 'class',
         'base' : 'software.component',
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('type', 'software.model_component_type', '0.1'),
             ('types', 'software.model_component_type', '1.N'),
             ('timing', 'software.timing', '0.1'),
@@ -406,8 +406,9 @@ def processor_component():
         'type' : 'class',
         'base' : 'software.component',
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
+
         ],
         'decodings' : [
             ('meta', 'self::cim:modelComponent'),
@@ -564,8 +565,8 @@ def statistical_model_component():
         'type' : 'class',
         'base' : 'software.component',
         'is_abstract' : False,
+        'is_document': True,
         'properties' : [
-            ('meta', 'shared.doc_meta_info', '1.1'),
             ('type', 'software.statistical_model_component_type', '0.1'),
             ('types', 'software.statistical_model_component_type', '1.N'),
             ('timing', 'software.timing', '0.1'),

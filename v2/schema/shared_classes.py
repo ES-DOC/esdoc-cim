@@ -34,6 +34,7 @@ def citation():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('abstract', 'str', '0.1',
                 "Abstract providing high level reference overview."),
@@ -45,8 +46,6 @@ def citation():
                 "Brief text description of why this resource is being cited."),
             ('doi', 'str', '0.1',
                 "Digital Object Identifier, if it exists."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about the creation of this document description."),
             ('title', 'str', '0.1',
                 "Citation short title."),
             ('type', 'str', '0.1',
@@ -248,13 +247,12 @@ def party():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('address', 'str', '0.1',
                 "Institutional address."),
             ('email', 'str', '0.1',
                 "Email address."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Provides a unique identifier for the party."),
             ('name', 'str', '0.1',
                 "Name of person or organisation."),
             ('orcid_id', 'str', '0.1',
@@ -275,11 +273,10 @@ def quality_review():
         'type': 'class',
         'base': None,
         'is_abstract': False,
+        'is_document': True,
         'properties': [
             ('date', 'str', '1.1',
                 "Date upon which review was made."),
-            ('meta', 'shared.doc_meta_info', '1.1',
-                "Metadata about the creation of this document description."),
             ('metadata_reviewer', 'linked_to(shared.party)', '1.1',
                 "Party who made the metadata quality assessment."),
             ('quality_description', 'str', '1.1',
@@ -390,13 +387,13 @@ def text_code():
 #         'type': 'class',
 #         'base': None,
 #         'is_abstract': False,
+#         'is_document': True,
 #         'pstr': ('%s', ('name', )),
 #         'properties': [
 #             ('title', 'str', '1.1', 'Title or name of the document'),
 #             ('name', 'str', '1.1', 'A name for the citation: short hand description, e.g. Meehl et al (2014)'),
 #             ('citation_detail', 'str', '0.1', 'Complete citation string as would appear in a bibliography.'),
 #             ('online_at', 'shared.online_resource', '0.1', 'Location of electronic version'),
-#             ('doi', 'str', '0.1', 'Digital Object Identifier, if it exists.'),
-#             ('meta', 'shared.meta', '1.1', 'Metadata about the creation of this document description')
+#             ('doi', 'str', '0.1', 'Digital Object Identifier, if it exists.')
 #         ]
 #     }
