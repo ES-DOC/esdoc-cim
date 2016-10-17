@@ -18,6 +18,7 @@ def model_types():
             ("Atm Only", "Atmosphere Only"),
             ("Ocean Only", "Ocean Only"),
             ("Regional", "Regional Model"),
+            ("ESM", "Earth System Model (Atmosphere, Ocean, Land, Sea-ice and cycles)"),
             ("GCM", "Global Climate Model (Atmosphere, Ocean, no carbon cycle)"),
             ("IGCM", "Intermediate Complexity GCM"),
             ("GCM-MLO", "GCM with mixed layer ocean"),
