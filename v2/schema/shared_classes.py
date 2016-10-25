@@ -7,7 +7,7 @@
 """
 
 
-def cimtext():
+def text_blob():
     """Provides a text class which supports plaintext, html, and
     friends (or will do).
 
@@ -20,8 +20,8 @@ def cimtext():
         'properties': [
             ('content', 'str', '1.1',
                 "Raw content (including markup)."),
-            ('content_type', 'shared.text_code', '1.1',
-                "Type of content.")
+            ('encoding', 'shared.text_blob_encoding', '1.1',
+                "Content encoding.")
         ]
     }
 
@@ -237,7 +237,7 @@ def role_code():
     }
 
 
-def text_code():
+def text_blob_encoding():
     """Types of text understood by the CIM notebook. Currently only
     plaintext, but we expect safe HTML to be supported as soon as practicable.
 
@@ -246,7 +246,7 @@ def text_code():
         'type': 'enum',
         'is_open': False,
         'members': [
-            ("plaintext", "Normal plain text")
+            ("ascii", "Normal plain text")
         ]
     }
 
@@ -259,7 +259,7 @@ def text_code():
 #         'is_abstract': False,
 #         'properties': [
 #             ('document', 'shared.citation_target', '1.1', 'Reference Target'),
-#             ('context', 'shared.cimtext', '0.1', 'Brief text description of why this resource is being cited'),
+#             ('context', 'shared.text_blob', '0.1', 'Brief text description of why this resource is being cited'),
 #         ],
 #     }
 
