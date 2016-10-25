@@ -53,7 +53,7 @@ def conformance():
             ('description', 'str', '0.1'),
             ('frequency', 'activity.frequency_type', '0.1'),
             ('is_conformant', 'bool', '1.1'),
-            ('requirements', 'activity.numerical_requirement', '0.N'),
+            ('requirements', 'activity.numerical_requirement', '1.N'),
             ('sources', 'shared.data_source', '0.N'),
             ('type', 'activity.conformance_type', '0.1'),
         ],
