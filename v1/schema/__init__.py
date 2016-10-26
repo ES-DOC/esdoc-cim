@@ -21,6 +21,7 @@ from esdoc_mp.ontologies.schemas.cim.v1 import misc_classes
 from esdoc_mp.ontologies.schemas.cim.v1 import quality_classes
 from esdoc_mp.ontologies.schemas.cim.v1 import quality_enums
 from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes
+from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes_doc
 from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes_time
 from esdoc_mp.ontologies.schemas.cim.v1 import shared_enums
 from esdoc_mp.ontologies.schemas.cim.v1 import software_classes
@@ -94,6 +95,7 @@ def shared():
     """
     return {
         shared_classes,
+        shared_classes_doc,
         shared_classes_time,
         shared_enums
     }
