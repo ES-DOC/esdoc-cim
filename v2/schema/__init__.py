@@ -1,5 +1,5 @@
 """
-.. module:: esdoc_mp.ontologies.schemas.cim.v2.__init__.py
+.. module:: cim.v2.__init__.py
    :license: GPL/CeCIL
    :platform: Unix, Windows
    :synopsis: CIM v2 ontology schema.
@@ -8,18 +8,18 @@
 
 
 """
-from esdoc_mp.ontologies.schemas.cim.v2 import activity_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import data_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import designing_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import drs_entities
-from esdoc_mp.ontologies.schemas.cim.v2 import platform_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import science_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import science_enums
-from esdoc_mp.ontologies.schemas.cim.v2 import shared_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import shared_classes_doc
-from esdoc_mp.ontologies.schemas.cim.v2 import software_classes
-from esdoc_mp.ontologies.schemas.cim.v2 import software_enums
-from esdoc_mp.ontologies.schemas.cim.v2 import time as time_classes
+from . import activity_classes
+from . import data_classes
+from . import designing_classes
+from . import drs_entities
+from . import platform_classes
+from . import science_classes
+from . import science_enums
+from . import shared_classes
+from . import shared_classes_doc
+from . import software_classes
+from . import software_enums
+from . import time as time_classes
 
 
 

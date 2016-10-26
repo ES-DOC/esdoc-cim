@@ -1,31 +1,31 @@
 # -*- coding: utf-8 -*-
 
 """
-.. module:: esdoc_mp.ontologies.schemas.cim.v1.__init__.py
+.. module:: cim.v1.__init__.py
    :license: GPL/CeCIL
    :platform: Unix, Windows
-   :synopsis: Sub-package initializer.
+   :synopsis: CIM v1 ontology schema.
 
 .. moduleauthor:: Mark Conway-Greenslade <momipsl@ipsl.jussieu.fr>
 
 
 """
 
-from esdoc_mp.ontologies.schemas.cim.v1 import activity_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import activity_enums
-from esdoc_mp.ontologies.schemas.cim.v1 import data_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import data_enums
-from esdoc_mp.ontologies.schemas.cim.v1 import grids_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import grids_enums
-from esdoc_mp.ontologies.schemas.cim.v1 import misc_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import quality_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import quality_enums
-from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes_doc
-from esdoc_mp.ontologies.schemas.cim.v1 import shared_classes_time
-from esdoc_mp.ontologies.schemas.cim.v1 import shared_enums
-from esdoc_mp.ontologies.schemas.cim.v1 import software_classes
-from esdoc_mp.ontologies.schemas.cim.v1 import software_enums
+from . import activity_classes
+from . import activity_enums
+from . import data_classes
+from . import data_enums
+from . import grids_classes
+from . import grids_enums
+from . import misc_classes
+from . import quality_classes
+from . import quality_enums
+from . import shared_classes
+from . import shared_classes_doc
+from . import shared_classes_time
+from . import shared_enums
+from . import software_classes
+from . import software_enums
 
 
 # Ontology name.
