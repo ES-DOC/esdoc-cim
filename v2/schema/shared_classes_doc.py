@@ -1,4 +1,10 @@
+# -*- coding: utf-8 -*-
 
+"""
+.. module:: shared_classes_doc.py
+   :synopsis: Set of CIM v2 ontology type definitions.
+
+"""
 
 def doc_meta_info():
     """Encapsulates document meta information used by es-doc machinery. Will not normally be
