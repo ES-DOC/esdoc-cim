@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-10-25-1352 -->
+  <!-- created by esdoc-mp at 2016-10-27-2115 -->
   <name>cim</name>
   <version>1</version>
   <classes>
@@ -97,7 +97,7 @@
         <attribute package="activity">
           <name>requirements</name>
           <description>Points to the NumericalRequirement that the simulation in question is conforming to.</description>
-          <cardinality min="0" max="N"/>
+          <cardinality min="1" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>numerical_requirement</target>
@@ -820,7 +820,7 @@
         <attribute package="activity">
           <name>requirements</name>
           <description>Points to the NumericalRequirement that the simulation in question is conforming to.</description>
-          <cardinality min="0" max="N"/>
+          <cardinality min="1" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>numerical_requirement</target>
@@ -3352,6 +3352,15 @@
       <name>doc_reference</name>
       <description>A reference to another cim entity.</description>
       <attributes>
+        <attribute package="shared">
+          <name>changes</name>
+          <description>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <target>change</target>
+          </relationship>
+        </attribute>
         <attribute package="shared">
           <name>constraint_vocabulary</name>
           <description>A constraint vocabulary for the relationship.</description>

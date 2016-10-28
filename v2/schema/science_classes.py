@@ -183,7 +183,7 @@ def model():
                 "Software modules which together provide the functionality for this model."),
             ('model_key_properties', 'science.key_properties', '0.1',
                 "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
-            ('simulates', 'linked_to(science.scientific_realm)', '0.N',
+            ('realms', 'linked_to(science.scientific_realm)', '0.N',
                 "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler.")
         ]
     }
@@ -298,7 +298,7 @@ def scientific_realm():
                 "Free text overview description of key properties of domain."),
             ('realm', 'str', '0.1',
                 "Canonical name for the domain of this scientific area."),
-            ('simulates', 'science.process', '1.N',
+            ('processes', 'science.process', '1.N',
                 "Processes simulated within the domain.")
         ]
     }
