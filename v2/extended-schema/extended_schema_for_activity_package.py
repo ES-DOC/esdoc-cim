@@ -15,7 +15,7 @@
 
 
 def activity():
-	"""Base class for activities.
+    """Base class for activities.
 
 	"""
     return {
@@ -74,7 +74,7 @@ def activity():
 
 
 def axis_member():
-	"""Description of a given ensemble member. It will normally be related to a specific
+    """Description of a given ensemble member. It will normally be related to a specific
     ensemble requirement. Note that start dates can be extracted directly from the simulations
     and do not need to be recorded with an axis member description.
 
@@ -98,7 +98,7 @@ def axis_member():
 
 
 def conformance():
-	"""A specific conformance. Describes how a particular numerical requirement has been implemented.
+    """A specific conformance. Describes how a particular numerical requirement has been implemented.
     Will normally be linked from an ensemble descriptor.
 
 	"""
@@ -159,7 +159,7 @@ def conformance():
 
 
 def ensemble():
-	"""Generic ensemble definition.
+    """Generic ensemble definition.
     Holds the definition of how the various ensemble members have been configured.
     If ensemble axes are not present, then this is either a single member ensemble,
     or part of an uber ensemble.
@@ -234,7 +234,7 @@ def ensemble():
 
 
 def ensemble_axis():
-	"""Defines the meaning of r/i/p indices in an ensemble.
+    """Defines the meaning of r/i/p indices in an ensemble.
 
 	"""
     return {
@@ -256,7 +256,7 @@ def ensemble_axis():
 
 
 def ensemble_member():
-	"""An ensemble may be a complicated interplay of axes, for example, r/i/p, not all of which
+    """An ensemble may be a complicated interplay of axes, for example, r/i/p, not all of which
     are populated, so we need a list of the actual simulations and how they map onto the ensemble
     axes.
 
@@ -280,7 +280,7 @@ def ensemble_member():
 
 
 def parent_simulation():
-	"""Defines the relationship between a simulation and its parent.
+    """Defines the relationship between a simulation and its parent.
 
 	"""
     return {
@@ -302,7 +302,7 @@ def parent_simulation():
 
 
 def uber_ensemble():
-	"""An ensemble made up of other ensembles. Often used where parts of an ensemble were run by
+    """An ensemble made up of other ensembles. Often used where parts of an ensemble were run by
     different institutes. Could also be used when a new experiment is designed which can use
     ensemble members from previous experiments and/or projects.
 

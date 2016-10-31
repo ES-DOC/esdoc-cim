@@ -15,7 +15,7 @@
 
 
 def cim_quality():
-	"""The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.
+    """The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.
 
 	"""
     return {
@@ -33,7 +33,7 @@ def cim_quality():
 
 
 def evaluation():
-	"""Creates and returns instance of evaluation class.
+    """Creates and returns instance of evaluation class.
 
 	"""
     return {
@@ -65,7 +65,7 @@ def evaluation():
 
 
 def measure():
-	"""Creates and returns instance of measure class.
+    """Creates and returns instance of measure class.
 
 	"""
     return {
@@ -85,7 +85,7 @@ def measure():
 
 
 def report():
-	"""Creates and returns instance of report class.
+    """Creates and returns instance of report class.
 
 	"""
     return {

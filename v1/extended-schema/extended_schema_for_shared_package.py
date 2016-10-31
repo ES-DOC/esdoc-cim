@@ -15,7 +15,7 @@
 
 
 def calendar():
-	"""Describes a method of calculating a span of dates.
+    """Describes a method of calculating a span of dates.
 
 	"""
     return {
@@ -40,7 +40,7 @@ def calendar():
 
 
 def change():
-	"""A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata.
+    """A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata.
 
 	"""
     return {
@@ -66,7 +66,7 @@ def change():
 
 
 def change_property():
-	"""A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.
+    """A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.
 
 	"""
     return {
@@ -98,7 +98,7 @@ def change_property():
 
 
 def citation():
-	"""An academic reference to published work.
+    """An academic reference to published work.
 
 	"""
     return {
@@ -130,7 +130,7 @@ def citation():
 
 
 def closed_date_range():
-	"""A date range with specified start and end points.
+    """A date range with specified start and end points.
 
 	"""
     return {
@@ -160,7 +160,7 @@ def closed_date_range():
 
 
 def compiler():
-	"""A description of a compiler used on a particular platform.
+    """A description of a compiler used on a particular platform.
 
 	"""
     return {
@@ -186,7 +186,7 @@ def compiler():
 
 
 def daily_360():
-	"""Creates and returns instance of daily_360 class.
+    """Creates and returns instance of daily_360 class.
 
 	"""
     return {
@@ -214,7 +214,7 @@ def daily_360():
 
 
 def data_source():
-	"""A DataSource can be realised by either a DataObject (file), a DataContent (variable), a Component (model), or a ComponentProperty (variable); all of those can supply data.
+    """A DataSource can be realised by either a DataObject (file), a DataContent (variable), a Component (model), or a ComponentProperty (variable); all of those can supply data.
 
 	"""
     return {
@@ -239,7 +239,7 @@ def data_source():
 
 
 def date_range():
-	"""Creates and returns instance of date_range class.
+    """Creates and returns instance of date_range class.
 
 	"""
     return {
@@ -259,7 +259,7 @@ def date_range():
 
 
 def doc_meta_info():
-	"""Encapsulates document meta information used by es-doc machinery. Will not normally be
+    """Encapsulates document meta information used by es-doc machinery. Will not normally be
     populated by humans. May duplicate information held in 'visible' metadata.
 
 	"""
@@ -308,7 +308,7 @@ def doc_meta_info():
 
 
 def doc_reference():
-	"""A reference to another cim entity.
+    """A reference to another cim entity.
 
 	"""
     return {
@@ -350,7 +350,7 @@ def doc_reference():
 
 
 def license():
-	"""A description of a license restricting access to a unit of data or software.
+    """A description of a license restricting access to a unit of data or software.
 
 	"""
     return {
@@ -372,7 +372,7 @@ def license():
 
 
 def machine():
-	"""A description of a machine used by a particular platform.
+    """A description of a machine used by a particular platform.
 
 	"""
     return {
@@ -410,7 +410,7 @@ def machine():
 
 
 def machine_compiler_unit():
-	"""Associates a machine with a [set of] compilers.  This is a separate class in case a platform needs to specify more than one machine/compiler pair.
+    """Associates a machine with a [set of] compilers.  This is a separate class in case a platform needs to specify more than one machine/compiler pair.
 
 	"""
     return {
@@ -428,7 +428,7 @@ def machine_compiler_unit():
 
 
 def open_date_range():
-	"""A date range without a specified start and/or end point.
+    """A date range without a specified start and/or end point.
 
 	"""
     return {
@@ -458,7 +458,7 @@ def open_date_range():
 
 
 def perpetual_period():
-	"""Creates and returns instance of perpetual_period class.
+    """Creates and returns instance of perpetual_period class.
 
 	"""
     return {
@@ -486,7 +486,7 @@ def perpetual_period():
 
 
 def platform():
-	"""A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform.
+    """A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform.
 
 	"""
     return {
@@ -512,7 +512,7 @@ def platform():
 
 
 def property():
-	"""A simple name/value pair representing a property of some entity or other.
+    """A simple name/value pair representing a property of some entity or other.
 
 	"""
     return {
@@ -539,7 +539,7 @@ def property():
 
 
 def real_calendar():
-	"""Creates and returns instance of real_calendar class.
+    """Creates and returns instance of real_calendar class.
 
 	"""
     return {
@@ -567,7 +567,7 @@ def real_calendar():
 
 
 def relationship():
-	"""A record of a relationship between one document and another. This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.
+    """A record of a relationship between one document and another. This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.
 
 	"""
     return {
@@ -587,7 +587,7 @@ def relationship():
 
 
 def responsible_party():
-	"""A person/organsiation responsible for some aspect of a climate science artefact.
+    """A person/organsiation responsible for some aspect of a climate science artefact.
 
 	"""
     return {
@@ -615,7 +615,7 @@ def responsible_party():
 
 
 def standard():
-	"""Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be CF and the name might be atmospheric_pressure.
+    """Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be CF and the name might be atmospheric_pressure.
 
 	"""
     return {
@@ -635,7 +635,7 @@ def standard():
 
 
 def standard_name():
-	"""Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be CF and the name might be atmospheric_pressure.
+    """Describes a name given to an entity from a recognised standard.  The CIM records the standard and the name.  For example, the standard might be CF and the name might be atmospheric_pressure.
 
 	"""
     return {

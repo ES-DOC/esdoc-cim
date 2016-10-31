@@ -15,7 +15,7 @@
 
 
 def document_set():
-	"""Represents a bundled set of documents.
+    """Represents a bundled set of documents.
 
 	"""
     return {

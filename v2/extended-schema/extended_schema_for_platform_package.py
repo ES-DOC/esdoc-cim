@@ -15,7 +15,7 @@
 
 
 def component_performance():
-	"""Describes the simulation rate of a component in seconds per model
+    """Describes the simulation rate of a component in seconds per model
 day.
 
 Based on "CPMIP: Measurements of Real Computational Performance of
@@ -45,7 +45,7 @@ Earth System Models" (Balaji et. al.)
 
 
 def compute_pool():
-	"""Homogeneous pool of nodes within a computing machine.
+    """Homogeneous pool of nodes within a computing machine.
 
 	"""
     return {
@@ -85,7 +85,7 @@ def compute_pool():
 
 
 def machine():
-	"""A computer/system/platform/machine which is used for simulation.
+    """A computer/system/platform/machine which is used for simulation.
 
 	"""
     return {
@@ -130,7 +130,7 @@ def machine():
 
 
 def partition():
-	"""A major partition (component) of a computing system (aka machine).
+    """A major partition (component) of a computing system (aka machine).
 
 	"""
     return {
@@ -167,7 +167,7 @@ def partition():
 
 
 def performance():
-	"""Describes the properties of a performance of a configured model on
+    """Describes the properties of a performance of a configured model on
 a particular system/machine.
 
 Based on "CPMIP: Measurements of Real Computational Performance of
@@ -220,7 +220,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
 
 
 def storage_pool():
-	"""Homogeneous storage pool on a computing machine.
+    """Homogeneous storage pool on a computing machine.
 
 	"""
     return {
@@ -242,7 +242,7 @@ def storage_pool():
 
 
 def storage_volume():
-	"""Platform storage volume and units.
+    """Platform storage volume and units.
 
 	"""
     return {

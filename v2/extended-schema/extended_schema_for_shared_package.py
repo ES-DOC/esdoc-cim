@@ -15,7 +15,7 @@
 
 
 def citation():
-	"""An academic reference to published work.
+    """An academic reference to published work.
 
 	"""
     return {
@@ -47,7 +47,7 @@ def citation():
 
 
 def doc_meta_info():
-	"""Encapsulates document meta information used by es-doc machinery. Will not normally be
+    """Encapsulates document meta information used by es-doc machinery. Will not normally be
     populated by humans. May duplicate information held in 'visible' metadata.
 
 	"""
@@ -96,7 +96,7 @@ def doc_meta_info():
 
 
 def doc_reference():
-	"""A reference to another cim entity.
+    """A reference to another cim entity.
 
 	"""
     return {
@@ -136,7 +136,7 @@ def doc_reference():
 
 
 def extra_attribute():
-	"""An extra attribute with key and value needed to encode further information
+    """An extra attribute with key and value needed to encode further information
     not in the CIM2 domain model or specialisation. Typical use case: in parsing
     data and encoding attributes found in data.
 
@@ -160,7 +160,7 @@ def extra_attribute():
 
 
 def online_resource():
-	"""A minimal approximation of ISO19115 CI_ONLINERESOURCE, provides a link and details
+    """A minimal approximation of ISO19115 CI_ONLINERESOURCE, provides a link and details
     of how to use that link.
 
 	"""
@@ -183,7 +183,7 @@ def online_resource():
 
 
 def party():
-	"""Implements minimal material for an ISO19115-1 (2014) compliant party.
+    """Implements minimal material for an ISO19115-1 (2014) compliant party.
     For our purposes this is a much better animal than the previous responsibleParty 
     which munged roles together with people. Note we have collapsed CI_Contact,
     CI_Individual and CI_Organisation as well as the abstract CI_Party.
@@ -214,7 +214,7 @@ def party():
 
 
 def quality_review():
-	"""Assertions as to the completeness and quality of a document.
+    """Assertions as to the completeness and quality of a document.
 
 	"""
     return {
@@ -240,7 +240,7 @@ def quality_review():
 
 
 def responsibility():
-	"""Implements the ISO19115-1 (2014) CI_Responsibility (which replaces
+    """Implements the ISO19115-1 (2014) CI_Responsibility (which replaces
     responsibleParty). Combines a person and their role in doing something.
 
 	"""
@@ -261,7 +261,7 @@ def responsibility():
 
 
 def text_blob():
-	"""Provides a text class which supports plaintext, html, and
+    """Provides a text class which supports plaintext, html, and
     friends (or will do).
 
 	"""

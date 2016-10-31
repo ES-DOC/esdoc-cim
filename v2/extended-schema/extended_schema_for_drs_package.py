@@ -15,7 +15,7 @@
 
 
 def drs_atomic_dataset():
-	"""An entity in a DRS file system.
+    """An entity in a DRS file system.
 
 	"""
     return {
@@ -43,7 +43,7 @@ def drs_atomic_dataset():
 
 
 def drs_ensemble_identifier():
-	"""Identifies a 'response ensemble' realisation using the semantic content ofa 'run_variant_id'.
+    """Identifies a 'response ensemble' realisation using the semantic content ofa 'run_variant_id'.
 
 	"""
     return {
@@ -65,7 +65,7 @@ def drs_ensemble_identifier():
 
 
 def drs_experiment():
-	"""An encoding of a drs experiment_id.
+    """An encoding of a drs experiment_id.
 
 	"""
     return {
@@ -85,7 +85,7 @@ def drs_experiment():
 
 
 def drs_geographical_indicator():
-	"""Specifies geographical subsets described by bounding boxes or by named regions.
+    """Specifies geographical subsets described by bounding boxes or by named regions.
      One of spatial domain or bounding box must appear.
 
 	"""
@@ -106,7 +106,7 @@ def drs_geographical_indicator():
 
 
 def drs_publication_dataset():
-	"""PLACEHOLDER for the real drs_publication_dataset.
+    """PLACEHOLDER for the real drs_publication_dataset.
 
 	"""
     return {
@@ -120,7 +120,7 @@ def drs_publication_dataset():
 
 
 def drs_simulation_identifier():
-	"""That part of the DRS which identifies the response to the experiment: the simulation.
+    """That part of the DRS which identifies the response to the experiment: the simulation.
 
 	"""
     return {
@@ -140,7 +140,7 @@ def drs_simulation_identifier():
 
 
 def drs_temporal_identifier():
-	"""Provides information about temporal subsetting and/or averaging.
+    """Provides information about temporal subsetting and/or averaging.
     If only N1 is present, it a temporal instant,
     If N1-N2 are present with no suffix, it is a temporal subset,
     If N1-N2 with a suffix are present, then some sort of temporal averaging has been applied across

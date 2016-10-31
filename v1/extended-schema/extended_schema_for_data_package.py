@@ -15,7 +15,7 @@
 
 
 def data_content():
-	"""The contents of the data object; like ISO: MD_ContentInformation.
+    """The contents of the data object; like ISO: MD_ContentInformation.
 
 	"""
     return {
@@ -48,7 +48,7 @@ def data_content():
 
 
 def data_distribution():
-	"""Describes how a DataObject is distributed.
+    """Describes how a DataObject is distributed.
 
 	"""
     return {
@@ -70,7 +70,7 @@ def data_distribution():
 
 
 def data_extent():
-	"""A data object extent represents the geographical and temporal coverage associated with a data object.
+    """A data object extent represents the geographical and temporal coverage associated with a data object.
 
 	"""
     return {
@@ -88,7 +88,7 @@ def data_extent():
 
 
 def data_extent_geographical():
-	"""A data object geographical extent represents the geographical coverage associated with a data object.
+    """A data object geographical extent represents the geographical coverage associated with a data object.
 
 	"""
     return {
@@ -110,7 +110,7 @@ def data_extent_geographical():
 
 
 def data_extent_temporal():
-	"""A data object temporal extent represents the temporal coverage associated with a data object.
+    """A data object temporal extent represents the temporal coverage associated with a data object.
 
 	"""
     return {
@@ -130,7 +130,7 @@ def data_extent_temporal():
 
 
 def data_extent_time_interval():
-	"""A data object temporal extent represents the temporal coverage associated with a data object.
+    """A data object temporal extent represents the temporal coverage associated with a data object.
 
 	"""
     return {
@@ -150,7 +150,7 @@ def data_extent_time_interval():
 
 
 def data_hierarchy_level():
-	"""The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.
+    """The type of data object that is grouped together into a particular hierarchy.  Currently, this is made up of terms describing how the Met Office splits up archived data and how THREDDS categorises variables.
 
 	"""
     return {
@@ -170,7 +170,7 @@ def data_hierarchy_level():
 
 
 def data_object():
-	"""A DataObject describes a unit of data.  DataObjects can be grouped hierarchically.  The attributes hierarchyLevelName and hierarchyLevelValue describe how objects are grouped.
+    """A DataObject describes a unit of data.  DataObjects can be grouped hierarchically.  The attributes hierarchyLevelName and hierarchyLevelValue describe how objects are grouped.
 
 	"""
     return {
@@ -248,7 +248,7 @@ def data_object():
 
 
 def data_property():
-	"""A property of a DataObject. Currently this is intended to be used to record CF specific information (like packing, scaling, etc.) for OASIS4.
+    """A property of a DataObject. Currently this is intended to be used to record CF specific information (like packing, scaling, etc.) for OASIS4.
 
 	"""
     return {
@@ -277,7 +277,7 @@ def data_property():
 
 
 def data_restriction():
-	"""An access or use restriction on some element of the DataObject actual data.
+    """An access or use restriction on some element of the DataObject actual data.
 
 	"""
     return {
@@ -297,7 +297,7 @@ def data_restriction():
 
 
 def data_storage():
-	"""Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.
+    """Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.
 
 	"""
     return {
@@ -324,7 +324,7 @@ def data_storage():
 
 
 def data_storage_db():
-	"""Contains attributes to describe a DataObject stored as a database file.
+    """Contains attributes to describe a DataObject stored as a database file.
 
 	"""
     return {
@@ -366,7 +366,7 @@ def data_storage_db():
 
 
 def data_storage_file():
-	"""Contains attributes to describe a DataObject stored as a single file.
+    """Contains attributes to describe a DataObject stored as a single file.
 
 	"""
     return {
@@ -405,7 +405,7 @@ def data_storage_file():
 
 
 def data_storage_ip():
-	"""Contains attributes to describe a DataObject stored as a database file.
+    """Contains attributes to describe a DataObject stored as a database file.
 
 	"""
     return {
@@ -447,7 +447,7 @@ def data_storage_ip():
 
 
 def data_topic():
-	"""Describes the content of a data object: the variable name, units, etc.
+    """Describes the content of a data object: the variable name, units, etc.
 
 	"""
     return {

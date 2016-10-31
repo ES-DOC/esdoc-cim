@@ -15,7 +15,7 @@
 
 
 def calendar():
-	"""Describes the calendar required/used in an experiment/simulation.
+    """Describes the calendar required/used in an experiment/simulation.
     This class is based on the calendar attributes and properties found in the
     CF netCDF conventions.
 
@@ -39,7 +39,7 @@ def calendar():
 
 
 def date_time():
-	"""A date or time. Either in simulation time with the simulation
+    """A date or time. Either in simulation time with the simulation
     calendar, or with reference to a simulation start, in which
     case the datetime is an interval after the start date.
 
@@ -59,7 +59,7 @@ def date_time():
 
 
 def datetime_set():
-	"""A set of times. This is an abstract class which is specialised into
+    """A set of times. This is an abstract class which is specialised into
     a periodic or aperiodic (irregular) list.  Note that we assume either a
     periodic set of dates which can be date and/or time, or an irregular set
     which can only be dates.
@@ -82,7 +82,7 @@ def datetime_set():
 
 
 def irregular_dateset():
-	"""A set of irregularly spaced times, provided as a comma separated string of yyyy-mm-dd in
+    """A set of irregularly spaced times, provided as a comma separated string of yyyy-mm-dd in
      the appropriate calendar.
 
 	"""
@@ -110,7 +110,7 @@ def irregular_dateset():
 
 
 def regular_timeset():
-	"""A regularly spaced set of times.
+    """A regularly spaced set of times.
 
 	"""
     return {
@@ -143,7 +143,7 @@ def regular_timeset():
 
 
 def time_period():
-	"""A time period/interval (aka temporal extent).
+    """A time period/interval (aka temporal extent).
 
 	"""
     return {

@@ -15,7 +15,7 @@
 
 
 def conservation_properties():
-	"""Describes how prognostic variables are conserved.
+    """Describes how prognostic variables are conserved.
 
 	"""
     return {
@@ -59,7 +59,7 @@ def conservation_properties():
 
 
 def detail():
-	"""Provides details of specific properties of a process, sub-process,
+    """Provides details of specific properties of a process, sub-process,
     key properties, etc., there are two possible specialisations
     expected: (1) A detail_vocabulary is identified, and a cardinality
     is assigned to that for possible responses, or (2) Detail is used
@@ -94,7 +94,7 @@ def detail():
 
 
 def discretisation():
-	"""Collection of properties related to method of process discretisation.
+    """Collection of properties related to method of process discretisation.
 
 	"""
     return {
@@ -129,7 +129,7 @@ def discretisation():
 
 
 def extent():
-	"""Key scientific characteristics of the grid use to simulate a
+    """Key scientific characteristics of the grid use to simulate a
     specific domain.  Note that the extent does not itself describe a
     grid, so, for example, a polar stereographic grid may have an
     extent of northern boundary 90N, southern boundary 45N, but the
@@ -177,7 +177,7 @@ def extent():
 
 
 def grid():
-	"""This describes the numerical grid used for the calculations.  It
+    """This describes the numerical grid used for the calculations.  It
     is not necessarily the grid upon which the data is output.  It is
     NOT the resolution, which is a property of a specific domain.
 
@@ -205,7 +205,7 @@ def grid():
 
 
 def iso_extent():
-	"""Extent on a latitude-longitudinal grid - to aid traditional cartesian discovery.
+    """Extent on a latitude-longitudinal grid - to aid traditional cartesian discovery.
 
 	"""
     return {
@@ -257,7 +257,7 @@ def iso_extent():
 
 
 def key_properties():
-	"""High level list of key properties. It can be specialised in
+    """High level list of key properties. It can be specialised in
     extension packages using the detail extensions.
 
 	"""
@@ -312,7 +312,7 @@ def key_properties():
 
 
 def model():
-	"""A model component: can be executed standalone, and has as
+    """A model component: can be executed standalone, and has as
     scientific description available via a link to a science.domain
     document. (A configured model can be understood in terms of a
     simulation, a model, and a configuration.).
@@ -377,7 +377,7 @@ def model():
 
 
 def process():
-	"""Provides structure for description of a process simulated within a
+    """Provides structure for description of a process simulated within a
     particular area (or domain/realm/component) of a model. This will
     often be subclassed within a specific implementation so that
     constraints can be used to ensure that the process details
@@ -428,7 +428,7 @@ def process():
 
 
 def resolution():
-	"""Describes the computational spatial resolution of a component or
+    """Describes the computational spatial resolution of a component or
     process.  Not intended to replace or replicate the output grid
     description.  When it appears as part of a process description,
     provide only properties that differ from parent domain.  Note that
@@ -486,7 +486,7 @@ def resolution():
 
 
 def science_context():
-	"""This is the base class for the science mixins, that is the classes
+    """This is the base class for the science mixins, that is the classes
     which we expect to be specialised and extended by project specific
     vocabularies.  It is expected that values of these will be
     provided within vocabulary definitions.
@@ -521,7 +521,7 @@ def science_context():
 
 
 def scientific_realm():
-	"""Scientific area of a numerical model - usually a sub-model or
+    """Scientific area of a numerical model - usually a sub-model or
     component.  Can also be known as a realm.
 
 	"""
@@ -554,7 +554,7 @@ def scientific_realm():
 
 
 def sub_process():
-	"""Provides structure for description of part of process simulated
+    """Provides structure for description of part of process simulated
     within a particular area (or domain/realm/component) of a
     model. Typically this will be a part of process which shares
     common properties. It will normally be sub classed within a
@@ -605,7 +605,7 @@ def sub_process():
 
 
 def tuning():
-	"""Method used to optimise equation parameters in model component
+    """Method used to optimise equation parameters in model component
     (aka 'tuning').
 
 	"""

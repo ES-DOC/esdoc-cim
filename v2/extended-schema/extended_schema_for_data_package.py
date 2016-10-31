@@ -15,7 +15,7 @@
 
 
 def dataset():
-	"""Dataset discovery information.
+    """Dataset discovery information.
 
 	"""
     return {
@@ -47,7 +47,7 @@ def dataset():
 
 
 def downscaling():
-	"""Defines a downscaling activity.
+    """Defines a downscaling activity.
 
 	"""
     return {
@@ -133,7 +133,7 @@ def downscaling():
 
 
 def input_dataset():
-	"""An input dataset is used as within another component (such as a
+    """An input dataset is used as within another component (such as a
 model). It comprises an original, source dataset plus any
 modifications requirted to use it in the relevant component.
 
@@ -153,7 +153,7 @@ modifications requirted to use it in the relevant component.
 
 
 def simulation():
-	"""Simulation class provides the integrating link about what models
+    """Simulation class provides the integrating link about what models
     were run and wny.  In many cases this should be auto-generated
     from output file headers.
 
@@ -257,7 +257,7 @@ def simulation():
 
 
 def variable_collection():
-	"""A collection of variables within the scope of a code or process element.
+    """A collection of variables within the scope of a code or process element.
 
 	"""
     return {

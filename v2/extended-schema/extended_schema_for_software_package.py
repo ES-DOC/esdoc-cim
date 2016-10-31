@@ -15,7 +15,7 @@
 
 
 def component_base():
-	"""Base class for software component properties, whether a top level model,
+    """Base class for software component properties, whether a top level model,
     or a specific piece of code known as a component. In software terms, a
     component is a discrete set of code that takes input data and generates output data.
     Components may or may not have scientific descriptions.
@@ -52,7 +52,7 @@ def component_base():
 
 
 def composition():
-	"""Describes how component variables are coupled together either to/from other
+    """Describes how component variables are coupled together either to/from other
     SoftwareComponents or external data files. The variables specified by a component's
     composition must be owned by that component, or a  child of that component;
     child components cannot couple together parent variables.
@@ -73,7 +73,7 @@ def composition():
 
 
 def development_path():
-	"""Describes the software development path for this model/component.
+    """Describes the software development path for this model/component.
 
 	"""
     return {
@@ -97,7 +97,7 @@ def development_path():
 
 
 def entry_point():
-	"""Describes a function or subroutine of a SoftwareComponent.
+    """Describes a function or subroutine of a SoftwareComponent.
     BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.
     Currently, a very basic schedule can be approximated by using the 'proceeds' and 'follows' attributes,
     however a more complete system is required for full BFG compatibility.
@@ -118,7 +118,7 @@ def entry_point():
 
 
 def gridspec():
-	"""Fully defines the computational grid used.
+    """Fully defines the computational grid used.
 
 	"""
     return {
@@ -134,7 +134,7 @@ def gridspec():
 
 
 def software_component():
-	"""An embedded piece of software that does not normally function as a standalone model (although
+    """An embedded piece of software that does not normally function as a standalone model (although
     it may be used standalone in a test harness).
 
 	"""
@@ -200,7 +200,7 @@ def software_component():
 
 
 def variable():
-	"""An instance of a model software variable which may be prognostic or diagnostic, and which is
+    """An instance of a model software variable which may be prognostic or diagnostic, and which is
     available as a connection to other software components. Note that these variables may only exist
     within the software workflow as interim quantities or coupling endpoints. Input and output
     variables will be a subset of these software variables.

@@ -15,7 +15,7 @@
 
 
 def component():
-	"""A SofwareComponent is an abstract component from which all other components derive. It represents an element that takes input data and generates output data. A SoftwareCompnent can include nested "child" components. Every component can have "componentProperties" which describe the scientific properties that a component simulates (for example, temperature, pressure, etc.) and the numerical properties that influence how a component performs its simulation (for example, the force of gravity). A SoftwareComponent can also have a Deployment, which describes how software is deployed onto computing resources. And a SoftwareComponent can have a composition, which describes how ComponentProperties are coupled together either to/from other SoftwareComponents or external data files. The properties specified by a component's composition must be owned by that component or a child of that component; child components cannot couple together their parents' properties.
+    """A SofwareComponent is an abstract component from which all other components derive. It represents an element that takes input data and generates output data. A SoftwareCompnent can include nested "child" components. Every component can have "componentProperties" which describe the scientific properties that a component simulates (for example, temperature, pressure, etc.) and the numerical properties that influence how a component performs its simulation (for example, the force of gravity). A SoftwareComponent can also have a Deployment, which describes how software is deployed onto computing resources. And a SoftwareComponent can have a composition, which describes how ComponentProperties are coupled together either to/from other SoftwareComponents or external data files. The properties specified by a component's composition must be owned by that component or a child of that component; child components cannot couple together their parents' properties.
 
 	"""
     return {
@@ -110,7 +110,7 @@ def component():
 
 
 def component_language():
-	"""Details of the programming language a component is written in. There is an assumption that all EntryPoints use the same ComponentLanguage.
+    """Details of the programming language a component is written in. There is an assumption that all EntryPoints use the same ComponentLanguage.
 
 	"""
     return {
@@ -128,7 +128,7 @@ def component_language():
 
 
 def component_language_property():
-	"""This provides a place to include language-specific information. Every property is basically a name/value pair, where the names are things like: moduleName, reservedUnits, reservedNames (these are all examples of Fortran-specific properties).
+    """This provides a place to include language-specific information. Every property is basically a name/value pair, where the names are things like: moduleName, reservedUnits, reservedNames (these are all examples of Fortran-specific properties).
 
 	"""
     return {
@@ -154,7 +154,7 @@ def component_language_property():
 
 
 def component_property():
-	"""ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme). Note that this is a specialisation of shared::DataSource. data::DataObject is also a specialisation of shared::DataSource. This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.
+    """ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme). Note that this is a specialisation of shared::DataSource. data::DataObject is also a specialisation of shared::DataSource. This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.
 
 	"""
     return {
@@ -211,7 +211,7 @@ def component_property():
 
 
 def composition():
-	"""The set of Couplings used by a Component. Couplings can only occur between child components. That is, a composition must belong to an ancestor component of the components whose fields are being connected.
+    """The set of Couplings used by a Component. Couplings can only occur between child components. That is, a composition must belong to an ancestor component of the components whose fields are being connected.
 
 	"""
     return {
@@ -229,7 +229,7 @@ def composition():
 
 
 def connection():
-	"""A Connection represents a link from a source DataSource to a target DataSource.  These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).   It can be associated with another software component (a transformer).  If present, the rate, lag, timeTransformation, and spatialRegridding override that of the parent coupling.  Note that there is the potential for multiple connectionSource & connectionTarget and multiple couplingSources & couplingTargets.  This may lead users to wonder how to match up a connection source (a ComponentProperty) with its coupling source (a SoftwareComponent). Clever logic is not required though; because the sources and targets are listed by reference, they can be found in a CIM document and the parent can be navigated to from there - there is no need to consult the source or target of the coupling.
+    """A Connection represents a link from a source DataSource to a target DataSource.  These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).   It can be associated with another software component (a transformer).  If present, the rate, lag, timeTransformation, and spatialRegridding override that of the parent coupling.  Note that there is the potential for multiple connectionSource & connectionTarget and multiple couplingSources & couplingTargets.  This may lead users to wonder how to match up a connection source (a ComponentProperty) with its coupling source (a SoftwareComponent). Clever logic is not required though; because the sources and targets are listed by reference, they can be found in a CIM document and the parent can be navigated to from there - there is no need to consult the source or target of the coupling.
 
 	"""
     return {
@@ -265,7 +265,7 @@ def connection():
 
 
 def connection_endpoint():
-	"""The source/target of a coupling.  This is a DataSource (a SoftwareComponent or DataObject).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).
+    """The source/target of a coupling.  This is a DataSource (a SoftwareComponent or DataObject).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).
 
 	"""
     return {
@@ -285,7 +285,7 @@ def connection_endpoint():
 
 
 def connection_property():
-	"""A ConnectionProperty is a name/value pair used to specify OASIS-specific properties.
+    """A ConnectionProperty is a name/value pair used to specify OASIS-specific properties.
 
 	"""
     return {
@@ -311,7 +311,7 @@ def connection_property():
 
 
 def coupling():
-	"""A coupling represents a set of Connections between a source and target component. Couplings can be complete or incomplete. If they are complete then they must include all Connections between model properties. If they are incomplete then the connections can be underspecified or not listed at all.
+    """A coupling represents a set of Connections between a source and target component. Couplings can be complete or incomplete. If they are complete then they must include all Connections between model properties. If they are incomplete then the connections can be underspecified or not listed at all.
 
 	"""
     return {
@@ -353,7 +353,7 @@ def coupling():
 
 
 def coupling_endpoint():
-	"""The source/target of a coupling.  This is a DataSource (a SoftwareComponent or DataObject).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).
+    """The source/target of a coupling.  This is a DataSource (a SoftwareComponent or DataObject).  This is a separate class in order to associate an instanceID with the DataSource; this is used to identify which particular instance is being coupled in case the same DataSource is used more than once in a coupled model (this may be required for BFG).
 
 	"""
     return {
@@ -373,7 +373,7 @@ def coupling_endpoint():
 
 
 def coupling_property():
-	"""A CouplingProperty is a name/value pair used to specify OASIS-specific properties.
+    """A CouplingProperty is a name/value pair used to specify OASIS-specific properties.
 
 	"""
     return {
@@ -399,7 +399,7 @@ def coupling_property():
 
 
 def deployment():
-	"""Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc. A deployment basically associates a deploymentDate with a Platform. A deployment only exists if something has been deployed. A platform, in contrast, can exist independently, waiting to be used in deployments.
+    """Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc. A deployment basically associates a deploymentDate with a Platform. A deployment only exists if something has been deployed. A platform, in contrast, can exist independently, waiting to be used in deployments.
 
 	"""
     return {
@@ -425,7 +425,7 @@ def deployment():
 
 
 def entry_point():
-	"""Describes a function or subroutine of a SoftwareComponent. BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model. Currently, a very basic schedule can be approximated by using the "proceeds" and "follows" attributes, however a more complete system is required for full BFG compatibility. Every EntryPoint can have a set of arguments associated with it. These reference (previously defined) ComponentProperties.
+    """Describes a function or subroutine of a SoftwareComponent. BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model. Currently, a very basic schedule can be approximated by using the "proceeds" and "follows" attributes, however a more complete system is required for full BFG compatibility. Every EntryPoint can have a set of arguments associated with it. These reference (previously defined) ComponentProperties.
 
 	"""
     return {
@@ -441,7 +441,7 @@ def entry_point():
 
 
 def model_component():
-	"""A ModelComponent is a scientific model; it represents code which models some physical phenomena for a particular length of time.
+    """A ModelComponent is a scientific model; it represents code which models some physical phenomena for a particular length of time.
 
 	"""
     return {
@@ -525,7 +525,7 @@ def model_component():
 
 
 def parallelisation():
-	"""Describes how a deployment has been parallelised across a computing platform.
+    """Describes how a deployment has been parallelised across a computing platform.
 
 	"""
     return {
@@ -543,7 +543,7 @@ def parallelisation():
 
 
 def processor_component():
-	"""A ModelComponent is a scientific model; it represents code which models some physical phenomena for a particular length of time.
+    """A ModelComponent is a scientific model; it represents code which models some physical phenomena for a particular length of time.
 
 	"""
     return {
@@ -615,7 +615,7 @@ def processor_component():
 
 
 def rank():
-	"""Creates and returns instance of rank class.
+    """Creates and returns instance of rank class.
 
 	"""
     return {
@@ -637,7 +637,7 @@ def rank():
 
 
 def spatial_regridding():
-	"""Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).  Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.
+    """Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).  Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.
 
 	"""
     return {
@@ -659,7 +659,7 @@ def spatial_regridding():
 
 
 def spatial_regridding_property():
-	"""Used for OASIS-specific regridding information (ie: masked, order, normalisation, etc.)
+    """Used for OASIS-specific regridding information (ie: masked, order, normalisation, etc.)
 
 	"""
     return {
@@ -685,7 +685,7 @@ def spatial_regridding_property():
 
 
 def spatial_regridding_user_method():
-	"""Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).  Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.
+    """Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).  Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.
 
 	"""
     return {
@@ -703,7 +703,7 @@ def spatial_regridding_user_method():
 
 
 def statistical_model_component():
-	"""Creates and returns instance of statistical_model_component class.
+    """Creates and returns instance of statistical_model_component class.
 
 	"""
     return {
@@ -784,7 +784,7 @@ def statistical_model_component():
 
 
 def time_lag():
-	"""The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.
+    """The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.
 
 	"""
     return {
@@ -802,7 +802,7 @@ def time_lag():
 
 
 def time_transformation():
-	"""The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.
+    """The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.
 
 	"""
     return {
@@ -820,7 +820,7 @@ def time_transformation():
 
 
 def timing():
-	"""Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).
+    """Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).
 
 	"""
     return {
