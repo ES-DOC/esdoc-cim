@@ -234,7 +234,7 @@ def numerical_requirement():
                 "Additional detail for this requirement."),
             ('is_conformance_requested', 'bool', '1.1',
                 "Indicator as to whether ensemble documentation should include conformance information for this requirement."),
-            ('scope', 'int', '0.1',
+            ('scope', 'designing.numerical_requirement_scope', '0.1',
                 "Scope allows us to categorise a requirement in terms of how widely it is shared.")
         ],
         'constraints': [
@@ -242,6 +242,21 @@ def numerical_requirement():
         ]
     }
 
+
+def numerical_requirement_scope():
+    """The scope to which a numerical requirement may or may not apply.
+
+    """
+    return {
+        'type': 'enum',
+        'is_open': False,
+        'members': [
+            ("mip-era", "MIP era wide e.g. 'concentration of pre-industrial CO2' & 'Impose AMIP SSTs'"),
+            ("mip-group", "Shared with companion MIPs e.g. aerosol forcing in GeoMIP and AerChemMIP."),
+            ("mip", "Shared within a MIP e.g. spin-up protocol for land surface experiments in LUMIP."),
+            ("experiment", "Applies to a single experiment e.g. CFMIP 'zonally uniform SST plus 4K'")
+        ]
+    }
 
 def output_requirement():
     """Provides details of what output is required and when from an experiment.
