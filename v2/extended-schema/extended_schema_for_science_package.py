@@ -33,7 +33,7 @@ def conservation_properties():
                 "Set of variables which are conserved by *more* than the numerical scheme alone."),
             ('description', 'str', '1.1',
                 "Brief description of conservation methodology"),
-            ('flux_correction_was_used', 'bool', '0.1',
+            ('was_flux_correction_used', 'bool', '0.1',
                 "Flag to indicate if correction involved flux correction."),
             ],
         'properties-all': [
@@ -42,18 +42,18 @@ def conservation_properties():
             'description',
             'description',
             'details',
-            'flux_correction_was_used',
-            'id',
             'implementation_overview',
             'short_name',
+            'vocab_id',
+            'was_flux_correction_used',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -82,13 +82,13 @@ def detail():
             ],
         'properties-all': [
             'description',
-            'id',
             'short_name',
+            'vocab_id',
             ],
         'properties-inherited': [
             'description :: science.science_context',
-            'id :: science.science_context',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -113,17 +113,17 @@ def discretisation():
             'citations',
             'description',
             'details',
-            'id',
             'implementation_overview',
             'short_name',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -159,19 +159,19 @@ def extent():
             'citations',
             'description',
             'details',
-            'id',
             'implementation_overview',
             'is_global',
             'region_known_as',
             'short_name',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -234,24 +234,24 @@ def iso_extent():
             'description',
             'details',
             'eastern_boundary',
-            'id',
             'implementation_overview',
             'is_global',
             'northern_boundary',
             'region_known_as',
             'short_name',
             'southern_boundary',
+            'vocab_id',
             'western_boundary',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'is_global :: science.extent',
             'region_known_as :: science.extent',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -273,7 +273,7 @@ def key_properties():
         'is_document': False,
         'properties': [
             ('extent', 'science.extent', '0.1',
-                "DESCRIPTION."),
+                "Key scientific characteristics of the grid use to simulate a specific domain."),
             ('extra_conservation_properties', 'science.conservation_properties', '0.1',
                 "Details of methodology needed to conserve variables between processes."),
             ('resolution', 'science.resolution', '0.1',
@@ -289,7 +289,6 @@ def key_properties():
             'details',
             'extent',
             'extra_conservation_properties',
-            'id',
             'implementation_overview',
             'keywords',
             'resolution',
@@ -297,16 +296,17 @@ def key_properties():
             'sub_processes',
             'time_step',
             'tuning_applied',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: science.process',
             'description :: science.science_context',
             'details :: science.process',
-            'id :: science.science_context',
             'implementation_overview :: science.process',
             'keywords :: science.process',
             'short_name :: science.science_context',
             'sub_processes :: science.process',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -334,16 +334,16 @@ def model():
                 "Software components which are linked together using a coupler to deliver this model."),
             ('coupler', 'software.coupling_framework', '0.1',
                 "Overarching coupling framework for model."),
-            ('id', 'str', '0.1',
-                "Vocabulary identifier, where this model description was constructed via a controlled vocabulary."),
             ('internal_software_components', 'software.software_component', '0.N',
                 "Software modules which together provide the functionality for this model."),
+            ('key_properties', 'science.key_properties', '0.1',
+                "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Injected document metadata."),
-            ('model_key_properties', 'science.key_properties', '0.1',
-                "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
             ('realms', 'science.scientific_realm', '0.N',
                 "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler."),
+            ('vocab_id', 'str', '0.1',
+                "Vocabulary identifier, where this model description was constructed via a controlled vocabulary."),
             ],
         'properties-all': [
             'category',
@@ -352,16 +352,16 @@ def model():
             'coupler',
             'description',
             'development_history',
-            'id',
             'internal_software_components',
+            'key_properties',
             'long_name',
             'meta',
-            'model_key_properties',
             'name',
             'realms',
             'release_date',
             'repository',
             'version',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: software.component_base',
@@ -413,16 +413,16 @@ def process():
             'citations',
             'description',
             'details',
-            'id',
             'implementation_overview',
             'keywords',
             'short_name',
             'sub_processes',
+            'vocab_id',
             ],
         'properties-inherited': [
             'description :: science.science_context',
-            'id :: science.science_context',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -466,21 +466,21 @@ def resolution():
             'citations',
             'description',
             'details',
-            'id',
             'implementation_overview',
             'is_adaptive_grid',
             'name',
             'number_of_horizontal_gridpoints',
             'number_of_vertical_levels',
             'short_name',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -512,10 +512,10 @@ def science_context():
         'properties': [
             ('description', 'str', '1.1',
                 "Scientific context for which this description is provided."),
-            ('id', 'str', '1.1',
-                "Identifier for this collection of properties."),
             ('short_name', 'str', '1.1',
                 "The name of this process/algorithm/sub-process/detail."),
+            ('vocab_id', 'str', '1.1',
+                "Identifier for this collection of properties."),
             ]
     }
 
@@ -535,8 +535,6 @@ def scientific_realm():
                 "Set of pertinent citations."),
             ('grid', 'science.grid', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
-            ('id', 'str', '0.1',
-                "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
             ('key_properties', 'science.key_properties', '0.1',
                 "Key properties for the domain which differ from model defaults (grid, timestep etc)."),
             ('meta', 'shared.doc_meta_info', '1.1',
@@ -549,6 +547,8 @@ def scientific_realm():
                 "Processes simulated within the domain."),
             ('realm', 'str', '0.1',
                 "Canonical name for the domain of this scientific area."),
+            ('vocab_id', 'str', '0.1',
+                "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
             ]
     }
 
@@ -592,14 +592,14 @@ def sub_process():
             'citations',
             'description',
             'details',
-            'id',
             'implementation_overview',
             'short_name',
+            'vocab_id',
             ],
         'properties-inherited': [
             'description :: science.science_context',
-            'id :: science.science_context',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 
@@ -635,19 +635,19 @@ def tuning():
             'description',
             'details',
             'global_mean_metrics_used',
-            'id',
             'implementation_overview',
             'regional_metrics_used',
             'short_name',
             'trend_metrics_used',
+            'vocab_id',
             ],
         'properties-inherited': [
             'citations :: science.sub_process',
             'description :: science.science_context',
             'details :: science.sub_process',
-            'id :: science.science_context',
             'implementation_overview :: science.sub_process',
             'short_name :: science.science_context',
+            'vocab_id :: science.science_context',
             ]
     }
 

@@ -66,6 +66,7 @@ def domain_requirements():
             'required_extent',
             'required_resolution',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -83,6 +84,7 @@ def domain_requirements():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -128,6 +130,7 @@ def ensemble_requirement():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -145,6 +148,7 @@ def ensemble_requirement():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -202,6 +206,7 @@ def forcing_constraint():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -219,6 +224,7 @@ def forcing_constraint():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -264,6 +270,7 @@ def initialisation_requirement():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -281,6 +288,7 @@ def initialisation_requirement():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -321,6 +329,7 @@ def multi_ensemble():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -338,6 +347,7 @@ def multi_ensemble():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -430,6 +440,8 @@ def numerical_requirement():
                 "Additional detail for this requirement."),
             ('is_conformance_requested', 'bool', '1.1',
                 "Indicator as to whether ensemble documentation should include conformance information for this requirement."),
+            ('scope', 'designing.numerical_requirement_scope', '0.1',
+                "Scope allows us to categorise a requirement in terms of how widely it is shared."),
             ],
         'properties-all': [
             'additional_requirements',
@@ -447,6 +459,7 @@ def numerical_requirement():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'alternative_names :: activity.activity',
@@ -501,6 +514,7 @@ def output_requirement():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -518,6 +532,7 @@ def output_requirement():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -680,6 +695,7 @@ def start_date_ensemble():
             'previously_known_as',
             'rationale',
             'responsible_parties',
+            'scope',
             ],
         'properties-inherited': [
             'additional_requirements :: designing.numerical_requirement',
@@ -697,6 +713,7 @@ def start_date_ensemble():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 
@@ -743,6 +760,7 @@ def temporal_constraint():
             'required_calendar',
             'required_duration',
             'responsible_parties',
+            'scope',
             'start_date',
             'start_flexibility',
             ],
@@ -762,6 +780,7 @@ def temporal_constraint():
             'previously_known_as :: activity.activity',
             'rationale :: activity.activity',
             'responsible_parties :: activity.activity',
+            'scope :: designing.numerical_requirement',
             ]
     }
 

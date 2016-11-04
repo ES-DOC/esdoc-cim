@@ -86,12 +86,12 @@ def development_path():
                 "If model/component is developed as part of a consortium, provide consortium name."),
             ('creators', 'shared.responsibility', '0.N',
                 "Those responsible for creating this component."),
-            ('developed_in_house', 'bool', '1.1',
-                "Model or component was mostly developed in house."),
             ('funding_sources', 'shared.responsibility', '0.N',
                 "The entities that funded this software component."),
             ('previous_version', 'str', '0.1',
                 "Name of a previous version."),
+            ('was_developed_in_house', 'bool', '1.1',
+                "Model or component was mostly developed in house."),
             ]
     }
 
@@ -214,10 +214,10 @@ def variable():
         'properties': [
             ('description', 'str', '0.1',
                 "Description of how the variable is being used in the s/w."),
+            ('is_prognostic', 'bool', '1.1',
+                "Whether or not prognostic or diagnostic."),
             ('name', 'str', '1.1',
                 "Short name for the variable."),
-            ('prognostic', 'bool', '1.1',
-                "Whether or not prognostic or diagnostic."),
             ]
     }
 

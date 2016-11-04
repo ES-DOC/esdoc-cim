@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-10-25-1352 -->
+  <!-- created by esdoc-mp at 2016-11-02-1413 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -144,7 +144,7 @@
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -233,12 +233,21 @@
           </relationship>
         </attribute>
         <attribute package="activity">
-          <name>has_ensemble_axes</name>
+          <name>ensemble_axes</name>
           <description>Set of axes for the ensemble.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>ensemble_axis</target>
+          </relationship>
+        </attribute>
+        <attribute package="activity">
+          <name>experiments</name>
+          <description>Experiments with which the ensemble is associated (may differ from constituent simulations).</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <target>numerical_experiment</target>
           </relationship>
         </attribute>
         <attribute package="activity">
@@ -251,21 +260,12 @@
           </relationship>
         </attribute>
         <attribute package="activity">
-          <name>part_of</name>
+          <name>uber_ensembles</name>
           <description>Link to one or more over-arching ensembles that might includes this one.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>uber_ensemble</target>
-          </relationship>
-        </attribute>
-        <attribute package="activity">
-          <name>supported</name>
-          <description>Experiments with which the ensemble is associated (may differ from constituent simulations).</description>
-          <cardinality min="1" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <target>numerical_experiment</target>
           </relationship>
         </attribute>
         <attribute package="activity">
@@ -324,7 +324,7 @@
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -549,12 +549,21 @@
           </relationship>
         </attribute>
         <attribute package="activity">
-          <name>has_ensemble_axes</name>
+          <name>ensemble_axes</name>
           <description>Set of axes for the ensemble.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>ensemble_axis</target>
+          </relationship>
+        </attribute>
+        <attribute package="activity">
+          <name>experiments</name>
+          <description>Experiments with which the ensemble is associated (may differ from constituent simulations).</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <target>numerical_experiment</target>
           </relationship>
         </attribute>
         <attribute package="activity">
@@ -567,21 +576,12 @@
           </relationship>
         </attribute>
         <attribute package="activity">
-          <name>part_of</name>
+          <name>uber_ensembles</name>
           <description>Link to one or more over-arching ensembles that might includes this one.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>uber_ensemble</target>
-          </relationship>
-        </attribute>
-        <attribute package="activity">
-          <name>supported</name>
-          <description>Experiments with which the ensemble is associated (may differ from constituent simulations).</description>
-          <cardinality min="1" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <target>numerical_experiment</target>
           </relationship>
         </attribute>
         <attribute package="activity">
@@ -640,7 +640,7 @@
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -994,7 +994,7 @@
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -1289,7 +1289,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -1412,6 +1412,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -1468,7 +1477,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -1571,6 +1580,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -1627,7 +1645,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -1766,6 +1784,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -1822,7 +1849,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -1925,6 +1952,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -1981,7 +2017,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2067,6 +2103,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -2123,7 +2168,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2273,7 +2318,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2349,6 +2394,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -2405,7 +2459,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2490,6 +2544,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -2546,7 +2609,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2705,7 +2768,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2855,7 +2918,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -2940,6 +3003,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -2996,7 +3068,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -3108,6 +3180,15 @@ modifications requirted to use it in the relevant component.</description>
             <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
+        <attribute package="designing">
+          <name>scope</name>
+          <description>Scope allows us to categorise a requirement in terms of how widely it is shared.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_scope" is_open="false" is_multi="true" is_nillable="false">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute package="activity">
           <name>alternative_names</name>
           <description>List of names by which the activity is also known.</description>
@@ -3164,7 +3245,7 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute package="activity">
           <name>keywords</name>
-          <description>Comma separated user defined keywords.</description>
+          <description>User defined keywords.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4094,7 +4175,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>flux_correction_was_used</name>
+          <name>was_flux_correction_used</name>
           <description>Flag to indicate if correction involved flux correction.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
@@ -4139,8 +4220,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4148,8 +4229,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4179,8 +4260,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4188,8 +4269,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4239,8 +4320,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4248,8 +4329,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4321,8 +4402,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4330,8 +4411,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4488,8 +4569,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4497,8 +4578,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4514,7 +4595,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <attributes>
         <attribute package="science">
           <name>extent</name>
-          <description>DESCRIPTION.</description>
+          <description>Key scientific characteristics of the grid use to simulate a specific domain.</description>
           <cardinality min="0" max="1"/>
           <type>RELATIONSHIP</type>
           <relationship>
@@ -4612,8 +4693,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4621,8 +4702,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4666,15 +4747,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </enumeration>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Vocabulary identifier, where this model description was constructed via a controlled vocabulary.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute package="science">
           <name>internal_software_components</name>
           <description>Software modules which together provide the functionality for this model.</description>
           <cardinality min="0" max="N"/>
@@ -4684,7 +4756,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute package="science">
-          <name>model_key_properties</name>
+          <name>key_properties</name>
           <description>Model default key properties (may be over-ridden in coupled component and scientific realm properties).</description>
           <cardinality min="0" max="1"/>
           <type>RELATIONSHIP</type>
@@ -4693,13 +4765,22 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute package="science">
-          <name>simulates</name>
+          <name>realms</name>
           <description>The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <target>scientific_realm</target>
           </relationship>
+        </attribute>
+        <attribute package="science">
+          <name>vocab_id</name>
+          <description>Vocabulary identifier, where this model description was constructed via a controlled vocabulary.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
         </attribute>
         <attribute package="software">
           <name>citations</name>
@@ -4839,8 +4920,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4848,8 +4929,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4952,8 +5033,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4961,8 +5042,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4995,15 +5076,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute package="science">
           <name>key_properties</name>
           <description>Key properties for the domain which differ from model defaults (grid, timestep etc).</description>
           <cardinality min="0" max="1"/>
@@ -5031,6 +5103,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
+          <name>processes</name>
+          <description>Processes simulated within the domain.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <target>process</target>
+          </relationship>
+        </attribute>
+        <attribute package="science">
           <name>realm</name>
           <description>Canonical name for the domain of this scientific area.</description>
           <cardinality min="0" max="1"/>
@@ -5040,13 +5121,13 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>simulates</name>
-          <description>Processes simulated within the domain.</description>
-          <cardinality min="1" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <target>process</target>
-          </relationship>
+          <name>vocab_id</name>
+          <description>Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
         </attribute>
       </attributes>
     </class>
@@ -5097,8 +5178,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5106,8 +5187,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5194,8 +5275,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>short_name</name>
+          <description>The name of this process/algorithm/sub-process/detail.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5203,8 +5284,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
+          <name>vocab_id</name>
+          <description>Identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5527,6 +5608,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="shared">
+          <name>is_organisation</name>
+          <description>True if an organisation not a person.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>BOOLEAN</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute package="shared">
           <name>name</name>
           <description>Name of person or organisation.</description>
           <cardinality min="0" max="1"/>
@@ -5542,15 +5632,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute package="shared">
-          <name>organisation</name>
-          <description>True if an organisation not a person.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
         <attribute package="shared">
@@ -5621,7 +5702,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     responsibleParty). Combines a person and their role in doing something.</description>
       <attributes>
         <attribute package="shared">
-          <name>party</name>
+          <name>parties</name>
           <description>Parties delivering responsibility.</description>
           <cardinality min="1" max="N"/>
           <type>RELATIONSHIP</type>
@@ -5724,15 +5805,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute package="software">
-          <name>developed_in_house</name>
-          <description>Model or component was mostly developed in house.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute package="software">
           <name>funding_sources</name>
           <description>The entities that funded this software component.</description>
           <cardinality min="0" max="N"/>
@@ -5748,6 +5820,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute package="software">
+          <name>was_developed_in_house</name>
+          <description>Model or component was mostly developed in house.</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
       </attributes>
@@ -5964,21 +6045,21 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="software">
+          <name>is_prognostic</name>
+          <description>Whether or not prognostic or diagnostic.</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>BOOLEAN</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute package="software">
           <name>name</name>
           <description>Short name for the variable.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute package="software">
-          <name>prognostic</name>
-          <description>Whether or not prognostic or diagnostic.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
           </atomic>
         </attribute>
       </attributes>
@@ -6034,7 +6115,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     case the datetime is an interval after the start date.</description>
       <attributes>
         <attribute package="time">
-          <name>offset</name>
+          <name>is_offset</name>
           <description>Date is offset from start of an integration.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
