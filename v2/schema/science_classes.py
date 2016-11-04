@@ -20,7 +20,7 @@ def conservation_properties():
                 "Brief description of conservation methodology"),
             ('corrected_conserved_prognostic_variables', 'data.variable_collection', '0.1',
                 "Set of variables which are conserved by *more* than the numerical scheme alone."),
-            ('flux_correction_was_used', 'bool', '0.1',
+            ('was_flux_correction_used', 'bool', '0.1',
                 "Flag to indicate if correction involved flux correction.")
         ],
         'constraints': [
@@ -145,7 +145,7 @@ def key_properties():
         'is_abstract': False,
         'properties': [
             ('extent', 'science.extent', '0.1',
-                "DESCRIPTION."),
+                "Key scientific characteristics of the grid use to simulate a specific domain."),
             ('extra_conservation_properties', 'linked_to(science.conservation_properties)', '0.1',
                 "Details of methodology needed to conserve variables between processes."),
             ('resolution', 'science.resolution', '0.1',
@@ -177,11 +177,11 @@ def model():
                 "Software components which are linked together using a coupler to deliver this model."),
             ('coupler', 'software.coupling_framework', '0.1',
                 "Overarching coupling framework for model."),
-            ('id', 'str', '0.1',
+            ('vocab_id', 'str', '0.1',
                 "Vocabulary identifier, where this model description was constructed via a controlled vocabulary."),
             ('internal_software_components', 'software.software_component', '0.N',
                 "Software modules which together provide the functionality for this model."),
-            ('model_key_properties', 'science.key_properties', '0.1',
+            ('key_properties', 'science.key_properties', '0.1',
                 "Model default key properties (may be over-ridden in coupled component and scientific realm properties)."),
             ('realms', 'linked_to(science.scientific_realm)', '0.N',
                 "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler.")
@@ -265,7 +265,7 @@ def science_context():
         'properties': [
             ('description', 'str', '1.1',
                 "Scientific context for which this description is provided."),
-            ('id', 'str', '1.1',
+            ('vocab_id', 'str', '1.1',
                 "Identifier for this collection of properties."),
             ('short_name', 'str', '1.1',
                 "The name of this process/algorithm/sub-process/detail.")
@@ -288,7 +288,7 @@ def scientific_realm():
                 "Set of pertinent citations."),
             ('grid', 'linked_to(science.grid)', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
-            ('id', 'str', '0.1',
+            ('vocab_id', 'str', '0.1',
                 "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
             ('key_properties', 'science.key_properties', '0.1',
                 "Key properties for the domain which differ from model defaults (grid, timestep etc)."),

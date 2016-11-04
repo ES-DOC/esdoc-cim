@@ -30,7 +30,7 @@ def activity():
             ('internal_name', 'str', '0.1',
                 "A name used for internal purposes."),
             ('keywords', 'str', '0.1',
-                "Comma separated user defined keywords."),
+                "User defined keywords."),
             ('long_name', 'str', '0.1',
                 "Longer version of activity name."),
             ('name', 'str', '1.1',
@@ -131,13 +131,13 @@ def ensemble():
                 "Representative model performance across ensemble."),
             ('documentation', 'linked_to(shared.online_resource)', '0.N',
                 "Links to web-pages and other ensemble specific documentation (including workflow descriptions)."),
-            ('has_ensemble_axes', 'activity.ensemble_axis', '0.N',
+            ('ensemble_axes', 'activity.ensemble_axis', '0.N',
                 "Set of axes for the ensemble."),
             ('members', 'activity.ensemble_member', '1.N',
                 "The set of ensemble members."),
-            ('part_of', 'activity.uber_ensemble', '0.N',
+            ('uber_ensembles', 'activity.uber_ensemble', '0.N',
                 "Link to one or more over-arching ensembles that might includes this one."),
-            ('supported', 'designing.numerical_experiment', '1.N',
+            ('experiments', 'designing.numerical_experiment', '1.N',
                 "Experiments with which the ensemble is associated (may differ from constituent simulations).")
         ],
         'constraints': [
@@ -230,7 +230,7 @@ def uber_ensemble():
                 "Ensemble which are aggregated into this one.")
         ],
         'constraints': [
-            ('cardinality', 'has_ensemble_axes', '1.N'),
+            ('cardinality', 'ensemble_axes', '1.N'),
             ('cardinality', 'common_conformances', '0.0'),
             ('cardinality', 'members', '0.0')
         ]

@@ -252,8 +252,8 @@ def numerical_requirement_scope():
         'is_open': False,
         'members': [
             ("mip-era", "MIP era wide e.g. 'concentration of pre-industrial CO2' & 'Impose AMIP SSTs'"),
-            ("mip-group", "Shared with companion MIPs e.g. aerosol forcing in GeoMIP and AerChemMIP."),
-            ("mip", "Shared within a MIP e.g. spin-up protocol for land surface experiments in LUMIP."),
+            ("mip-group", "Shared across a group of MIPs e.g. aerosol forcing in GeoMIP and AerChemMIP."),
+            ("mip", "Shared within a single MIP e.g. spin-up protocol for land surface experiments in LUMIP."),
             ("experiment", "Applies to a single experiment e.g. CFMIP 'zonally uniform SST plus 4K'")
         ]
     }

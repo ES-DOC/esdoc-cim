@@ -65,7 +65,7 @@ def date_time():
         'is_abstract': False,
         'pstr': ('{}(offset {})', ('value', 'offset')),
         'properties': [
-            ('offset', 'bool', '0.1',
+            ('is_offset', 'bool', '0.1',
                 "Date is offset from start of an integration."),
             ('value', 'str', '1.1',
                 "Date or time - some of (from left to right): yyyy-mm-dd:hh:mm:ss.")

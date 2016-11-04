@@ -141,7 +141,7 @@ def party():
                 "Name of person or organisation."),
             ('orcid_id', 'str', '0.1',
                 "Orcid ID if available."),
-            ('organisation', 'bool', '0.1',
+            ('is_organisation', 'bool', '0.1',
                 "True if an organisation not a person."),
             ('url', 'shared.online_resource', '0.1',
                 "URL of person or institution.")
@@ -198,9 +198,9 @@ def responsibility():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('{}:{}', ('role', 'party')),
+        'pstr': ('{}:{}', ('role', 'parties')),
         'properties': [
-            ('party', 'linked_to(shared.party)', '1.N',
+            ('parties', 'linked_to(shared.party)', '1.N',
                 "Parties delivering responsibility."),
             ('role', 'shared.role_code', '1.1',
                 "Role that the party plays or played."),
