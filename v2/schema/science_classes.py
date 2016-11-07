@@ -177,8 +177,8 @@ def model():
                 "Software components which are linked together using a coupler to deliver this model."),
             ('coupler', 'software.coupling_framework', '0.1',
                 "Overarching coupling framework for model."),
-            ('vocab_id', 'str', '0.1',
-                "Vocabulary identifier, where this model description was constructed via a controlled vocabulary."),
+            ('specialization_id', 'str', '0.1',
+                "Specialization identifier, where this model description was constructed via a controlled specialization."),
             ('internal_software_components', 'software.software_component', '0.N',
                 "Software modules which together provide the functionality for this model."),
             ('key_properties', 'science.key_properties', '0.1',
@@ -265,8 +265,8 @@ def science_context():
         'properties': [
             ('description', 'str', '1.1',
                 "Scientific context for which this description is provided."),
-            ('vocab_id', 'str', '1.1',
-                "Identifier for this collection of properties."),
+            ('specialization_id', 'str', '1.1',
+                "Specialization identifier for this collection of properties."),
             ('short_name', 'str', '1.1',
                 "The name of this process/algorithm/sub-process/detail.")
         ]
@@ -274,8 +274,7 @@ def science_context():
 
 
 def scientific_realm():
-    """Scientific area of a numerical model - usually a sub-model or
-    component.  Can also be known as a realm.
+    """Scientific area of a numerical model - usually a sub-model or component.
 
     """
     return {
@@ -288,18 +287,18 @@ def scientific_realm():
                 "Set of pertinent citations."),
             ('grid', 'linked_to(science.grid)', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
-            ('vocab_id', 'str', '0.1',
-                "Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary."),
+            ('specialization_id', 'str', '0.1',
+                "Specialization identifier, where this realm description was constructed via a controlled specialization."),
             ('key_properties', 'science.key_properties', '0.1',
-                "Key properties for the domain which differ from model defaults (grid, timestep etc)."),
+                "Realm key properties which differ from model defaults (grid, timestep etc)."),
             ('name', 'str', '1.1',
-                "Name of the scientific domain (e.g. ocean)."),
+                "Name of the scientific realm (e.g. ocean)."),
             ('overview', 'str', '0.1',
-                "Free text overview description of key properties of domain."),
+                "Free text overview description of realm key properties."),
             ('realm', 'str', '0.1',
-                "Canonical name for the domain of this scientific area."),
+                "Canonical name for the realm."),
             ('processes', 'science.process', '1.N',
-                "Processes simulated within the domain.")
+                "Processes simulated within the realm.")
         ]
     }
 

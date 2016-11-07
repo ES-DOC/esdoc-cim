@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-04-2114 -->
+  <!-- created by esdoc-mp at 2016-11-06-1807 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -4229,8 +4229,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4269,8 +4269,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4329,8 +4329,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4411,8 +4411,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4578,8 +4578,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4702,8 +4702,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4774,8 +4774,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Vocabulary identifier, where this model description was constructed via a controlled vocabulary.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier, where this model description was constructed via a controlled specialization.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -4929,8 +4929,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5042,8 +5042,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5054,8 +5054,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     </class>
     <class stereotype="document" package="science">
       <name>scientific_realm</name>
-      <description>Scientific area of a numerical model - usually a sub-model or
-    component.  Can also be known as a realm.</description>
+      <description>Scientific area of a numerical model - usually a sub-model or component.</description>
       <attributes>
         <attribute package="science">
           <name>citations</name>
@@ -5077,7 +5076,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute package="science">
           <name>key_properties</name>
-          <description>Key properties for the domain which differ from model defaults (grid, timestep etc).</description>
+          <description>Realm key properties which differ from model defaults (grid, timestep etc).</description>
           <cardinality min="0" max="1"/>
           <type>RELATIONSHIP</type>
           <relationship>
@@ -5086,7 +5085,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute package="science">
           <name>name</name>
-          <description>Name of the scientific domain (e.g. ocean).</description>
+          <description>Name of the scientific realm (e.g. ocean).</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5095,7 +5094,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute package="science">
           <name>overview</name>
-          <description>Free text overview description of key properties of domain.</description>
+          <description>Free text overview description of realm key properties.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5104,7 +5103,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute package="science">
           <name>processes</name>
-          <description>Processes simulated within the domain.</description>
+          <description>Processes simulated within the realm.</description>
           <cardinality min="1" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
@@ -5113,7 +5112,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute package="science">
           <name>realm</name>
-          <description>Canonical name for the domain of this scientific area.</description>
+          <description>Canonical name for the realm.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5121,8 +5120,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Vocabulary identifier, where this domain description was constructed via a  controlled vocabulary.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier, where this realm description was constructed via a controlled specialization.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5187,8 +5186,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5284,8 +5283,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute package="science">
-          <name>vocab_id</name>
-          <description>Identifier for this collection of properties.</description>
+          <name>specialization_id</name>
+          <description>Specialization identifier for this collection of properties.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
