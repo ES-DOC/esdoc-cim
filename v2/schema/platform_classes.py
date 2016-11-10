@@ -6,43 +6,6 @@
 
 """
 
-
-## def component_performance():
-##     """Describes the simulation rate of a component in seconds per model
-## day.
-## 
-## Based on "CPMIP: Measurements of Real Computational Performance of
-## Earth System Models" (Balaji et. al.)
-## 
-##     """
-##     return {
-##         'type': 'class',
-##         'base': None,
-##         'is_abstract': False,
-##         'pstr': ('speed {} s/day', ('speed',)),
-##         'properties': [
-##             ('component', 'software.software_component', '0.1',
-##                 "Link to a CIM software component description."),
-##             ('component_name', 'str', '1.1',
-##                 "Short name of component."),
-## 
-##             # CPMIP computational cost
-##             ('simulated_years_per_day', 'float', '0.1',
-##                  'Simulated years per day (SYPD) in a 24h period on the given platform'),
-##             ('actual_simulated_years_per_day', 'float', '0.1',
-##                  'Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the component. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc.'),
-##             ('core_hours_per_simulated_year', 'float', '0.1',
-##                  'Core-hours per simulated year (CHSY). This is measured as the product of the component runtime for 1 SY, and the numbers of cores allocated. Note that if allocations are done on a node basis then all cores on a node are charged against the allocation, regardless of whether or not they are used.'),
-##             ('parallelization', 'float', '0.1',
-##                  'Parallelization measured as the total number of cores (NP) allocated for the component, regardless of whether or or all cores were used. Note that NP=CHSY*SYPD/24.'),
-## 
-## #            ('nodes_used', 'int', '0.1',
-## #                "Number of nodes used for this component."),
-## #            ('speed', 'float', '1.1',
-## #                "Time taken to simulate one real day (s).")
-##         ]
-##     }
-
 def component_performance():
     """Describes the simulation rate of a model component.
 
