@@ -1,15 +1,8 @@
-
 # -*- coding: utf-8 -*-
 
 """
-.. module:: cim.v2.extended_schema_for_software_package.py
-
-   :license: GPL / CeCILL
-   :platform: Unix, Windows
-   :synopsis: Schema information for the cim v2 ontology.
-
-.. moduleauthor:: Earth System Documentation (ES-DOC) <dev@es-doc.org>
-.. note:: Code generated using the esdoc-mp framework.
+.. module:: software_classes.py
+   :synopsis: Set of CIM v2 ontology type definitions.
 
 """
 
@@ -20,21 +13,16 @@ def component_base():
     component is a discrete set of code that takes input data and generates output data.
     Components may or may not have scientific descriptions.
 
-	"""
+    """
     return {
         'type': 'class',
         'base': None,
-        'sub-classes': [
-            'science.model',
-            'software.software_component'
-        ],
         'is_abstract': True,
-        'is_document': False,
         'properties': [
-            ('canonical_id', 'str', '0.1',
-                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
+            ('canonical_id', 'str', '0.1',
+                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
             ('description', 'str', '0.1',
                 "Textural description of component."),
             ('development_history', 'software.development_path', '0.1',
@@ -49,90 +37,9 @@ def component_base():
                 "Location of code for this component."),
             ('version', 'str', '0.1',
                 "Version identifier."),
-            ]
+        ]
     }
 
-
-def composition():
-    """Describes how component variables are coupled together either to/from other
-    SoftwareComponents or external data files. The variables specified by a component's
-    composition must be owned by that component, or a  child of that component;
-    child components cannot couple together parent variables.
-
-	"""
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ('couplings', 'str', '0.N',
-                "#FIXME."),
-            ('description', 'str', '0.1',
-                "#FIXME."),
-            ]
-    }
-
-
-def development_path():
-    """Describes the software development path for this model/component.
-
-	"""
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ('consortium_name', 'str', '0.1',
-                "If model/component is developed as part of a consortium, provide consortium name."),
-            ('creators', 'shared.responsibility', '0.N',
-                "Those responsible for creating this component."),
-            ('funding_sources', 'shared.responsibility', '0.N',
-                "The entities that funded this software component."),
-            ('previous_version', 'str', '0.1',
-                "Name of a previous version."),
-            ('was_developed_in_house', 'bool', '1.1',
-                "Model or component was mostly developed in house."),
-            ]
-    }
-
-
-def entry_point():
-    """Describes a function or subroutine of a SoftwareComponent.
-    BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.
-    Currently, a very basic schedule can be approximated by using the 'proceeds' and 'follows' attributes,
-    however a more complete system is required for full BFG compatibility.
-    Every EntryPoint can have a set of arguments associated with it.
-    These reference (previously defined) variables.
-
-	"""
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ('name', 'str', '0.1',
-                "#FIXME."),
-            ]
-    }
-
-
-def gridspec():
-    """Fully defines the computational grid used.
-
-	"""
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ('description', 'str', '1.1',
-                "Textural description."),
-            ]
-    }
 
 
 def implementation():
@@ -141,17 +48,16 @@ def implementation():
     software framework/component is a discrete set of code that takes input data and generates output data.
     Software frameworks/components may or may not have scientific descriptions.
 
-	"""
+    """
     return {
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'is_document': False,
         'properties': [
-            ('canonical_id', 'str', '0.1',
-                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
+            ('canonical_id', 'str', '0.1',
+                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
             ('description', 'str', '0.1',
                 "Textural description of framework/component."),
             ('development_history', 'software.development_path', '0.1',
@@ -165,8 +71,86 @@ def implementation():
             ('repository', 'shared.online_resource', '0.1',
                 "Location of code for this framework/component."),
             ('version', 'str', '0.1',
-                "Version identifier."),
-            ]
+                "Version identifier.")
+        ]
+    }
+
+
+def composition():
+    """Describes how component variables are coupled together either to/from other
+    SoftwareComponents or external data files. The variables specified by a component's
+    composition must be owned by that component, or a  child of that component;
+    child components cannot couple together parent variables.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
+            ('couplings', 'str', '0.N',
+                "#FIXME."),
+            ('description', 'str', '0.1',
+                "#FIXME.")
+        ]
+    }
+
+
+def development_path():
+    """Describes the software development path for this model/component.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
+            ('consortium_name', 'str', '0.1',
+                "If model/component is developed as part of a consortium, provide consortium name."),
+            ('creators', 'shared.responsibility', '0.N',
+                "Those responsible for creating this component."),
+            ('was_developed_in_house', 'bool', '1.1',
+                "Model or component was mostly developed in house."),
+            ('funding_sources', 'shared.responsibility', '0.N',
+                "The entities that funded this software component."),
+            ('previous_version', 'str', '0.1',
+                "Name of a previous version.")
+        ]
+    }
+
+
+def entry_point():
+    """Describes a function or subroutine of a SoftwareComponent.
+    BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.
+    Currently, a very basic schedule can be approximated by using the 'proceeds' and 'follows' attributes,
+    however a more complete system is required for full BFG compatibility.
+    Every EntryPoint can have a set of arguments associated with it.
+    These reference (previously defined) variables.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
+            ('name', 'str', '0.1',
+                "#FIXME.")
+        ]
+    }
+
+
+def gridspec():
+    """Fully defines the computational grid used.
+
+    """
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'properties': [
+            ('description', 'str', '1.1',
+                "Textural description.")
+        ]
     }
 
 
@@ -174,16 +158,11 @@ def software_component():
     """An embedded piece of software that does not normally function as a standalone model (although
     it may be used standalone in a test harness).
 
-	"""
+    """
     return {
         'type': 'class',
-        'base': "software.component_base",
-        'base-hierarchy': [
-            'software.component_base'
-            ],
-        'base-hierarchy-depth': 1,
+        'base': 'software.component_base',
         'is_abstract': False,
-        'is_document': False,
         'properties': [
             ('composition', 'software.composition', '0.1',
                 "#FIXME."),
@@ -193,8 +172,6 @@ def software_component():
                 "The coupling framework that this entire component conforms to."),
             ('dependencies', 'software.entry_point', '0.N',
                 "#FIXME."),
-            ('depends_on', 'software.software_component', '0.N',
-                "The software components whose outputs are inputs to this software component."),
             ('grid', 'software.gridspec', '0.1',
                 "A reference to the grid that is used by this component."),
             ('language', 'software.programming_language', '0.1',
@@ -203,38 +180,10 @@ def software_component():
                 "The license held by this piece of software."),
             ('sub_components', 'software.software_component', '0.N',
                 "Internal software sub-components of this component."),
-            ],
-        'properties-all': [
-            'canonical_id',
-            'citations',
-            'composition',
-            'connection_points',
-            'coupling_framework',
-            'dependencies',
-            'depends_on',
-            'description',
-            'development_history',
-            'grid',
-            'language',
-            'license',
-            'long_name',
-            'name',
-            'release_date',
-            'repository',
-            'sub_components',
-            'version',
-            ],
-        'properties-inherited': [
-            'canonical_id :: software.component_base',
-            'citations :: software.component_base',
-            'description :: software.component_base',
-            'development_history :: software.component_base',
-            'long_name :: software.component_base',
-            'name :: software.component_base',
-            'release_date :: software.component_base',
-            'repository :: software.component_base',
-            'version :: software.component_base',
-            ]
+            ('depends_on', 'software.software_component', '0.N',        # added dch/ssw 1016-0804
+                "The software components whose outputs are inputs to this software component."),
+            # Would like to think about making this a stand-alone document
+        ]
     }
 
 
@@ -244,22 +193,17 @@ def variable():
     within the software workflow as interim quantities or coupling endpoints. Input and output
     variables will be a subset of these software variables.
 
-	"""
+    """
     return {
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'is_document': False,
         'properties': [
             ('description', 'str', '0.1',
                 "Description of how the variable is being used in the s/w."),
-            ('is_prognostic', 'bool', '1.1',
-                "Whether or not prognostic or diagnostic."),
             ('name', 'str', '1.1',
                 "Short name for the variable."),
-            ]
+            ('is_prognostic', 'bool', '1.1',
+                "Whether or not prognostic or diagnostic.")
+        ]
     }
-
-
-
-

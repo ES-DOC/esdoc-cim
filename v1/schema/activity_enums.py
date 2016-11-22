@@ -23,7 +23,7 @@ def conformance_type():
         'members': [
             ('not-xxx', None),
             ('not conformant', 'Describes a simulation that is purpefully non-conformant to an experimental requirement.'),
-            ('standard config', 'Describes a simulation that is "naturally" conformant to an experimental requirement.'),
+            ('standard config', 'Describes a simulation that is naturally conformant to an experimental requirement.'),
             ('via inputs', 'Describes a simulation that conforms to an experimental requirement by using particular inputs.'),
             ('via model mods', 'Describes a simulation that conforms to an experimental requirement by changing the configuration of the software model implementing that simulation.'),
             ('combination', 'Describes a simulation that conforms to an experimental requirement by using more than one method.'),

@@ -15,31 +15,64 @@
 
 
 def component_performance():
-    """Describes the simulation rate of a component in seconds per model
-day.
+    """Describes the simulation rate of a model component.
 
 Based on "CPMIP: Measurements of Real Computational Performance of
-Earth System Models" (Balaji et. al.)
+Earth System Models" (Balaji et. al. 2016, doi:10.5194/gmd-2016-197,
+http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
 
 	"""
     return {
         'type': 'class',
-        'base': None,
+        'base': "platform.performance",
+        'base-hierarchy': [
+            'platform.performance'
+            ],
+        'base-hierarchy-depth': 1,
         'is_abstract': False,
-        'is_document': False,
+        'is_document': True,
         'properties': [
-            ('actual_simulated_years_per_day', 'float', '0.1',
-                "Actual simulated years per day (ASYPD) in a 24h period on the given platform obtained from a typical long-running simulation with the component. Inclusive of system interruptions, queue wait time, or issues with the model workflow, etc."),
-            ('component', 'software.software_component', '0.1',
+            ('component', 'software.software_component', '1.1',
                 "Link to a CIM software component description."),
-            ('component_name', 'str', '1.1',
-                "Short name of component."),
-            ('core_hours_per_simulated_year', 'float', '0.1',
-                "Core-hours per simulated year (CHSY). This is measured as the product of the component runtime for 1 SY, and the numbers of cores allocated. Note that if allocations are done on a node basis then all cores on a node are charged against the allocation, regardless of whether or not they are used."),
-            ('parallelization', 'float', '0.1',
-                "Parallelization measured as the total number of cores (NP) allocated for the component, regardless of whether or or all cores were used. Note that NP=CHSY*SYPD/24."),
-            ('simulated_years_per_day', 'float', '0.1',
-                "Simulated years per day (SYPD) in a 24h period on the given platform"),
+            ],
+        'properties-all': [
+            'actual_simulated_years_per_day',
+            'compiler',
+            'complexity',
+            'component',
+            'core_hours_per_simulated_year',
+            'coupling_cost',
+            'data_intensity',
+            'data_output_cost',
+            'joules_per_simulated_year',
+            'memory_bloat',
+            'meta',
+            'model',
+            'name',
+            'parallelization',
+            'platform',
+            'resolution',
+            'simulated_years_per_day',
+            'subcomponent_performance',
+            ],
+        'properties-inherited': [
+            'actual_simulated_years_per_day :: platform.performance',
+            'compiler :: platform.performance',
+            'complexity :: platform.performance',
+            'core_hours_per_simulated_year :: platform.performance',
+            'coupling_cost :: platform.performance',
+            'data_intensity :: platform.performance',
+            'data_output_cost :: platform.performance',
+            'joules_per_simulated_year :: platform.performance',
+            'memory_bloat :: platform.performance',
+            'meta :: platform.performance',
+            'model :: platform.performance',
+            'name :: platform.performance',
+            'parallelization :: platform.performance',
+            'platform :: platform.performance',
+            'resolution :: platform.performance',
+            'simulated_years_per_day :: platform.performance',
+            'subcomponent_performance :: platform.performance',
             ]
     }
 
@@ -178,6 +211,9 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)
     return {
         'type': 'class',
         'base': None,
+        'sub-classes': [
+            'platform.component_performance'
+        ],
         'is_abstract': False,
         'is_document': True,
         'properties': [
