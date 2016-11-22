@@ -346,7 +346,6 @@ def model():
                 "Specialization identifier, where this model description was constructed via a controlled specialization."),
             ],
         'properties-all': [
-            'canonical_id',
             'category',
             'citations',
             'coupled_components',
@@ -365,7 +364,6 @@ def model():
             'version',
             ],
         'properties-inherited': [
-            'canonical_id :: software.component_base',
             'citations :: software.component_base',
             'description :: software.component_base',
             'development_history :: software.component_base',
