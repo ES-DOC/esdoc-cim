@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-22-2017 -->
+  <!-- created by esdoc-mp at 2016-11-23-2149 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -1660,6 +1660,15 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -1864,6 +1873,15 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -2100,6 +2118,15 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -2301,6 +2328,15 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -2480,6 +2516,15 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -2832,6 +2877,15 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -3010,6 +3064,15 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -3546,6 +3609,15 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -3757,6 +3829,15 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>delivery_order</name>
+          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
+          <cardinality min="0" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -5677,15 +5758,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="software" is_nillable="true">
-          <name>canonical_id</name>
-          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
           <name>citations</name>
           <description>Set of pertinent citations.</description>
           <cardinality min="0" max="N"/>
@@ -6563,19 +6635,19 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="shared" is_nillable="false">
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>linkage</name>
           <description>A URL.</description>
-          <cardinality min="1" max="1"/>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="shared" is_nillable="false">
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>name</name>
-          <description>Name of online resource.</description>
-          <cardinality min="1" max="1"/>
+          <description>Canonical name given to document.</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -6599,10 +6671,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="shared" is_nillable="false">
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>type</name>
           <description>The type of remote document.</description>
-          <cardinality min="1" max="1"/>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -7058,102 +7130,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       </attributes>
     </class>
     <class is_meta="false" package="software">
-      <name>implementation</name>
-      <description>Implementation information for a software framework/component, whether a top level model,
-    or a specific piece of code known as a 'component'. In software terms, a
-    software framework/component is a discrete set of code that takes input data and generates output data.
-    Software frameworks/components may or may not have scientific descriptions.</description>
-      <attributes>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>canonical_id</name>
-          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>description</name>
-          <description>Textural description of framework/component.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>development_history</name>
-          <description>History of the development of this framework/component.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>software.development_path</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>long_name</name>
-          <description>Long name for framework/component.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="false">
-          <name>name</name>
-          <description>Short name of framework/component.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>release_date</name>
-          <description>The date of publication of the framework/component code.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DATETIME</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>repository</name>
-          <description>Location of code for this framework/component.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.online_resource</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>version</name>
-          <description>Version identifier.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="software">
       <name>software_component</name>
       <description>An embedded piece of software that does not normally function as a standalone model (although
     it may be used standalone in a test harness).</description>
@@ -7250,15 +7226,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
               <target>software.software_component</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="software" is_nillable="true">
-          <name>canonical_id</name>
-          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
         </attribute>
         <attribute is_meta="false" package="software" is_nillable="true">
           <name>citations</name>
