@@ -67,6 +67,8 @@ def doc_reference():
                 "Identifier of remote resource, if known."),
             ('name', 'str', '0.1',
                 "Canonical name given to document."),
+            ('relationship', 'str', '0.1',
+                "Predicate - relationship of the object target as seen from the subject resource."),
             ('type', 'str', '0.1',
                 "The type of remote document."),
             ('version', 'int', '0.1',
@@ -75,8 +77,6 @@ def doc_reference():
             # TODO verify whether really needed
             ('url', 'str', '0.1',
                 "The URL of the remote document."),
-            ('relationship', 'str', '0.1',
-                "Predicate - relationship of the object target as seen from the subject resource."),
             ('institute', 'str', '0.1',
                 "Canonical institute name of referenced document."),
             ('external_id', 'str', '0.1',

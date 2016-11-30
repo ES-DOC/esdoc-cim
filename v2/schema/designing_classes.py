@@ -83,22 +83,6 @@ def ensemble_types():
     }
 
 
-def experimental_relationships():
-    """Defines the canonical set of experimental relationships.
-
-    """
-    return {
-        'type': 'enum',
-        'is_open': True,
-        'members': [
-            ("control_for", "This experiment provides a control for the target experiment"),
-            ("initialisation_for", "This experiment provides initialisation for the target experiment"),
-            ("provides_constraints", "This experiment provides constraint(s) for the target experiment (e.g SST forcing)"),
-            ("is_sibling", "Part of a family (e.g. experiments where solar forcing is either increased or reduced)")
-        ]
-    }
-
-
 def forcing_constraint():
     """Identifies a model forcing constraint.
 
@@ -195,8 +179,10 @@ def numerical_experiment():
         'base': 'activity.activity',
         'is_abstract': False,
         'properties': [
-            ('related_experiments', 'linked_to(designing.numerical_experiment, designing.experimental_relationships)', '0.N',
+            ('related_experiments', 'designing.numerical_experiment', '0.N',
                 "Other experiments which have defined relationships to this one."),
+            ('governing_mips', 'linked_to(designing.project)', '0.N',
+                "MIP(s) overseeing experimental design protocol."),
             ('related_mips', 'linked_to(designing.project)', '0.N',
                 "MIP's that require this experiment."),
             ('required_period', 'linked_to(designing.temporal_constraint)', '1.1',
@@ -207,6 +193,32 @@ def numerical_experiment():
         'constraints': [
             ('cardinality', 'duration', '0.0'),
             ('cardinality', 'rationale', '1.1')
+        ]
+    }
+
+
+def experimental_relationships():
+    """Defines the canonical set of experimental relationships.
+
+    """
+    return {
+        'type': 'enum',
+        'is_open': True,
+        'members': [
+            ('is_constrained_by',
+                "The experiment that provides constraint(s) for the target experiment (e.g SST forcing)."),
+            ('is_constrainer_of',
+                "The set of experiments constrained by the experiment."),
+            ('is_perturbation_from',
+                "The experiment that provides a control for the target experiment."),
+            ('is_control_for',
+                "The set of experiments that use the experiment as a control."),
+            ('is_initialized_by',
+                "The experiment providing initialization for the experiment."),
+            ('is_initializer_of',
+                "The set of experiments initialized by the experiment."),
+            ('is_sibling_of',
+                "Part of a family (e.g. experiments where solar forcing is either increased or reduced)."),
         ]
     }
 

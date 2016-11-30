@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-29-2247 -->
+  <!-- created by esdoc-mp at 2016-11-30-1408 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -2675,6 +2675,17 @@ modifications requirted to use it in the relevant component.</description>
       <name>numerical_experiment</name>
       <description>Defines a numerical experiment.</description>
       <attributes>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>governing_mips</name>
+          <description>MIP(s) overseeing experimental design protocol.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>designing.project</target>
+            </targets>
+          </relationship>
+        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="true">
           <name>related_experiments</name>
           <description>Other experiments which have defined relationships to this one.</description>

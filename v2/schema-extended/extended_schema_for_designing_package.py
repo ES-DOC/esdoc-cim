@@ -376,6 +376,8 @@ def numerical_experiment():
         'is_abstract': False,
         'is_document': True,
         'properties': [
+            ('governing_mips', 'designing.project', '0.N',
+                "MIP(s) overseeing experimental design protocol."),
             ('related_experiments', 'designing.numerical_experiment', '0.N',
                 "Other experiments which have defined relationships to this one."),
             ('related_mips', 'designing.project', '0.N',
@@ -391,6 +393,7 @@ def numerical_experiment():
             'citations',
             'description',
             'duration',
+            'governing_mips',
             'internal_name',
             'keywords',
             'long_name',
