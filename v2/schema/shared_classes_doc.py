@@ -63,10 +63,12 @@ def doc_reference():
         'base': None,
         'is_abstract': False,
         'properties': [
+            ('canonical_name', 'str', '0.1',
+                "Canonical name given to document."),
             ('id', 'str', '0.1',
                 "Identifier of remote resource, if known."),
             ('name', 'str', '0.1',
-                "Canonical name given to document."),
+                "A user friendly name given to document."),
             ('relationship', 'str', '0.1',
                 "Predicate - relationship of the object target as seen from the subject resource."),
             ('type', 'str', '0.1',

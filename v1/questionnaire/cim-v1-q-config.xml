@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-29-2223 -->
+  <!-- created by esdoc-mp at 2016-11-30-1716 -->
   <name>cim</name>
   <version>1</version>
   <classes>
@@ -3899,6 +3899,15 @@
       <description>A reference to another cim entity.</description>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
+          <name>canonical_name</name>
+          <description>Canonical name given to document.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>changes</name>
           <description>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</description>
           <cardinality min="0" max="N"/>
@@ -3974,7 +3983,7 @@
         </attribute>
         <attribute is_meta="false" package="shared" is_nillable="false">
           <name>name</name>
-          <description>Name of online resource.</description>
+          <description>A user friendly name given to document.</description>
           <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>

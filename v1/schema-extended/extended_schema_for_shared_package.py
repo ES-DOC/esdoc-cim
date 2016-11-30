@@ -317,6 +317,8 @@ def doc_reference():
         'is_abstract': False,
         'is_document': False,
         'properties': [
+            ('canonical_name', 'str', '0.1',
+                "Canonical name given to document."),
             ('changes', 'shared.change', '0.N',
                 "An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances."),
             ('constraint_vocabulary', 'str', '0.1',
@@ -334,7 +336,7 @@ def doc_reference():
             ('linkage', 'str', '1.1',
                 "A URL."),
             ('name', 'str', '1.1',
-                "Name of online resource."),
+                "A user friendly name given to document."),
             ('protocol', 'str', '0.1',
                 "Protocol to use at the linkage."),
             ('relationship', 'str', '0.1',

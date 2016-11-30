@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-30-1408 -->
+  <!-- created by esdoc-mp at 2016-11-30-1709 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -6593,6 +6593,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <description>A reference to another cim entity.</description>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
+          <name>canonical_name</name>
+          <description>Canonical name given to document.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>constraint_vocabulary</name>
           <description>A constraint vocabulary for the relationship.</description>
           <cardinality min="0" max="1"/>
@@ -6657,7 +6666,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>name</name>
-          <description>Canonical name given to document.</description>
+          <description>A user friendly name given to document.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
