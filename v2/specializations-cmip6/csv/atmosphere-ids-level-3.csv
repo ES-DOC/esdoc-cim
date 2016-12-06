@@ -6,16 +6,6 @@ cmip6.atmosphere.grid.discretisation.horizontal.horizontal_pole, Atmosphere > Gr
 , , 
 cmip6.atmosphere.key_properties.model_family, Atmosphere > Key Properties > Model Family, detail
 cmip6.atmosphere.key_properties.basic_approximations, Atmosphere > Key Properties > Basic Approximations, detail
-cmip6.atmosphere.key_properties.volcanoes_implementation, Atmosphere > Key Properties > Volcanoes Implementation, detail
-cmip6.atmosphere.key_properties.top_insolation_ozone, Atmosphere > Key Properties > Top Insolation Ozone, detail
-cmip6.atmosphere.key_properties.top_insolation_solar_constant.type, Atmosphere > Key Properties > Top Insolation Solar Constant > Type, detail
-cmip6.atmosphere.key_properties.top_insolation_solar_constant.fixed_value, Atmosphere > Key Properties > Top Insolation Solar Constant > Fixed Value, detail
-cmip6.atmosphere.key_properties.top_insolation_solar_constant.transient_characteristics, Atmosphere > Key Properties > Top Insolation Solar Constant > Transient Characteristics, detail
-cmip6.atmosphere.key_properties.top_insolation_solar_constant.dynamical_core_top_boundary_condition, Atmosphere > Key Properties > Top Insolation Solar Constant > Dynamical Core Top Boundary Condition, detail
-cmip6.atmosphere.key_properties.top_insolation_orbital_parameters.type, Atmosphere > Key Properties > Top Insolation Orbital Parameters > Type, detail
-cmip6.atmosphere.key_properties.top_insolation_orbital_parameters.fixed_reference_date, Atmosphere > Key Properties > Top Insolation Orbital Parameters > Fixed Reference Date, detail
-cmip6.atmosphere.key_properties.top_insolation_orbital_parameters.solar_constant_transient_characteristics, Atmosphere > Key Properties > Top Insolation Orbital Parameters > Solar Constant Transient Characteristics, detail
-cmip6.atmosphere.key_properties.top_insolation_orbital_parameters.computation_method, Atmosphere > Key Properties > Top Insolation Orbital Parameters > Computation Method, detail
 cmip6.atmosphere.key_properties.orography.type, Atmosphere > Key Properties > Orography > Type, detail
 cmip6.atmosphere.key_properties.orography.changes, Atmosphere > Key Properties > Orography > Changes, detail
 , , 
@@ -37,6 +27,34 @@ cmip6.atmosphere.dynamical_core.advection_momentum.scheme_staggering_type, Atmos
 cmip6.atmosphere.dynamical_core.advection_momentum.conserved_quantities, Atmosphere > Dynamical Core > Advection Momentum > Conserved Quantities, detail
 cmip6.atmosphere.dynamical_core.advection_momentum.conservation_method, Atmosphere > Dynamical Core > Advection Momentum > Conservation Method, detail
 , , 
+cmip6.atmosphere.radiation.aerosols, Atmosphere > Radiation > Aerosols, detail
+cmip6.atmosphere.radiation.greenhouse_gases, Atmosphere > Radiation > Greenhouse Gases, detail
+cmip6.atmosphere.radiation.cloud_ice, Atmosphere > Radiation > Cloud Ice, detail
+cmip6.atmosphere.radiation.cloud_liquid, Atmosphere > Radiation > Cloud Liquid, detail
+cmip6.atmosphere.radiation.longwave_radiation.scheme_type, Atmosphere > Radiation > Longwave Radiation > Scheme Type, detail
+cmip6.atmosphere.radiation.longwave_radiation.scheme_method, Atmosphere > Radiation > Longwave Radiation > Scheme Method, detail
+cmip6.atmosphere.radiation.longwave_radiation.spectral_intervals, Atmosphere > Radiation > Longwave Radiation > Spectral Intervals, detail
+cmip6.atmosphere.radiation.shortwave_radiation.scheme_type, Atmosphere > Radiation > Shortwave Radiation > Scheme Type, detail
+cmip6.atmosphere.radiation.shortwave_radiation.spectral_intervals, Atmosphere > Radiation > Shortwave Radiation > Spectral Intervals, detail
+, , 
+cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence.scheme_name, Atmosphere > Turbulence Convection > Boundary Layer Turbulence > Scheme Name, detail
+cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence.scheme_type, Atmosphere > Turbulence Convection > Boundary Layer Turbulence > Scheme Type, detail
+cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence.closure_order, Atmosphere > Turbulence Convection > Boundary Layer Turbulence > Closure Order, detail
+cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence.counter_gradient, Atmosphere > Turbulence Convection > Boundary Layer Turbulence > Counter Gradient, detail
+cmip6.atmosphere.turbulence_convection.deep_convection.scheme_name, Atmosphere > Turbulence Convection > Deep Convection > Scheme Name, detail
+cmip6.atmosphere.turbulence_convection.deep_convection.scheme_type, Atmosphere > Turbulence Convection > Deep Convection > Scheme Type, detail
+cmip6.atmosphere.turbulence_convection.deep_convection.scheme_method, Atmosphere > Turbulence Convection > Deep Convection > Scheme Method, detail
+cmip6.atmosphere.turbulence_convection.deep_convection.processes, Atmosphere > Turbulence Convection > Deep Convection > Processes, detail
+cmip6.atmosphere.turbulence_convection.shallow_convection.scheme_method, Atmosphere > Turbulence Convection > Shallow Convection > Scheme Method, detail
+cmip6.atmosphere.turbulence_convection.shallow_convection.scheme_type, Atmosphere > Turbulence Convection > Shallow Convection > Scheme Type, detail
+cmip6.atmosphere.turbulence_convection.shallow_convection.scheme_name, Atmosphere > Turbulence Convection > Shallow Convection > Scheme Name, detail
+cmip6.atmosphere.turbulence_convection.shallow_convection.processes, Atmosphere > Turbulence Convection > Shallow Convection > Processes, detail
+, , 
+cmip6.atmosphere.microphysics_precipitation.large_scale_precipitation.scheme, Atmosphere > Microphysics Precipitation > Large Scale Precipitation > Scheme, detail
+cmip6.atmosphere.microphysics_precipitation.large_scale_precipitation.hydrometeors, Atmosphere > Microphysics Precipitation > Large Scale Precipitation > Hydrometeors, detail
+cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.scheme_name, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Scheme Name, detail
+cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.processes, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Processes, detail
+, , 
 cmip6.atmosphere.cloud_scheme.uses_separate_treatment, Atmosphere > Cloud Scheme > Uses Separate Treatment, detail
 cmip6.atmosphere.cloud_scheme.cloud_overlap_method, Atmosphere > Cloud Scheme > Cloud Overlap Method, detail
 cmip6.atmosphere.cloud_scheme.processes, Atmosphere > Cloud Scheme > Processes, detail
@@ -51,12 +69,12 @@ cmip6.atmosphere.cloud_simulator.cosp_attributes.run_configuration, Atmosphere >
 cmip6.atmosphere.cloud_simulator.cosp_attributes.number_of_grid_points, Atmosphere > Cloud Simulator > Cosp Attributes > Number Of Grid Points, detail
 cmip6.atmosphere.cloud_simulator.cosp_attributes.number_of_columns, Atmosphere > Cloud Simulator > Cosp Attributes > Number Of Columns, detail
 cmip6.atmosphere.cloud_simulator.cosp_attributes.number_of_levels, Atmosphere > Cloud Simulator > Cosp Attributes > Number Of Levels, detail
-cmip6.atmosphere.cloud_simulator.inputs_radar.radar_frequency, Atmosphere > Cloud Simulator > Inputs Radar > Radar Frequency, detail
-cmip6.atmosphere.cloud_simulator.inputs_radar.radar_type, Atmosphere > Cloud Simulator > Inputs Radar > Radar Type, detail
-cmip6.atmosphere.cloud_simulator.inputs_radar.gas_absorption, Atmosphere > Cloud Simulator > Inputs Radar > Gas Absorption, detail
-cmip6.atmosphere.cloud_simulator.inputs_radar.effective_radius, Atmosphere > Cloud Simulator > Inputs Radar > Effective Radius, detail
-cmip6.atmosphere.cloud_simulator.inputs_lidar.ice_type, Atmosphere > Cloud Simulator > Inputs Lidar > Ice Type, detail
-cmip6.atmosphere.cloud_simulator.inputs_lidar.lidar_overlap, Atmosphere > Cloud Simulator > Inputs Lidar > Lidar Overlap, detail
+cmip6.atmosphere.cloud_simulator.radar_inputs.frequency, Atmosphere > Cloud Simulator > Radar Inputs > Frequency, detail
+cmip6.atmosphere.cloud_simulator.radar_inputs.type, Atmosphere > Cloud Simulator > Radar Inputs > Type, detail
+cmip6.atmosphere.cloud_simulator.radar_inputs.gas_absorption, Atmosphere > Cloud Simulator > Radar Inputs > Gas Absorption, detail
+cmip6.atmosphere.cloud_simulator.radar_inputs.effective_radius, Atmosphere > Cloud Simulator > Radar Inputs > Effective Radius, detail
+cmip6.atmosphere.cloud_simulator.lidar_inputs.ice_types, Atmosphere > Cloud Simulator > Lidar Inputs > Ice Types, detail
+cmip6.atmosphere.cloud_simulator.lidar_inputs.overlap, Atmosphere > Cloud Simulator > Lidar Inputs > Overlap, detail
 , , 
 cmip6.atmosphere.gravity_waves.sponge_layer, Atmosphere > Gravity Waves > Sponge Layer, detail
 cmip6.atmosphere.gravity_waves.background, Atmosphere > Gravity Waves > Background, detail
@@ -70,33 +88,14 @@ cmip6.atmosphere.gravity_waves.non_orographic_gravity_waves.calculation_method, 
 cmip6.atmosphere.gravity_waves.non_orographic_gravity_waves.propagation_scheme, Atmosphere > Gravity Waves > Non Orographic Gravity Waves > Propagation Scheme, detail
 cmip6.atmosphere.gravity_waves.non_orographic_gravity_waves.dissipation_scheme, Atmosphere > Gravity Waves > Non Orographic Gravity Waves > Dissipation Scheme, detail
 , , 
-cmip6.atmosphere.microphysics_precipitation.large_scale_precipitation.scheme, Atmosphere > Microphysics Precipitation > Large Scale Precipitation > Scheme, detail
-cmip6.atmosphere.microphysics_precipitation.large_scale_precipitation.hydrometeors, Atmosphere > Microphysics Precipitation > Large Scale Precipitation > Hydrometeors, detail
-cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.scheme, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Scheme, detail
-cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.processes, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Processes, detail
+cmip6.atmosphere.solar.solar_constant.type, Atmosphere > Solar > Solar Constant > Type, detail
+cmip6.atmosphere.solar.solar_constant.fixed_value, Atmosphere > Solar > Solar Constant > Fixed Value, detail
+cmip6.atmosphere.solar.solar_constant.transient_characteristics, Atmosphere > Solar > Solar Constant > Transient Characteristics, detail
+cmip6.atmosphere.solar.orbital_parameters.type, Atmosphere > Solar > Orbital Parameters > Type, detail
+cmip6.atmosphere.solar.orbital_parameters.fixed_reference_date, Atmosphere > Solar > Orbital Parameters > Fixed Reference Date, detail
+cmip6.atmosphere.solar.orbital_parameters.solar_constant_transient_characteristics, Atmosphere > Solar > Orbital Parameters > Solar Constant Transient Characteristics, detail
+cmip6.atmosphere.solar.orbital_parameters.computation_method, Atmosphere > Solar > Orbital Parameters > Computation Method, detail
+cmip6.atmosphere.solar.insolation_ozone.solar_ozone_impact, Atmosphere > Solar > Insolation Ozone > Solar Ozone Impact, detail
 , , 
-cmip6.atmosphere.radiation.aerosols, Atmosphere > Radiation > Aerosols, detail
-cmip6.atmosphere.radiation.greenhouse_gases, Atmosphere > Radiation > Greenhouse Gases, detail
-cmip6.atmosphere.radiation.cloud_ice, Atmosphere > Radiation > Cloud Ice, detail
-cmip6.atmosphere.radiation.cloud_liquid, Atmosphere > Radiation > Cloud Liquid, detail
-cmip6.atmosphere.radiation.longwave_radiation.scheme_type, Atmosphere > Radiation > Longwave Radiation > Scheme Type, detail
-cmip6.atmosphere.radiation.longwave_radiation.scheme_method, Atmosphere > Radiation > Longwave Radiation > Scheme Method, detail
-cmip6.atmosphere.radiation.longwave_radiation.spectral_intervals, Atmosphere > Radiation > Longwave Radiation > Spectral Intervals, detail
-cmip6.atmosphere.radiation.shortwave_radiation.scheme_type, Atmosphere > Radiation > Shortwave Radiation > Scheme Type, detail
-cmip6.atmosphere.radiation.shortwave_radiation.spectral_intervals, Atmosphere > Radiation > Shortwave Radiation > Spectral Intervals, detail
-, , 
-cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.scheme_name, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Scheme Name, detail
-cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.scheme_type, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Scheme Type, detail
-cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.closure_order, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Closure Order, detail
-cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.counter_gradient, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Counter Gradient, detail
-cmip6.atmosphere.turbulence_convection.deep_convection_scheme.scheme_name, Atmosphere > Turbulence Convection > Deep Convection Scheme > Scheme Name, detail
-cmip6.atmosphere.turbulence_convection.deep_convection_scheme.scheme_type, Atmosphere > Turbulence Convection > Deep Convection Scheme > Scheme Type, detail
-cmip6.atmosphere.turbulence_convection.deep_convection_scheme.scheme_method, Atmosphere > Turbulence Convection > Deep Convection Scheme > Scheme Method, detail
-cmip6.atmosphere.turbulence_convection.deep_convection_scheme.processes, Atmosphere > Turbulence Convection > Deep Convection Scheme > Processes, detail
-cmip6.atmosphere.turbulence_convection.shallow_convection_scheme.selection, Atmosphere > Turbulence Convection > Shallow Convection Scheme > Selection, detail
-cmip6.atmosphere.turbulence_convection.shallow_convection_scheme.scheme_type, Atmosphere > Turbulence Convection > Shallow Convection Scheme > Scheme Type, detail
-cmip6.atmosphere.turbulence_convection.shallow_convection_scheme.scheme_name, Atmosphere > Turbulence Convection > Shallow Convection Scheme > Scheme Name, detail
-cmip6.atmosphere.turbulence_convection.shallow_convection_scheme.processes, Atmosphere > Turbulence Convection > Shallow Convection Scheme > Processes, detail
-cmip6.atmosphere.turbulence_convection.other_convection_scheme_details.scheme_name, Atmosphere > Turbulence Convection > Other Convection Scheme Details > Scheme Name, detail
-cmip6.atmosphere.turbulence_convection.other_convection_scheme_details.scheme_type, Atmosphere > Turbulence Convection > Other Convection Scheme Details > Scheme Type, detail
+cmip6.atmosphere.volcanos.volcanoes_treatment.volcanoes_implementation, Atmosphere > Volcanos > Volcanoes Treatment > Volcanoes Implementation, detail
 , , 

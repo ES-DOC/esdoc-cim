@@ -86,6 +86,7 @@ ENUMERATIONS['sub_grid_scale_water_distribution_convection'] = {
         ]
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['cloud_overlap_method'] = {
     'description': 'Cloud scheme cloud overlap method',
     'is_open': True,
@@ -101,6 +102,5 @@ ENUMERATIONS['processes_attributes'] = {
         ('entrainment', None),
         ('detrainment', None),
         ('bulk cloud', None),
-        ('other', None),
         ]
     }

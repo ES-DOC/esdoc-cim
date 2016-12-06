@@ -39,10 +39,10 @@ DESCRIPTION = 'Atmosphere Convective Turbulence and Clouds'
 # DEFINE HERE IF REQUIRED
 
 # --------------------------------------------------------------------
-# SUB-PROCESS: boundary_layer_turbulence_scheme
+# SUB-PROCESS: boundary_layer_turbulence
 # --------------------------------------------------------------------
-DETAILS['boundary_layer_turbulence_scheme'] = {
-    'description': 'Boundary layer turbulence scheme',
+DETAILS['boundary_layer_turbulence'] = {
+    'description': 'Properties of the boundary layer turbulence scheme',
     'properties': [
         ('scheme_name', 'ENUM:boundary_layer_turbulence_scheme_name', '1.1',
              'Boundary layer turbulence scheme name'),
@@ -58,8 +58,8 @@ DETAILS['boundary_layer_turbulence_scheme'] = {
 # --------------------------------------------------------------------
 # SUB-PROCESS: deep_convection_scheme
 # --------------------------------------------------------------------
-DETAILS['deep_convection_scheme'] = {
-    'description': 'Deep convection scheme',
+DETAILS['deep_convection'] = {
+    'description': 'Properties of the deep convection scheme',
     'properties': [
         ('scheme_name', 'str', '1.1',
              'Deep convection scheme name'),
@@ -67,7 +67,7 @@ DETAILS['deep_convection_scheme'] = {
              'Deep convection scheme type'),
         ('scheme_method', 'ENUM:deep_convection_scheme_method', '1.N',
              'Deep convection scheme method'),
-        ('processes', 'ENUM:deep_convection_scheme_processes_attributes', '1.N',
+        ('processes', 'ENUM:deep_convection_scheme_processes', '1.N',
             'Deep convection scheme processes'),
         ]
     }
@@ -75,16 +75,16 @@ DETAILS['deep_convection_scheme'] = {
 # --------------------------------------------------------------------
 # SUB-PROCESS: shallow_convection_scheme
 # --------------------------------------------------------------------
-DETAILS['shallow_convection_scheme'] = {
-    'description': 'Shallow convection scheme',
+DETAILS['shallow_convection'] = {
+    'description': 'Properties of the shallow convection scheme',
     'properties': [
-        ('selection', 'ENUM:shallow_convection_scheme_method', '1.1',
+        ('scheme_method', 'ENUM:shallow_convection_scheme_method', '1.1',
              'shallow convection scheme method'),
         ('scheme_type', 'ENUM:shallow_convection_scheme_type', '1.1',
              'shallow convection scheme type'),
         ('scheme_name', 'str', '1.1',
              'Shallow convection scheme name'),
-        ('processes', 'ENUM:shallow_convection_scheme_processes_attributes', '1.N',
+        ('processes', 'ENUM:shallow_convection_scheme_processes', '1.N',
             'Physical processes taken into account in the parameterisation of shallow convection'),
         ]
     }
@@ -92,19 +92,22 @@ DETAILS['shallow_convection_scheme'] = {
 # --------------------------------------------------------------------
 # SUB-PROCESS: other_convection_scheme_details
 # --------------------------------------------------------------------
-DETAILS['other_convection_scheme_details'] = {
-    'description': 'Other convection scheme.',
-    'properties': [
-        ('scheme_name', 'str', '1.1',
-             'Other convection scheme name'),
-        ('scheme_type', 'ENUM:other_convection_scheme_type', '1.1',
-             'Other convection scheme type'),
-        ]
-    }
+#DETAILS['other_convection_scheme_details'] = {
+#    'description': 'Other convection scheme.',
+#    'properties': [
+#        ('scheme_name', 'str', '1.1',
+#             'Other convection scheme name'),
+#        ('scheme_type', 'ENUM:other_convection_scheme_type', '1.1',
+#             'Other convection scheme type'),
+#        ]
+#    }
 
 # --------------------------------------------------------------------
 # PROCESS: ENUMERATIONS
 # --------------------------------------------------------------------
+
+
+# TODO: enumeration needs more members or to become a string attribute type
 ENUMERATIONS['boundary_layer_turbulence_scheme_name'] = {
     'description': 'Commonly used name for the boundary layer turbulence scheme.',
     'is_open': True,
@@ -152,6 +155,7 @@ ENUMERATIONS['shallow_convection_scheme_method'] = {
         ]
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['shallow_convection_scheme_type'] = {
     'description': 'Type of scheme used for the parameterisation of shallow convection.',
     'is_open': True,
@@ -160,8 +164,8 @@ ENUMERATIONS['shallow_convection_scheme_type'] = {
         ]
     }
 
-ENUMERATIONS['deep_convection_scheme_processes_attributes'] = {
-    'description': 'deep_convection_scheme_processes_attributes',
+ENUMERATIONS['deep_convection_scheme_processes'] = {
+    'description': 'Processes taken into account by the deep convection scheme',
     'is_open': True,
     'members': [
         ('vertical momentum transport', None),
@@ -174,16 +178,15 @@ ENUMERATIONS['deep_convection_scheme_processes_attributes'] = {
         ]
     }
 
-# TODO: define as this was added simply to pass validation
-ENUMERATIONS['shallow_convection_scheme_processes_attributes'] = {
-    'description': 'shallow_convection_scheme_processes_attributes',
+# TODO: enumeration needs members or to become a string attribute type
+ENUMERATIONS['shallow_convection_scheme_processes'] = {
+    'description': 'Processes taken into account by the shallow convection scheme',
     'is_open': True,
     'members': []
     }
 
-# TODO: define as this was added simply to pass validation
-ENUMERATIONS['other_convection_scheme_type'] = {
-    'description': 'other_convection_scheme_type',
-    'is_open': True,
-    'members': []
-    }
+#ENUMERATIONS['other_convection_scheme_type'] = {
+#    'description': 'other_convection_scheme_type',
+#    'is_open': True,
+#    'members': []
+#    }

@@ -6,8 +6,6 @@ For further information goto http://wordpress.es-doc.org/cmip6-model-specializat
 
 from collections import OrderedDict
 DETAILS = OrderedDict()
-PROCESS = OrderedDict()
-SUB_PROCESSES = OrderedDict()
 ENUMERATIONS = OrderedDict()
 
 
@@ -32,78 +30,82 @@ AUTHORS = ''
 # --------------------------------------------------------------------
 QC_STATUS = 'draft'
 
+# --------------------------------------------------------------------
+# DESCRIPTION: Short description of the specialization.
+# --------------------------------------------------------------------
+DESCRIPTION = 'Top of atmosphere solar insolation characteristics'
 
 # --------------------------------------------------------------------
-# PROCESS: DETAILS
-#
-# URL of #details
+# SUB-PROCESS: solar_constant
 # --------------------------------------------------------------------
-
-DETAILS['top_insolation_solar_constant'] = {
-    'description': 'Top of atmosphere insolation',
+DETAILS['solar_constant'] = {
+    'description': "Solar constant and top of atmosphere insolation characteristics",
     'properties': [
         ('type', 'ENUM:top_insolation_solar_constant_type', '1.1',
-         'Time adaptation of the solar constant.'),
+             'Time adaptation of the solar constant.'),
         ('fixed_value', 'float', '0.1',
-         'If the solar constant is fixed, enter the value of the solar constant (W m-2).'),
+             'If the solar constant is fixed, enter the value of the solar constant (W m-2).'),
         ('transient_characteristics', 'str', '1.1',
-         'solar constant transient characteristics (W m-2)'),
-    ],
-}
-
-DETAILS['top_insolation_orbital_parameters'] = {
-    'description': 'Orbit and insolation characteristics',
-    'properties': [
-        ('type', 'ENUM:top_insolation_orbital_parameters_type', '1.1',
-         'Time adaptation of orbital parameters'),
-        ('fixed_reference_date', 'int', '1.1',
-         'fixed orbital parameters reference date (yyyy)'),
-        ('solar_constant_transient_characteristics', 'str', '1.1',
-         'transient orbital parameters characteristics'),
-        ('computation_method', 'ENUM:top_insolation_orbital_parameters_computation_method', '1.1',
-         'Method used for computing orbital parameters.')
-    ],
-}
-
-DETAILS['top_insolation_ozone'] = {
-    'description': 'Impact of solar insolation on stratospheric ozone',
-    'properties': [
-        ('solar_ozone_impact', 'bool', '1.1',
-    'Impact of top of atmosphere insolation on stratospheric ozone'),
-    ],
-}
+             'solar constant transient characteristics (W m-2)'),
+        ]
+    }
 
 # --------------------------------------------------------------------
-# PROCESS: ENUMERATIONS
-#
-# URL of process.html#enuemrations
-# Convention: Do not include the process name in the enumeration
+# SUB-PROCESS: orbital_parameters
+# --------------------------------------------------------------------
+DETAILS['orbital_parameters'] = {
+    'description': "Orbital parameters and top of atmosphere insolation characteristics",
+    'properties': [
+        ('type', 'ENUM:top_insolation_orbital_parameters_type', '1.1',
+            'Time adaptation of orbital parameters'),
+        ('fixed_reference_date', 'int', '1.1',
+            'Reference date for fixed orbital parameters (yyyy)'),
+        ('solar_constant_transient_characteristics', 'str', '1.1',
+            'Characteristics of transient orbital parameters'),
+        ('computation_method', 'ENUM:top_insolation_orbital_parameters_computation_method', '1.1',
+            'Method used for computing orbital parameters.')
+        ]
+    }
+
+# --------------------------------------------------------------------
+# SUB-PROCESS: insolation_ozone
+# --------------------------------------------------------------------
+DETAILS['insolation_ozone'] = {
+    'description': "Impact of solar insolation on stratospheric ozone",
+    'properties': [
+        ('solar_ozone_impact', 'bool', '1.1',
+            'Does top of atmosphere insolation impact on stratospheric ozone?'),
+        ]
+    }
+
+# --------------------------------------------------------------------
+# ENUMERATIONS
 # --------------------------------------------------------------------
 
 ENUMERATIONS['top_insolation_solar_constant_type'] = {
-    'description': 'Time adaptation of the solar constant.',
+    'description': "Time adaptation of the solar constant",
     'is_open': False,
     'members': [
         ('fixed', None),
         ('transient', None),
-    ],
-}
+        ]
+    }
 
 ENUMERATIONS['top_insolation_orbital_parameters_type'] = {
-    'description': 'Time adaptation of orbital parameters',
+    'description': "Time adaptation of orbital parameters",
     'is_open': False,
     'members': [
         ('fixed', None),
         ('transient', None),
-    ],
-}
+        ]
+    }
 
 ENUMERATIONS['top_insolation_orbital_parameters_computation_method'] = {
-    'description': 'Method used for computing orbital parameters.',
+    'description': "Method used for computing orbital parameters",
     'is_open': True,
     'members': [
         ('Berger 1978', None),
         ('Laskar 2004', None),
-    ],
-}
+        ]
+    }
 

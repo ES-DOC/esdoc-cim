@@ -36,7 +36,7 @@ DESCRIPTION = 'Characteristics of the dynamical core'
 # PROCESS: top level properties
 # --------------------------------------------------------------------
 DETAILS['toplevel'] = {
-    'description': "Top level dynamical core properties",
+    'description': "General dynamical core properties",
     'properties': [
         ('timestepping_type', 'ENUM:timestepping_type', '1.1',
             'Timestepping framework type'),
@@ -164,12 +164,14 @@ ENUMERATIONS['prognostic_variables'] = {
         ]
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['diffusion_horizontal_scheme_name'] = {
     'description': 'Commonly used name for the horizontal diffusion scheme',
     'is_open': True,
     'members': []
     }
 
+# TODO: enumeration needs more members or to become a string attribute type
 ENUMERATIONS['diffusion_horizontal_scheme_method'] = {
     'description': 'Numerical method used by the horizontal diffusion scheme',
     'is_open': True,
@@ -209,12 +211,14 @@ ENUMERATIONS['advection_tracers_scheme_characteristics'] = {
         ]
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['advection_tracers_conserved_quantities'] = {
     'description': 'Quantities conserved through the tracers advection scheme',
     'is_open': True,
     'members': []
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['advection_tracers_conservation_method'] = {
     'description': 'Method used to ensure conservation in the tracers advection scheme',
     'is_open': True,
@@ -269,6 +273,7 @@ ENUMERATIONS['advection_momentum_conserved_quantities'] = {
         ]
     }
 
+# TODO: enumeration needs more members or to become a string attribute type
 ENUMERATIONS['advection_momentum_conservation_method'] = {
     'description': 'Method used to ensure conservation in the tracers advection scheme',
     'is_open': True,

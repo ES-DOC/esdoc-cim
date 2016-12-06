@@ -49,7 +49,7 @@ DETAILS['discretisation:horizontal'] = {
             'Horizontal discretisation type'),
         ('scheme_method', 'ENUM:dynamical_core_discretisation_horizontal_method', '1.1',
             'Horizontal discretisation method'),
-        ('scheme_order', 'ENUM:dynamical_core_discretisation_horizontal_order', '1.1',
+        ('scheme_order', 'int', '1.1',
             'Horizontal discretisation function order'),
         ('horizontal_pole', 'ENUM:dynamical_core_discretisation_horizontal_pole', '1.1',
             'Horizontal discretisation pole singularity treatment'),
@@ -77,13 +77,6 @@ ENUMERATIONS['dynamical_core_discretisation_horizontal_method'] = {
         ('finite difference', None),
         ('centered finite difference', None),
         ]
-    }
-
-ENUMERATIONS['dynamical_core_discretisation_horizontal_order'] = {
-    'description': """If the scheme method is finite difference or centered finite difference describe the scheme order of the finite 
-        difference method used by the horizontal discretisation scheme""",
-    'is_open': True,
-    'members': []
     }
 
 ENUMERATIONS['dynamical_core_discretisation_horizontal_pole'] = {

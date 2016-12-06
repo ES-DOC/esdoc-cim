@@ -30,13 +30,14 @@ QC_STATUS = 'draft'
 # --------------------------------------------------------------------
 # DESCRIPTION: Short description of the specialization.
 # --------------------------------------------------------------------
-DESCRIPTION = 'Characteristics of the parameterised gravity waves in the atmosphere, whether from orography or other sources.'
+DESCRIPTION = 'Characteristics of the parameterised gravity waves in the atmosphere, ' \
+              'whether from orography or other sources.'
 
 # --------------------------------------------------------------------
 # PROCESS: top level properties
 # --------------------------------------------------------------------
 DETAILS['toplevel'] = {
-    'description': "Top level gravity waves properties",
+    'description': "General attributes of the gravity wave parameterisation",
     'properties': [
         ('sponge_layer', 'ENUM:sponge_layer_attributes', '1.1',
             'Sponge layer in the upper levels in order to avoid gravity wave reflection at the top.'),
@@ -84,12 +85,16 @@ DETAILS['non_orographic_gravity_waves'] = {
 # --------------------------------------------------------------------
 # PROCESS: ENUMERATIONS
 # --------------------------------------------------------------------
+
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['sponge_layer_attributes'] = {
     'description': 'Gravity waves sponge layer attributes',
     'is_open': True,
     'members': []
     }
 
+
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['background_attributes'] = {
     'description': 'Gravity waves background attributes',
     'is_open': True,
@@ -181,6 +186,5 @@ ENUMERATIONS['non_orographic_gravity_wave_dissipation_scheme'] = {
         ('single wave', None),
         ('spectral', None),
         ('linear', None),
-        ('other', None),
         ]
     }

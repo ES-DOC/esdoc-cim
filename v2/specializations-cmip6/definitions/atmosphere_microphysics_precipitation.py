@@ -42,7 +42,7 @@ DESCRIPTION = 'Cloud Microphysics and Precipitation'
 # SUB-PROCESS: large_scale_precipitation
 # --------------------------------------------------------------------
 DETAILS['large_scale_precipitation'] = {
-    'description': 'Large scale precipitation scheme',
+    'description': 'Properties of the large scale precipitation scheme',
     'properties': [
         ('scheme', 'str', '1.1',
             'Commonly used name of the large scale precipitation parameterisation scheme'),
@@ -55,9 +55,9 @@ DETAILS['large_scale_precipitation'] = {
 # SUB-PROCESS: cloud_microphysics
 # --------------------------------------------------------------------
 DETAILS['cloud_microphysics'] = {
-    'description': 'Cloud microphysics',
+    'description': 'Properties of the cloud microphysics scheme',
     'properties': [
-        ('scheme', 'str', '1.1',
+        ('scheme_name', 'str', '1.1',
             'Commonly used name of the microphysics parameterisation scheme.'),
         ('processes', 'ENUM:processes_attributes', '1.N',
             'Cloud microphysics processes'),
