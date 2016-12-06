@@ -62,9 +62,9 @@ KEY_PROPERTIES = 'atmosphere_key_properties'
 # PROCESSES: Processes simulated within the realm
 # --------------------------------------------------------------------
 PROCESSES = [
+    'atmosphere_dynamical_core',
 	'atmosphere_cloud_scheme',
     'atmosphere_cloud_simulator',
-    'atmosphere_dynamical_core',
     'atmosphere_gravity_waves',
     'atmosphere_microphysics_precipitation',
     'atmosphere_radiation',

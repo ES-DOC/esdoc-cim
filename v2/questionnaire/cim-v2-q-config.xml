@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-11-30-1709 -->
+  <!-- created by esdoc-mp at 2016-12-06-1632 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -3235,6 +3235,17 @@ modifications requirted to use it in the relevant component.</description>
       <description>Describes a scientific project.</description>
       <attributes>
         <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>governed_experiments</name>
+          <description>Experiments governed by this project.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>designing.numerical_experiment</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
           <name>homepage</name>
           <description>Project homepage.</description>
           <cardinality min="0" max="1"/>
@@ -3264,7 +3275,7 @@ modifications requirted to use it in the relevant component.</description>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>requires_experiments</name>
+          <name>required_experiments</name>
           <description>Experiments required to deliver project.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>

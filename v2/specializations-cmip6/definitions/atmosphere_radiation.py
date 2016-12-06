@@ -36,12 +36,12 @@ DESCRIPTION = 'Characteristics of the atmosphere radiation process'
 # PROCESS: top level properties
 # --------------------------------------------------------------------
 DETAILS['toplevel'] = {
-    'description': "Top level radiation process properties",
+    'description': "Radiative agents in the atmosphere model",
     'properties': [
-        ('aerosol_types', 'ENUM:aerosol_types_attributes', '1.N',
-            'Types of aerosols whose radiative effect is taken into account in the atmospheric model'),
-        ('ghg_types', 'ENUM:ghg_types_attributes', '1.N',
-            'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model'),
+        ('aerosols', 'ENUM:aerosol_types', '1.N',
+            'Aerosols whose radiative effect is taken into account in the atmosphere model'),
+        ('greenhouse_gases', 'ENUM:ghg_types', '1.N',
+            'Greenhouse gases whose radiative effect is taken into account in the atmosphere model'),
         ('cloud_ice', 'ENUM:cloud_ice_properties', '1.N',
             'Radiative properties of ice crystals in clouds'),
         ('cloud_liquid', 'ENUM:cloud_liquid_properties', '1.N',
@@ -50,10 +50,10 @@ DETAILS['toplevel'] = {
     }
 
 # --------------------------------------------------------------------
-# SUB-PROCESS: longwave_scheme
+# SUB-PROCESS: longwave_radiation
 # --------------------------------------------------------------------
-DETAILS['longwave_scheme'] = {
-    'description': 'Longwave radiation scheme',
+DETAILS['longwave_radiation'] = {
+    'description': 'Properties of the longwave radiation scheme',
     'properties': [
         ('scheme_type', 'ENUM:longwave_scheme_type', '1.1',
             'Longwave radiation scheme type'),
@@ -65,10 +65,10 @@ DETAILS['longwave_scheme'] = {
     }
 
 # --------------------------------------------------------------------
-# SUB-PROCESS: shortwave_scheme
+# SUB-PROCESS: shortwave_radiation
 # --------------------------------------------------------------------
-DETAILS['shortwave_scheme'] = {
-    'description': 'Shortwave radiation scheme',
+DETAILS['shortwave_radiation'] = {
+    'description': 'Properties of the shortwave radiation scheme',
     'properties': [
         ('scheme_type', 'ENUM:shortwave_scheme_type', '1.1',
             'Shortwave radiation scheme type'),
@@ -80,8 +80,8 @@ DETAILS['shortwave_scheme'] = {
 # --------------------------------------------------------------------
 # PROCESS: ENUMERATIONS
 # --------------------------------------------------------------------
-ENUMERATIONS['aerosol_types_attributes'] = {
-    'description': 'Types of aerosols whose radiative effect is taken into account in the atmospheric model.',
+ENUMERATIONS['aerosol_types'] = {
+    'description': 'Aerosols whose radiative effect is taken into account in the atmospheric model.',
     'is_open': True,
     'members': [
         ('sulphate', None),
@@ -100,25 +100,32 @@ ENUMERATIONS['aerosol_types_attributes'] = {
         ]
     }
 
-ENUMERATIONS['ghg_types_attributes'] = {
-    'description': 'Types of greenhouse gases whose radiative effect is taken into account in the atmospheric model',
+ENUMERATIONS['ghg_types'] = {
+    'description': 'Greenhouse gases whose radiative effect is taken into account in the atmospheric model',
     'is_open': True,
     'members': [
+        ('H2O', None),
         ('CO2', None),
         ('CH4', None),
         ('N2O', None),
-        ('CFC', None),
-        ('H2O', None),
         ('O3', None),
+        ('CFCs', None),
+        ('HFCs', None),
+        ('PFCs', None),
+        ('SF6', None),
+        ('NF3', None),
         ]
     }
 
+
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['cloud_ice_properties'] = {
     'description': 'Radiative properties of ice crystals in clouds',
     'is_open': True,
     'members': []
     }
 
+# TODO: enumeration needs members or to become a string attribute type
 ENUMERATIONS['cloud_liquid_properties'] = {
     'description': 'Radiative properties of liquid droplets in clouds',
     'is_open': True,

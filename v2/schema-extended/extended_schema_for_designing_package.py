@@ -9,7 +9,7 @@
    :synopsis: Schema information for the cim v2 ontology.
 
 .. moduleauthor:: Earth System Documentation (ES-DOC) <dev@es-doc.org>
-.. note:: Code generated using the esdoc-mp framework.
+.. note:: Code generated using the pyesdoc framework.
 
 """
 
@@ -569,13 +569,15 @@ def project():
         'is_abstract': False,
         'is_document': True,
         'properties': [
+            ('governed_experiments', 'designing.numerical_experiment', '0.N',
+                "Experiments governed by this project."),
             ('homepage', 'str', '0.1',
                 "Project homepage."),
             ('objectives', 'str', '0.N',
                 "Project objectives."),
             ('previous_projects', 'designing.project', '0.N',
                 "Previous projects with similar aims."),
-            ('requires_experiments', 'designing.numerical_experiment', '0.N',
+            ('required_experiments', 'designing.numerical_experiment', '0.N',
                 "Experiments required to deliver project."),
             ('sub_projects', 'designing.project', '0.N',
                 "Activities within the project with their own name and aim(s)."),
@@ -586,6 +588,7 @@ def project():
             'citations',
             'description',
             'duration',
+            'governed_experiments',
             'homepage',
             'internal_name',
             'keywords',
@@ -596,7 +599,7 @@ def project():
             'previous_projects',
             'previously_known_as',
             'rationale',
-            'requires_experiments',
+            'required_experiments',
             'responsible_parties',
             'sub_projects',
             ],

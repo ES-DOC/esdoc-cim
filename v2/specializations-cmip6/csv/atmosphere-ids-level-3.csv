@@ -19,6 +19,24 @@ cmip6.atmosphere.key_properties.top_insolation_orbital_parameters.computation_me
 cmip6.atmosphere.key_properties.orography.type, Atmosphere > Key Properties > Orography > Type, detail
 cmip6.atmosphere.key_properties.orography.changes, Atmosphere > Key Properties > Orography > Changes, detail
 , , 
+cmip6.atmosphere.dynamical_core.timestepping_type, Atmosphere > Dynamical Core > Timestepping Type, detail
+cmip6.atmosphere.dynamical_core.prognostic_variables, Atmosphere > Dynamical Core > Prognostic Variables, detail
+cmip6.atmosphere.dynamical_core.top_boundary.top_boundary_condition, Atmosphere > Dynamical Core > Top Boundary > Top Boundary Condition, detail
+cmip6.atmosphere.dynamical_core.top_boundary.top_heat, Atmosphere > Dynamical Core > Top Boundary > Top Heat, detail
+cmip6.atmosphere.dynamical_core.top_boundary.top_wind, Atmosphere > Dynamical Core > Top Boundary > Top Wind, detail
+cmip6.atmosphere.dynamical_core.lateral_boundary.condition, Atmosphere > Dynamical Core > Lateral Boundary > Condition, detail
+cmip6.atmosphere.dynamical_core.diffusion_horizontal.scheme_name, Atmosphere > Dynamical Core > Diffusion Horizontal > Scheme Name, detail
+cmip6.atmosphere.dynamical_core.diffusion_horizontal.scheme_method, Atmosphere > Dynamical Core > Diffusion Horizontal > Scheme Method, detail
+cmip6.atmosphere.dynamical_core.advection_tracers.scheme_name, Atmosphere > Dynamical Core > Advection Tracers > Scheme Name, detail
+cmip6.atmosphere.dynamical_core.advection_tracers.scheme_characteristics, Atmosphere > Dynamical Core > Advection Tracers > Scheme Characteristics, detail
+cmip6.atmosphere.dynamical_core.advection_tracers.conserved_quantities, Atmosphere > Dynamical Core > Advection Tracers > Conserved Quantities, detail
+cmip6.atmosphere.dynamical_core.advection_tracers.conservation_method, Atmosphere > Dynamical Core > Advection Tracers > Conservation Method, detail
+cmip6.atmosphere.dynamical_core.advection_momentum.scheme_name, Atmosphere > Dynamical Core > Advection Momentum > Scheme Name, detail
+cmip6.atmosphere.dynamical_core.advection_momentum.scheme_characteristics, Atmosphere > Dynamical Core > Advection Momentum > Scheme Characteristics, detail
+cmip6.atmosphere.dynamical_core.advection_momentum.scheme_staggering_type, Atmosphere > Dynamical Core > Advection Momentum > Scheme Staggering Type, detail
+cmip6.atmosphere.dynamical_core.advection_momentum.conserved_quantities, Atmosphere > Dynamical Core > Advection Momentum > Conserved Quantities, detail
+cmip6.atmosphere.dynamical_core.advection_momentum.conservation_method, Atmosphere > Dynamical Core > Advection Momentum > Conservation Method, detail
+, , 
 cmip6.atmosphere.cloud_scheme.uses_separate_treatment, Atmosphere > Cloud Scheme > Uses Separate Treatment, detail
 cmip6.atmosphere.cloud_scheme.cloud_overlap_method, Atmosphere > Cloud Scheme > Cloud Overlap Method, detail
 cmip6.atmosphere.cloud_scheme.processes, Atmosphere > Cloud Scheme > Processes, detail
@@ -40,24 +58,6 @@ cmip6.atmosphere.cloud_simulator.inputs_radar.effective_radius, Atmosphere > Clo
 cmip6.atmosphere.cloud_simulator.inputs_lidar.ice_type, Atmosphere > Cloud Simulator > Inputs Lidar > Ice Type, detail
 cmip6.atmosphere.cloud_simulator.inputs_lidar.lidar_overlap, Atmosphere > Cloud Simulator > Inputs Lidar > Lidar Overlap, detail
 , , 
-cmip6.atmosphere.dynamical_core.timestepping_type, Atmosphere > Dynamical Core > Timestepping Type, detail
-cmip6.atmosphere.dynamical_core.prognostic_variables, Atmosphere > Dynamical Core > Prognostic Variables, detail
-cmip6.atmosphere.dynamical_core.top_boundary.top_boundary_condition, Atmosphere > Dynamical Core > Top Boundary > Top Boundary Condition, detail
-cmip6.atmosphere.dynamical_core.top_boundary.top_heat, Atmosphere > Dynamical Core > Top Boundary > Top Heat, detail
-cmip6.atmosphere.dynamical_core.top_boundary.top_wind, Atmosphere > Dynamical Core > Top Boundary > Top Wind, detail
-cmip6.atmosphere.dynamical_core.lateral_boundary.condition, Atmosphere > Dynamical Core > Lateral Boundary > Condition, detail
-cmip6.atmosphere.dynamical_core.diffusion_horizontal.scheme_name, Atmosphere > Dynamical Core > Diffusion Horizontal > Scheme Name, detail
-cmip6.atmosphere.dynamical_core.diffusion_horizontal.scheme_method, Atmosphere > Dynamical Core > Diffusion Horizontal > Scheme Method, detail
-cmip6.atmosphere.dynamical_core.advection_tracers.scheme_name, Atmosphere > Dynamical Core > Advection Tracers > Scheme Name, detail
-cmip6.atmosphere.dynamical_core.advection_tracers.scheme_characteristics, Atmosphere > Dynamical Core > Advection Tracers > Scheme Characteristics, detail
-cmip6.atmosphere.dynamical_core.advection_tracers.conserved_quantities, Atmosphere > Dynamical Core > Advection Tracers > Conserved Quantities, detail
-cmip6.atmosphere.dynamical_core.advection_tracers.conservation_method, Atmosphere > Dynamical Core > Advection Tracers > Conservation Method, detail
-cmip6.atmosphere.dynamical_core.advection_momentum.scheme_name, Atmosphere > Dynamical Core > Advection Momentum > Scheme Name, detail
-cmip6.atmosphere.dynamical_core.advection_momentum.scheme_characteristics, Atmosphere > Dynamical Core > Advection Momentum > Scheme Characteristics, detail
-cmip6.atmosphere.dynamical_core.advection_momentum.scheme_staggering_type, Atmosphere > Dynamical Core > Advection Momentum > Scheme Staggering Type, detail
-cmip6.atmosphere.dynamical_core.advection_momentum.conserved_quantities, Atmosphere > Dynamical Core > Advection Momentum > Conserved Quantities, detail
-cmip6.atmosphere.dynamical_core.advection_momentum.conservation_method, Atmosphere > Dynamical Core > Advection Momentum > Conservation Method, detail
-, , 
 cmip6.atmosphere.gravity_waves.sponge_layer, Atmosphere > Gravity Waves > Sponge Layer, detail
 cmip6.atmosphere.gravity_waves.background, Atmosphere > Gravity Waves > Background, detail
 cmip6.atmosphere.gravity_waves.subgrid_scale_orography, Atmosphere > Gravity Waves > Subgrid Scale Orography, detail
@@ -75,15 +75,15 @@ cmip6.atmosphere.microphysics_precipitation.large_scale_precipitation.hydrometeo
 cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.scheme, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Scheme, detail
 cmip6.atmosphere.microphysics_precipitation.cloud_microphysics.processes, Atmosphere > Microphysics Precipitation > Cloud Microphysics > Processes, detail
 , , 
-cmip6.atmosphere.radiation.aerosol_types, Atmosphere > Radiation > Aerosol Types, detail
-cmip6.atmosphere.radiation.ghg_types, Atmosphere > Radiation > Ghg Types, detail
+cmip6.atmosphere.radiation.aerosols, Atmosphere > Radiation > Aerosols, detail
+cmip6.atmosphere.radiation.greenhouse_gases, Atmosphere > Radiation > Greenhouse Gases, detail
 cmip6.atmosphere.radiation.cloud_ice, Atmosphere > Radiation > Cloud Ice, detail
 cmip6.atmosphere.radiation.cloud_liquid, Atmosphere > Radiation > Cloud Liquid, detail
-cmip6.atmosphere.radiation.longwave_scheme.scheme_type, Atmosphere > Radiation > Longwave Scheme > Scheme Type, detail
-cmip6.atmosphere.radiation.longwave_scheme.scheme_method, Atmosphere > Radiation > Longwave Scheme > Scheme Method, detail
-cmip6.atmosphere.radiation.longwave_scheme.spectral_intervals, Atmosphere > Radiation > Longwave Scheme > Spectral Intervals, detail
-cmip6.atmosphere.radiation.shortwave_scheme.scheme_type, Atmosphere > Radiation > Shortwave Scheme > Scheme Type, detail
-cmip6.atmosphere.radiation.shortwave_scheme.spectral_intervals, Atmosphere > Radiation > Shortwave Scheme > Spectral Intervals, detail
+cmip6.atmosphere.radiation.longwave_radiation.scheme_type, Atmosphere > Radiation > Longwave Radiation > Scheme Type, detail
+cmip6.atmosphere.radiation.longwave_radiation.scheme_method, Atmosphere > Radiation > Longwave Radiation > Scheme Method, detail
+cmip6.atmosphere.radiation.longwave_radiation.spectral_intervals, Atmosphere > Radiation > Longwave Radiation > Spectral Intervals, detail
+cmip6.atmosphere.radiation.shortwave_radiation.scheme_type, Atmosphere > Radiation > Shortwave Radiation > Scheme Type, detail
+cmip6.atmosphere.radiation.shortwave_radiation.spectral_intervals, Atmosphere > Radiation > Shortwave Radiation > Spectral Intervals, detail
 , , 
 cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.scheme_name, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Scheme Name, detail
 cmip6.atmosphere.turbulence_convection.boundary_layer_turbulence_scheme.scheme_type, Atmosphere > Turbulence Convection > Boundary Layer Turbulence Scheme > Scheme Type, detail
