@@ -50,7 +50,7 @@ def realm():
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
             ('key_properties', 'science.topic', '0.1',
                 "Realm key properties which differ from model defaults (grid, timestep etc)."),
-            ('processes', 'science.process', '1.N',
+            ('processes', 'science.topic', '1.N',
                 "Processes simulated within the realm."),
             ('realm_type', 'str', '0.1',
                 "Canonical name for the realm."),
@@ -58,25 +58,6 @@ def realm():
                 "Software framework(s) of the realm."),
         ]
     }
-
-
-def process():
-    """Provides structure for description of a process simulated within a
-    particular area (or domain/realm/component) of a model. This will
-    often be subclassed within a specific implementation so that
-    constraints can be used to ensure that the process details
-    requested are consistent with project requirements for
-    information.
-    """
-    return {
-        'type': 'class',
-        'base': 'science.topic',
-        'is_abstract': False,
-        'properties': [
-            ('sub_processes', 'science.topic', '0.N',
-                "Discrete portion of a process with common process details.")
-        ]
-}
 
 
 def topic():
@@ -92,7 +73,7 @@ def topic():
                 "Set of pertinent citations."),
             ('description', 'str', '0.1',
                 "A description (possibly derived from specialization)."),
-            ('detail_sets', 'science.detail_set', '1.N',
+            ('property_sets', 'science.property_set', '1.N',
                 "Set of associated specialized detail attributes."),
             ('keywords', 'str', '0.N',
                 "Keywords to help re-use and discovery of this information."),
@@ -104,17 +85,15 @@ def topic():
                 "A short-name / key (possibly derived from specialization)."),
             ('specialization_id', 'str', '0.1',
                 "Specialization identifier (derived from specialization)."),
+            ('sub_topics', 'science.topic', '0.N',
+                "Discrete portion of a topic with common details.")
         ]
     }
 
 
-def detail_set():
-    """Provides specific details related to a process, sub-process,
-    key properties, etc.  There are two possible specialisations
-    expected: (1) A detail_vocabulary is identified, and a cardinality
-    is assigned to that for possible responses, or (2) Detail is used
-    to provide a collection for a set of properties which are defined
-    in the sub-class.
+def property_set():
+    """Provides specific details related to a topic (i.e. process, sub-process,
+    grid, key properties, etc).
 
     """
     return {
@@ -124,19 +103,17 @@ def detail_set():
         'properties': [
             ('description', 'str', '0.1',
                 "A description (possibly derived from specialization)."),
-            ('details', 'science.detail', '1.N',
-                "Set of associated specialized detail attributes."),
+            ('properties', 'science.property', '1.N',
+                "Set of associated specialized properties."),
             ('short_name', 'str', '0.1',
                 "A short-name / key (possibly derived from specialization)."),
             ('specialization_id', 'str', '0.1',
                 "Specialization identifier (derived from specialization)."),
-            ('subsets', 'science.detail_set', '0.N',
-                "Associated sub-sets organized into a hierarchy."),
         ]
     }
 
 
-def detail():
+def property():
     """A specialized question asked of the scientic community.
 
     """
