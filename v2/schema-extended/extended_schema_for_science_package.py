@@ -37,7 +37,7 @@ def model():
                 "Overarching coupling framework for model."),
             ('internal_software_components', 'software.software_component', '0.N',
                 "Software modules which together provide the functionality for this model."),
-            ('key_properties', 'science.process', '0.1',
+            ('key_properties', 'science.topic', '0.1',
                 "Model default key properties (may be over-ridden in coupled component and realm properties)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Injected document metadata."),
@@ -78,54 +78,6 @@ def model():
     }
 
 
-def process():
-    """Provides structure for description of a process simulated within a
-    particular area (or domain/realm/component) of a model. This will
-    often be subclassed within a specific implementation so that
-    constraints can be used to ensure that the process details
-    requested are consistent with project requirements for
-    information.
-
-	"""
-    return {
-        'type': 'class',
-        'base': "science.topic",
-        'base-hierarchy': [
-            'science.topic'
-            ],
-        'base-hierarchy-depth': 1,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ('sub_processes', 'science.topic', '0.N',
-                "Discrete portion of a process with common process details."),
-            ],
-        'properties-all': [
-            'citations',
-            'description',
-            'keywords',
-            'overview',
-            'properties',
-            'property_sets',
-            'responsible_parties',
-            'short_name',
-            'specialization_id',
-            'sub_processes',
-            ],
-        'properties-inherited': [
-            'citations :: science.topic',
-            'description :: science.topic',
-            'keywords :: science.topic',
-            'overview :: science.topic',
-            'properties :: science.topic',
-            'property_sets :: science.topic',
-            'responsible_parties :: science.topic',
-            'short_name :: science.topic',
-            'specialization_id :: science.topic',
-            ]
-    }
-
-
 def realm():
     """Scientific area of a numerical model - usually a sub-model or component.
 
@@ -140,20 +92,21 @@ def realm():
         'is_abstract': False,
         'is_document': True,
         'properties': [
-            ('grid', 'science.process', '0.1',
+            ('canonical_name', 'str', '0.1',
+                "Canonical name for the realm."),
+            ('grid', 'science.topic', '0.1',
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
-            ('key_properties', 'science.process', '0.1',
+            ('key_properties', 'science.topic', '0.1',
                 "Realm key properties which differ from model defaults (grid, timestep etc)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Injected document metadata."),
-            ('processes', 'science.process', '1.N',
+            ('processes', 'science.topic', '1.N',
                 "Processes simulated within the realm."),
-            ('realm_type', 'str', '0.1',
-                "Canonical name for the realm."),
             ('software_frameworks', 'software.implementation', '0.N',
                 "Software framework(s) of the realm."),
             ],
         'properties-all': [
+            'canonical_name',
             'citations',
             'description',
             'grid',
@@ -164,11 +117,11 @@ def realm():
             'processes',
             'properties',
             'property_sets',
-            'realm_type',
             'responsible_parties',
             'short_name',
             'software_frameworks',
             'specialization_id',
+            'sub_topics',
             ],
         'properties-inherited': [
             'citations :: science.topic',
@@ -180,6 +133,7 @@ def realm():
             'responsible_parties :: science.topic',
             'short_name :: science.topic',
             'specialization_id :: science.topic',
+            'sub_topics :: science.topic',
             ]
     }
 
@@ -192,7 +146,6 @@ def topic():
         'type': 'class',
         'base': None,
         'sub-classes': [
-            'science.process',
             'science.realm'
         ],
         'is_abstract': False,
@@ -200,22 +153,24 @@ def topic():
         'properties': [
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
-            ('description', 'str', '0.1',
-                "A description (possibly derived from specialization)."),
+            ('description', 'str', '1.1',
+                "A description (derived from specialization)."),
             ('keywords', 'str', '0.N',
                 "Keywords to help re-use and discovery of this information."),
             ('overview', 'str', '0.1',
-                "General implementation overview."),
-            ('properties', 'science.topic_property', '1.N',
+                "An overview of topic being described."),
+            ('properties', 'science.topic_property', '0.N',
                 "Set of associated specialized properties."),
-            ('property_sets', 'science.topic_property_set', '1.N',
-                "Set of associated specialized detail attributes."),
+            ('property_sets', 'science.topic_property_set', '0.N',
+                "Grouped specialized properties."),
             ('responsible_parties', 'shared.responsibility', '0.N',
                 "People or organisations responsible for providing this information."),
-            ('short_name', 'str', '0.1',
-                "A short-name / key (possibly derived from specialization)."),
-            ('specialization_id', 'str', '0.1',
+            ('short_name', 'str', '1.1',
+                "A short-name / key (derived from specialization)."),
+            ('specialization_id', 'str', '1.1',
                 "Specialization identifier (derived from specialization)."),
+            ('sub_topics', 'science.topic', '0.N',
+                "Discrete sub-topic with details."),
             ]
     }
 
@@ -230,7 +185,7 @@ def topic_property():
         'is_abstract': False,
         'is_document': False,
         'properties': [
-            ('specialization_id', 'str', '0.1',
+            ('specialization_id', 'str', '1.1',
                 "Specialization identifier (derived from specialization)."),
             ('value', 'str', '1.1',
                 "User value."),
@@ -249,13 +204,13 @@ def topic_property_set():
         'is_abstract': False,
         'is_document': False,
         'properties': [
-            ('description', 'str', '0.1',
-                "A description (possibly derived from specialization)."),
+            ('description', 'str', '1.1',
+                "A description (derived from specialization)."),
             ('properties', 'science.topic_property', '1.N',
                 "Set of associated specialized properties."),
-            ('short_name', 'str', '0.1',
-                "A short-name / key (possibly derived from specialization)."),
-            ('specialization_id', 'str', '0.1',
+            ('short_name', 'str', '1.1',
+                "A short-name / key (derived from specialization)."),
+            ('specialization_id', 'str', '1.1',
                 "Specialization identifier (derived from specialization)."),
             ]
     }
