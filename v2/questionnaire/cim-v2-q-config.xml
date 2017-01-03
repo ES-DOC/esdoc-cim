@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2016-12-06-1632 -->
+  <!-- created by esdoc-mp at 2017-01-03-1332 -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -1625,8 +1625,9 @@ modifications requirted to use it in the relevant component.</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.extent</target>
-              <target>science.iso_extent</target>
+              <target>science.topic</target>
+              <target>science.process</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
@@ -1637,7 +1638,9 @@ modifications requirted to use it in the relevant component.</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.resolution</target>
+              <target>science.topic</target>
+              <target>science.process</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
@@ -5068,628 +5071,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
       </attributes>
     </class>
-    <class is_meta="false" package="science">
-      <name>conservation_properties</name>
-      <description>Describes how prognostic variables are conserved.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>corrected_conserved_prognostic_variables</name>
-          <description>Set of variables which are conserved by *more* than the numerical scheme alone.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>data.variable_collection</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Brief description of conservation methodology</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>was_flux_correction_used</name>
-          <description>Flag to indicate if correction involved flux correction.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>detail</name>
-      <description>Provides details of specific properties of a process, sub-process,
-    key properties, etc., there are two possible specialisations
-    expected: (1) A detail_vocabulary is identified, and a cardinality
-    is assigned to that for possible responses, or (2) Detail is used
-    to provide a collection for a set of properties which are defined
-    in the sub-class. However, those properties must have a type which
-    is selected from the classmap (that is, standard 'non-es-doc'
-    types).</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>discretisation</name>
-      <description>Collection of properties related to method of process discretisation.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>extent</name>
-      <description>Key scientific characteristics of the grid use to simulate a
-    specific domain.  Note that the extent does not itself describe a
-    grid, so, for example, a polar stereographic grid may have an
-    extent of northern boundary 90N, southern boundary 45N, but the
-    fact that it is PS comes from the grid_type.</description>
-      <label>
-        <text>{}</text>
-        <fields>
-          <field>region_known_as</field>
-        </fields>
-      </label>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>is_global</name>
-          <description>True if horizontal coverage is global.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>region_known_as</name>
-          <description>Identifier(s) for the region covered by the extent.</description>
-          <cardinality min="0" max="N"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" stereotype="document" package="science">
-      <name>grid</name>
-      <description>This describes the numerical grid used for the calculations.  It
-    is not necessarily the grid upon which the data is output.  It is
-    NOT the resolution, which is a property of a specific domain.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Abstract description of grid.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Specific grid properties.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>discretisation</name>
-          <description>Description of the numerics of the discretisation.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.discretisation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="true" package="science" is_nillable="false">
-          <name>meta</name>
-          <description>Injected document metadata.</description>
-          <cardinality min="1" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.doc_meta_info</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>name</name>
-          <description>This is a string usually used by the modelling group to describe the overall grid.(e.g. the ENDGAME/New Dynamics dynamical cores have their own grids describing variable layouts.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>iso_extent</name>
-      <description>Extent on a latitude-longitudinal grid - to aid traditional cartesian discovery.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>eastern_boundary</name>
-          <description>Eastern boundary in degrees of longitude.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DECIMAL</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>northern_boundary</name>
-          <description>Northern boundary in degrees of latitude.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DECIMAL</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>southern_boundary</name>
-          <description>Southern boundary in degrees of latitude.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DECIMAL</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>western_boundary</name>
-          <description>Western boundary in degrees of longitude.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DECIMAL</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>is_global</name>
-          <description>True if horizontal coverage is global.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>region_known_as</name>
-          <description>Identifier(s) for the region covered by the extent.</description>
-          <cardinality min="0" max="N"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>key_properties</name>
-      <description>High level list of key properties. It can be specialised in
-    extension packages using the detail extensions.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>extent</name>
-          <description>Key scientific characteristics of the grid use to simulate a specific domain.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.extent</target>
-              <target>science.iso_extent</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>extra_conservation_properties</name>
-          <description>Details of methodology needed to conserve variables between processes.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.conservation_properties</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>resolution</name>
-          <description>The resolution of the grid (e.g. N512L180).</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.resolution</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>time_step</name>
-          <description>Timestep (in seconds) of overall component.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>DECIMAL</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>tuning_applied</name>
-          <description>Describe any tuning used to optimise the parameters in this domain.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.tuning</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>keywords</name>
-          <description>keywords to help re-use and discovery of this information.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>sub_processes</name>
-          <description>Discrete portion of a process with common process details.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.sub_process</target>
-              <target>science.conservation_properties</target>
-              <target>science.discretisation</target>
-              <target>science.extent</target>
-              <target>science.iso_extent</target>
-              <target>science.resolution</target>
-              <target>science.tuning</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
     <class is_meta="false" stereotype="document" package="science">
       <name>model</name>
       <description>A model component: can be executed standalone, and has as
@@ -5697,15 +5078,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     document. (A configured model can be understood in terms of a
     simulation, a model, and a configuration.).</description>
       <attributes>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>category</name>
-          <description>Generic type for this model.</description>
-          <cardinality min="1" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="science.model_types" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>coupled_components</name>
           <description>Software components which are linked together using a coupler to deliver this model.</description>
@@ -5739,12 +5111,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>key_properties</name>
-          <description>Model default key properties (may be over-ridden in coupled component and scientific realm properties).</description>
+          <description>Model default key properties (may be over-ridden in coupled component and realm properties).</description>
           <cardinality min="0" max="1"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.key_properties</target>
+              <target>science.process</target>
             </targets>
           </relationship>
         </attribute>
@@ -5759,6 +5131,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>model_type</name>
+          <description>Generic type for this model.</description>
+          <cardinality min="1" max="1"/>
+          <type>ENUMERATION</type>
+          <enumeration enumeration_name="science.model_types" is_open="false" is_multi="true">
+            <choices/>
+          </enumeration>
+        </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>realms</name>
           <description>The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler.</description>
@@ -5766,13 +5147,13 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.scientific_realm</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>specialization_id</name>
-          <description>Specialization identifier, where this model description was constructed via a controlled specialization.</description>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>canonical_id</name>
+          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -5869,6 +5250,19 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     information.</description>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="true">
+          <name>sub_processes</name>
+          <description>Discrete portion of a process with common process details.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic</target>
+              <target>science.process</target>
+              <target>science.realm</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>citations</name>
           <description>Set of pertinent citations.</description>
           <cardinality min="0" max="N"/>
@@ -5880,20 +5274,9 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this process.</description>
-          <cardinality min="1" max="1"/>
+          <name>description</name>
+          <description>A description (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -5901,169 +5284,68 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>keywords</name>
-          <description>keywords to help re-use and discovery of this information.</description>
-          <cardinality min="0" max="1"/>
+          <description>Keywords to help re-use and discovery of this information.</description>
+          <cardinality min="0" max="N"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>sub_processes</name>
-          <description>Discrete portion of a process with common process details.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.sub_process</target>
-              <target>science.conservation_properties</target>
-              <target>science.discretisation</target>
-              <target>science.extent</target>
-              <target>science.iso_extent</target>
-              <target>science.resolution</target>
-              <target>science.tuning</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
+          <name>overview</name>
+          <description>General implementation overview.</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
+          <name>properties</name>
+          <description>Set of associated specialized properties.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>property_sets</name>
+          <description>Set of associated specialized detail attributes.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property_set</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>responsible_parties</name>
+          <description>People or organisations responsible for providing this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.responsibility</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
+          <description>A short-name / key (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>resolution</name>
-      <description>Describes the computational spatial resolution of a component or
-    process.  Not intended to replace or replicate the output grid
-    description.  When it appears as part of a process description,
-    provide only properties that differ from parent domain.  Note that
-    this is supposed to capture gross features of the grid, we expect
-    many grids will have different variable layouts, those should be
-    described in the grid description, and the exact resolution is not
-    required. Note that many properties are not appropriate for
-    adaptive grids.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>canonical_horizontal_resolution</name>
-          <description>Expression quoted for gross comparisons of resolution, eg. 50km or 0.1 degrees etc.</description>
+          <description>Specialization identifier (derived from specialization).</description>
           <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>is_adaptive_grid</name>
-          <description>Default is False. Set true if grid resolution changes during execution.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>BOOLEAN</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>name</name>
-          <description>This is a string usually used by the modelling group to describe the resolution of this grid,  e.g. N512L180 or T512L70 etc.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>number_of_horizontal_gridpoints</name>
-          <description>Total number of horizontal points (or degrees of freedom) on computational grid.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>INTEGER</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>number_of_vertical_levels</name>
-          <description>Number of vertical levels resolved on computational grid.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>INTEGER</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -6072,20 +5354,9 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       </attributes>
     </class>
     <class is_meta="false" stereotype="document" package="science">
-      <name>scientific_realm</name>
+      <name>realm</name>
       <description>Scientific area of a numerical model - usually a sub-model or component.</description>
       <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>grid</name>
           <description>The grid used to layout the variables (e.g. the Global ENDGAME-grid).</description>
@@ -6093,7 +5364,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.grid</target>
+              <target>science.process</target>
             </targets>
           </relationship>
         </attribute>
@@ -6104,7 +5375,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.key_properties</target>
+              <target>science.process</target>
             </targets>
           </relationship>
         </attribute>
@@ -6120,24 +5391,6 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
-          <name>name</name>
-          <description>Name of the scientific realm (e.g. ocean).</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>overview</name>
-          <description>Free text overview description of realm key properties.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
           <name>processes</name>
           <description>Processes simulated within the realm.</description>
           <cardinality min="1" max="N"/>
@@ -6145,12 +5398,11 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <relationship>
             <targets>
               <target>science.process</target>
-              <target>science.key_properties</target>
             </targets>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>realm</name>
+          <name>realm_type</name>
           <description>Canonical name for the realm.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
@@ -6159,130 +5411,13 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>specialization_id</name>
-          <description>Specialization identifier, where this realm description was constructed via a controlled specialization.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>sub_process</name>
-      <description>Provides structure for description of part of process simulated
-    within a particular area (or domain/realm/component) of a
-    model. Typically this will be a part of process which shares
-    common properties. It will normally be sub classed within a
-    specific implementation so that constraints can be used to ensure
-    that the process details requested are consistent with projects
-    requirements for information.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
+          <name>software_frameworks</name>
+          <description>Software framework(s) of the realm.</description>
           <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.detail</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
-    <class is_meta="false" package="science">
-      <name>tuning</name>
-      <description>Method used to optimise equation parameters in model component
-    (aka 'tuning').</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Brief description of tuning methodology. Include information about observational period(s) used.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>global_mean_metrics_used</name>
-          <description>Set of metrics of the global mean state used in tuning model parameters.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>data.variable_collection</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>regional_metrics_used</name>
-          <description>Which regional metrics of mean state (e.g Monsoons, tropical means etc) have been used in tuning.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>data.variable_collection</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>trend_metrics_used</name>
-          <description>Which observed trend metrics have been used in tuning model parameters.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>data.variable_collection</target>
+              <target>software.implementation</target>
             </targets>
           </relationship>
         </attribute>
@@ -6298,47 +5433,242 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>details</name>
-          <description>Sets of properties for this process.</description>
+          <name>description</name>
+          <description>A description (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>keywords</name>
+          <description>Keywords to help re-use and discovery of this information.</description>
           <cardinality min="0" max="N"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>overview</name>
+          <description>General implementation overview.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>properties</name>
+          <description>Set of associated specialized properties.</description>
+          <cardinality min="1" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.detail</target>
+              <target>science.topic_property</target>
             </targets>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
-          <name>implementation_overview</name>
-          <description>General overview description of the implementation of this part of the process.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
+          <name>property_sets</name>
+          <description>Set of associated specialized detail attributes.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property_set</target>
+            </targets>
+          </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>description</name>
-          <description>Scientific context for which this description is provided.</description>
-          <cardinality min="1" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>responsible_parties</name>
+          <description>People or organisations responsible for providing this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.responsibility</target>
+            </targets>
+          </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>short_name</name>
-          <description>The name of this process/algorithm/sub-process/detail.</description>
-          <cardinality min="1" max="1"/>
+          <description>A short-name / key (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>specialization_id</name>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+      </attributes>
+    </class>
+    <class is_meta="false" package="science">
+      <name>topic</name>
+      <description>An organized collection of details upon a specific topic, e.g. model key properties.</description>
+      <attributes>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>citations</name>
+          <description>Set of pertinent citations.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.citation</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>description</name>
+          <description>A description (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>keywords</name>
+          <description>Keywords to help re-use and discovery of this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>overview</name>
+          <description>General implementation overview.</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
+          <name>properties</name>
+          <description>Set of associated specialized properties.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>property_sets</name>
+          <description>Set of associated specialized detail attributes.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property_set</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>responsible_parties</name>
+          <description>People or organisations responsible for providing this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.responsibility</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>short_name</name>
+          <description>A short-name / key (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>specialization_id</name>
-          <description>Specialization identifier for this collection of properties.</description>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+      </attributes>
+    </class>
+    <class is_meta="false" package="science">
+      <name>topic_property</name>
+      <description>A specialized question asked of the scientic community.</description>
+      <attributes>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>specialization_id</name>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>value</name>
+          <description>User value.</description>
           <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+      </attributes>
+    </class>
+    <class is_meta="false" package="science">
+      <name>topic_property_set</name>
+      <description>Provides specific details related to a topic (i.e. process, sub-process,
+    grid, key properties, etc).</description>
+      <attributes>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>description</name>
+          <description>A description (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>properties</name>
+          <description>Set of associated specialized properties.</description>
+          <cardinality min="1" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic_property</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>short_name</name>
+          <description>A short-name / key (possibly derived from specialization).</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>specialization_id</name>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -7161,6 +6491,102 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       </attributes>
     </class>
     <class is_meta="false" package="software">
+      <name>implementation</name>
+      <description>Implementation information for a software framework/component, whether a top level model,
+    or a specific piece of code known as a 'component'. In software terms, a
+    software framework/component is a discrete set of code that takes input data and generates output data.
+    Software frameworks/components may or may not have scientific descriptions.</description>
+      <attributes>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>canonical_id</name>
+          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>citations</name>
+          <description>Set of pertinent citations.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.citation</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>description</name>
+          <description>Textural description of framework/component.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>development_history</name>
+          <description>History of the development of this framework/component.</description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>software.development_path</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>long_name</name>
+          <description>Long name for framework/component.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="false">
+          <name>name</name>
+          <description>Short name of framework/component.</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>release_date</name>
+          <description>The date of publication of the framework/component code.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>DATETIME</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>repository</name>
+          <description>Location of code for this framework/component.</description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.online_resource</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>version</name>
+          <description>Version identifier.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+      </attributes>
+    </class>
+    <class is_meta="false" package="software">
       <name>software_component</name>
       <description>An embedded piece of software that does not normally function as a standalone model (although
     it may be used standalone in a test harness).</description>
@@ -7257,6 +6683,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
               <target>software.software_component</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>canonical_id</name>
+          <description>Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
         </attribute>
         <attribute is_meta="false" package="software" is_nillable="true">
           <name>citations</name>

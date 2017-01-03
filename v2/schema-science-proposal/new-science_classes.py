@@ -50,8 +50,9 @@ def realm():
                 "The grid used to layout the variables (e.g. the Global ENDGAME-grid)."),
             ('key_properties', 'science.process', '0.1',
                 "Realm key properties which differ from model defaults (grid, timestep etc)."),
-            ('processes', 'science.topic', '1.N',
+            ('processes', 'science.process', '1.N',
                 "Processes simulated within the realm."),
+
             ('realm_type', 'str', '0.1',
                 "Canonical name for the realm."),
             ('software_frameworks', 'software.implementation', '0.N',
@@ -92,14 +93,14 @@ def topic():
                 "Set of pertinent citations."),
             ('description', 'str', '0.1',
                 "A description (possibly derived from specialization)."),
-            ('detail_sets', 'science.detail_set', '1.N',
-                "Set of associated specialized detail attributes."),
             ('keywords', 'str', '0.N',
                 "Keywords to help re-use and discovery of this information."),
             ('overview', 'str', '0.1',
                 "General implementation overview."),
-            ('properties', 'science.detail_property', '1.N',
+            ('properties', 'science.topic_property', '1.N',
                 "Set of associated specialized properties."),
+            ('property_sets', 'science.topic_property_set', '1.N',
+                "Set of associated specialized detail attributes."),
             ('responsible_parties', 'shared.responsibility', '0.N',
                 "People or organisations responsible for providing this information."),
             ('short_name', 'str', '0.1',
@@ -110,7 +111,7 @@ def topic():
     }
 
 
-def detail_set():
+def topic_property_set():
     """Provides specific details related to a topic (i.e. process, sub-process,
     grid, key properties, etc).
 
@@ -122,7 +123,7 @@ def detail_set():
         'properties': [
             ('description', 'str', '0.1',
                 "A description (possibly derived from specialization)."),
-            ('properties', 'science.detail_property', '1.N',
+            ('properties', 'science.topic_property', '1.N',
                 "Set of associated specialized properties."),
             ('short_name', 'str', '0.1',
                 "A short-name / key (possibly derived from specialization)."),
@@ -132,7 +133,7 @@ def detail_set():
     }
 
 
-def detail_property():
+def topic_property():
     """A specialized question asked of the scientic community.
 
     """

@@ -31,6 +31,8 @@ def component_base():
         'is_abstract': True,
         'is_document': False,
         'properties': [
+            ('canonical_id', 'str', '0.1',
+                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
             ('description', 'str', '0.1',
@@ -133,6 +135,41 @@ def gridspec():
     }
 
 
+def implementation():
+    """Implementation information for a software framework/component, whether a top level model,
+    or a specific piece of code known as a 'component'. In software terms, a
+    software framework/component is a discrete set of code that takes input data and generates output data.
+    Software frameworks/components may or may not have scientific descriptions.
+
+	"""
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'is_document': False,
+        'properties': [
+            ('canonical_id', 'str', '0.1',
+                "Vocabulary identifier, where this framework/component description was constructed via a controlled vocabulary."),
+            ('citations', 'shared.citation', '0.N',
+                "Set of pertinent citations."),
+            ('description', 'str', '0.1',
+                "Textural description of framework/component."),
+            ('development_history', 'software.development_path', '0.1',
+                "History of the development of this framework/component."),
+            ('long_name', 'str', '0.1',
+                "Long name for framework/component."),
+            ('name', 'str', '1.1',
+                "Short name of framework/component."),
+            ('release_date', 'datetime', '0.1',
+                "The date of publication of the framework/component code."),
+            ('repository', 'shared.online_resource', '0.1',
+                "Location of code for this framework/component."),
+            ('version', 'str', '0.1',
+                "Version identifier."),
+            ]
+    }
+
+
 def software_component():
     """An embedded piece of software that does not normally function as a standalone model (although
     it may be used standalone in a test harness).
@@ -168,6 +205,7 @@ def software_component():
                 "Internal software sub-components of this component."),
             ],
         'properties-all': [
+            'canonical_id',
             'citations',
             'composition',
             'connection_points',
@@ -187,6 +225,7 @@ def software_component():
             'version',
             ],
         'properties-inherited': [
+            'canonical_id :: software.component_base',
             'citations :: software.component_base',
             'description :: software.component_base',
             'development_history :: software.component_base',
