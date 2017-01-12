@@ -1,5 +1,5 @@
 <ontology>
-  <!-- created by esdoc-mp at 2017-01-03-1332 -->
+  <!-- created by esdoc-mp -->
   <name>cim</name>
   <version>2</version>
   <classes>
@@ -1626,7 +1626,6 @@ modifications requirted to use it in the relevant component.</description>
           <relationship>
             <targets>
               <target>science.topic</target>
-              <target>science.process</target>
               <target>science.realm</target>
             </targets>
           </relationship>
@@ -1639,7 +1638,6 @@ modifications requirted to use it in the relevant component.</description>
           <relationship>
             <targets>
               <target>science.topic</target>
-              <target>science.process</target>
               <target>science.realm</target>
             </targets>
           </relationship>
@@ -5116,7 +5114,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.process</target>
+              <target>science.topic</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
@@ -5240,123 +5239,19 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
       </attributes>
     </class>
-    <class is_meta="false" package="science">
-      <name>process</name>
-      <description>Provides structure for description of a process simulated within a
-    particular area (or domain/realm/component) of a model. This will
-    often be subclassed within a specific implementation so that
-    constraints can be used to ensure that the process details
-    requested are consistent with project requirements for
-    information.</description>
-      <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>sub_processes</name>
-          <description>Discrete portion of a process with common process details.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.topic</target>
-              <target>science.process</target>
-              <target>science.realm</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>citations</name>
-          <description>Set of pertinent citations.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.citation</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>description</name>
-          <description>A description (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>keywords</name>
-          <description>Keywords to help re-use and discovery of this information.</description>
-          <cardinality min="0" max="N"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>overview</name>
-          <description>General implementation overview.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>properties</name>
-          <description>Set of associated specialized properties.</description>
-          <cardinality min="1" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.topic_property</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
-          <name>property_sets</name>
-          <description>Set of associated specialized detail attributes.</description>
-          <cardinality min="1" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>science.topic_property_set</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>responsible_parties</name>
-          <description>People or organisations responsible for providing this information.</description>
-          <cardinality min="0" max="N"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.responsibility</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>short_name</name>
-          <description>A short-name / key (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>specialization_id</name>
-          <description>Specialization identifier (derived from specialization).</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
-        </attribute>
-      </attributes>
-    </class>
     <class is_meta="false" stereotype="document" package="science">
       <name>realm</name>
       <description>Scientific area of a numerical model - usually a sub-model or component.</description>
       <attributes>
+        <attribute is_meta="false" package="science" is_nillable="true">
+          <name>canonical_name</name>
+          <description>Canonical name for the realm.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>grid</name>
           <description>The grid used to layout the variables (e.g. the Global ENDGAME-grid).</description>
@@ -5364,7 +5259,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.process</target>
+              <target>science.topic</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
@@ -5375,7 +5271,8 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.process</target>
+              <target>science.topic</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
         </attribute>
@@ -5397,18 +5294,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
-              <target>science.process</target>
+              <target>science.topic</target>
+              <target>science.realm</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
-          <name>realm_type</name>
-          <description>Canonical name for the realm.</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>software_frameworks</name>
@@ -5432,10 +5321,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>description</name>
-          <description>A description (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A description (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -5452,17 +5341,17 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>overview</name>
-          <description>General implementation overview.</description>
+          <description>An overview of topic being described.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>properties</name>
           <description>Set of associated specialized properties.</description>
-          <cardinality min="1" max="N"/>
+          <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
@@ -5470,10 +5359,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>property_sets</name>
-          <description>Set of associated specialized detail attributes.</description>
-          <cardinality min="1" max="N"/>
+          <description>Grouped specialized properties.</description>
+          <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
@@ -5492,23 +5381,35 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>short_name</name>
-          <description>A short-name / key (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A short-name / key (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>specialization_id</name>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>specialization_id</name>
-          <description>Specialization identifier (derived from specialization).</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
+          <name>sub_topics</name>
+          <description>Discrete sub-topic with details.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic</target>
+              <target>science.realm</target>
+            </targets>
+          </relationship>
         </attribute>
       </attributes>
     </class>
@@ -5527,10 +5428,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>description</name>
-          <description>A description (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A description (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -5547,17 +5448,17 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>overview</name>
-          <description>General implementation overview.</description>
+          <description>An overview of topic being described.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>properties</name>
           <description>Set of associated specialized properties.</description>
-          <cardinality min="1" max="N"/>
+          <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
@@ -5565,10 +5466,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="false">
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>property_sets</name>
-          <description>Set of associated specialized detail attributes.</description>
-          <cardinality min="1" max="N"/>
+          <description>Grouped specialized properties.</description>
+          <cardinality min="0" max="N"/>
           <type>RELATIONSHIP</type>
           <relationship>
             <targets>
@@ -5587,23 +5488,35 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>short_name</name>
-          <description>A short-name / key (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A short-name / key (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
+          <name>specialization_id</name>
+          <description>Specialization identifier (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="true">
-          <name>specialization_id</name>
-          <description>Specialization identifier (derived from specialization).</description>
-          <cardinality min="0" max="1"/>
-          <type>ATOMIC</type>
-          <atomic>
-            <atomic_type>STRING</atomic_type>
-          </atomic>
+          <name>sub_topics</name>
+          <description>Discrete sub-topic with details.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic</target>
+              <target>science.realm</target>
+            </targets>
+          </relationship>
         </attribute>
       </attributes>
     </class>
@@ -5611,10 +5524,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <name>topic_property</name>
       <description>A specialized question asked of the scientic community.</description>
       <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>specialization_id</name>
           <description>Specialization identifier (derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -5636,10 +5549,10 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <description>Provides specific details related to a topic (i.e. process, sub-process,
     grid, key properties, etc).</description>
       <attributes>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>description</name>
-          <description>A description (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A description (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -5656,19 +5569,19 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>short_name</name>
-          <description>A short-name / key (possibly derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <description>A short-name / key (derived from specialization).</description>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
           </atomic>
         </attribute>
-        <attribute is_meta="false" package="science" is_nillable="true">
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>specialization_id</name>
           <description>Specialization identifier (derived from specialization).</description>
-          <cardinality min="0" max="1"/>
+          <cardinality min="1" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
