@@ -5288,6 +5288,17 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </relationship>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
+          <name>model</name>
+          <description>Associated model.</description>
+          <cardinality min="1" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.model</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>processes</name>
           <description>Processes simulated within the realm.</description>
           <cardinality min="1" max="N"/>
@@ -5525,6 +5536,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <description>A specialized question asked of the scientic community.</description>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="false">
+          <name>qc_status</name>
+          <description>Quality control status of entered values.</description>
+          <cardinality min="1" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>INTEGER</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="false">
           <name>specialization_id</name>
           <description>Specialization identifier (derived from specialization).</description>
           <cardinality min="1" max="1"/>
@@ -5534,9 +5554,9 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="science" is_nillable="false">
-          <name>value</name>
-          <description>User value.</description>
-          <cardinality min="1" max="1"/>
+          <name>values</name>
+          <description>User value(s).</description>
+          <cardinality min="1" max="N"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>

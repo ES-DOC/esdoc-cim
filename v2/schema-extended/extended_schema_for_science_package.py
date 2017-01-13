@@ -100,6 +100,8 @@ def realm():
                 "Realm key properties which differ from model defaults (grid, timestep etc)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Injected document metadata."),
+            ('model', 'science.model', '1.1',
+                "Associated model."),
             ('processes', 'science.topic', '1.N',
                 "Processes simulated within the realm."),
             ('software_frameworks', 'software.implementation', '0.N',
@@ -113,6 +115,7 @@ def realm():
             'key_properties',
             'keywords',
             'meta',
+            'model',
             'overview',
             'processes',
             'properties',
@@ -185,10 +188,12 @@ def topic_property():
         'is_abstract': False,
         'is_document': False,
         'properties': [
+            ('qc_status', 'int', '1.1',
+                "Quality control status of entered values."),
             ('specialization_id', 'str', '1.1',
                 "Specialization identifier (derived from specialization)."),
-            ('value', 'str', '1.1',
-                "User value."),
+            ('values', 'str', '1.N',
+                "User value(s)."),
             ]
     }
 
