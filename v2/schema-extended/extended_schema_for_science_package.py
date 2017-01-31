@@ -31,6 +31,8 @@ def model():
         'is_abstract': False,
         'is_document': True,
         'properties': [
+            ('activity_properties', 'science.topic', '0.1',
+                "Properties specific to the modelling activity in question, e.g. radiative forcing agents for CMIP6."),
             ('coupled_components', 'science.model', '0.N',
                 "Software components which are linked together using a coupler to deliver this model."),
             ('coupler', 'software.coupling_framework', '0.1',
@@ -47,6 +49,7 @@ def model():
                 "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler."),
             ],
         'properties-all': [
+            'activity_properties',
             'canonical_id',
             'citations',
             'coupled_components',
