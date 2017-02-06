@@ -115,6 +115,8 @@ def doc_reference():
                 "Detail of how to access the resource."),
             ('external_id', 'str', '0.1',
                 "External identifier of remote resource, if known."),
+            ('further_info', 'str', '0.1',
+                "A further piece of information used in ad-hoc contexts."),
             ('id', 'str', '0.1',
                 "Identifier of remote resource, if known."),
             ('institute', 'str', '0.1',

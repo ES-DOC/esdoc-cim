@@ -65,6 +65,7 @@ def model():
             'realms',
             'release_date',
             'repository',
+            'responsible_parties',
             'version',
             ],
         'properties-inherited': [
@@ -76,6 +77,7 @@ def model():
             'name :: software.component_base',
             'release_date :: software.component_base',
             'repository :: software.component_base',
+            'responsible_parties :: software.component_base',
             'version :: software.component_base',
             ]
     }

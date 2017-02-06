@@ -47,6 +47,8 @@ def component_base():
                 "The date of publication of the component code (as opposed to the date of publication of the metadata document, or the date of deployment of the model)."),
             ('repository', 'shared.online_resource', '0.1',
                 "Location of code for this component."),
+            ('responsible_parties', 'shared.responsibility', '0.N',
+                "People or organisations responsible for providing this information."),
             ('version', 'str', '0.1',
                 "Version identifier."),
             ]
@@ -221,6 +223,7 @@ def software_component():
             'name',
             'release_date',
             'repository',
+            'responsible_parties',
             'sub_components',
             'version',
             ],
@@ -233,6 +236,7 @@ def software_component():
             'name :: software.component_base',
             'release_date :: software.component_base',
             'repository :: software.component_base',
+            'responsible_parties :: software.component_base',
             'version :: software.component_base',
             ]
     }

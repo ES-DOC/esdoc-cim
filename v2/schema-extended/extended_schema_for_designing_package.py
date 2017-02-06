@@ -386,6 +386,8 @@ def numerical_experiment():
                 "Constraint on start date and duration."),
             ('requirements', 'designing.numerical_requirement', '0.N',
                 "Additional requirements that conformant simulations need to satisfy."),
+            ('tier', 'int', '0.1',
+                "Relative importance of experiment within a MIP."),
             ],
         'properties-all': [
             'alternative_names',
@@ -406,6 +408,7 @@ def numerical_experiment():
             'required_period',
             'requirements',
             'responsible_parties',
+            'tier',
             ],
         'properties-inherited': [
             'alternative_names :: activity.activity',
