@@ -128,7 +128,7 @@ def doc_reference():
             ('protocol', 'str', '0.1',
                 "Protocol to use at the linkage."),
             ('relationship', 'str', '0.1',
-                "Predicate - relationship of the object target as seen from the subject resource."),
+                "Relationship of the object target as seen from the subject resource."),
             ('type', 'str', '0.1',
                 "The type of remote document."),
             ('url', 'str', '0.1',

@@ -2062,6 +2062,17 @@ modifications requirted to use it in the relevant component.</description>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="true">
           <name>data_link</name>
+          <description>A data record used by the forcing </description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>data.dataset</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>data_link</name>
           <description>Link to actual data record if possible.</description>
           <cardinality min="0" max="1"/>
           <type>RELATIONSHIP</type>
@@ -2738,6 +2749,15 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
+        </attribute>
+        <attribute is_meta="false" package="designing" is_nillable="true">
+          <name>tier</name>
+          <description>Relative importance of experiment within a MIP.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>INTEGER</atomic_type>
+          </atomic>
         </attribute>
         <attribute is_meta="false" package="activity" is_nillable="true">
           <name>alternative_names</name>
@@ -5077,6 +5097,18 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     simulation, a model, and a configuration.).</description>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="true">
+          <name>activity_properties</name>
+          <description>Properties specific to the modelling activity in question, e.g. radiative forcing agents for CMIP6.</description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>science.topic</target>
+              <target>science.realm</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="science" is_nillable="true">
           <name>coupled_components</name>
           <description>Software components which are linked together using a coupler to deliver this model.</description>
           <cardinality min="0" max="N"/>
@@ -5225,6 +5257,17 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <relationship>
             <targets>
               <target>shared.online_resource</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>responsible_parties</name>
+          <description>People or organisations responsible for providing this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.responsibility</target>
             </targets>
           </relationship>
         </attribute>
@@ -5912,6 +5955,15 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           </atomic>
         </attribute>
         <attribute is_meta="false" package="shared" is_nillable="true">
+          <name>further_info</name>
+          <description>A further piece of information used in ad-hoc contexts.</description>
+          <cardinality min="0" max="1"/>
+          <type>ATOMIC</type>
+          <atomic>
+            <atomic_type>STRING</atomic_type>
+          </atomic>
+        </attribute>
+        <attribute is_meta="false" package="shared" is_nillable="true">
           <name>id</name>
           <description>Identifier of remote resource, if known.</description>
           <cardinality min="0" max="1"/>
@@ -5958,7 +6010,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         </attribute>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>relationship</name>
-          <description>Predicate - relationship of the object target as seen from the subject resource.</description>
+          <description>Relationship of the object target as seen from the subject resource.</description>
           <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
@@ -6692,6 +6744,17 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
           <relationship>
             <targets>
               <target>shared.online_resource</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="software" is_nillable="true">
+          <name>responsible_parties</name>
+          <description>People or organisations responsible for providing this information.</description>
+          <cardinality min="0" max="N"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>shared.responsibility</target>
             </targets>
           </relationship>
         </attribute>
