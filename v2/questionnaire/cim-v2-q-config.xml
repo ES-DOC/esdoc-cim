@@ -1661,15 +1661,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -1875,15 +1866,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -2071,17 +2053,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>data_link</name>
-          <description>Link to actual data record if possible.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>shared.online_resource</target>
-            </targets>
-          </relationship>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>forcing_type</name>
           <description>Type of integration.</description>
@@ -2129,15 +2100,6 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -2340,15 +2302,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -2528,15 +2481,6 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -2909,15 +2853,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -3096,15 +3031,6 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
@@ -3652,15 +3578,6 @@ modifications requirted to use it in the relevant component.</description>
             </targets>
           </relationship>
         </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
-        </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
           <description>Indicator as to whether ensemble documentation should include conformance information for this requirement.</description>
@@ -3872,15 +3789,6 @@ modifications requirted to use it in the relevant component.</description>
               <target>designing.temporal_constraint</target>
             </targets>
           </relationship>
-        </attribute>
-        <attribute is_meta="false" package="designing" is_nillable="true">
-          <name>delivery_order</name>
-          <description>Describes whether confirmance informance can be provided pre or post simulation run.</description>
-          <cardinality min="0" max="1"/>
-          <type>ENUMERATION</type>
-          <enumeration enumeration_name="designing.numerical_requirement_delivery_order" is_open="false" is_multi="true">
-            <choices/>
-          </enumeration>
         </attribute>
         <attribute is_meta="false" package="designing" is_nillable="false">
           <name>is_conformance_requested</name>
