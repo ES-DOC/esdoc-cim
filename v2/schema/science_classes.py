@@ -48,7 +48,7 @@ def realm():
         'base': 'science.topic',
         'is_abstract': False,
         'is_document': True,
-        'pstr': ('{}', ('canonical_name')),        
+        'pstr': ('{}', ('canonical_name',)),        
         'properties': [
             ('canonical_name', 'str', '0.1',
                 "Canonical name for the realm."),
@@ -76,7 +76,7 @@ def topic():
         'type': 'class',
         'base': None,
         'is_abstract': False,
-        'pstr': ('{}', ('short_name')),        
+        'pstr': ('{}', ('short_name',)),        
         'properties': [
             ('citations', 'shared.citation', '0.N',
                 "Set of pertinent citations."),
