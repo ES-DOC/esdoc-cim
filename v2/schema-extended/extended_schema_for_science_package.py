@@ -31,7 +31,7 @@ def model():
         'is_abstract': False,
         'is_document': True,
         'properties': [
-            ('activity_properties', 'science.topic', '0.1',
+            ('activity_properties', 'science.topic', '0.N',
                 "Properties specific to the modelling activity in question, e.g. radiative forcing agents for CMIP6."),
             ('coupled_components', 'science.model', '0.N',
                 "Software components which are linked together using a coupler to deliver this model."),
@@ -45,6 +45,8 @@ def model():
                 "Injected document metadata."),
             ('model_type', 'science.model_types', '1.1',
                 "Generic type for this model."),
+            ('realm_coupling', 'science.realm_coupling', '0.N',
+                "Description of a coupling between realms"),
             ('realms', 'science.realm', '0.N',
                 "The scientific realms which this model simulates internally, i.e. those which are not linked together using a coupler."),
             ],
@@ -62,6 +64,7 @@ def model():
             'meta',
             'model_type',
             'name',
+            'realm_coupling',
             'realms',
             'release_date',
             'repository',
@@ -105,8 +108,6 @@ def realm():
                 "Realm key properties which differ from model defaults (grid, timestep etc)."),
             ('meta', 'shared.doc_meta_info', '1.1',
                 "Injected document metadata."),
-            ('model', 'science.model', '1.1',
-                "Associated model."),
             ('processes', 'science.topic', '1.N',
                 "Processes simulated within the realm."),
             ('software_frameworks', 'software.implementation', '0.N',
@@ -120,7 +121,6 @@ def realm():
             'key_properties',
             'keywords',
             'meta',
-            'model',
             'overview',
             'processes',
             'properties',
@@ -142,6 +142,30 @@ def realm():
             'short_name :: science.topic',
             'specialization_id :: science.topic',
             'sub_topics :: science.topic',
+            ]
+    }
+
+
+def realm_coupling():
+    """Description of a coupling between realms.
+
+	"""
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'is_document': False,
+        'properties': [
+            ('coupling_details', 'str', '0.1',
+                "Description of the coupling algorithm, and any other information (e.g. binlinear interpolation"),
+            ('source_realm', 'str', '1.1',
+                "The model realm providing the variable (e.g. ocean)"),
+            ('target_realm', 'str', '1.1',
+                "The model realm receiving the variable (e.g. atmosphere)"),
+            ('time_frequency', 'str', '1.1',
+                "The time frequency of the coupling (e.g. 1 hour)"),
+            ('variable', 'str', '1.1',
+                "The variable being coupled (e.g. 10 metre wind)"),
             ]
     }
 

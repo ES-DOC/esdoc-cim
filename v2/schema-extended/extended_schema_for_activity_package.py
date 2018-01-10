@@ -85,12 +85,14 @@ def axis_member():
         'is_abstract': False,
         'is_document': False,
         'properties': [
-            ('description', 'str', '1.1',
+            ('description', 'str', '0.1',
                 "Description of the member (or name of parameter varied)."),
             ('extra_detail', 'str', '0.1',
                 "If necessary: further information about ensemble member conformance."),
             ('index', 'int', '1.1',
                 "The ensemble member index."),
+            ('target_requirement', 'designing.numerical_requirement', '0.1',
+                "URI of the target numerical requirement, if any."),
             ('value', 'float', '0.1',
                 "If parameter varied, value thereof for this member."),
             ]
@@ -243,14 +245,14 @@ def ensemble_axis():
         'is_abstract': False,
         'is_document': False,
         'properties': [
-            ('extra_detail', 'str', '1.1',
+            ('extra_detail', 'str', '0.1',
                 "Any extra detail required to describe how this ensemble axis was delivered."),
             ('member', 'activity.axis_member', '1.N',
                 "Individual member descriptions along axis."),
             ('short_identifier', 'str', '1.1',
-                "e.g. 'r' or 'i' or 'p' to conform with simulation ensemble variant identifiers."),
-            ('target_requirement', 'designing.numerical_requirement', '1.1',
-                "URI of the target numerical requirement."),
+                "e.g. 'r', 'i', 'p' or 'f' to conform with simulation ensemble variant identifiers."),
+            ('target_requirement', 'designing.numerical_requirement', '0.1',
+                "URI of the target numerical requirement, if any"),
             ]
     }
 

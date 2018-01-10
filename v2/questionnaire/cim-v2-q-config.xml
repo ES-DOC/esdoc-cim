@@ -248,18 +248,6 @@
           </relationship>
         </attribute>
         <attribute is_meta="false" package="activity" is_nillable="true">
-          <name>common_performance</name>
-          <description>Representative model performance across ensemble.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>platform.performance</target>
-              <target>platform.component_performance</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="activity" is_nillable="true">
           <name>documentation</name>
           <description>Links to web-pages and other ensemble specific documentation (including workflow descriptions).</description>
           <cardinality min="0" max="N"/>
@@ -300,6 +288,18 @@
           <relationship>
             <targets>
               <target>activity.ensemble_member</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="activity" is_nillable="true">
+          <name>representative_performance</name>
+          <description>Representative model performance across ensemble.</description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>platform.performance</target>
+              <target>platform.component_performance</target>
             </targets>
           </relationship>
         </attribute>
@@ -506,6 +506,12 @@
       <description>An ensemble may be a complicated interplay of axes, for example, r/i/p, not all of which
     are populated, so we need a list of the actual simulations and how they map onto the ensemble
     axes.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>simulation</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="activity" is_nillable="true">
           <name>errata</name>
@@ -558,6 +564,12 @@
     <class is_meta="false" package="activity">
       <name>parent_simulation</name>
       <description>Defines the relationship between a simulation and its parent.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>parent</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="activity" is_nillable="true">
           <name>branch_method</name>
@@ -634,18 +646,6 @@
           </relationship>
         </attribute>
         <attribute is_meta="false" package="activity" is_nillable="true">
-          <name>common_performance</name>
-          <description>Representative model performance across ensemble.</description>
-          <cardinality min="0" max="1"/>
-          <type>RELATIONSHIP</type>
-          <relationship>
-            <targets>
-              <target>platform.performance</target>
-              <target>platform.component_performance</target>
-            </targets>
-          </relationship>
-        </attribute>
-        <attribute is_meta="false" package="activity" is_nillable="true">
           <name>documentation</name>
           <description>Links to web-pages and other ensemble specific documentation (including workflow descriptions).</description>
           <cardinality min="0" max="N"/>
@@ -686,6 +686,18 @@
           <relationship>
             <targets>
               <target>activity.ensemble_member</target>
+            </targets>
+          </relationship>
+        </attribute>
+        <attribute is_meta="false" package="activity" is_nillable="true">
+          <name>representative_performance</name>
+          <description>Representative model performance across ensemble.</description>
+          <cardinality min="0" max="1"/>
+          <type>RELATIONSHIP</type>
+          <relationship>
+            <targets>
+              <target>platform.performance</target>
+              <target>platform.component_performance</target>
             </targets>
           </relationship>
         </attribute>
@@ -830,6 +842,12 @@
     <class is_meta="false" stereotype="document" package="data">
       <name>dataset</name>
       <description>Dataset discovery information.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="data" is_nillable="true">
           <name>availability</name>
@@ -1254,10 +1272,10 @@
 model). It comprises an original, source dataset plus any
 modifications requirted to use it in the relevant component.</description>
       <attributes>
-        <attribute is_meta="false" package="data" is_nillable="false">
+        <attribute is_meta="false" package="data" is_nillable="true">
           <name>modifications_applied</name>
           <description>Describe modifications (if any) applied to the dataset prior to use. E.g. spatial interpolation, temporal averaging, etc.</description>
-          <cardinality min="1" max="1"/>
+          <cardinality min="0" max="1"/>
           <type>ATOMIC</type>
           <atomic>
             <atomic_type>STRING</atomic_type>
@@ -4284,13 +4302,6 @@ modifications requirted to use it in the relevant component.</description>
 Based on "CPMIP: Measurements of Real Computational Performance of
 Earth System Models" (Balaji et. al. 2016, doi:10.5194/gmd-2016-197,
 http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
-      <label>
-        <text>{} (sypd:{})</text>
-        <fields>
-          <field>name</field>
-          <field>sypd</field>
-        </fields>
-      </label>
       <attributes>
         <attribute is_meta="false" package="platform" is_nillable="false">
           <name>component</name>
@@ -4469,6 +4480,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="platform">
       <name>compute_pool</name>
       <description>Homogeneous pool of nodes within a computing machine.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="platform" is_nillable="true">
           <name>accelerator_type</name>
@@ -4716,6 +4733,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="platform">
       <name>partition</name>
       <description>A major partition (component) of a computing system (aka machine).</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="platform" is_nillable="false">
           <name>compute_pools</name>
@@ -4836,7 +4859,7 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
         <text>{} (sypd:{})</text>
         <fields>
           <field>name</field>
-          <field>sypd</field>
+          <field>simulated_years_per_day</field>
         </fields>
       </label>
       <attributes>
@@ -5006,6 +5029,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="platform">
       <name>storage_pool</name>
       <description>Homogeneous storage pool on a computing machine.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="platform" is_nillable="true">
           <name>description</name>
@@ -5274,6 +5303,25 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" stereotype="document" package="science">
       <name>realm</name>
       <description>Scientific area of a numerical model - usually a sub-model or component.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>c</field>
+          <field>a</field>
+          <field>n</field>
+          <field>o</field>
+          <field>n</field>
+          <field>i</field>
+          <field>c</field>
+          <field>a</field>
+          <field>l</field>
+          <field>_</field>
+          <field>n</field>
+          <field>a</field>
+          <field>m</field>
+          <field>e</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>canonical_name</name>
@@ -5459,6 +5507,21 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="science">
       <name>topic</name>
       <description>An organized collection of details upon a specific topic, e.g. model key properties.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>s</field>
+          <field>h</field>
+          <field>o</field>
+          <field>r</field>
+          <field>t</field>
+          <field>_</field>
+          <field>n</field>
+          <field>a</field>
+          <field>m</field>
+          <field>e</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="true">
           <name>citations</name>
@@ -5566,6 +5629,13 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="science">
       <name>topic_property</name>
       <description>A specialized question asked of the scientic community.</description>
+      <label>
+        <text>{}: {}</text>
+        <fields>
+          <field>specialization_id</field>
+          <field>values</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="false">
           <name>qc_status</name>
@@ -5600,6 +5670,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <name>topic_property_set</name>
       <description>Provides specific details related to a topic (i.e. process, sub-process,
     grid, key properties, etc).</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>specialization_id</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="science" is_nillable="false">
           <name>description</name>
@@ -5644,6 +5720,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" stereotype="document" package="shared">
       <name>citation</name>
       <description>An academic reference to published work.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>title</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>abstract</name>
@@ -5897,6 +5979,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" package="shared">
       <name>doc_reference</name>
       <description>A reference to another cim entity.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>canonical_name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>canonical_name</name>
@@ -6090,6 +6178,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
       <name>online_resource</name>
       <description>A minimal approximation of ISO19115 CI_ONLINERESOURCE, provides a link and details
     of how to use that link.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>linkage</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>description</name>
@@ -6135,6 +6229,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     For our purposes this is a much better animal than the previous responsibleParty 
     which munged roles together with people. Note we have collapsed CI_Contact,
     CI_Individual and CI_Organisation as well as the abstract CI_Party.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="true">
           <name>address</name>
@@ -6208,6 +6308,13 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     <class is_meta="false" stereotype="document" package="shared">
       <name>quality_review</name>
       <description>Assertions as to the completeness and quality of a document.</description>
+      <label>
+        <text>{}: {}</text>
+        <fields>
+          <field>target_document</field>
+          <field>quality_status</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="shared" is_nillable="false">
           <name>date</name>
@@ -6470,6 +6577,12 @@ http://www.geosci-model-dev-discuss.net/gmd-2016-197/)</description>
     or a specific piece of code known as a 'component'. In software terms, a
     software framework/component is a discrete set of code that takes input data and generates output data.
     Software frameworks/components may or may not have scientific descriptions.</description>
+      <label>
+        <text>{}</text>
+        <fields>
+          <field>name</field>
+        </fields>
+      </label>
       <attributes>
         <attribute is_meta="false" package="software" is_nillable="true">
           <name>canonical_id</name>
