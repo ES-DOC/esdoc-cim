@@ -224,6 +224,8 @@ def topic_property():
         'is_abstract': False,
         'is_document': False,
         'properties': [
+            ('description', 'str', '1.1',
+                "User friendly description (derived from specialization)."),
             ('name', 'str', '1.1',
                 "A short-name / key (derived from specialization)."),
             ('specialization_id', 'str', '1.1',
