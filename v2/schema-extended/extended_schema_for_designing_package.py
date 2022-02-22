@@ -1,6 +1,4 @@
 
-# -*- coding: utf-8 -*-
-
 """
 .. module:: cim.v2.extended_schema_for_designing_package.py
 
@@ -14,22 +12,9 @@
 """
 
 
-def axis_member():
-    """PLACEHOLDER for the real axis_member.
-
-	"""
-    return {
-        'type': 'class',
-        'base': None,
-        'is_abstract': False,
-        'is_document': False,
-        'properties': [
-            ]
-    }
-
-
 def domain_requirements():
-    """Properties of the domain which needs to be simulated, extent and/or resolution.
+    """Properties of the domain which needs to be simulated, extent
+    and/or resolution.
 
 	"""
     return {
@@ -236,7 +221,8 @@ def forcing_constraint():
 
 
 def initialisation_requirement():
-    """A requirement on how a particular simulation should be initialised.
+    """A requirement on how a particular simulation should be
+    initialised.
 
 	"""
     return {
@@ -302,8 +288,8 @@ def initialisation_requirement():
 
 
 def multi_ensemble():
-    """In the case of multiple ensemble axes, defines how they
-    are set up and ordered.
+    """In the case of multiple ensemble axes, defines how they are set
+    up and ordered.
 
 	"""
     return {
@@ -382,6 +368,8 @@ def numerical_experiment():
                 "Other experiments which have defined relationships to this one."),
             ('related_mips', 'designing.project', '0.N',
                 "MIP's that require this experiment."),
+            ('related_objectives', 'str', '0.N',
+                "Set of objective identifiers (which should appear within the related experiments)"),
             ('required_period', 'designing.temporal_constraint', '1.1',
                 "Constraint on start date and duration."),
             ('requirements', 'designing.numerical_requirement', '0.N',
@@ -405,6 +393,7 @@ def numerical_experiment():
             'rationale',
             'related_experiments',
             'related_mips',
+            'related_objectives',
             'required_period',
             'requirements',
             'responsible_parties',
@@ -429,7 +418,8 @@ def numerical_experiment():
 
 
 def numerical_requirement():
-    """A numerical requirement associated with a numerical experiment.
+    """A numerical requirement associated with a numerical
+    experiment.
 
 	"""
     return {
@@ -498,8 +488,35 @@ def numerical_requirement():
     }
 
 
+def objective():
+    """Describes a specific scientific objective within a project, and
+    any necessary outputs from the experiment needed to meet this
+    objective.
+
+	"""
+    return {
+        'type': 'class',
+        'base': None,
+        'is_abstract': False,
+        'is_document': True,
+        'properties': [
+            ('description', 'str', '0.1',
+                " Short summary of the objective"),
+            ('identifier', 'str', '0.1',
+                "Provides a hook to which experiments can link"),
+            ('meta', 'shared.doc_meta_info', '1.1',
+                "Injected document metadata."),
+            ('name', 'str', '1.1',
+                "Name of this objective"),
+            ('required_outputs', 'data.variable_collection', '0.N',
+                "Set of required outputs associated with this objective"),
+            ]
+    }
+
+
 def output_requirement():
-    """Provides details of what output is required and when from an experiment.
+    """Provides details of what output is required and when from an
+    experiment.
 
 	"""
     return {
@@ -574,9 +591,9 @@ def project():
         'properties': [
             ('governed_experiments', 'designing.numerical_experiment', '0.N',
                 "Experiments governed by this project."),
-            ('homepage', 'str', '0.1',
+            ('homepage', 'shared.online_resource', '0.1',
                 "Project homepage."),
-            ('objectives', 'str', '0.N',
+            ('objectives', 'designing.objective', '0.N',
                 "Project objectives."),
             ('previous_projects', 'designing.project', '0.N',
                 "Previous projects with similar aims."),

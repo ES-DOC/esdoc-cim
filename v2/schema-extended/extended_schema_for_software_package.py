@@ -1,6 +1,4 @@
 
-# -*- coding: utf-8 -*-
-
 """
 .. module:: cim.v2.extended_schema_for_software_package.py
 
@@ -15,10 +13,12 @@
 
 
 def component_base():
-    """Base class for software component properties, whether a top level model,
-    or a specific piece of code known as a component. In software terms, a
-    component is a discrete set of code that takes input data and generates output data.
-    Components may or may not have scientific descriptions.
+    """Base class for software component properties, whether a top level
+    model, or a specific piece of code known as a component.
+
+    In software terms, a component is a discrete set of code that takes
+    input data and generates output data. Components may or may not have
+    scientific descriptions.
 
 	"""
     return {
@@ -43,7 +43,7 @@ def component_base():
                 "Long name for component."),
             ('name', 'str', '1.1',
                 "Short name of component."),
-            ('release_date', 'datetime', '0.1',
+            ('release_date', 'time.date_time', '0.1',
                 "The date of publication of the component code (as opposed to the date of publication of the metadata document, or the date of deployment of the model)."),
             ('repository', 'shared.online_resource', '0.1',
                 "Location of code for this component."),
@@ -56,10 +56,14 @@ def component_base():
 
 
 def composition():
-    """Describes how component variables are coupled together either to/from other
-    SoftwareComponents or external data files. The variables specified by a component's
-    composition must be owned by that component, or a  child of that component;
-    child components cannot couple together parent variables.
+    """Describes how component variables are coupled together either
+    to/from other SoftwareComponents or external data files. The
+    variables specified by a component's composition must be owned by
+    that component, or a  child of that component; child components
+    cannot couple together parent variables.
+
+    # FIXME: THIS CLASS IS BELIEVED TO BE OBSOLETE AND WILL BE
+    REVIEWED/REPLACED IN THE NEXT VERSION
 
 	"""
     return {
@@ -77,7 +81,8 @@ def composition():
 
 
 def development_path():
-    """Describes the software development path for this model/component.
+    """Describes the software development path for this
+    model/component.
 
 	"""
     return {
@@ -101,12 +106,16 @@ def development_path():
 
 
 def entry_point():
-    """Describes a function or subroutine of a SoftwareComponent.
-    BFG will use these EntryPoints to define a schedule of subroutine calls for a coupled model.
-    Currently, a very basic schedule can be approximated by using the 'proceeds' and 'follows' attributes,
-    however a more complete system is required for full BFG compatibility.
-    Every EntryPoint can have a set of arguments associated with it.
-    These reference (previously defined) variables.
+    """Describes a function or subroutine of a SoftwareComponent. BFG
+    will use these EntryPoints to define a schedule of subroutine calls
+    for a coupled model. Currently, a very basic schedule can be
+    approximated by using the 'proceeds' and 'follows' attributes,
+    however a more complete system is required for full BFG
+    compatibility. Every EntryPoint can have a set of arguments
+    associated with it. These reference (previously defined) variables.
+
+    # FIXME: THIS CLASS IS BELIEVED TO BE OBSOLETE AND WILL BE
+    REVIEWED/REPLACED IN THE NEXT VERSION
 
 	"""
     return {
@@ -124,6 +133,9 @@ def entry_point():
 def gridspec():
     """Fully defines the computational grid used.
 
+    # FIXME: THIS CLASS IS BELIEVED TO BE OBSOLETE AND WILL BE
+    REVIEWED/REPLACED IN THE NEXT VERSION
+
 	"""
     return {
         'type': 'class',
@@ -138,10 +150,13 @@ def gridspec():
 
 
 def implementation():
-    """Implementation information for a software framework/component, whether a top level model,
-    or a specific piece of code known as a 'component'. In software terms, a
-    software framework/component is a discrete set of code that takes input data and generates output data.
-    Software frameworks/components may or may not have scientific descriptions.
+    """Implementation information for a software framework/component,
+    whether a top level model, or a specific piece of code known as a
+    'component'.
+
+    In software terms, a software framework/component is a discrete set
+    of code that takes input data and generates output data. Software
+    frameworks/components may or may not have scientific descriptions.
 
 	"""
     return {
@@ -173,8 +188,9 @@ def implementation():
 
 
 def software_component():
-    """An embedded piece of software that does not normally function as a standalone model (although
-    it may be used standalone in a test harness).
+    """An embedded piece of software that does not normally function as
+    a standalone model (although it may be used standalone in a test
+    harness).
 
 	"""
     return {
@@ -185,7 +201,7 @@ def software_component():
             ],
         'base-hierarchy-depth': 1,
         'is_abstract': False,
-        'is_document': False,
+        'is_document': True,
         'properties': [
             ('composition', 'software.composition', '0.1',
                 "#FIXME."),
@@ -203,6 +219,8 @@ def software_component():
                 "Language the component is written in."),
             ('license', 'str', '0.1',
                 "The license held by this piece of software."),
+            ('meta', 'shared.doc_meta_info', '1.1',
+                "Injected document metadata."),
             ('sub_components', 'software.software_component', '0.N',
                 "Internal software sub-components of this component."),
             ],
@@ -220,6 +238,7 @@ def software_component():
             'language',
             'license',
             'long_name',
+            'meta',
             'name',
             'release_date',
             'repository',
@@ -243,10 +262,15 @@ def software_component():
 
 
 def variable():
-    """An instance of a model software variable which may be prognostic or diagnostic, and which is
-    available as a connection to other software components. Note that these variables may only exist
-    within the software workflow as interim quantities or coupling endpoints. Input and output
-    variables will be a subset of these software variables.
+    """An instance of a model software variable which may be prognostic
+    or diagnostic, and which is available as a connection to other
+    software components. Note that these variables may only exist within
+    the software workflow as interim quantities or coupling endpoints.
+    Input and output variables will be a subset of these software
+    variables.
+
+    # FIXME: THIS CLASS IS BELIEVED TO BE OBSOLETE AND WILL BE
+    REVIEWED/REPLACED IN THE NEXT VERSION
 
 	"""
     return {

@@ -1,6 +1,4 @@
 
-# -*- coding: utf-8 -*-
-
 """
 .. module:: cim.v2.extended_schema_for_science_package.py
 
@@ -17,8 +15,10 @@
 def model():
     """A model component: can be executed standalone, and has as
     scientific description available via a link to a science.domain
-    document. (A configured model can be understood in terms of a
-    simulation, a model, and a configuration.).
+    document.
+
+    (A configured model can be understood in terms of a simulation, a
+    model, and a configuration.).
 
 	"""
     return {
@@ -90,7 +90,8 @@ def model():
 
 
 def realm():
-    """Scientific area of a numerical model - usually a sub-model or component.
+    """Scientific area of a numerical model - usually a sub-model or
+    component.
 
 	"""
     return {
@@ -176,7 +177,8 @@ def realm_coupling():
 
 
 def topic():
-    """An organized collection of details upon a specific topic, e.g. model key properties.
+    """An organized collection of details upon a specific topic, e.g.
+    model key properties.
 
 	"""
     return {
@@ -206,7 +208,7 @@ def topic():
                 "Quality control status of topic."),
             ('responsible_parties', 'shared.responsibility', '0.N',
                 "People or organisations responsible for providing this information."),
-            ('specialization_id', 'str', '1.1',
+            ('specialization_id', 'str', '0.1',
                 "Specialization identifier (derived from specialization)."),
             ('sub_topics', 'science.topic', '0.N',
                 "Discrete sub-topic with details."),
@@ -228,7 +230,7 @@ def topic_property():
                 "User friendly description (derived from specialization)."),
             ('name', 'str', '0.1',
                 "A short-name / key (derived from specialization)."),
-            ('specialization_id', 'str', '1.1',
+            ('specialization_id', 'str', '0.1',
                 "Specialization identifier (derived from specialization)."),
             ('values', 'str', '1.N',
                 "User value(s)."),
@@ -237,8 +239,8 @@ def topic_property():
 
 
 def topic_property_set():
-    """Provides specific details related to a topic (i.e. process, sub-process,
-    grid, key properties, etc).
+    """Provides specific details related to a topic (i.e. process, sub-
+    process, grid, key properties, etc).
 
 	"""
     return {
@@ -253,7 +255,7 @@ def topic_property_set():
                 "A short-name / key (derived from specialization)."),
             ('properties', 'science.topic_property', '1.N',
                 "Set of associated specialized properties."),
-            ('specialization_id', 'str', '1.1',
+            ('specialization_id', 'str', '0.1',
                 "Specialization identifier (derived from specialization)."),
             ]
     }
